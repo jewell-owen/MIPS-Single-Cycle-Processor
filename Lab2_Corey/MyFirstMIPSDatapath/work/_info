@@ -1,0 +1,902 @@
+m255
+K4
+z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+R0
+R1
+!s12c _opt2
+R1
+R0
+R1
+R0
+R1
+!s12c _opt
+R1
+!s11e vcom 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath
+T_opt
+!s110 1727391751
+VQ9N=IIM9^Rjhbfo8KgT=03
+Z3 04 12 5 work tb_datapath1 mixed 1
+=1-6805ca47c68c-66f5e807-4b637-7f15
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.2;79
+R2
+T_opt1
+!s110 1727394927
+VHM2Z^G6Jh<hMU9Ecad1on3
+R3
+=1-6805ca47c68c-66f5f46f-ae768-891f
+R1
+R4
+R5
+R6
+R7
+Z10 o-quiet -auto_acc_if_foreign -work work -debugdb +acc
+R8
+n@_opt1
+R9
+T_opt2
+!s110 1727394354
+VkK?XiD0Q9I7FB_3mg8EHo2
+04 10 5 work tb_regfile mixed 1
+=1-6805ca47c68c-66f5f232-81965-86cb
+R1
+R4
+R5
+R6
+R7
+R10
+R8
+n@_opt2
+R9
+R2
+Eadder1bit
+Z11 w1725477409
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+R2
+Z14 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder1bit.vhd
+Z15 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder1bit.vhd
+l0
+Z16 L21 1
+V9KnC@^WzAb`ZIgL^^EzWl0
+!s100 jJ60i:X3@X[MN^POR?G5g0
+Z17 OL;C;2024.2;79
+33
+Z18 !s110 1727391687
+!i10b 1
+Z19 !s108 1727391687.000000
+Z20 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder1bit.vhd|
+Z21 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder1bit.vhd|
+!i113 0
+Z22 o-work work
+Z23 tExplicit 1 NoCoverage 1 CvgOpt 0
+Astructure
+R12
+R13
+DEx4 work 9 adder1bit 0 22 9KnC@^WzAb`ZIgL^^EzWl0
+!i122 7
+l63
+L32 54
+VfEPmcmCP5d`e]5nhGTjQi0
+!s100 z^:h<3?:F4Uj2d0>bL1[Z1
+R17
+33
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Eadder_n
+Z24 w1725481233
+R12
+R13
+!i122 8
+R2
+Z25 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder_N.vhd
+Z26 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder_N.vhd
+l0
+R16
+Vf8Ue7MkOAOX[;O1PVjLXC3
+!s100 ]AVYj@gh7VOT79`g3k4OS3
+R17
+33
+Z27 !s110 1727391688
+!i10b 1
+Z28 !s108 1727391688.000000
+Z29 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder_N.vhd|
+Z30 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/adder_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R12
+R13
+DEx4 work 7 adder_n 0 22 f8Ue7MkOAOX[;O1PVjLXC3
+!i122 8
+l48
+L32 34
+V]62RE2XNcQA[dSnXYdBcN2
+!s100 3_]Z[N0z3Z6PTG9kmSSTz1
+R17
+33
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 0
+R22
+R23
+Eaddsub_n
+Z31 w1727057910
+R12
+R13
+!i122 9
+R2
+Z32 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/addSub_N.vhd
+Z33 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/addSub_N.vhd
+l0
+R16
+VQ3Fh?neE7n<cOia3?0A9R0
+!s100 N[Ta`lZ[Xi=@O6dnQ=kn40
+R17
+33
+Z34 !s110 1727391694
+!i10b 1
+Z35 !s108 1727391694.000000
+Z36 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/addSub_N.vhd|
+Z37 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/addSub_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R12
+R13
+DEx4 work 8 addsub_n 0 22 Q3Fh?neE7n<cOia3?0A9R0
+!i122 9
+l71
+L34 64
+V0G]51cTPHMbEDP6@z:Z3U3
+!s100 cTf^AJc>EX5>c<F2_OR_`3
+R17
+33
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 0
+R22
+R23
+Eandg2
+Z38 w1575899276
+R12
+R13
+!i122 2
+R2
+Z39 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/andg2.vhd
+Z40 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/andg2.vhd
+l0
+Z41 L23 1
+VzJ2OoPJ=<ja2?Y;OcjQk;3
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+R17
+33
+Z42 !s110 1727391663
+!i10b 1
+Z43 !s108 1727391663.000000
+Z44 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/andg2.vhd|
+Z45 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/andg2.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R12
+R13
+DEx4 work 5 andg2 0 22 zJ2OoPJ=<ja2?Y;OcjQk;3
+!i122 2
+l32
+Z46 L31 6
+V3oa1[>iDZj;2zVo:oz1>e2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R17
+33
+R42
+!i10b 1
+R43
+R44
+R45
+!i113 0
+R22
+R23
+Parray_type
+R12
+R13
+!i122 5
+w1727039063
+R2
+8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/array_type.vhd
+F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/array_type.vhd
+l0
+L12 5
+V^Ji?H8HQJ`QcfdTbdJ`e91
+!s100 PAg9E`0a94iA:e;5;dV?R2
+R17
+33
+!s110 1727391675
+!i10b 1
+!s108 1727391675.000000
+!s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/array_type.vhd|
+!s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/array_type.vhd|
+!i113 0
+R22
+R23
+Edatapath1
+Z47 w1727391468
+Z48 DPx4 work 10 array_type 0 22 ^Ji?H8HQJ`QcfdTbdJ`e91
+Z49 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z50 DPx4 ieee 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
+R12
+R13
+!i122 16
+R2
+Z51 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dataPath1.vhd
+Z52 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dataPath1.vhd
+l0
+Z53 L25 1
+VZ9>d@mfkJm=@0o@@Ij`KZ1
+!s100 WADLcl_zld06P`=][M[mn0
+R17
+33
+Z54 !s110 1727391715
+!i10b 1
+Z55 !s108 1727391715.000000
+Z56 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dataPath1.vhd|
+Z57 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dataPath1.vhd|
+!i113 0
+R22
+R23
+Astructure
+R48
+R49
+R50
+R12
+R13
+DEx4 work 9 datapath1 0 22 Z9>d@mfkJm=@0o@@Ij`KZ1
+!i122 16
+l83
+L49 61
+VRSKB1S5Z=`>UaEV>@k=L[2
+!s100 7UzOzMhSLM@U=_>24P>ZW2
+R17
+33
+R54
+!i10b 1
+R55
+R56
+R57
+!i113 0
+R22
+R23
+Edecoder5t32
+Z58 w1727394550
+R12
+R13
+!i122 34
+R2
+Z59 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/decoder5t32.vhd
+Z60 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/decoder5t32.vhd
+l0
+L20 1
+VhUPka1WTR>M_2WmUon7Ki2
+!s100 Q8M8LeaOgElA7_c`C>DLk1
+R17
+33
+Z61 !s110 1727394569
+!i10b 1
+Z62 !s108 1727394568.000000
+Z63 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/decoder5t32.vhd|
+Z64 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/decoder5t32.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R12
+R13
+DEx4 work 11 decoder5t32 0 22 hUPka1WTR>M_2WmUon7Ki2
+!i122 34
+l29
+L28 43
+VKi6gjWOUgmh;I8VGXg<IS1
+!s100 ZQhM:7^He[]PdoG7g>M@a2
+R17
+33
+R61
+!i10b 1
+R62
+R63
+R64
+!i113 0
+R22
+R23
+Edffg
+Z65 w1577987095
+R12
+R13
+!i122 4
+R2
+Z66 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dffg.vhd
+Z67 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dffg.vhd
+l0
+R41
+VH7[7fQclb0RF5ljXe<KKY0
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R17
+33
+Z68 !s110 1727391670
+!i10b 1
+Z69 !s108 1727391670.000000
+Z70 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dffg.vhd|
+Z71 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/dffg.vhd|
+!i113 0
+R22
+R23
+Amixed
+R12
+R13
+DEx4 work 4 dffg 0 22 H7[7fQclb0RF5ljXe<KKY0
+!i122 4
+l37
+L33 29
+VM>A>L<U`E78`0<h>bR]Yh3
+!s100 iOdlTUid@@]UimFK_53^C1
+R17
+33
+R68
+!i10b 1
+R69
+R70
+R71
+!i113 0
+R22
+R23
+Einvg
+R38
+R12
+R13
+!i122 1
+R2
+Z72 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/invg.vhd
+Z73 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/invg.vhd
+l0
+R41
+VzJhOLc0g_4RfSF]IXa;:73
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R17
+33
+Z74 !s110 1727391658
+!i10b 1
+Z75 !s108 1727391658.000000
+Z76 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/invg.vhd|
+Z77 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/invg.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R12
+R13
+DEx4 work 4 invg 0 22 zJhOLc0g_4RfSF]IXa;:73
+!i122 1
+l31
+L30 6
+VT@AA60h>IXVJ?D^`RRiZk1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R17
+33
+R74
+!i10b 1
+R75
+R76
+R77
+!i113 0
+R22
+R23
+Emux2t1
+Z78 w1725400717
+R12
+R13
+!i122 10
+R2
+Z79 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1.vhd
+Z80 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1.vhd
+l0
+R16
+VHFc3A4a5E`0Ee38;7mmB[1
+!s100 <b<1Y>@cZoELAdI_e^H0e3
+R17
+33
+Z81 !s110 1727391696
+!i10b 1
+Z82 !s108 1727391696.000000
+Z83 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1.vhd|
+Z84 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1.vhd|
+!i113 0
+R22
+R23
+Astructure
+R12
+R13
+DEx4 work 6 mux2t1 0 22 HFc3A4a5E`0Ee38;7mmB[1
+!i122 10
+l68
+L31 55
+VBBYPWN@3Me@aD<IL4ENY[0
+!s100 8ML[X8]V4NLNfaNc]c^<10
+R17
+33
+R81
+!i10b 1
+R82
+R83
+R84
+!i113 0
+R22
+R23
+Emux2t1_n
+Z85 w1725484451
+R12
+R13
+!i122 11
+R2
+Z86 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1_N.vhd
+Z87 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1_N.vhd
+l0
+R16
+VDk6W_YlM7aaW[_dI]K4K>1
+!s100 BKZeKCAB2i6lge3>7TA3d3
+R17
+33
+Z88 !s110 1727391697
+!i10b 1
+Z89 !s108 1727391697.000000
+Z90 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1_N.vhd|
+Z91 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux2t1_N.vhd|
+!i113 0
+R22
+R23
+Astructural
+R12
+R13
+DEx4 work 8 mux2t1_n 0 22 Dk6W_YlM7aaW[_dI]K4K>1
+!i122 11
+l39
+L30 21
+VS;7^3=hDiT7zH78Vm1Xhk1
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R17
+33
+R88
+!i10b 1
+R89
+R90
+R91
+!i113 0
+R22
+R23
+Emux32t1_new
+Z92 w1727039506
+R48
+R12
+R13
+!i122 12
+R2
+Z93 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux32t1_new.vhd
+Z94 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux32t1_new.vhd
+l0
+R41
+VUM:IGXF[5MM8YQG_b`zm80
+!s100 mC2jFZZhUZ>O:9KElPBZb2
+R17
+33
+Z95 !s110 1727391698
+!i10b 1
+Z96 !s108 1727391698.000000
+Z97 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux32t1_new.vhd|
+Z98 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/mux32t1_new.vhd|
+!i113 0
+R22
+R23
+Amux_arch
+R48
+R12
+R13
+DEx4 work 11 mux32t1_new 0 22 UM:IGXF[5MM8YQG_b`zm80
+!i122 12
+l34
+L32 7
+VO@5=@b7G0aiUo`Y7WhPf?1
+!s100 O?McS@ORzBS<A[RJ_P@iA1
+R17
+33
+R95
+!i10b 1
+R96
+R97
+R98
+!i113 0
+R22
+R23
+Eonescomp_n
+Z99 w1725475586
+R12
+R13
+!i122 6
+R2
+Z100 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/onesComp_N.vhd
+Z101 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/onesComp_N.vhd
+l0
+R16
+V2ZJ1la]QllbiJ:14]I`@E1
+!s100 6>XJz3UZAa8N9>[?Qm<Xn0
+R17
+33
+Z102 !s110 1727391686
+!i10b 1
+Z103 !s108 1727391686.000000
+Z104 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/onesComp_N.vhd|
+Z105 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/onesComp_N.vhd|
+!i113 0
+R22
+R23
+Astructural
+R12
+R13
+DEx4 work 10 onescomp_n 0 22 2ZJ1la]QllbiJ:14]I`@E1
+!i122 6
+l36
+L28 18
+VHN@U7P1>8DmJSAh4Q=QC52
+!s100 4kVa5JFIDiEf9^1H`T`G;2
+R17
+33
+R102
+!i10b 1
+R103
+R104
+R105
+!i113 0
+R22
+R23
+Eorg2
+R38
+R12
+R13
+!i122 0
+R2
+Z106 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/org2.vhd
+Z107 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/org2.vhd
+l0
+R41
+V0FzB9ATDX9TV=M:n@=VB83
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R17
+33
+Z108 !s110 1727391654
+!i10b 1
+Z109 !s108 1727391654.000000
+Z110 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/org2.vhd|
+Z111 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/org2.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R12
+R13
+DEx4 work 4 org2 0 22 0FzB9ATDX9TV=M:n@=VB83
+!i122 0
+l32
+R46
+V0JC>N7cRXc=9bni@>dg7o3
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R17
+33
+R108
+!i10b 1
+R109
+R110
+R111
+!i113 0
+R22
+R23
+Ereg_n
+Z112 w1726080889
+R12
+R13
+!i122 14
+R2
+Z113 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/reg_N.vhd
+Z114 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/reg_N.vhd
+l0
+R16
+V@bC98WzIUX=R6@FgeJNPT3
+!s100 Z5_5[G?6MI9S3LhnCKMao0
+R17
+33
+Z115 !s110 1727391709
+!i10b 1
+Z116 !s108 1727391709.000000
+Z117 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/reg_N.vhd|
+Z118 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/reg_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R12
+R13
+DEx4 work 5 reg_n 0 22 @bC98WzIUX=R6@FgeJNPT3
+!i122 14
+l44
+L32 24
+Vd<dgU68eL8N2TUlV2B`ej0
+!s100 g8e2Ki:aR5eY8RKjRDejS1
+R17
+33
+R115
+!i10b 1
+R116
+R117
+R118
+!i113 0
+R22
+R23
+Eregfile
+Z119 w1727062282
+R48
+R49
+R50
+R12
+R13
+!i122 15
+R2
+Z120 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/regFile.vhd
+Z121 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/regFile.vhd
+l0
+R53
+Vm<YX3P[k7Sh=S1KVC4h8@1
+!s100 9k?YFJUhCU60[=?<[Sobl0
+R17
+33
+Z122 !s110 1727391712
+!i10b 1
+Z123 !s108 1727391712.000000
+Z124 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/regFile.vhd|
+Z125 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/regFile.vhd|
+!i113 0
+R22
+R23
+Astructure
+R48
+R49
+R50
+R12
+R13
+DEx4 work 7 regfile 0 22 m<YX3P[k7Sh=S1KVC4h8@1
+!i122 15
+l71
+L40 73
+V^ekkY][o8Rf>1<1Q?E7Tz1
+!s100 ?AcPJRYAoQ5I64zjNW`5h2
+R17
+33
+R122
+!i10b 1
+R123
+R124
+R125
+!i113 0
+R22
+R23
+Etb_addsub_n
+Z126 w1727058987
+Z127 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z128 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R12
+R13
+!i122 27
+R2
+Z129 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_addSub_N.vhd
+Z130 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_addSub_N.vhd
+l0
+R16
+VolROPIG=3T`o36JDb:YTE0
+!s100 jl_CcVj?8Q`[?2Zf`B4oH3
+R17
+33
+Z131 !s110 1727391737
+!i10b 1
+Z132 !s108 1727391737.000000
+Z133 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_addSub_N.vhd|
+Z134 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_addSub_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R127
+R128
+R12
+R13
+DEx4 work 11 tb_addsub_n 0 22 olROPIG=3T`o36JDb:YTE0
+!i122 27
+l47
+L24 149
+V1XBQ70Wl[:PCcePBj3V3_0
+!s100 ;OcYHE;bn6YdYX4zV9GE^2
+R17
+33
+R131
+!i10b 1
+R132
+R133
+R134
+!i113 0
+R22
+R23
+Etb_datapath1
+Z135 w1727394893
+R48
+R127
+R128
+R50
+R12
+R13
+!i122 35
+R2
+Z136 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_dataPath1.vhd
+Z137 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_dataPath1.vhd
+l0
+R53
+VZGE8MRAHLejT:T@SYeT[X2
+!s100 PY^4i@ZO4RjEabE_E4K]E2
+R17
+33
+Z138 !s110 1727394918
+!i10b 1
+Z139 !s108 1727394918.000000
+Z140 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_dataPath1.vhd|
+Z141 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_dataPath1.vhd|
+!i113 0
+R22
+R23
+Amixed
+R48
+R127
+R128
+R50
+R12
+R13
+DEx4 work 12 tb_datapath1 0 22 ZGE8MRAHLejT:T@SYeT[X2
+!i122 35
+l69
+L30 325
+V:1z=L:B]X=DSNT7MVT4MR2
+!s100 <f7B7eUTmf?3bYBR;8DRX1
+R17
+33
+R138
+!i10b 1
+R139
+R140
+R141
+!i113 0
+R22
+R23
+Etb_regfile
+Z142 w1727394336
+R48
+R127
+R128
+R50
+R12
+R13
+!i122 33
+R2
+Z143 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_regFile.vhd
+Z144 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_regFile.vhd
+l0
+R53
+VQf?V<U=3k5;9cO[?CzZaX3
+!s100 e^[d0WjVR2Q^d0T^ReLeF1
+R17
+33
+Z145 !s110 1727394344
+!i10b 1
+Z146 !s108 1727394344.000000
+Z147 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_regFile.vhd|
+Z148 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/tb_regFile.vhd|
+!i113 0
+R22
+R23
+Amixed
+R48
+R127
+R128
+R50
+R12
+R13
+DEx4 work 10 tb_regfile 0 22 Qf?V<U=3k5;9cO[?CzZaX3
+!i122 33
+l57
+L30 163
+V]Hm8EaSdI;cMb]OQa`<UE3
+!s100 jnFooilf]Fme>g[XCPJmc3
+R17
+33
+R145
+!i10b 1
+R146
+R147
+R148
+!i113 0
+R22
+R23
+Exorg2
+R38
+R12
+R13
+!i122 3
+R2
+Z149 8/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/xorg2.vhd
+Z150 F/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/xorg2.vhd
+l0
+R41
+VV6C:miP5l_oAXXFV_WP4`3
+!s100 [hI[mXFH4_j16U;>U1Lfn2
+R17
+33
+Z151 !s110 1727391665
+!i10b 1
+Z152 !s108 1727391665.000000
+Z153 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/xorg2.vhd|
+Z154 !s107 /home/coreybh/cpre381/Lab2/MyFirstMIPSDatapath/xorg2.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R12
+R13
+DEx4 work 5 xorg2 0 22 V6C:miP5l_oAXXFV_WP4`3
+!i122 3
+l32
+R46
+V0<8Ik`hGa2ooIj9K`Y3Wc0
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R17
+33
+R151
+!i10b 1
+R152
+R153
+R154
+!i113 0
+R22
+R23
