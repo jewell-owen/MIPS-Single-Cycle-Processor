@@ -1,0 +1,58 @@
+-------------------------------------------------------------------------
+-- Owen Jewell
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- deextender.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains an implementation of a 32 bit to10  bit 
+-- deextender
+--
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity deextender is
+   port (i_I    :  in std_logic_vector(31 downto 0);     --32 bit input
+         o_Q    :  out std_logic_vector(9 downto 0));    --10 bit output 
+end deextender;
+
+architecture dataflow of extender is
+
+begin
+  
+    process (i_IMM, i_EXTS, o_Q) is
+    begin
+  	if i_EXTS = '0' then
+
+	  for i in 0 to 15 loop
+              o_Q(i) <= i_IMM(i);
+
+           end loop;
+
+          for i in 16 to 31 loop
+              o_Q(i) <= '0';
+
+           end loop;
+
+         else 
+
+          for i in 0 to 15 loop
+              o_Q(i) <= i_IMM(i);
+
+           end loop;
+
+          for i in 16 to 31 loop
+              o_Q(i) <= i_IMM(15);
+
+           end loop;
+
+
+        end if;
+        
+          
+    end process;
+
+end dataflow;

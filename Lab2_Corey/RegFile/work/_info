@@ -1,0 +1,551 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+Z2 !s12c _opt
+R1
+Z3 !s12c _opt1
+R1
+R0
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R2
+R1
+!s11e vcom 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z4 d/home/coreybh/cpre381/Lab2/RegFile
+T_opt
+!s110 1727575378
+Vz^NGcVPVWWZL]Ge;zO4Ib0
+04 14 5 work tb_decoder5t32 mixed 1
+=1-0050569b7f7e-66f8b551-d4218-6b40
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+Z9 o-quiet -auto_acc_if_foreign -work work +acc
+Z10 tCvgOpt 0
+n@_opt
+Z11 OL;O;2024.2;79
+R4
+T_opt1
+!s110 1727391088
+VjUBhdi=?bY7iVVBd9zof>3
+04 10 5 work tb_regfile mixed 1
+=1-6805ca47c68c-66f5e570-24203-7651
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt1
+R11
+R4
+T_opt2
+!s110 1727576539
+V=lRMffU_z23NoD[JZQk:[3
+04 14 5 work tb_mux32t1_new mixed 1
+=1-0050569b7f7e-66f8b9db-3774-6e1c
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt2
+R11
+Parray_type
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 81
+w1727039063
+R4
+8/home/coreybh/cpre381/Lab2/RegFile/array_type.vhd
+F/home/coreybh/cpre381/Lab2/RegFile/array_type.vhd
+l0
+L12 5
+V^Ji?H8HQJ`QcfdTbdJ`e91
+!s100 PAg9E`0a94iA:e;5;dV?R2
+Z14 OL;C;2024.2;79
+33
+!s110 1727391058
+!i10b 1
+!s108 1727391058.000000
+!s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/array_type.vhd|
+!s107 /home/coreybh/cpre381/Lab2/RegFile/array_type.vhd|
+!i113 0
+Z15 o-work work
+Z16 tExplicit 1 NoCoverage 1 CvgOpt 0
+Edecoder5t32
+Z17 w1726078611
+R12
+R13
+!i122 84
+R4
+Z18 8/home/coreybh/cpre381/Lab2/RegFile/decoder5t32.vhd
+Z19 F/home/coreybh/cpre381/Lab2/RegFile/decoder5t32.vhd
+l0
+Z20 L20 1
+VhUPka1WTR>M_2WmUon7Ki2
+!s100 Q8M8LeaOgElA7_c`C>DLk1
+R14
+33
+Z21 !s110 1727391073
+!i10b 1
+Z22 !s108 1727391073.000000
+Z23 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/decoder5t32.vhd|
+Z24 !s107 /home/coreybh/cpre381/Lab2/RegFile/decoder5t32.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R12
+R13
+DEx4 work 11 decoder5t32 0 22 hUPka1WTR>M_2WmUon7Ki2
+!i122 84
+l29
+L28 43
+VSo]0aD3?W0aBX>z^S47I02
+!s100 PJ6[i;26Z?D@_anTWb2UB0
+R14
+33
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R15
+R16
+Edffg
+Z25 w1577987095
+R12
+R13
+!i122 77
+R4
+Z26 8/home/coreybh/cpre381/Lab2/RegFile/dffg.vhd
+Z27 F/home/coreybh/cpre381/Lab2/RegFile/dffg.vhd
+l0
+Z28 L23 1
+VH7[7fQclb0RF5ljXe<KKY0
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R14
+33
+Z29 !s110 1727391007
+!i10b 1
+Z30 !s108 1727391007.000000
+Z31 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/dffg.vhd|
+Z32 !s107 /home/coreybh/cpre381/Lab2/RegFile/dffg.vhd|
+!i113 0
+R15
+R16
+Amixed
+R12
+R13
+DEx4 work 4 dffg 0 22 H7[7fQclb0RF5ljXe<KKY0
+!i122 77
+l37
+L33 29
+VM>A>L<U`E78`0<h>bR]Yh3
+!s100 iOdlTUid@@]UimFK_53^C1
+R14
+33
+R29
+!i10b 1
+R30
+R31
+R32
+!i113 0
+R15
+R16
+Emux32t1_new
+Z33 w1727039506
+Z34 DPx4 work 10 array_type 0 22 ^Ji?H8HQJ`QcfdTbdJ`e91
+R12
+R13
+!i122 83
+R4
+Z35 8/home/coreybh/cpre381/Lab2/RegFile/mux32t1_new.vhd
+Z36 F/home/coreybh/cpre381/Lab2/RegFile/mux32t1_new.vhd
+l0
+R28
+VUM:IGXF[5MM8YQG_b`zm80
+!s100 mC2jFZZhUZ>O:9KElPBZb2
+R14
+33
+Z37 !s110 1727391071
+!i10b 1
+Z38 !s108 1727391071.000000
+Z39 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/mux32t1_new.vhd|
+Z40 !s107 /home/coreybh/cpre381/Lab2/RegFile/mux32t1_new.vhd|
+!i113 0
+R15
+R16
+Amux_arch
+R34
+R12
+R13
+DEx4 work 11 mux32t1_new 0 22 UM:IGXF[5MM8YQG_b`zm80
+!i122 83
+l34
+L32 7
+VO@5=@b7G0aiUo`Y7WhPf?1
+!s100 O?McS@ORzBS<A[RJ_P@iA1
+R14
+33
+R37
+!i10b 1
+R38
+R39
+R40
+!i113 0
+R15
+R16
+Ereg_n
+Z41 w1726080889
+R12
+R13
+!i122 79
+R4
+Z42 8/home/coreybh/cpre381/Lab2/RegFile/reg_N.vhd
+Z43 F/home/coreybh/cpre381/Lab2/RegFile/reg_N.vhd
+l0
+Z44 L21 1
+V@bC98WzIUX=R6@FgeJNPT3
+!s100 Z5_5[G?6MI9S3LhnCKMao0
+R14
+33
+Z45 !s110 1727391014
+!i10b 1
+Z46 !s108 1727391014.000000
+Z47 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/reg_N.vhd|
+Z48 !s107 /home/coreybh/cpre381/Lab2/RegFile/reg_N.vhd|
+!i113 0
+R15
+R16
+Astructure
+R12
+R13
+DEx4 work 5 reg_n 0 22 @bC98WzIUX=R6@FgeJNPT3
+!i122 79
+l44
+L32 24
+Vd<dgU68eL8N2TUlV2B`ej0
+!s100 g8e2Ki:aR5eY8RKjRDejS1
+R14
+33
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 0
+R15
+R16
+Eregfile
+Z49 w1727062282
+R34
+Z50 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z51 DPx4 ieee 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
+R12
+R13
+!i122 85
+R4
+Z52 8/home/coreybh/cpre381/Lab2/RegFile/regFile.vhd
+Z53 F/home/coreybh/cpre381/Lab2/RegFile/regFile.vhd
+l0
+Z54 L25 1
+Vm<YX3P[k7Sh=S1KVC4h8@1
+!s100 9k?YFJUhCU60[=?<[Sobl0
+R14
+33
+Z55 !s110 1727391074
+!i10b 1
+Z56 !s108 1727391074.000000
+Z57 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/regFile.vhd|
+Z58 !s107 /home/coreybh/cpre381/Lab2/RegFile/regFile.vhd|
+!i113 0
+R15
+R16
+Astructure
+R34
+R50
+R51
+R12
+R13
+DEx4 work 7 regfile 0 22 m<YX3P[k7Sh=S1KVC4h8@1
+!i122 85
+l71
+L40 73
+V^ekkY][o8Rf>1<1Q?E7Tz1
+!s100 ?AcPJRYAoQ5I64zjNW`5h2
+R14
+33
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R15
+R16
+Etb_decoder5t32
+Z59 w1727575357
+Z60 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z61 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R12
+R13
+!i122 91
+R4
+Z62 8/home/coreybh/cpre381/Lab2/RegFile/tb_decoder5t32.vhd
+Z63 F/home/coreybh/cpre381/Lab2/RegFile/tb_decoder5t32.vhd
+l0
+R20
+VUO[G9R9OF9mK;^:l@Z>hS1
+!s100 6MoezKJX]T@zlO0oj77[;1
+R14
+33
+Z64 !s110 1727575363
+!i10b 1
+Z65 !s108 1727575363.000000
+Z66 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/tb_decoder5t32.vhd|
+Z67 !s107 /home/coreybh/cpre381/Lab2/RegFile/tb_decoder5t32.vhd|
+!i113 0
+R15
+R16
+Amixed
+R60
+R61
+R12
+R13
+DEx4 work 14 tb_decoder5t32 0 22 UO[G9R9OF9mK;^:l@Z>hS1
+!i122 91
+l38
+L24 91
+VH:9`ROJ=VV3h=B^lOQKio0
+!s100 DZi]<8_;oARg60Y1?5k0W2
+R14
+33
+R64
+!i10b 1
+R65
+R66
+R67
+!i113 0
+R15
+R16
+Etb_dffg
+Z68 w1580338086
+R12
+R13
+!i122 87
+R4
+Z69 8/home/coreybh/cpre381/Lab2/RegFile/tb_dffg.vhd
+Z70 F/home/coreybh/cpre381/Lab2/RegFile/tb_dffg.vhd
+l0
+R28
+VSSC^J]0Tbi4IKdJklGj172
+!s100 _@1Y`b4>C@@3dFKeCkFbz1
+R14
+33
+Z71 !s110 1727391075
+!i10b 1
+Z72 !s108 1727391075.000000
+Z73 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/tb_dffg.vhd|
+Z74 !s107 /home/coreybh/cpre381/Lab2/RegFile/tb_dffg.vhd|
+!i113 0
+R15
+R16
+Abehavior
+R12
+R13
+DEx4 work 7 tb_dffg 0 22 SSC^J]0Tbi4IKdJklGj172
+!i122 87
+l45
+L27 75
+VgbfUJeh5_oM:QXj3Z?[BG0
+!s100 McQ;1U@Ti8TCBh>42ldW82
+R14
+33
+R71
+!i10b 1
+R72
+R73
+R74
+!i113 0
+R15
+R16
+Etb_mux32t1_new
+Z75 w1727041046
+R34
+R60
+R61
+R51
+R12
+R13
+!i122 88
+R4
+Z76 8/home/coreybh/cpre381/Lab2/RegFile/tb_mux32t1_new.vhd
+Z77 F/home/coreybh/cpre381/Lab2/RegFile/tb_mux32t1_new.vhd
+l0
+R54
+VZ25_NbAONz[g]=aeP@=N;0
+!s100 BbWW^;7DZ8Bl8A81=i]nF2
+R14
+33
+Z78 !s110 1727391076
+!i10b 1
+Z79 !s108 1727391076.000000
+Z80 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/tb_mux32t1_new.vhd|
+Z81 !s107 /home/coreybh/cpre381/Lab2/RegFile/tb_mux32t1_new.vhd|
+!i113 0
+R15
+R16
+Amixed
+R34
+R60
+R61
+R51
+R12
+R13
+DEx4 work 14 tb_mux32t1_new 0 22 Z25_NbAONz[g]=aeP@=N;0
+!i122 88
+l45
+L29 42
+Vzjl40`IfGPR^eoL3en>?n3
+!s100 jS`7P:f3EO<`4Fzd`m?_g0
+R14
+33
+R78
+!i10b 1
+R79
+R80
+R81
+!i113 0
+R15
+R16
+Etb_reg_n
+Z82 w1726075559
+R12
+R13
+!i122 89
+R4
+Z83 8/home/coreybh/cpre381/Lab2/RegFile/tb_reg_N.vhd
+Z84 F/home/coreybh/cpre381/Lab2/RegFile/tb_reg_N.vhd
+l0
+R44
+VElYmTl;iVTIB2?ncnLgB`2
+!s100 _=;4WiX`=NN:8@>^FP]mQ1
+R14
+33
+R78
+!i10b 1
+R79
+Z85 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/tb_reg_N.vhd|
+Z86 !s107 /home/coreybh/cpre381/Lab2/RegFile/tb_reg_N.vhd|
+!i113 0
+R15
+R16
+Abehavior
+R12
+R13
+DEx4 work 8 tb_reg_n 0 22 ElYmTl;iVTIB2?ncnLgB`2
+!i122 89
+l45
+L25 79
+VJ;;F`mDgLn0_FCJ`Y>H1O2
+!s100 AV7H[;Z<`<PG^@kGJM^N?0
+R14
+33
+R78
+!i10b 1
+R79
+R85
+R86
+!i113 0
+R15
+R16
+Etb_regfile
+Z87 w1727062728
+R34
+R60
+R61
+R51
+R12
+R13
+!i122 90
+R4
+Z88 8/home/coreybh/cpre381/Lab2/RegFile/tb_regFile.vhd
+Z89 F/home/coreybh/cpre381/Lab2/RegFile/tb_regFile.vhd
+l0
+R54
+VQf?V<U=3k5;9cO[?CzZaX3
+!s100 e^[d0WjVR2Q^d0T^ReLeF1
+R14
+33
+Z90 !s110 1727391077
+!i10b 1
+Z91 !s108 1727391077.000000
+Z92 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Lab2/RegFile/tb_regFile.vhd|
+Z93 !s107 /home/coreybh/cpre381/Lab2/RegFile/tb_regFile.vhd|
+!i113 0
+R15
+R16
+Amixed
+R34
+R60
+R61
+R51
+R12
+R13
+DEx4 work 10 tb_regfile 0 22 Qf?V<U=3k5;9cO[?CzZaX3
+!i122 90
+l57
+L30 122
+VGmS6n_41azH?flF[_Xg:H1
+!s100 T`goDBL]>20g_mghL=?JW1
+R14
+33
+R90
+!i10b 1
+R91
+R92
+R93
+!i113 0
+R15
+R16

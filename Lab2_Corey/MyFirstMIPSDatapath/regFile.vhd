@@ -1,0 +1,112 @@
+-------------------------------------------------------------------------
+-- Corey Heithoff
+-- Department of Electrical and Computer Engineering
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- regFile.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains an implementation of a register file.
+--
+--
+-- NOTES:
+-- Created 9/22/24
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std_unsigned.all;
+use IEEE.numeric_std.all;
+
+library work;
+use work.array_type.all;
+
+entity regFile is
+  
+  port(i_CLK        : in std_logic;     -- Clock input
+       i_RST        : in std_logic;     -- Reset input
+       i_regWrite   : in std_logic;     -- Write Enable
+       i_rs_sel     : in std_logic_vector(4 downto 0);
+       i_rt_sel     : in std_logic_vector(4 downto 0);
+       i_rd_sel     : in std_logic_vector(4 downto 0);
+       i_rd_D	    : in std_logic_vector(31 downto 0);
+       o_rs_D       : out std_logic_vector(31 downto 0); 
+       o_rt_D	    : out std_logic_vector(31 downto 0)
+  );
+
+end regFile;
+
+architecture structure of regFile is
+
+
+  component reg_N
+  	generic(N : integer := 32); 
+  	port(	i_CLK        : in std_logic;     -- Clock input
+       		i_RST        : in std_logic;     -- Reset input
+       		i_WE         : in std_logic;     -- Write enable input
+       		i_D          : in std_logic_vector(N-1 downto 0);     -- Data value inputs
+       		o_Q          : out std_logic_vector(N-1 downto 0));   -- Data value outputs
+  end component;
+
+  component decoder5t32
+  	port(	i_S          : in std_logic_vector(4 downto 0);
+       		o_F          : out std_logic_vector(31 downto 0));
+  end component;
+
+  component mux32t1_new
+	port(
+		i_S : in integer range 0 to 31;
+		i_D : in array_logic_vector(0 to 31)(31 downto 0);
+		o_F : out std_logic_vector(31 downto 0)
+	);
+  end component;
+
+
+  signal s_rd_address : std_logic_vector(31 downto 0);
+  signal s_Darr : array_logic_vector(0 to 31)(31 downto 0);
+
+
+
+begin
+
+  g_DECODER: decoder5t32 port map(
+		i_S => i_rd_sel,
+       		o_F => s_rd_address
+		);
+	
+
+  G_N_Reg_ZERO: for i in 0 to 0 generate
+    REGIZERO: reg_N port map(
+	        i_CLK     => i_CLK,
+	        i_RST     => '1',
+	        i_WE      => s_rd_address(i) and i_regWrite,
+	        i_D       => i_rd_D,
+	        o_Q       => s_Darr(i)
+		);
+  end generate G_N_Reg_ZERO;
+
+  G_N_Reg: for i in 1 to 31 generate
+    REGI: reg_N port map(
+	        i_CLK     => i_CLK,
+	        i_RST     => i_RST,
+	        i_WE      => s_rd_address(i) and i_regWrite,
+	        i_D       => i_rd_D,
+	        o_Q       => s_Darr(i)
+		);
+  end generate G_N_Reg;
+
+
+  g_MUX_RS: mux32t1_new port map(
+		i_S => to_integer(unsigned(i_rs_sel)),
+		i_D => s_Darr,
+		o_F => o_rs_D
+		);
+
+  g_MUX_RT: mux32t1_new port map(
+		i_S => to_integer(unsigned(i_rt_sel)),
+		i_D => s_Darr,
+		o_F => o_rt_D
+		);
+
+end structure;

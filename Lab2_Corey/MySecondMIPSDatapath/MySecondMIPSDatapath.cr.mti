@@ -1,0 +1,196 @@
+/home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/array_type.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/array_type.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package array_type
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/dataPath2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/dataPath2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package array_type
+-- Compiling entity dataPath2
+-- Compiling architecture structure of dataPath2
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/xorg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/xorg2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_regFile.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_regFile.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Loading package array_type
+-- Compiling entity tb_regFile
+-- Compiling architecture mixed of tb_regFile
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/andg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/andg2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/regFile.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/regFile.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package array_type
+-- Compiling entity regFile
+-- Compiling architecture structure of regFile
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mem.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mem.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/dffg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/dffg.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/addSub_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/addSub_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addSub_N
+-- Compiling architecture structure of addSub_N
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/adder1bit.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/adder1bit.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder1bit
+-- Compiling architecture structure of adder1bit
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/onesComp_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/onesComp_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux2t1.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux2t1.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/sign_ext.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/sign_ext.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity sign_ext
+-- Compiling architecture dataflow of sign_ext
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/org2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/org2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/reg_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/reg_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structure of reg_N
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/decoder5t32.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/decoder5t32.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity decoder5t32
+-- Compiling architecture dataflow of decoder5t32
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/invg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/invg.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/adder_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/adder_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structure of adder_N
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux32t1_new.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux32t1_new.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package array_type
+-- Compiling entity mux32t1_new
+-- Compiling architecture mux_arch of mux32t1_new
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_addSub_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_addSub_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Compiling entity tb_addSub_N
+-- Compiling architecture structure of tb_addSub_N
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_dataPath2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/tb_dataPath2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Loading package array_type
+-- Compiling entity tb_dataPath2
+-- Compiling architecture mixed of tb_dataPath2
+
+} {} {}} /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux2t1_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Lab2/MySecondMIPSDatapath/mux2t1_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}}
