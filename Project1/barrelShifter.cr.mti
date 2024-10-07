@@ -1,26 +1,10 @@
-/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity tb_vectorReverser_N
--- Compiling architecture behavior of tb_vectorReverser_N
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
+/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity dffg
 -- Compiling architecture mixed of dffg
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -30,13 +14,13 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity invg
 -- Compiling architecture dataflow of invg
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
+} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity barrelShifter
--- Compiling architecture structural of barrelShifter
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -46,29 +30,13 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity mux2t1
 -- Compiling architecture structure of mux2t1
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity tb_barrelShifter
--- Compiling architecture behavior of tb_barrelShifter
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity vectorReverser_N
--- Compiling architecture dataflow of vectorReverser_N
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity mux2t1_N
--- Compiling architecture structural of mux2t1_N
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -78,12 +46,12 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity org2
 -- Compiling architecture dataflow of org2
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
+} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
 
 } {} {}}
