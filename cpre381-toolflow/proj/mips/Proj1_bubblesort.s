@@ -47,3 +47,9 @@
 #    printArray(arr, n);
 #    return 0;
 #}
+
+.data
+arr:
+    .word 5, 4, 3, 2, 1  # Unsorted array
+size:
+    .word 5              # Placeholder for size of array
