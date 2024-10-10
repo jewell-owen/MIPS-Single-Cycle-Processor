@@ -8,30 +8,42 @@
 # data section
 .data
 
-# code/instruction section
 .text
-init:
-    addi  $1,  $0,  1 		# Place 1 in $1
-    j RUN2                  # Jump to RUN2
-    
-RUN1:
-    addi $1, $1, 1          # Add 1 to $1
-    addi $4, $0, 4          # Place 4 in $4
-    bne  $1, $4, RUN4       # Jump 
+.globl main
 
-RUN2:
-    addi $1, $1, 1          # Add 1 to $1
-    addi $2, $0, 2          # Place 2 in $2
-    beq  $1, $2, RUN1       # If $1(2) and $2(2) are equal, jump to RUN1
+main:
+    li $sp, 0x10011000        # Initialize stack pointer
+    addi $a0, $zero, 5        # Set initial value
+    jal recursive             # Call recursive function
+    addi $t1, $zero, 15       # Set expected result
+    bne $v0, $t1, failure     # Check result
+    j exit                    # Jump to exit
 
-RUN3:
-    addi $1, $1, 1          # Add 1 to $1
-    jr $ra                  # Jump to the return address $ra
+recursive:
+    addi $sp, $sp, -8       # Allocate stack space
+    sw $ra, 4($sp)          # Save return address
+    sw $a0, 0($sp)          # Save argument n
 
-RUN4:
-    addi $1, $1, 1          # Add 1 to $1
-    jal RUN3                # Jump and write return address to $ra
-    addi $1, $1, 5          # Add 5 to $1 after returning from RUN3
+    slti $t0, $a0, 1            # Check if n < 1
+    beq $t0, $zero, decrement   # If n >= 1, recurse
+    li $v0, 0                   # Base case: return 0
+    j return                    # Jump to return
 
-halt:
-    lui $2, $0, 10         # This is after the exit comment in homework code, but it might be unnecessary 
+decrement:
+    addi $a0, $a0, -1        # Decrement n
+    jal recursive            # Recursive call
+    lw $a0, 0($sp)           # Restore n
+    add $v0, $v0, $a0        # Return n + recursive(n - 1)
+
+return:
+    lw $ra, 4($sp)           # Restore return address
+    addi $sp, $sp, 8         # Deallocate stack space
+    jr $ra                   # Return to caller
+
+failure:
+    li $v0, 1               # Print failure code (1)
+    j exit                  # Jump to exit
+
+exit:
+    li $v0, 10              # Exit syscall
+    syscall
