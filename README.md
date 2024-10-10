@@ -11,6 +11,7 @@ Instructions and Control Signal Spreadsheet: https://docs.google.com/spreadsheet
 To prevent credential request every push/pull, run the following:
 
 git config credential.helper store
+
 git pull (this will request credentials)
 
 This should store the credentials you entered and you no longer need to enter them
