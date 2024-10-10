@@ -53,3 +53,69 @@ arr:
     .word 5, 4, 3, 2, 1  # Unsorted array
 size:
     .word 5              # Placeholder for size of array
+
+
+.text
+.globl main
+main:
+    # store size
+    lw $t1, size
+    # store size - 1 (n-1)
+    #addi $t1, $t1, -1
+    # store i and j starting at 1
+    addi $t2, $0, 0	#i
+    addi $t3, $0, 0	#j
+    
+for1:
+    beq $t2, $t1, exit # for(i = 0; i < n-1;)
+    addi $t2, $t2, 1 # (i++)
+    addi $t3, $0, 0 # j = 1
+    j for2
+for2:
+    beq $t3, $t1, for1 # for(j = 0; j < n-1;)
+    addi $t7, $t2, -1
+    sll $s1, $t7, 2
+    sll $s2, $t3, 2
+    lw $t4, arr($s1)
+    lw $t5, arr($s2)
+    slt $t6, $t4, $t5
+    addi $t3, $t3, 1 # (j++)
+    bne $t6, $0, swap 
+swap: 
+    add $t7, $0, $t4
+    add $t4, $0, $t5
+    add $t5, $0, $t7
+    sw $t4, arr($s1)
+    sw $t5, arr($s2)
+    
+    j for2
+exit:
+    lw $t1, arr
+    add $a0, $0, $t1
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t2, $0, 4
+    lw $t2, arr($t2)
+    add $a0, $0, $t2
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t3, $0, 8
+    lw $t3, arr($t3)
+    add $a0, $0, $t3
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t4, $0, 12
+    lw $t4, arr($t4)
+    add $a0, $0, $t4
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t5, $0, 16
+    lw $t5, arr($t5)
+    add $a0, $0, $t5
+    addi $v0, $0, 1
+    syscall
+    #halt
