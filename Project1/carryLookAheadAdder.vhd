@@ -14,6 +14,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
+--Look ahead logic resource: https://nandland.com/carry-lookahead-adder/
+
 ---------------------------------------------------------------------
 --Over Flow Calculation:
 -- take the xor of Cn-1 and Cout to get over flow.
@@ -35,7 +37,7 @@ entity carryLookaheadAdder is
 
 end carryLookaheadAdder;
 
-architecture structural of fullAddSub_N is
+architecture mixed of fullAddSub_N is
 
 component fullAddSub_N is
   port(i_A          : in std_logic_vector(31 downto 0);
@@ -53,9 +55,38 @@ component xorg2
 end component;
 
 --Signals
+singal w_G : std_logic_vector(31 downto 0);
+singal w_P : std_logic_vector(31 downto 0);
+singal w_C : std_logic_vector(31 downto 0);
+signal w_SUM : std_logic_vector(31 downto 0);
 
 
 begin
 
 
-end structural;
+G_NBit_FULL: for i in 1 to N-1 generate
+   FULLI: fullAddSub_N port map(
+              i_A        =>  i_A(i),
+              i_B        =>  i_B(i),
+              i_AddSubCI =>  i_nAddSub,
+              o_CO       =>  open,     
+              o_S        =>  w_SUM(i));
+  end generate G_NBit_FULL;
+
+  -- Create the Generate (G) Terms:  Gi=Ai*Bi
+  -- Create the Propagate Terms: Pi=Ai+Bi
+  -- Create the Carry Terms:  
+  GEN_CLA : for j in 0 to g_WIDTH-1 generate
+    w_G(j)   <= i_add1(j) and i_add2(j);
+    w_P(j)   <= i_add1(j) or i_add2(j);
+    w_C(j+1) <= w_G(j) or (w_P(j) and w_C(j));
+  end generate GEN_CLA;
+
+
+g_Xor: xorg2
+    port MAP(i_A             => w_C(30),
+             i_B             => w_C(31),
+             o_F             => o_O);
+
+
+end mixed;
