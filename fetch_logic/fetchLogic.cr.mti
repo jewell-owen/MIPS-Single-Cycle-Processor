@@ -1,0 +1,97 @@
+/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/andg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/andg2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/invg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/invg.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/mux2t1_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/mux2t1_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/adder1bit.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/adder1bit.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder1bit
+-- Compiling architecture structure of adder1bit
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/reg_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/reg_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structure of reg_N
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/tb_fetchLogic.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/tb_fetchLogic.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_fetchLogic
+-- Compiling architecture behavior of tb_fetchLogic
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/adder_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/adder_N.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structure of adder_N
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/dffg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/dffg.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/fetchLogic.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/fetchLogic.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fetchLogic
+-- Compiling architecture structural of fetchLogic
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/mux2t1.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/mux2t1.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/org2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/org2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/xorg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/xorg2.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}}

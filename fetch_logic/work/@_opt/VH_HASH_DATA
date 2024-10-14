@@ -1,0 +1,33 @@
+[N
+4
+3
+8 behavior
+2
+13 tb_fetchlogic
+4
+9 gCLK_HPER
+1
+75 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/work
+]
+[G
+1
+2
+3
+1
+4
+0
+0
+0
+0
+8 8
+-128
+-16
+-6
+2
+0
+0
+0
+0
+0
+0
+]
