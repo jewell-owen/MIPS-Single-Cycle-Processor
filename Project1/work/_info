@@ -1,25 +1,55 @@
 m255
 K4
 z2
-Z0 !s12c _opt
+Z0 !s12c _opt2
 Z1 !s99 nomlopt
 R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+Z2 !s12c _opt
+R1
+R2
+R1
+R2
+R1
 !s12c _opt1
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
-R0
+R2
 R1
 !s11e vcom 2024.2 2024.05, May 20 2024
 13
@@ -28,712 +58,832 @@ R1
 !i10e 25
 !i10f 100
 cModel Technology
-Z2 d/home/ojewell/Desktop
+Z3 d/home/ojewell/Desktop
 T_opt
 !s110 1727991456
 Vb65@1JiKgE0NSg3HWf9I03
 04 16 8 work tb_barrelshifter behavior 1
 =1-6805ca47c68c-66ff0ea0-c3257-58e0
 R1
-Z3 !s12f OEM100
-Z4 !s12b OEM100
-Z5 !s124 OEM100
-Z6 !s135 nogc
-Z7 o-quiet -auto_acc_if_foreign -work work +acc
-Z8 tCvgOpt 0
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0
 n@_opt
-Z9 OL;O;2024.2;79
-R2
+Z10 OL;O;2024.2;79
+R3
 T_opt1
 !s110 1727989783
 V@cA?7_igLZj^=:[aS26WH0
 04 19 8 work tb_vectorreverser_n behavior 1
 =1-6805ca47c68c-66ff0817-d6836-4f07
 R1
-R3
 R4
 R5
 R6
 R7
 R8
-n@_opt1
 R9
-R2
+n@_opt1
+R10
+R3
+T_opt2
+!s110 1728927874
+V`]0[AT`YB`hQmKSbaiXSc3
+04 22 5 work tb_carrylookaheadadder mixed 1
+=1-7486e2289dba-670d5882-5624d-68ae
+R1
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt2
+R10
+R3
 Eandg2
-Z10 w1727893385
-Z11 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z12 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 295
-Z13 d/home/ojewell/cpre381/CprE381Project1/Project1
-Z14 8/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
-Z15 F/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
+Z11 w1727893385
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 952
+Z14 d/home/ojewell/cpre381/CprE381Project1/Project1
+Z15 8/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
+Z16 F/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
 l0
-Z16 L23 1
-VlRF1X2AR494<^2b5EczMG2
+Z17 L23 1
+V14;Kgg<l^NcUXfn4K3W9P2
 !s100 YT?bGzEmcFo:DlnoC^B4_0
-Z17 OL;C;2024.2;79
-32
-Z18 !s110 1728593889
+Z18 OL;C;2024.2;79
+33
+Z19 !s110 1728928308
 !i10b 1
-Z19 !s108 1728593889.000000
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd|
-Z21 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd|
+Z20 !s108 1728928308.000000
+Z21 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd|
+Z22 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd|
 !i113 0
-Z22 o-work work -2002 -explicit
-Z23 tExplicit 1 CvgOpt 0
+Z23 o-work work -2008 -explicit
+Z24 tExplicit 1 CvgOpt 0
 Adataflow
-R11
 R12
-DEx4 work 5 andg2 0 22 lRF1X2AR494<^2b5EczMG2
-!i122 295
+R13
+DEx4 work 5 andg2 0 22 14;Kgg<l^NcUXfn4K3W9P2
+!i122 952
 l32
-Z24 L31 6
-V;W?oPbX<ObC2SkM60=NoE2
+Z25 L31 6
+V9c5LK:0kmmhln[C60E=TS2
 !s100 I`@Z@UBObS]<7m8bPgKUS1
-R17
-32
 R18
-!i10b 1
+33
 R19
+!i10b 1
 R20
 R21
-!i113 0
 R22
+!i113 0
 R23
+R24
 Ebarrelshifter
-Z25 w1727991442
-R11
+Z26 w1727991442
 R12
-!i122 222
 R13
-Z26 8/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
-Z27 F/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
+!i122 222
+R14
+Z27 8/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
+Z28 F/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
 l0
-Z28 L18 1
+Z29 L18 1
 Vl[HWSE@8o2bQ:Q5T;e[`A3
 !s100 ]@7>=@Eo0Tl]SW:lkIIJ62
-R17
+R18
 32
-Z29 !s110 1727991445
+Z30 !s110 1727991445
 !i10b 1
-Z30 !s108 1727991444.000000
-Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd|
-Z32 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd|
+Z31 !s108 1727991444.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd|
+Z33 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd|
 !i113 0
-R22
-R23
+Z34 o-work work -2002 -explicit
+R24
 Astructural
-R11
 R12
+R13
 DEx4 work 13 barrelshifter 0 22 l[HWSE@8o2bQ:Q5T;e[`A3
 !i122 222
 l53
 L27 166
 VOJOn@_RVPI5U@6dG1cEda3
 !s100 >OhzN8oY?51`F@76kIgJo3
-R17
+R18
 32
-R29
-!i10b 1
 R30
+!i10b 1
 R31
 R32
+R33
 !i113 0
-R22
-R23
+R34
+R24
 Ebarrelshifterlogic
-Z33 w1727984834
-R11
+Z35 w1727984834
 R12
-!i122 49
 R13
-R26
+!i122 49
+R14
 R27
-l0
 R28
+l0
+R29
 V_EO0_e]AiNQXRFKmjoUM<0
 !s100 6f1haWKH_4[;0zObY`6cY0
-R17
+R18
 32
-Z34 !s110 1727985281
+Z36 !s110 1727985281
 !i10b 1
-Z35 !s108 1727985281.000000
-R31
+Z37 !s108 1727985281.000000
 R32
+R33
 !i113 0
-R22
-R23
+R34
+R24
 Astructural
-R11
 R12
+R13
 DEx4 work 18 barrelshifterlogic 0 22 _EO0_e]AiNQXRFKmjoUM<0
 !i122 49
 l39
 L26 125
 VSD12[Pf:FNh<c[2@S`IN=0
 !s100 3z;W_7GJjJel6>7>QV_ZI0
-R17
+R18
 32
-R34
+R36
 !i10b 1
-R35
-R31
+R37
 R32
+R33
 !i113 0
-R22
-R23
+R34
+R24
 Ecarrylookaheadadder
-w1728593771
-R11
+Z38 w1728928304
 R12
-!i122 294
 R13
-8/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
-F/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
+!i122 951
+R14
+Z39 8/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
+Z40 F/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
 l0
-Z36 L17 1
-V8?H8Y7[m=RJW]6Nm8ReNC1
-!s100 lc?El>Z8>^E0@7=U2_Zl83
-R17
-32
+L29 1
+V:MhND_DG=ZPL^zD>Xi85U0
+!s100 fNg422@ga7mBaR5F6WL[A1
 R18
-!i10b 1
+33
 R19
-!s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd|
-!s107 /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd|
-!i113 0
-R22
-R23
-Edffg
-R10
-R11
-R12
-!i122 296
-R13
-Z37 8/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
-Z38 F/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
-l0
-R16
-VjgD_<UZ1zVBDW^mk^5TO10
-!s100 T4gcXQGMCgKJbn8XhBM;b0
-R17
-32
-R18
 !i10b 1
-R19
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd|
-Z40 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd|
+R20
+Z41 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd|
+Z42 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd|
 !i113 0
-R22
 R23
+R24
 Amixed
+R12
+R13
+DEx4 work 19 carrylookaheadadder 0 22 :MhND_DG=ZPL^zD>Xi85U0
+!i122 951
+l79
+L39 88
+VB??L]GYaHH=V`LGz1iLzS2
+!s100 mIc9?NCh=NJNRRPO1hYVP2
+R18
+33
+R19
+!i10b 1
+R20
+R41
+R42
+!i113 0
+R23
+R24
+Edffg
 R11
 R12
-DEx4 work 4 dffg 0 22 jgD_<UZ1zVBDW^mk^5TO10
-!i122 296
+R13
+!i122 953
+R14
+Z43 8/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
+Z44 F/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
+l0
+R17
+VU4Z@1hOmhj;RN;m=o`PE50
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R18
+33
+R19
+!i10b 1
+R20
+Z45 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd|
+Z46 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd|
+!i113 0
+R23
+R24
+Amixed
+R12
+R13
+DEx4 work 4 dffg 0 22 U4Z@1hOmhj;RN;m=o`PE50
+!i122 953
 l37
 L33 29
-Vf;Mb[CToCHDb6>olH_6Sd3
+VcGk`70hTzUBQXe@mOZQMz3
 !s100 iOdlTUid@@]UimFK_53^C1
-R17
-32
 R18
-!i10b 1
+33
 R19
-R39
-R40
+!i10b 1
+R20
+R45
+R46
 !i113 0
-R22
 R23
-Efulladder_n
-R10
-R11
+R24
+Efulladder
+Z47 w1726267252
 R12
-!i122 297
 R13
-Z41 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
-Z42 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
+!i122 963
+R14
+Z48 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
+Z49 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
 l0
-R36
-V318LLHj_o]G@T9lC[AGg63
-!s100 ?N]IR69HVAdS3Z1D7n?bo0
-R17
-32
+Z50 L17 1
+Vz<O93^5<n[kMS;afJ:B`N0
+!s100 9AL1eZY<oRI^zSVec0f]72
 R18
-!i10b 1
-R19
-Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd|
-Z44 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd|
-!i113 0
-R22
-R23
-Astructural
-R11
-R12
-DEx4 work 11 fulladder_n 0 22 318LLHj_o]G@T9lC[AGg63
-!i122 297
-l40
-L27 42
-V?H1]Rb8kTFB5^Hl0F]F2B1
-!s100 hzA_6S8X6kjT<AC`Mh>]G0
-R17
 32
-R18
+Z51 !s110 1728928309
 !i10b 1
-R19
-R43
-R44
+R20
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd|
+Z53 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd|
 !i113 0
-R22
-R23
-Efulladdsub_n
-Z45 w1728593315
-R11
+R34
+R24
+Astructure
 R12
-!i122 298
 R13
-Z46 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
-Z47 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
-l0
-R36
-V;<fz:SNnjB2=BM>[=T[9I1
-!s100 EdF261G`oNC28j7V?`Gcb1
-R17
-32
+DEx4 work 9 fulladder 0 22 z<O93^5<n[kMS;afJ:B`N0
+!i122 963
+l55
+L27 56
+VoQjNSG[6UT3lNf8Zo:CUU3
+!s100 DE@YU0m:QjkmZYQ<7C@La1
 R18
-!i10b 1
-R19
-Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd|
-Z49 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd|
-!i113 0
-R22
-R23
-Astructural
-R11
-R12
-DEx4 work 12 fulladdsub_n 0 22 ;<fz:SNnjB2=BM>[=T[9I1
-!i122 298
-l56
-L27 55
-VNCB0EnSELI^M24eNW6dZ`0
-!s100 WMBQfkao8e;Y<H>k_EUM`0
-R17
 32
-R18
+R51
 !i10b 1
-R19
-R48
-R49
-!i113 0
-R22
-R23
-Einvg
-R10
-R11
-R12
-!i122 299
-R13
-Z50 8/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
-Z51 F/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
-l0
-R16
-Vi?8K<J8fz^65hSl<BCJfc2
-!s100 _XK?_^5z0Rm1<k12?;5R?2
-R17
-32
-R18
-!i10b 1
-R19
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd|
-Z53 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd|
-!i113 0
-R22
-R23
-Adataflow
-R11
-R12
-DEx4 work 4 invg 0 22 i?8K<J8fz^65hSl<BCJfc2
-!i122 299
-l31
-L30 6
-V59WL2G3_iU9D3YcIf[eGI1
-!s100 bk7I76o8e1LURdoZEQb8H0
-R17
-32
-R18
-!i10b 1
-R19
+R20
 R52
 R53
 !i113 0
-R22
-R23
-Emux2t1
-R10
+R34
+R24
+Efulladder_n
 R11
 R12
-!i122 300
 R13
-Z54 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
-Z55 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
+!i122 954
+R14
+Z54 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
+Z55 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
 l0
-R36
-VnTBNVFl1o?Vz:iS>STe=j0
-!s100 __7T_:dn_:]6z>:>oP5Zg0
-R17
-32
+R50
+V>mEGC3l?HK6^O]14P97b@3
+!s100 ?N]IR69HVAdS3Z1D7n?bo0
 R18
-!i10b 1
+33
 R19
-Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd|
-Z57 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd|
+!i10b 1
+R20
+Z56 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd|
+Z57 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd|
 !i113 0
-R22
 R23
-Astructure
-R11
+R24
+Astructural
 R12
-DEx4 work 6 mux2t1 0 22 nTBNVFl1o?Vz:iS>STe=j0
-!i122 300
-l53
-L26 50
-V>=jFR;TQLhhjajVKb12d52
-!s100 3zS^>:ec`S]kWJ]4I=VJD1
-R17
-32
+R13
+DEx4 work 11 fulladder_n 0 22 >mEGC3l?HK6^O]14P97b@3
+!i122 954
+l40
+L27 42
+Vm3:_:7z:XW8@zWj8QB1LC1
+!s100 hzA_6S8X6kjT<AC`Mh>]G0
 R18
-!i10b 1
+33
 R19
+!i10b 1
+R20
 R56
 R57
 !i113 0
-R22
 R23
-Emux2t1_n
-R10
-R11
+R24
+Efulladdsub_n
+Z58 w1728593315
 R12
-!i122 301
 R13
-Z58 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
-Z59 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
+!i122 955
+R14
+Z59 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
+Z60 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
 l0
-L21 1
-Vj4KY:hV0kO?@RQ]2:`P[U3
-!s100 BKZeKCAB2i6lge3>7TA3d3
-R17
-32
+R50
+VPeo7o3bYZ:5?jQHQQ`JVb2
+!s100 EdF261G`oNC28j7V?`Gcb1
 R18
-!i10b 1
+33
 R19
-Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd|
-Z61 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd|
+!i10b 1
+R20
+Z61 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd|
+Z62 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd|
 !i113 0
-R22
 R23
+R24
 Astructural
+R12
+R13
+DEx4 work 12 fulladdsub_n 0 22 Peo7o3bYZ:5?jQHQQ`JVb2
+!i122 955
+l56
+L27 55
+V:abE[O=BN>JAgUH>Oj[Hg3
+!s100 WMBQfkao8e;Y<H>k_EUM`0
+R18
+33
+R19
+!i10b 1
+R20
+R61
+R62
+!i113 0
+R23
+R24
+Einvg
 R11
 R12
-DEx4 work 8 mux2t1_n 0 22 j4KY:hV0kO?@RQ]2:`P[U3
-!i122 301
+R13
+!i122 956
+R14
+Z63 8/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
+Z64 F/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
+l0
+R17
+VV5ABnOY1@C84YczbbMJm43
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R18
+33
+R19
+!i10b 1
+R20
+Z65 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd|
+Z66 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd|
+!i113 0
+R23
+R24
+Adataflow
+R12
+R13
+DEx4 work 4 invg 0 22 V5ABnOY1@C84YczbbMJm43
+!i122 956
+l31
+L30 6
+V?c8XNF03kj`aK82C8lK7Y1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R18
+33
+R19
+!i10b 1
+R20
+R65
+R66
+!i113 0
+R23
+R24
+Emux2t1
+R11
+R12
+R13
+!i122 957
+R14
+Z67 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
+Z68 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
+l0
+R50
+V:M8U7bOR?><g?B]dN3ccW2
+!s100 __7T_:dn_:]6z>:>oP5Zg0
+R18
+33
+R19
+!i10b 1
+R20
+Z69 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd|
+Z70 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd|
+!i113 0
+R23
+R24
+Astructure
+R12
+R13
+DEx4 work 6 mux2t1 0 22 :M8U7bOR?><g?B]dN3ccW2
+!i122 957
+l53
+L26 50
+VigHnT48FYI8JICe=:IH?=1
+!s100 3zS^>:ec`S]kWJ]4I=VJD1
+R18
+33
+R19
+!i10b 1
+R20
+R69
+R70
+!i113 0
+R23
+R24
+Emux2t1_n
+R11
+R12
+R13
+!i122 958
+R14
+Z71 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
+Z72 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
+l0
+Z73 L21 1
+VGKAGGZo@HoE^@ac=ahMbD3
+!s100 BKZeKCAB2i6lge3>7TA3d3
+R18
+33
+R19
+!i10b 1
+R20
+Z74 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd|
+Z75 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd|
+!i113 0
+R23
+R24
+Astructural
+R12
+R13
+DEx4 work 8 mux2t1_n 0 22 GKAGGZo@HoE^@ac=ahMbD3
+!i122 958
 l39
 L30 21
-Vm1NdN>M>eeiaAFIM^6c8A1
+VD8JT;V151T[9DO=XS34I]1
 !s100 W>5MMWO2LBg`K8[P>h>Ye1
-R17
-32
 R18
-!i10b 1
+33
 R19
-R60
-R61
+!i10b 1
+R20
+R74
+R75
 !i113 0
-R22
 R23
+R24
 Eonescomp
-R10
 R11
 R12
-!i122 302
 R13
-Z62 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
-Z63 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
+!i122 959
+R14
+Z76 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
+Z77 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
 l0
-R36
-VlKeHUgMj^cUokm=IjD3On2
+R50
+V20?1AEF6DoOzBPa>VTPPW0
 !s100 gG9W5;_ifCkaUjnTgCAmg3
-R17
-32
 R18
-!i10b 1
+33
 R19
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd|
-Z65 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd|
+!i10b 1
+R20
+Z78 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd|
+Z79 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd|
 !i113 0
-R22
 R23
+R24
 Astructure
-R11
 R12
-DEx4 work 8 onescomp 0 22 lKeHUgMj^cUokm=IjD3On2
-!i122 302
+R13
+DEx4 work 8 onescomp 0 22 20?1AEF6DoOzBPa>VTPPW0
+!i122 959
 l32
 L24 15
-Vj092eKmEXRR<jiQ`8X0fm1
+VQ<nJIC4<<eQI;983zki0M1
 !s100 O3JziCj`AH4fjD5b=9QaT0
-R17
-32
 R18
-!i10b 1
+33
 R19
-R64
-R65
+!i10b 1
+R20
+R78
+R79
 !i113 0
-R22
 R23
+R24
 Eonescomp_n
-R10
 R11
 R12
-!i122 303
 R13
-Z66 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
-Z67 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
+!i122 960
+R14
+Z80 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
+Z81 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
 l0
 L16 1
-V[MbIMXTB2AkdJ<bY5N<NU1
+V@NEnRE`QGWRW`7m?_;bI@1
 !s100 kA1d1]kg6HS1BEU=K8kfj0
-R17
-32
 R18
-!i10b 1
+33
 R19
-Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd|
-Z69 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd|
+!i10b 1
+R20
+Z82 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd|
+Z83 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd|
 !i113 0
-R22
 R23
+R24
 Astructural
-R11
 R12
-DEx4 work 10 onescomp_n 0 22 [MbIMXTB2AkdJ<bY5N<NU1
-!i122 303
+R13
+DEx4 work 10 onescomp_n 0 22 @NEnRE`QGWRW`7m?_;bI@1
+!i122 960
 l30
 L23 17
-V;Dg?IPED6RjS?Di<RLTHc3
+Vlho`oKe6eaG=A]cDgLSVH2
 !s100 c2GCA8z4?][F`jkTQgJ332
-R17
-32
 R18
-!i10b 1
+33
 R19
-R68
-R69
-!i113 0
-R22
-R23
-Eorg2
-R10
-R11
-R12
-!i122 304
-R13
-Z70 8/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
-Z71 F/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
-l0
-R16
-VB2]3[a<V5f9`9eUg6`KhC1
-!s100 bGQ1F9eW^Q17OoL9h4g7z2
-R17
-32
-R18
 !i10b 1
-R19
-Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd|
-Z73 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd|
+R20
+R82
+R83
 !i113 0
-R22
 R23
-Adataflow
-R11
-R12
-DEx4 work 4 org2 0 22 B2]3[a<V5f9`9eUg6`KhC1
-!i122 304
-l32
 R24
-VkAR2[YaYRaj6fWNP]W0nE3
-!s100 h5_AzR3TdRA0a_K=dQ>mI2
-R17
-32
-R18
-!i10b 1
-R19
-R72
-R73
-!i113 0
-R22
-R23
-Etb_barrelshifter
-Z74 w1727991116
+Eorg2
 R11
 R12
-!i122 230
 R13
-Z75 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
-Z76 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+!i122 961
+R14
+Z84 8/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
+Z85 F/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
 l0
-R36
+R17
+Vmi<eg7K]IQ]UHDeXadIRl2
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R18
+33
+R19
+!i10b 1
+R20
+Z86 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd|
+Z87 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd|
+!i113 0
+R23
+R24
+Adataflow
+R12
+R13
+DEx4 work 4 org2 0 22 mi<eg7K]IQ]UHDeXadIRl2
+!i122 961
+l32
+R25
+VYPSCdk<=TCTdM`giL9TZ10
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R18
+33
+R19
+!i10b 1
+R20
+R86
+R87
+!i113 0
+R23
+R24
+Etb_barrelshifter
+Z88 w1727991116
+R12
+R13
+!i122 230
+R14
+Z89 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+Z90 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+l0
+R50
 VGe2lZW;K8]YOgjajPAKQP1
 !s100 IT;N0fD>5GXYCXG1=LCWk1
-R17
+R18
 32
-R29
+R30
 !i10b 1
-Z77 !s108 1727991445.000000
-Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd|
-Z79 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd|
+Z91 !s108 1727991445.000000
+Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd|
+Z93 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd|
 !i113 0
-R22
-R23
+R34
+R24
 Abehavior
-R11
 R12
+R13
 DEx4 work 16 tb_barrelshifter 0 22 Ge2lZW;K8]YOgjajPAKQP1
 !i122 230
 l40
 L21 151
 VUGG<5PT1RDfPZ6R33k]?B0
 !s100 KeSGVQoY`^Q=W<L3I8DEG1
-R17
+R18
 32
-R29
+R30
 !i10b 1
-R77
-R78
-R79
+R91
+R92
+R93
 !i113 0
-R22
-R23
-Etb_vectorreverser_n
-Z80 w1727989771
-R11
+R34
+R24
+Etb_carrylookaheadadder
+Z94 w1728928262
+Z95 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z96 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
 R12
-!i122 231
 R13
-Z81 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd
-Z82 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd
+!i122 964
+R14
+Z97 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd
+Z98 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd
 l0
-R36
+R73
+V19hmG0?QCDKokeCkY3X`M3
+!s100 CA@o0[K6>7?1lR7Yf@7X=0
+R18
+32
+R51
+!i10b 1
+Z99 !s108 1728928309.000000
+Z100 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd|
+Z101 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd|
+!i113 0
+R34
+R24
+Amixed
+R95
+R96
+R12
+R13
+Z102 DEx4 work 22 tb_carrylookaheadadder 0 22 19hmG0?QCDKokeCkY3X`M3
+!i122 964
+l53
+L25 208
+V2@nVP6OPazWQV9BY[QTVB0
+!s100 2;NYV>H2[ajg1[d2e8<UZ0
+R18
+32
+R51
+!i10b 1
+R99
+R100
+R101
+!i113 0
+R34
+R24
+Etb_vectorreverser_n
+Z103 w1727989771
+R12
+R13
+!i122 231
+R14
+Z104 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd
+Z105 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd
+l0
+R50
 V>N>igDIBS3OPf5EYECnzh3
 !s100 b;K]BX<dDYM8=7k3GAV=W2
-R17
+R18
 32
-R29
+R30
 !i10b 1
-R77
-Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd|
-Z84 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd|
+R91
+Z106 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd|
+Z107 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/tb_vectorReverser_N.vhd|
 !i113 0
-R22
-R23
+R34
+R24
 Abehavior
-R11
 R12
+R13
 DEx4 work 19 tb_vectorreverser_n 0 22 >N>igDIBS3OPf5EYECnzh3
 !i122 231
 l38
 L21 69
 V<mZb>^<5PdJb8R?XoFCzK3
 !s100 _37AJTn5om?=O:D>g<]3C3
-R17
+R18
 32
-R29
+R30
 !i10b 1
-R77
-R83
-R84
+R91
+R106
+R107
 !i113 0
-R22
-R23
+R34
+R24
 Evectorreverser_n
-Z85 w1727989512
-R11
+Z108 w1727989512
 R12
-!i122 232
 R13
-Z86 8/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
-Z87 F/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
+!i122 232
+R14
+Z109 8/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
+Z110 F/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
 l0
-R28
+R29
 V7^[<gf;Zi2_ziQDIJM]lH3
 !s100 1?L8XIH8fGfZ@g>ND5YBf3
-R17
+R18
 32
-R29
+R30
 !i10b 1
-R77
-Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd|
-Z89 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd|
+R91
+Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd|
+Z112 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd|
 !i113 0
-R22
-R23
+R34
+R24
 Adataflow
-R11
 R12
+R13
 DEx4 work 16 vectorreverser_n 0 22 7^[<gf;Zi2_ziQDIJM]lH3
 !i122 232
 l29
 L25 19
 Ve2f<Wd^iNW9gPIUJC2k9:3
 !s100 c<No2TAPmnfVB`EN1i5BL0
-R17
-32
-R29
-!i10b 1
-R77
-R88
-R89
-!i113 0
-R22
-R23
-Exorg2
-R10
-R11
-R12
-!i122 305
-R13
-Z90 8/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
-Z91 F/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
-l0
-R16
-V]nRm43OKZ32f958@JoPK80
-!s100 [hI[mXFH4_j16U;>U1Lfn2
-R17
-32
 R18
+32
+R30
 !i10b 1
-R19
-Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd|
-Z93 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd|
+R91
+R111
+R112
 !i113 0
-R22
-R23
-Adataflow
-R11
-R12
-Z94 DEx4 work 5 xorg2 0 22 ]nRm43OKZ32f958@JoPK80
-!i122 305
-l32
+R34
 R24
-Z95 Vgh7bYI5aJE]odJ7>7;=<U3
-Z96 !s100 Z6[FAPS4fBLB`F?OO<AY72
+Exorg2
+R11
+R12
+R13
+!i122 962
+R14
+Z113 8/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
+Z114 F/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
+l0
 R17
-32
+VOZPm5jBoVdPDb7[3zWzZD2
+!s100 [hI[mXFH4_j16U;>U1Lfn2
 R18
-!i10b 1
+33
 R19
-R92
-R93
+!i10b 1
+R20
+Z115 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd|
+Z116 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd|
 !i113 0
-R22
 R23
+R24
+Adataflow
+R12
+R13
+DEx4 work 5 xorg2 0 22 OZPm5jBoVdPDb7[3zWzZD2
+!i122 962
+l32
+R25
+V7_ZYiRRQelNmCooYeK?5e0
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R18
+33
+R19
+!i10b 1
+R20
+R115
+R116
+!i113 0
+R23
+R24

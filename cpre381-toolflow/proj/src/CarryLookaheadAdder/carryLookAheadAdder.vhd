@@ -14,7 +14,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
---Look ahead logic resource: https://nandland.com/carry-lookahead-adder/
 
 ---------------------------------------------------------------------
 --Over Flow Calculation:

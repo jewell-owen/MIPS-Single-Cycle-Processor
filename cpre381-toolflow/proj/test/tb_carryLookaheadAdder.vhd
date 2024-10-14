@@ -219,7 +219,7 @@ begin
    
     -- Test case 12:
     --  0xAAAAAAAA - 0x55555555
-    -- Expected s_OS = 0x55555555 | s_OC = 1 | s_OO = 0
+    -- Expected s_OS = 0x55555555 | s_OC = 1 | s_OO = 1
     s_IA    <= "10101010101010101010101010101010";
     s_IB    <= "01010101010101010101010101010101";
     s_IAddSubCI   <= '1';
