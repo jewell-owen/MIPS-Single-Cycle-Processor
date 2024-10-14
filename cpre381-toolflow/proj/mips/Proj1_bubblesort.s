@@ -50,9 +50,10 @@
 
 .data
 arr:
-    .word 5, 4, 3, 2, 1  # Unsorted array
+    .word 5, 4, 3, 2, 1   # Unsorted array
 size:
     .word 5              # Placeholder for size of array
+space: .asciiz "\n"
 
 
 .text
@@ -60,62 +61,81 @@ size:
 main:
     # store size
     lw $t1, size
-    # store size - 1 (n-1)
-    #addi $t1, $t1, -1
-    # store i and j starting at 1
-    addi $t2, $0, 0	#i
-    addi $t3, $0, 0	#j
+    
+    addi $t2, $0, 0	#i = 0
+    addi $t3, $0, 0	#j = 0
     
 for1:
     beq $t2, $t1, exit # for(i = 0; i < n-1;)
+    add $t3, $0, $0 # j = 0
     addi $t2, $t2, 1 # (i++)
-    addi $t3, $0, 0 # j = 1
-    j for2
+    
+    j for2 # jump to for2
 for2:
     beq $t3, $t1, for1 # for(j = 0; j < n-1;)
-    addi $t7, $t2, -1
-    sll $s1, $t7, 2
-    sll $s2, $t3, 2
-    lw $t4, arr($s1)
-    lw $t5, arr($s2)
-    slt $t6, $t4, $t5
-    addi $t3, $t3, 1 # (j++)
-    bne $t6, $0, swap 
-swap: 
-    add $t7, $0, $t4
-    add $t4, $0, $t5
-    add $t5, $0, $t7
-    sw $t4, arr($s1)
-    sw $t5, arr($s2)
+    addi $t7, $t3, 1 # j + 1
+    sll $s1, $t3, 2 # current j shift left (multiply by 4)
+    sll $s2, $t7, 2 # current j + 1shift left (multiply by 4)
+    lw $t4, arr($s1) # load content of arr[j]
+    lw $t5, arr($s2) # load content of arr[j + 1]
+    slt $t6, $t4, $t5 # if (arr[j] > arr[j + 1])
     
-    j for2
-exit:
-    lw $t1, arr
-    add $a0, $0, $t1
-    addi $v0, $0, 1
-    syscall
-    
-    addi $t2, $0, 4
-    lw $t2, arr($t2)
-    add $a0, $0, $t2
-    addi $v0, $0, 1
-    syscall
-    
-    addi $t3, $0, 8
-    lw $t3, arr($t3)
     add $a0, $0, $t3
     addi $v0, $0, 1
     syscall
     
-    addi $t4, $0, 12
-    lw $t4, arr($t4)
-    add $a0, $0, $t4
+    add $a0, $0, $t7
     addi $v0, $0, 1
     syscall
     
-    addi $t5, $0, 16
-    lw $t5, arr($t5)
-    add $a0, $0, $t5
+    addi $v0, $0, 4
+    la $a0 , space
+    syscall
+    
+    lw $s5, arr
+    add $a0, $0, $s5
     addi $v0, $0, 1
     syscall
+    
+    addi $s6, $0, 4
+    lw $s6, arr($s6)
+    add $a0, $0, $s6
+    addi $v0, $0, 1
+    syscall
+    
+    addi $s7, $0, 8
+    lw $s7, arr($s7)
+    add $a0, $0, $s7
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t8, $0, 12
+    lw $t8, arr($t8)
+    add $a0, $0, $t8
+    addi $v0, $0, 1
+    syscall
+    
+    addi $t9, $0, 16
+    lw $t9, arr($t9)
+    add $a0, $0, $t9
+    addi $v0, $0, 1
+    syscall
+    
+    addi $v0, $0, 4
+    la $a0 , space
+    syscall
+    
+    bne $t6, $0, swap # if t6 = 1, swap
+    addi $t3, $t3, 1 # (j++) if no swap
+swap: 
+    add $t7, $0, $t4 # temp = i
+    add $t4, $0, $t5 # i = j
+    add $t5, $0, $t7 # j = temp
+    sw $t4, arr($s1) # store i
+    sw $t5, arr($s2) # store j
+    
+    #addi $t3, $t3, 1 # (j++) after swap
+    j for2 # return to for2
+exit:
+    
     #halt
