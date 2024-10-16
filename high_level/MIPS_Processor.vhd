@@ -137,12 +137,24 @@ architecture structure of MIPS_Processor is
          o_O                  : out std_logic_vector(31 downto 0));
   end component;
 
+  component alu is
+    port(i_A			: in std_logic_vector(31 downto 0);
+	i_B			: in std_logic_vector(31 downto 0);
+	i_brr1Shamt		: in std_logic_vector(4 downto 0);
+	i_AluCntrl		: in std_logic_vector(3 downto 0);
+	o_Zero			: out std_logic;
+	o_C			: out std_logic;
+	o_O			: out std_logic;
+	o_AluOut		: out std_logic(31 downto 0)
+	);
+  end component;
 
 
 
-  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour     				: std_logic_vector(31 downto 0);  
-  signal s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_zero 			: std_logic;
+  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui		: std_logic_vector(31 downto 0);  
+  signal s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_JumpLink, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel	: std_logic;
   signal s_rs_sel,s_rt_sel    						: std_logic_vector(4 downto 0);
+  signal s_aluctr    							: std_logic_vector(3 downto 0);
   
 
 
@@ -181,63 +193,108 @@ begin
   -- TODO: Implement the rest of your processor below this comment! 
 
   g_SIGNEXT: sign_ext port map(
-		i_signSel 	=> i_signSel,
-		i_imm 		=> i_imm, 
-		o_imm 		=> s_imm --
+		i_signSel 	=> s_signExtSel,
+		i_imm 		=> s_Inst, 
+		o_imm 		=> s_imm 
 		);
 
   g_REGFILE: regFile port map(
-		i_CLK        => iCLK, --i_CLK,
-       		i_RST        => iRST, --i_RST,
-		i_regWrite   => s_RegWr, --i_regWrite,
-       		i_rs_sel     => i_rs_sel,
-       		i_rt_sel     => i_rt_sel,
-       		i_rd_sel     => s_RegWrAddr, --i_rd_sel,
-       		i_rd_D	     => s_RegWrData, --s_regf_in_D,
-       		o_rs_D       => s_rs_DA,--
-       		o_rt_D	     => s_rt_DB --needs to output to s_DMemData too
+		i_CLK        => iCLK, 
+       		i_RST        => iRST, 
+		i_regWrite   => s_RegWr, 
+       		i_rs_sel     => s_Inst,
+       		i_rt_sel     => s_Inst,
+       		i_rd_sel     => s_RegWrAddr, 
+       		i_rd_D	     => s_RegWrData, 
+       		o_rs_D       => s_rs_DA,
+       		o_rt_D	     => s_rt_DB --outputs to s_DMemData too
 		);
 
-  g_NBITMUX_Brch: mux2t1_N port map (
-		i_S => ss_Brch,	-- 0 for PC + 4, and 1 for I-format Immediate
-		i_D0 => s_PC4,   
-		i_D1 => so_Sum_I, 
-		o_O => so_PC4_I
+  s_DMemData <= s_rt_DB;
+
+  g_NBITMUX_RegWrAddr: mux2t1_N port map (
+		i_S => s_regDst,	
+		i_D0 => s_Inst,   
+		i_D1 => s_Inst, 
+		o_O => s_RegWrAddr
+		);
+
+  g_NBITMUX_ALUB: mux2t1_N port map (
+		i_S => s_aluSrc,	
+		i_D0 => s_rt_DB,   
+		i_D1 => s_imm, 
+		o_O => s_ialuB
+		);
+
+  g_NBITMUX_JumpLink: mux2t1_N port map (
+		i_S => s_is_JumpLink,	
+		i_D0 => s_DMemOrAluOrLui,  
+		i_D1 => s_PCfour, 
+		o_O => s_RegWrData
+		);
+
+  g_NBITMUX_MemtoReg: mux2t1_N port map (
+		i_S => s_MemtoReg,	
+		i_D0 => s_aluOut,   
+		i_D1 => s_DMemOut, 
+		o_O => s_DMemOrAlu
+		);
+
+  g_NBITMUX_Lui: mux2t1_N port map (
+		i_S => s_is_Lui,	
+		i_D0 => s_DMemOrAlu,   
+		i_D1(31 downto 16) => s_Inst, -- Lui: upper 16 bits is immediate value and lower 16 bits is filled with zeros
+		i_D1(15 downto 0) => x"0000",
+		o_O => s_DMemOrAluOrLui
 		);
 
   g_FETCHLOGIC : fetchLogic port map(
-		i_CLK       	=> iCLK, --CLK,
-       		i_RST       	=> iRST, --reset,
-		is_Brch  	=> s_is_Brch,--
-		is_Jump  	=> s_is_Jump,--
-		is_JumpReg  	=> s_is_JumpReg,--
+		i_CLK       	=> iCLK, 
+       		i_RST       	=> iRST, 
+		is_Brch  	=> s_is_Brch,
+		is_Jump  	=> s_is_Jump,
+		is_JumpReg  	=> s_is_JumpReg,
 		is_zero  	=> s_is_zero,
-		i_instr    	=> s_Inst, --
-		i_immed    	=> s_imm, --s_immed,
-		i_rs_data    	=> s_rs_DA, --s_rs_data,
-		o_PC		=> s_NextInstAddr, --
-		o_PCfour	=> s_PCfour --
+		i_instr    	=> s_Inst, 
+		i_immed    	=> s_imm, 
+		i_rs_data    	=> s_rs_DA, 
+		o_PC		=> s_NextInstAddr, 
+		o_PCfour	=> s_PCfour 
 		);
 
   g_CONTRUNIT : controlUnit port map(
-		op_Code	    		=> s_Inst,	--: in std_logic_vector(5 downto 0);
-		Funct		    	=> s_Inst,	--: in std_logic_vector(5 downto 0);
-		RegDst		    	=> CLK,	
-		MemtoReg 	   	=> CLK,	
+		op_Code	    		=> s_Inst,	
+		Funct		    	=> s_Inst,	
+		RegDst		    	=> s_regDst,	
+		MemtoReg 	   	=> s_MemtoReg,	
 		MemWrite 	    	=> s_DMemWr,	
-		ALUSrc 		   	=> CLK,	
+		ALUSrc 		   	=> s_aluSrc,	
 		RegWrite 	   	=> s_RegWr,
-		ALUControl	    	=> CLK,	
+		ALUControl	    	=> s_aluctr,	
 		beq 		    	=> s_is_Brch,	
  		bne 		    	=> s_is_Brch,
 		j  		        => s_is_Jump,	
 		jr 		        => s_is_JumpReg,	
-		sltu            	=> CLK,	
-		shiftVariable   	=> CLK,	
-		upper_immediate 	=> CLK,	
+		sltu            	=> iCLK,	--
+		shiftVariable   	=> iCLK,	--
+		upper_immediate 	=> s_is_Lui,	
+		--jal 			=> s_is_JumpLink,	
+		--signExtSel 		=> s_signExtSel,
 		halt                    => s_Halt	
 		);
- 
+
+  g_ALU : alu port map(
+		i_A			=> s_rs_DA,
+		i_B			=> s_ialuB,
+		i_brr1Shamt		=> s_Inst,
+		i_AluCntrl		=> s_aluctr,
+		o_Zero			=> s_is_zero,
+		o_C			=> s_aluCar,
+		o_O			=> s_Ovfl,
+		o_AluOut		=> s_aluOut --outputs to s_DMemData too
+		);
+
+ oALUOut <= s_aluOut;
 
 
 
