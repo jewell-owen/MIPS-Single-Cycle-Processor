@@ -1,10 +1,10 @@
-/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
+/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity fullAdder_N
--- Compiling architecture structural of fullAdder_N
+-- Compiling entity fullAdder
+-- Compiling architecture structure of fullAdder
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -14,30 +14,6 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity onesComp
 -- Compiling architecture structure of onesComp
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity dffg
--- Compiling architecture mixed of dffg
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity carryLookaheadAdder
--- Compiling architecture mixed of carryLookaheadAdder
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity mux2t1
--- Compiling architecture structure of mux2t1
-
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
@@ -46,53 +22,13 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity onesComp_N
 -- Compiling architecture structural of onesComp_N
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
+} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity org2
--- Compiling architecture dataflow of org2
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity fullAdder
--- Compiling architecture structure of fullAdder
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity fullAddSub_N
--- Compiling architecture structural of fullAddSub_N
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity invg
--- Compiling architecture dataflow of invg
+-- Compiling entity carryLookaheadAdder
+-- Compiling architecture mixed of carryLookaheadAdder
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -104,13 +40,5 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 ** Warning: /home/ojewell/cpre381/CprE381Project1/Project1/tb_carryLookaheadAdder.vhd(18): (vcom-1516) Package "STD.ENV" does not exist in this language version.
 -- Compiling entity tb_carryLookaheadAdder
 -- Compiling architecture mixed of tb_carryLookaheadAdder
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity mux2t1_N
--- Compiling architecture structural of mux2t1_N
 
 } {} {}}

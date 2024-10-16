@@ -14,7 +14,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-
 ---------------------------------------------------------------------
 --Over Flow Calculation:
 -- take the xor of Cn-1 and Cout to get over flow.
