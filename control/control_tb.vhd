@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity controlUnit_tb is
-end ControlUnit_tb;
+end control_tb;
 
 architecture behavior of controlUnit_tb is
 
