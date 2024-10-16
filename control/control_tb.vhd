@@ -3,22 +3,21 @@
 -- Department of Electrical and Computer Engineering
 -- Iowa State University
 -------------------------------------------------------------------------
--- ControlUnit.vhd
+-- control_tb.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contain a ControlUnit test bench implementation
--- implementation.
+-- DESCRIPTION: This file contains a Control Unit test bench implementation
 -------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity controlUnit_tb is
+entity control_tb is
 end control_tb;
 
-architecture behavior of controlUnit_tb is
+architecture behavior of control_tb is
 
-   component controlUnit
+   component control
 	  port(op_Code	    		: in std_logic_vector(5 downto 0);
 	       Funct		    	: in std_logic_vector(5 downto 0);
 	       RegDst		    	: out std_logic;
@@ -55,7 +54,7 @@ architecture behavior of controlUnit_tb is
    signal s_halt                        : std_logic := '0';
 begin
 
-   generic_controlUnit : controlUnit
+   generic_control : control
 	port map(op_Code 		=> s_O,
              	 Funct 			=> s_F,
             	 RegDst 		=> s_R,
@@ -246,5 +245,4 @@ P_TEST_CASES: process
    end process;
 
 end behavior;
-
 
