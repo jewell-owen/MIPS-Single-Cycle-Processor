@@ -24,6 +24,7 @@ entity alu is
        i_EqNeSel    : in std_logic;                                 -- Equal or Not Equal Select ( If input 0 = bne | If input 1 = beq  )
                                                                     -- If bne output 1 if not equal and 0 if equal
                                                                     -- If beq output 1 if equal and 0 if not equal
+       i_AluCntrl   : in std_logic_vector(2 downto 0);  
        o_Zero       : out std_logic;                                -- Output used for to take either program counter + 4 or branch immediate
        o_C          : out std_logic;                                -- Carry output
        o_O          : out std_logic;                                -- Overflow output
