@@ -75,7 +75,7 @@ architecture structure of MIPS_Processor is
     port(
 	i_CLK, i_RST, is_Brch, is_Jump, is_JumpReg, is_zero		: in std_logic;
 	i_instr, i_immed, i_rs_data					: in std_logic_vector(31 downto 0);
-	o_PC								: out std_logic_vector(31 downto 0)
+	o_PC, o_PCfour							: out std_logic_vector(31 downto 0)
 	);
 
   end component;
@@ -140,7 +140,7 @@ architecture structure of MIPS_Processor is
 
 
 
-  signal s_rs_DA, s_rt_DB, s_imm,       					: std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour     				: std_logic_vector(31 downto 0);  
   signal s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_zero 			: std_logic;
   signal s_rs_sel,s_rt_sel    						: std_logic_vector(4 downto 0);
   
@@ -215,8 +215,8 @@ begin
 		i_instr    	=> s_Inst, --
 		i_immed    	=> s_imm, --s_immed,
 		i_rs_data    	=> s_rs_DA, --s_rs_data,
-		o_PC		=> s_NextInstAddr --
-		-- needs to output PC + 4 too
+		o_PC		=> s_NextInstAddr, --
+		o_PCfour	=> s_PCfour --
 		);
 
   g_CONTRUNIT : controlUnit port map(

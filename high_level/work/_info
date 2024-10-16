@@ -10,10 +10,10 @@ z2
 cModel Technology
 Z0 d/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level
 Eadder1bit
-Z1 w1728923221
+Z1 w1728929120
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 52
+!i122 74
 R0
 Z4 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd
 Z5 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd
@@ -23,9 +23,9 @@ VIfbK9[@oBl;>o:KD;?3>o2
 !s100 jJ60i:X3@X[MN^POR?G5g0
 Z7 OL;C;2024.2;79
 33
-Z8 !s110 1728925822
+Z8 !s110 1729098694
 !i10b 1
-Z9 !s108 1728925822.000000
+Z9 !s108 1729098694.000000
 Z10 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd|
 Z11 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd|
 !i113 0
@@ -35,7 +35,7 @@ Astructure
 R2
 R3
 DEx4 work 9 adder1bit 0 22 IfbK9[@oBl;>o:KD;?3>o2
-!i122 52
+!i122 74
 l63
 L32 54
 VI3j;Z[LjglV2@SSnYgSN_0
@@ -54,7 +54,7 @@ Eadder_n
 R1
 R2
 R3
-!i122 53
+!i122 75
 R0
 Z14 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder_N.vhd
 Z15 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder_N.vhd
@@ -76,7 +76,7 @@ Astructure
 R2
 R3
 DEx4 work 7 adder_n 0 22 l5C=XASQoIGgc>NY<9kEa1
-!i122 53
+!i122 75
 l48
 L32 34
 VG:9a[`K9[=@S^fb2D:26g3
@@ -95,7 +95,7 @@ Eandg2
 R1
 R2
 R3
-!i122 54
+!i122 76
 R0
 Z18 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd
 Z19 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd
@@ -105,11 +105,11 @@ V14;Kgg<l^NcUXfn4K3W9P2
 !s100 YT?bGzEmcFo:DlnoC^B4_0
 R7
 33
-R8
+Z21 !s110 1729098695
 !i10b 1
 R9
-Z21 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd|
-Z22 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd|
+Z22 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd|
+Z23 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd|
 !i113 0
 R12
 R13
@@ -117,26 +117,26 @@ Adataflow
 R2
 R3
 DEx4 work 5 andg2 0 22 14;Kgg<l^NcUXfn4K3W9P2
-!i122 54
+!i122 76
 l32
-Z23 L31 6
+Z24 L31 6
 V9c5LK:0kmmhln[C60E=TS2
 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R7
 33
-R8
+R21
 !i10b 1
 R9
-R21
 R22
+R23
 !i113 0
 R12
 R13
 Parray_type
 R2
 R3
-!i122 68
-w1727039063
+!i122 90
+R1
 R0
 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd
 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd
@@ -146,9 +146,9 @@ V]20Hei@b_FlQ4kZL9m5k?1
 !s100 PAg9E`0a94iA:e;5;dV?R2
 R7
 33
-Z24 !s110 1728925823
+R21
 !i10b 1
-Z25 !s108 1728925823.000000
+Z25 !s108 1729098695.000000
 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd|
 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd|
 !i113 0
@@ -158,7 +158,7 @@ Econtrolunit
 R1
 R2
 R3
-!i122 55
+!i122 77
 R0
 Z26 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd
 Z27 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd
@@ -168,9 +168,9 @@ VdcQo3onUPT[`dih]gAcTK1
 !s100 a258RiH^j=j7RdE[YB6cl2
 R7
 33
-R8
+R21
 !i10b 1
-R9
+R25
 Z28 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd|
 Z29 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd|
 !i113 0
@@ -180,40 +180,40 @@ Abehavioral
 R2
 R3
 DEx4 work 11 controlunit 0 22 dcQo3onUPT[`dih]gAcTK1
-!i122 55
+!i122 77
 l48
 L41 570
 V=hJLIgbE?XOj2799ISDnh0
 !s100 ec<oK`^S6mLlX^0]cN:`n3
 R7
 33
-R8
+R21
 !i10b 1
-R9
+R25
 R28
 R29
 !i113 0
 R12
 R13
 Edecoder5t32
-Z30 w1726078611
+R1
 R2
 R3
-!i122 69
+!i122 91
 R0
-Z31 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd
-Z32 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd
+Z30 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd
+Z31 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd
 l0
 L20 1
 V;mfmfNcVJZUaFnKKM`Z_M2
 !s100 Q8M8LeaOgElA7_c`C>DLk1
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z33 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd|
-Z34 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd|
+Z32 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd|
+Z33 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/decoder5t32.vhd|
 !i113 0
 R12
 R13
@@ -221,18 +221,18 @@ Adataflow
 R2
 R3
 DEx4 work 11 decoder5t32 0 22 ;mfmfNcVJZUaFnKKM`Z_M2
-!i122 69
+!i122 91
 l29
 L28 43
 V3dBc1oK`B;I]@DGWH?MVI2
 !s100 PJ6[i;26Z?D@_anTWb2UB0
 R7
 33
-R24
+R21
 !i10b 1
 R25
+R32
 R33
-R34
 !i113 0
 R12
 R13
@@ -240,21 +240,21 @@ Edffg
 R1
 R2
 R3
-!i122 56
+!i122 78
 R0
-Z35 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd
-Z36 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd
+Z34 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd
+Z35 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd
 l0
 R20
 VU4Z@1hOmhj;RN;m=o`PE50
 !s100 T4gcXQGMCgKJbn8XhBM;b0
 R7
 33
-R8
+R21
 !i10b 1
-R9
-Z37 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd|
-Z38 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd|
+R25
+Z36 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd|
+Z37 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd|
 !i113 0
 R12
 R13
@@ -262,81 +262,81 @@ Amixed
 R2
 R3
 DEx4 work 4 dffg 0 22 U4Z@1hOmhj;RN;m=o`PE50
-!i122 56
+!i122 78
 l37
 L33 29
 VcGk`70hTzUBQXe@mOZQMz3
 !s100 iOdlTUid@@]UimFK_53^C1
 R7
 33
-R8
+R21
 !i10b 1
-R9
+R25
+R36
 R37
-R38
 !i113 0
 R12
 R13
 Efetchlogic
-R1
+Z38 w1729099605
 R2
 R3
-!i122 57
+!i122 94
 R0
 Z39 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd
 Z40 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd
 l0
 L18 1
-V[6UOIaL]Abb6I=Q2F1AXI2
-!s100 ^8amcWNhZHkG=GoAZ?o:`3
+Vh@zT?PV8a=kY9V8`5EZP72
+!s100 [T^L?i?GAOBCjK1k:99Jz0
 R7
-33
-R8
+32
+Z41 !s110 1729100192
 !i10b 1
-R9
-Z41 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd|
-Z42 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd|
+Z42 !s108 1729100192.000000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd|
+Z44 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/fetchLogic.vhd|
 !i113 0
-R12
+Z45 o-work work -2002 -explicit
 R13
 Astructural
 R2
 R3
-DEx4 work 10 fetchlogic 0 22 [6UOIaL]Abb6I=Q2F1AXI2
-!i122 57
-l69
-L26 111
-V^2]g=?imiemjC=gN]zczK3
-!s100 fj31XD7]4dzSj_eze4fm43
+DEx4 work 10 fetchlogic 0 22 h@zT?PV8a=kY9V8`5EZP72
+!i122 94
+l68
+L25 112
+Va=D2<3Q]^i0Z=G8l;Mjd^3
+!s100 YU?5J]fNRK>NNlBR:E2@H1
 R7
-33
-R8
-!i10b 1
-R9
+32
 R41
+!i10b 1
 R42
+R43
+R44
 !i113 0
-R12
+R45
 R13
 Einvg
 R1
 R2
 R3
-!i122 58
+!i122 80
 R0
-Z43 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd
-Z44 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd
+Z46 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd
+Z47 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd
 l0
 R20
 VV5ABnOY1@C84YczbbMJm43
 !s100 _XK?_^5z0Rm1<k12?;5R?2
 R7
 33
-R8
+R21
 !i10b 1
-R9
-Z45 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd|
-Z46 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd|
+R25
+Z48 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd|
+Z49 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/invg.vhd|
 !i113 0
 R12
 R13
@@ -344,89 +344,89 @@ Adataflow
 R2
 R3
 DEx4 work 4 invg 0 22 V5ABnOY1@C84YczbbMJm43
-!i122 58
+!i122 80
 l31
 L30 6
 V?c8XNF03kj`aK82C8lK7Y1
 !s100 bk7I76o8e1LURdoZEQb8H0
 R7
 33
-R8
+R21
 !i10b 1
-R9
-R45
-R46
+R25
+R48
+R49
 !i113 0
 R12
 R13
 Emem
-Z47 w1728494491
-Z48 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+Z50 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R2
 R3
-!i122 59
+!i122 81
 R0
-Z49 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd
-Z50 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd
+Z51 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd
+Z52 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd
 l0
 L8 1
 V_0bz9Xd43MLgPRSR5AT?g2
 !s100 fRlcaiTJZJ1H;nZh;8=LI3
 R7
 33
-R8
+R21
 !i10b 1
-R9
-Z51 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd|
-Z52 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd|
+R25
+Z53 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd|
+Z54 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mem.vhd|
 !i113 0
 R12
 R13
 Artl
-R48
+R50
 R2
 R3
 DEx4 work 3 mem 0 22 _0bz9Xd43MLgPRSR5AT?g2
-!i122 59
+!i122 81
 l37
 L27 24
 VP<hJO`eNK:GK56cZVLj@g0
 !s100 OI8_3><BhDkT3l3n8`OXd3
 R7
 33
-R8
+R21
 !i10b 1
-R9
-R51
-R52
+R25
+R53
+R54
 !i113 0
 R12
 R13
 Emips_processor
-R47
-Z53 DPx4 work 10 mips_types 0 22 m_n?li1WMA3Boz7zKN3CT0
+R1
+Z55 DPx4 work 10 mips_types 0 22 m_n?li1WMA3Boz7zKN3CT0
 R2
 R3
-!i122 60
+!i122 82
 R0
-Z54 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd
-Z55 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd
+Z56 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd
+Z57 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd
 l0
-R20
-VV:SRS<`IKVA<EQ8aE8=Yf2
-!s100 H[0875z5OZm2QnkRY7o5_2
+L24 1
+V^0Re[GjVO0cV7kSLPEY=R3
+!s100 <4R`NPn@]CLX?i[IX0fLT0
 R7
 33
-R8
+R21
 !i10b 1
-R9
-Z56 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd|
-Z57 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd|
+R25
+Z58 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd|
+Z59 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd|
 !i113 0
 R12
 R13
 Astructure
-R53
+R55
 R2
 R3
 DEx4 work 14 mips_processor 0 22 V:SRS<`IKVA<EQ8aE8=Yf2
@@ -437,52 +437,52 @@ VVOa8J>G[FISJ[8ZTU[nEi1
 !s100 1ba3TJQna9h[QJU<XeNSX1
 R7
 33
-R8
+!s110 1728925822
 !i10b 1
-R9
-R56
-R57
+!s108 1728925822.000000
+R58
+R59
 !i113 0
 R12
 R13
 Pmips_types
 R2
 R3
-!i122 61
-R47
+!i122 83
+R1
 R0
-Z58 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd
-Z59 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd
+Z60 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd
+Z61 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd
 l0
 L15 13
 Vm_n?li1WMA3Boz7zKN3CT0
 !s100 9LKPn?UhVC15^8Xc1`G4g2
 R7
 33
-R24
+R21
 !i10b 1
-R9
-Z60 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd|
-Z61 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd|
+R25
+Z62 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd|
+Z63 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_types.vhd|
 !i113 0
 R12
 R13
 Bbody
-R53
+R55
 R2
 R3
-!i122 61
+!i122 83
 l0
 L29 3
 VXQK;3TifH3:4j:T>B62m?0
 !s100 ZNa@oSJaSGzJZZUQAmX1U2
 R7
 33
-R24
+R21
 !i10b 1
-R9
-R60
-R61
+R25
+R62
+R63
 !i113 0
 R12
 R13
@@ -490,21 +490,21 @@ Emux2t1
 R1
 R2
 R3
-!i122 62
+!i122 84
 R0
-Z62 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd
-Z63 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd
+Z64 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd
+Z65 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd
 l0
 L17 1
 V:M8U7bOR?><g?B]dN3ccW2
 !s100 __7T_:dn_:]6z>:>oP5Zg0
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z64 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd|
-Z65 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd|
+Z66 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd|
+Z67 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd|
 !i113 0
 R12
 R13
@@ -512,18 +512,18 @@ Astructure
 R2
 R3
 DEx4 work 6 mux2t1 0 22 :M8U7bOR?><g?B]dN3ccW2
-!i122 62
+!i122 84
 l53
 L26 50
 VigHnT48FYI8JICe=:IH?=1
 !s100 3zS^>:ec`S]kWJ]4I=VJD1
 R7
 33
-R24
+R21
 !i10b 1
 R25
-R64
-R65
+R66
+R67
 !i113 0
 R12
 R13
@@ -531,21 +531,21 @@ Emux2t1_n
 R1
 R2
 R3
-!i122 63
+!i122 85
 R0
-Z66 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd
-Z67 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd
+Z68 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd
+Z69 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd
 l0
 R6
 VGKAGGZo@HoE^@ac=ahMbD3
 !s100 BKZeKCAB2i6lge3>7TA3d3
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z68 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd|
-Z69 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd|
+Z70 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd|
+Z71 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1_N.vhd|
 !i113 0
 R12
 R13
@@ -553,61 +553,61 @@ Astructural
 R2
 R3
 DEx4 work 8 mux2t1_n 0 22 GKAGGZo@HoE^@ac=ahMbD3
-!i122 63
+!i122 85
 l39
 L30 21
 VD8JT;V151T[9DO=XS34I]1
 !s100 W>5MMWO2LBg`K8[P>h>Ye1
 R7
 33
-R24
+R21
 !i10b 1
 R25
-R68
-R69
+R70
+R71
 !i113 0
 R12
 R13
 Emux32t1_new
-Z70 w1727039506
-Z71 DPx4 work 10 array_type 0 22 ]20Hei@b_FlQ4kZL9m5k?1
+R1
+Z72 DPx4 work 10 array_type 0 22 ]20Hei@b_FlQ4kZL9m5k?1
 R2
 R3
-!i122 70
+!i122 92
 R0
-Z72 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd
-Z73 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd
+Z73 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd
+Z74 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd
 l0
 R20
 V1:<_QH@ZfbGYMRHM5CShE3
 !s100 mC2jFZZhUZ>O:9KElPBZb2
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z74 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd|
-Z75 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd|
+Z75 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd|
+Z76 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux32t1_new.vhd|
 !i113 0
 R12
 R13
 Amux_arch
-R71
+R72
 R2
 R3
 DEx4 work 11 mux32t1_new 0 22 1:<_QH@ZfbGYMRHM5CShE3
-!i122 70
+!i122 92
 l34
 L32 7
 VaU<X=BB9FA3i;DD6=@0C?3
 !s100 O?McS@ORzBS<A[RJ_P@iA1
 R7
 33
-R24
+R21
 !i10b 1
 R25
-R74
 R75
+R76
 !i113 0
 R12
 R13
@@ -615,21 +615,21 @@ Eorg2
 R1
 R2
 R3
-!i122 64
+!i122 86
 R0
-Z76 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd
-Z77 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd
+Z77 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd
+Z78 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd
 l0
 R20
 Vmi<eg7K]IQ]UHDeXadIRl2
 !s100 bGQ1F9eW^Q17OoL9h4g7z2
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z78 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd|
-Z79 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd|
+Z79 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd|
+Z80 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/org2.vhd|
 !i113 0
 R12
 R13
@@ -637,18 +637,18 @@ Adataflow
 R2
 R3
 DEx4 work 4 org2 0 22 mi<eg7K]IQ]UHDeXadIRl2
-!i122 64
+!i122 86
 l32
-R23
+R24
 VYPSCdk<=TCTdM`giL9TZ10
 !s100 h5_AzR3TdRA0a_K=dQ>mI2
 R7
 33
-R24
+R21
 !i10b 1
 R25
-R78
 R79
+R80
 !i113 0
 R12
 R13
@@ -656,21 +656,21 @@ Ereg_n
 R1
 R2
 R3
-!i122 65
+!i122 87
 R0
-Z80 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd
-Z81 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd
+Z81 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd
+Z82 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd
 l0
 R6
 VJ8:N[8d;:jCNno0@0Ple33
 !s100 Z5_5[G?6MI9S3LhnCKMao0
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z82 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd|
-Z83 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd|
+Z83 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd|
+Z84 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/reg_N.vhd|
 !i113 0
 R12
 R13
@@ -678,29 +678,29 @@ Astructure
 R2
 R3
 DEx4 work 5 reg_n 0 22 J8:N[8d;:jCNno0@0Ple33
-!i122 65
+!i122 87
 l44
 L32 24
 Vd9<bRRD[k=W9RK]I1`9U71
 !s100 g8e2Ki:aR5eY8RKjRDejS1
 R7
 33
-R24
+R21
 !i10b 1
 R25
-R82
 R83
+R84
 !i113 0
 R12
 R13
 Eregfile
-Z84 w1727062282
-R71
-R48
+R1
+R72
+R50
 Z85 DPx4 ieee 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
 R2
 R3
-!i122 71
+!i122 93
 R0
 Z86 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd
 Z87 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd
@@ -710,78 +710,78 @@ Vzb[HA4;4QSZm4kVN?UQgG2
 !s100 9k?YFJUhCU60[=?<[Sobl0
 R7
 33
-R24
+R21
 !i10b 1
 R25
 Z88 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd|
-!s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd|
+Z89 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd|
 !i113 0
 R12
 R13
 Astructure
-R71
-R48
+R72
+R50
 R85
 R2
 R3
 DEx4 work 7 regfile 0 22 zb[HA4;4QSZm4kVN?UQgG2
-!i122 71
+!i122 93
 l71
 L40 73
 Vm0VPSndOASdg3GBz`88hH0
 !s100 ?AcPJRYAoQ5I64zjNW`5h2
 R7
 33
-R24
+R21
 !i10b 1
 R25
 R88
-Z89 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/regFile.vhd|
+R89
 !i113 0
 R12
 R13
 Esign_ext
-Z90 w1727404829
-R48
+R1
+R50
 R85
 R2
 R3
-!i122 67
+!i122 89
 R0
-Z91 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd
-Z92 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd
+Z90 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd
+Z91 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd
 l0
 L8 1
 VCn0Y@iPml9cANjz9[WAAE0
 !s100 75L`4<Aom4NZK=HXTQ7LH0
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z93 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd|
-Z94 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd|
+Z92 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd|
+Z93 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd|
 !i113 0
 R12
 R13
 Adataflow
-R48
+R50
 R85
 R2
 R3
 DEx4 work 8 sign_ext 0 22 Cn0Y@iPml9cANjz9[WAAE0
-!i122 67
+!i122 89
 l24
 L22 22
 V1TD[SlncdgJ[l>I^YIo@i1
 !s100 O3A]KoIX[f;?=[3XDb[`:2
 R7
 33
-R24
+R21
 !i10b 1
 R25
+R92
 R93
-R94
 !i113 0
 R12
 R13
@@ -789,21 +789,21 @@ Exorg2
 R1
 R2
 R3
-!i122 66
+!i122 88
 R0
-Z95 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd
-Z96 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd
+Z94 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd
+Z95 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd
 l0
 R20
 VOZPm5jBoVdPDb7[3zWzZD2
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R7
 33
-R24
+R21
 !i10b 1
 R25
-Z97 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd|
-Z98 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd|
+Z96 !s90 -reportprogress|300|-work|work|-2008|-explicit|-vopt|-stats=none|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd|
+Z97 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd|
 !i113 0
 R12
 R13
@@ -811,18 +811,18 @@ Adataflow
 R2
 R3
 DEx4 work 5 xorg2 0 22 OZPm5jBoVdPDb7[3zWzZD2
-!i122 66
+!i122 88
 l32
-R23
+R24
 V7_ZYiRRQelNmCooYeK?5e0
 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R7
 33
-R24
+R21
 !i10b 1
 R25
+R96
 R97
-R98
 !i113 0
 R12
 R13

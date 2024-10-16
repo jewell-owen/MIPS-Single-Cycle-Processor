@@ -195,7 +195,7 @@ begin
        		i_rd_sel     => s_RegWrAddr, --i_rd_sel,
        		i_rd_D	     => s_RegWrData, --s_regf_in_D,
        		o_rs_D       => s_rs_DA,--
-       		o_rt_D	     => s_rt_DB --
+       		o_rt_D	     => s_rt_DB --needs to output to s_DMemData too
 		);
 
   g_NBITMUX_Brch: mux2t1_N port map (
@@ -224,9 +224,9 @@ begin
 		Funct		    	=> s_Inst,	--: in std_logic_vector(5 downto 0);
 		RegDst		    	=> CLK,	
 		MemtoReg 	   	=> CLK,	
-		MemWrite 	    	=> CLK,	
+		MemWrite 	    	=> s_DMemWr,	
 		ALUSrc 		   	=> CLK,	
-		RegWrite 	   	=> CLK,
+		RegWrite 	   	=> s_RegWr,
 		ALUControl	    	=> CLK,	
 		beq 		    	=> s_is_Brch,	
  		bne 		    	=> s_is_Brch,

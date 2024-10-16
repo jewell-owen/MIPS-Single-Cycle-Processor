@@ -27,14 +27,14 @@ architecture behavior of tb_fetchLogic is
 component fetchLogic is
    port(i_CLK, i_RST, is_Brch, is_Jump, is_JumpReg, is_zero		: in std_logic;
 	i_instr, i_immed, i_rs_data					: in std_logic_vector(31 downto 0);
-	o_PC								: out std_logic_vector(31 downto 0)
+	o_PC, o_PC4							: out std_logic_vector(31 downto 0)
 	);
 
 end component;
 
 
 
-signal s_instr, s_immed, s_rs_data, so_PC          			: std_logic_vector(31 downto 0);  
+signal s_instr, s_immed, s_rs_data, so_PC, so_PC4      			: std_logic_vector(31 downto 0);  
 signal CLK, reset, s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_zero 	: std_logic;
 
 begin 
@@ -49,7 +49,8 @@ g_FETCHLOGIC : fetchLogic port map(
 		i_instr    	=> s_instr,
 		i_immed    	=> s_immed,
 		i_rs_data    	=> s_rs_data,
-		o_PC		=> so_PC
+		o_PC		=> so_PC,
+		o_PC4		=> so_PC4
 		);
 
 
@@ -203,7 +204,7 @@ s_is_Jump		<= '0';
 s_instr			<= x"00000000";
 
 s_is_JumpReg		<= '1';
-s_rs_data		<= x"2020FF55";
+s_rs_data		<= x"2020FF50";
 
 wait for cCLK_PER;
 

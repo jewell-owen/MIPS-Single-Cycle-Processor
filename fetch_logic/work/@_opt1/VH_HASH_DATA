@@ -1,0 +1,87 @@
+[N
+10
+6
+8 mux2t1_n
+5
+5 reg_n
+4
+1 N
+2
+7 adder_n
+9
+8 behavior
+3
+9 structure
+8
+13 tb_fetchlogic
+7
+10 structural
+10
+9 gCLK_HPER
+1
+75 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic/work
+]
+[G
+1
+8
+9
+1
+10
+0
+0
+0
+0
+8 8
+-128
+-16
+-6
+2
+0
+0
+0
+0
+0
+0
+]
+[G
+1
+6
+7
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+5
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]

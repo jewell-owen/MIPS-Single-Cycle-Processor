@@ -18,8 +18,7 @@ use IEEE.std_logic_1164.all;
 entity fetchLogic is
    port(i_CLK, i_RST, is_Brch, is_Jump, is_JumpReg, is_zero		: in std_logic;
 	i_instr, i_immed, i_rs_data					: in std_logic_vector(31 downto 0);
-	o_PC								: out std_logic_vector(31 downto 0)
-	);
+	o_PC, o_PCfour							: out std_logic_vector(31 downto 0));
 
 end fetchLogic;
 
@@ -130,6 +129,7 @@ g_ADD: andg2 port map (
 		);
 
 o_PC <= s_PC;
+o_PCfour <= s_PC4;
 
 
 
