@@ -149,10 +149,16 @@ architecture structure of MIPS_Processor is
 	);
   end component;
 
+  component org2
+    port(i_A          : in std_logic;
+         i_B          : in std_logic;
+         o_F          : out std_logic);
+  end component;
+
 
 
   signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong				: std_logic_vector(31 downto 0);  
-  signal s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_JumpLink, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, temp	: std_logic;
+  signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp, tempt		: std_logic;
   signal s_rs_sel,s_rt_sel    														: std_logic_vector(4 downto 0);
   signal s_aluctr    															: std_logic_vector(3 downto 0);
   
@@ -207,7 +213,7 @@ begin
        		i_rd_sel     => s_RegWrAddr, 
        		i_rd_D	     => s_RegWrData, 
        		o_rs_D       => s_rs_DA,
-       		o_rt_D	     => s_rt_DB --outputs to s_DMemData too
+       		o_rt_D	     => s_rt_DB 	--outputs to s_DMemData too
 		);
 
   s_DMemData <= s_rt_DB;
@@ -231,7 +237,7 @@ begin
 		);
 
   g_NBITMUX_JumpLink: mux2t1_N port map (
-		i_S => s_is_JumpLink,	
+		i_S => s_is_Jump,	
 		i_D0 => s_DMemOrAluOrLui,  
 		i_D1 => s_PCfour, 
 		o_O => s_RegWrData
@@ -255,7 +261,7 @@ begin
   g_FETCHLOGIC : fetchLogic port map(
 		i_CLK       	=> iCLK, 
        		i_RST       	=> iRST, 
-		is_Brch  	=> s_is_Brch,
+		is_Brch  	=> s_BrchEq OR s_BrchNe,
 		is_Jump  	=> s_is_Jump,
 		is_JumpReg  	=> s_is_JumpReg,
 		is_zero  	=> s_is_zero,
@@ -275,14 +281,13 @@ begin
 		ALUSrc 		   	=> s_aluSrc,	
 		RegWrite 	   	=> s_RegWr,
 		ALUControl	    	=> s_aluctr,	
-		beq 		    	=> s_is_Brch,	-- only need one branch control
- 		bne 		    	=> temp,	-- only need one branch control
-		j  		        => s_is_Jump,	
+		beq 		    	=> s_BrchEq,	-- only need one branch control so they are ORed
+ 		bne 		    	=> s_BrchNe,	
+		j  		        => s_is_Jump,	-- used to j and jal control
 		jr 		        => s_is_JumpReg,	
 		sltu            	=> temp,	-- not needed?
-		shiftVariable   	=> temp,	-- not needed?
+		shiftVariable   	=> tempt,	-- not needed?
 		upper_immediate 	=> s_is_Lui,	
-		--jal 			=> s_is_JumpLink,	
 		--signExtSel 		=> s_signExtSel,
 		halt                    => s_Halt	
 		);
@@ -295,7 +300,7 @@ begin
 		o_Zero			=> s_is_zero,
 		o_C			=> s_aluCar,
 		o_O			=> s_Ovfl,
-		o_AluOut		=> s_aluOut --outputs to s_DMemData too
+		o_AluOut		=> s_aluOut 	--outputs to s_DMemData too
 		);
 
  oALUOut <= s_aluOut;
