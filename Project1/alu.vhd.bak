@@ -16,13 +16,12 @@ use IEEE.std_logic_1164.all;
 entity alu is
   port(i_A          : in std_logic_vector(31 downto 0);             -- First 32 bit data input
        i_B          : in std_logic_vector(31 downto 0);             -- Second 32 bit data input
-       i_brrlShamt  : in std_logic_vector(4 downto 0);              -- Barrel shifter shift amount (0 to 31)
+       i_BrrlShamt  : in std_logic_vector(4 downto 0);              -- Barrel shifter shift amount (0 to 31)
        i_AluCntrl   : in std_logic_vector(3 downto 0);  
        o_Zero       : out std_logic;                                -- Output used for to take either program counter + 4 or branch immediate
        o_C          : out std_logic;                                -- Carry output
        o_O          : out std_logic;                                -- Overflow output
        o_AluOut     : out std_logic_vector(31 downto 0));           -- ALU out
-
 end alu;
 
 
@@ -39,10 +38,10 @@ end alu;
 --   |     0  |   0  |   0   |   0   |  nor
 --   |     0  |   0  |   0   |   1   |  or, ori
 --   |     0  |   0  |   1   |   0   |  add, addi, addu, addiu, lw, sw, 
---   |     0  |   0  |   1   |   1   |  
+--   |     0  |   0  |   1   |   1   |  sub, subu 
 --   |     0  |   1  |   0   |   0   |  xor, xori
 --   |     0  |   1  |   0   |   1   |  
---   |     0  |   1  |   1   |   0   |  sub, subu 
+--   |     0  |   1  |   1   |   0   |  
 --   |     0  |   1  |   1   |   1   |  slt, slti, sltiu, sltu
 --   |     1  |   0  |   0   |   0   |  sra
 --   |     1  |   0  |   0   |   1   |  srl
@@ -201,7 +200,7 @@ c_carryAdder: carryLookaheadAdder
   port map(
             i_A       => i_A,
             i_B       => i_B,
-            i_nAddSub => i_AluCntrl(2),
+            i_nAddSub => i_AluCntrl(0),
             o_C       => o_C,
             o_O       => o_O,
       	    o_S       => s_AddrOut);
@@ -254,7 +253,7 @@ a_aluOutMux: mux8t1_32
             i_D2  => s_XorOut,   -- Xor
       	    i_D3  => s_SltOut,   -- Slt
             i_D4  => s_BrrlOut,  -- Shift (right)
-      	    i_D5  => open,       -- Beq or Bne out (not necessary)
+      	    i_D5  => s_EqlMuxOut,-- Beq or Bne out (not necessary)
             i_D6  => s_BrrlOut,  -- Shift (left)
       	    i_D7  => s_AndOut,   -- And
       	    i_S	  => i_AluCntrl(3 downto 1), --Take left most 3 bits of alu cntrl

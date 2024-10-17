@@ -5,7 +5,7 @@
 -------------------------------------------------------------------------
 
 
--- lessThanModule.vhd
+-- equalityModule.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: This file contains a structural implementation of the 
 -- equality module for ALU
@@ -15,26 +15,20 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_arith.all;
-use IEEE.std_logic_signed.all;
 
-entity lessThanModule is
+entity equalityModule is
 
   port(i_A          : in std_logic_vector(31 downto 0);
        i_B          : in std_logic_vector(31 downto 0);
-       o_F          : out std_logic_vector(31 downto 0));
+       o_F          : out std_logic);
 
-end lessThanModule;
+end equalityModule;
 
-architecture dataflow of lessThanModule is
-
-signal s_A, s_B : std_logic_signed(31 downto 0);
+architecture dataflow of equalityModule is
 
 begin
 UNLABELED:
-    s_A <= conv_integer(i_A);
-    s_B <= conv_integer(i_b);
-    o_F <= "00000000000000000000000000000001" when s_A < s_B else "00000000000000000000000000000000";
+    o_F <= '1' when i_A = i_B else '0';
 
   
 end dataflow;
