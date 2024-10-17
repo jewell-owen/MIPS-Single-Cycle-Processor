@@ -24,32 +24,11 @@ entity equalityModule is
 
 end equalityModule;
 
-architecture dataflow of xorg2 is
-
-signal s_O          : in std_logic_vector(31 downto 0);
+architecture dataflow of equalityModule is
 
 begin
+UNLABELED:
+    o_F <= '1' when i_A = i_B else '0';
 
- process (i_A, i_B) is
- variable count: unsigned (5 downto 0);
-    begin
-	count:="000000";  
-	 for i in 0 to 31 loop
-             s_O(i) <= i_A xor i_B;
-         end loop;
-
-	 for i in 0 to 31 loop 
-             if(s_O(i)= '0') then                
-                count := count + 1;              
-             end if;            
-         end loop;         
-             
-         if(count > 0) then                
-               o_F <= '0';
-         else
-      	       o_F <= '1';
-         end if;
-   
-    end process;
   
 end dataflow;

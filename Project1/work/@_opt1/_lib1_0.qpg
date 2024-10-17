@@ -1,6 +1,652 @@
 m255
 K4
 z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+Z2 !s12c _opt2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+Z3 !s12c _opt
+R1
+R3
+R1
+R3
+R1
+R0
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+!s11e vcom 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z4 d/home/ojewell/Desktop
+T_opt
+!s110 1727991456
+Vb65@1JiKgE0NSg3HWf9I03
+04 16 8 work tb_barrelshifter behavior 1
+=1-6805ca47c68c-66ff0ea0-c3257-58e0
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+Z9 o-quiet -auto_acc_if_foreign -work work +acc
+Z10 tCvgOpt 0
+n@_opt
+Z11 OL;O;2024.2;79
+R4
+T_opt1
+!s110 1729184840
+VchIzC]co^JSKZ;@ifNJ?M2
+04 17 5 work tb_equalitymodule mixed 1
+=1-6805ca4a94a1-67114448-93195-31da
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt1
+R11
+T_opt2
+!s110 1728927874
+V`]0[AT`YB`hQmKSbaiXSc3
+04 22 5 work tb_carrylookaheadadder mixed 1
+=1-7486e2289dba-670d5882-5624d-68ae
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt2
+R11
+R4
+Eandg2
+Z12 w1728928672
+Z13 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z14 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1072
+Z15 d/home/ojewell/cpre381/CprE381Project1/Project1
+Z16 8/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
+Z17 F/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
+l0
+Z18 L23 1
+V14;Kgg<l^NcUXfn4K3W9P2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+Z19 OL;C;2024.2;79
+33
+Z20 !s110 1729184822
+!i10b 1
+!i113 0
+Z21 o-work work -2008 -explicit
+Z22 tExplicit 1 CvgOpt 0
+Adataflow
+R13
+R14
+DEx4 work 5 andg2 0 22 14;Kgg<l^NcUXfn4K3W9P2
+!i122 1072
+l32
+Z23 L31 6
+V9c5LK:0kmmhln[C60E=TS2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Ebarrelshifter
+Z24 w1728319086
+R13
+R14
+!i122 1070
+R15
+Z25 8/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
+Z26 F/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
+l0
+Z27 L18 1
+V@4bPn7NOlCIkWLJ[Wj@WT2
+!s100 ]@7>=@Eo0Tl]SW:lkIIJ62
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructural
+R13
+R14
+DEx4 work 13 barrelshifter 0 22 @4bPn7NOlCIkWLJ[Wj@WT2
+!i122 1070
+l53
+L27 166
+V5zEmS2AgWDQZ`Oz1WDO5U3
+!s100 >OhzN8oY?51`F@76kIgJo3
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Ebarrelshifterlogic
+Z28 w1727984834
+R13
+R14
+!i122 49
+R15
+R25
+R26
+l0
+R27
+V_EO0_e]AiNQXRFKmjoUM<0
+!s100 6f1haWKH_4[;0zObY`6cY0
+R19
+32
+Z29 !s110 1727985281
+!i10b 1
+!i113 0
+Z30 o-work work -2002 -explicit
+R22
+Astructural
+R13
+R14
+DEx4 work 18 barrelshifterlogic 0 22 _EO0_e]AiNQXRFKmjoUM<0
+!i122 49
+l39
+L26 125
+VSD12[Pf:FNh<c[2@S`IN=0
+!s100 3z;W_7GJjJel6>7>QV_ZI0
+R19
+32
+R29
+!i10b 1
+!i113 0
+R30
+R22
+Ecarrylookaheadadder
+Z31 w1729100233
+R13
+R14
+!i122 1066
+R15
+Z32 8/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
+Z33 F/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
+l0
+L28 1
+VN032K:7DGUM;TGTRc;0bR0
+!s100 OY_nRQNM8zUj1L`I1BE=@0
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Amixed
+R13
+R14
+DEx4 work 19 carrylookaheadadder 0 22 N032K:7DGUM;TGTRc;0bR0
+!i122 1066
+l78
+L38 88
+Ve@UQmW>=<Klcf`YGRbbCZ0
+!s100 n[oTjdgkTGf5CEc:=mUMT3
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Edffg
+Z34 w1727893385
+R13
+R14
+!i122 953
+R15
+Z35 8/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
+Z36 F/home/ojewell/cpre381/CprE381Project1/Project1/dffg.vhd
+l0
+R18
+VU4Z@1hOmhj;RN;m=o`PE50
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R19
+33
+Z37 !s110 1728928308
+!i10b 1
+!i113 0
+R21
+R22
+Amixed
+R13
+R14
+DEx4 work 4 dffg 0 22 U4Z@1hOmhj;RN;m=o`PE50
+!i122 953
+l37
+L33 29
+VcGk`70hTzUBQXe@mOZQMz3
+!s100 iOdlTUid@@]UimFK_53^C1
+R19
+33
+R37
+!i10b 1
+!i113 0
+R21
+R22
+Eequalitymodule
+Z38 w1729184516
+R13
+R14
+!i122 1078
+R15
+Z39 8/home/ojewell/cpre381/CprE381Project1/Project1/equalityModule.vhd
+Z40 F/home/ojewell/cpre381/CprE381Project1/Project1/equalityModule.vhd
+l0
+L19 1
+V[lUGSQX6AFX86H]i5N]Qe2
+!s100 [j?6ScTNYY[NP[hgHTF[90
+R19
+32
+Z41 !s110 1729184823
+!i10b 1
+!i113 0
+R30
+R22
+Adataflow
+R13
+R14
+DEx4 work 14 equalitymodule 0 22 [lUGSQX6AFX86H]i5N]Qe2
+!i122 1078
+l29
+L27 8
+Ve1S[J;_z:3A7ZXC5_SfaF0
+!s100 1GgAlid?]=:K5g<Of@^IG2
+R19
+32
+R41
+!i10b 1
+!i113 0
+R30
+R22
+Efulladder
+R12
+R13
+R14
+!i122 1067
+R15
+Z42 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
+Z43 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
+l0
+Z44 L17 1
+VjOZBC@XhXI>IkVCCIeAQ_3
+!s100 9AL1eZY<oRI^zSVec0f]72
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructure
+R13
+R14
+DEx4 work 9 fulladder 0 22 jOZBC@XhXI>IkVCCIeAQ_3
+!i122 1067
+l55
+L27 56
+Vhn4Z<?lb7WYWLk1faHgon0
+!s100 DE@YU0m:QjkmZYQ<7C@La1
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Efulladder_n
+R34
+R13
+R14
+!i122 954
+R15
+Z45 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
+Z46 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder_N.vhd
+l0
+R44
+V>mEGC3l?HK6^O]14P97b@3
+!s100 ?N]IR69HVAdS3Z1D7n?bo0
+R19
+33
+R37
+!i10b 1
+!i113 0
+R21
+R22
+Astructural
+R13
+R14
+DEx4 work 11 fulladder_n 0 22 >mEGC3l?HK6^O]14P97b@3
+!i122 954
+l40
+L27 42
+Vm3:_:7z:XW8@zWj8QB1LC1
+!s100 hzA_6S8X6kjT<AC`Mh>]G0
+R19
+33
+R37
+!i10b 1
+!i113 0
+R21
+R22
+Efulladdsub_n
+Z47 w1728593315
+R13
+R14
+!i122 955
+R15
+Z48 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
+Z49 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAddSub_N.vhd
+l0
+R44
+VPeo7o3bYZ:5?jQHQQ`JVb2
+!s100 EdF261G`oNC28j7V?`Gcb1
+R19
+33
+R37
+!i10b 1
+!i113 0
+R21
+R22
+Astructural
+R13
+R14
+DEx4 work 12 fulladdsub_n 0 22 Peo7o3bYZ:5?jQHQQ`JVb2
+!i122 955
+l56
+L27 55
+V:abE[O=BN>JAgUH>Oj[Hg3
+!s100 WMBQfkao8e;Y<H>k_EUM`0
+R19
+33
+R37
+!i10b 1
+!i113 0
+R21
+R22
+Einvg
+R12
+R13
+R14
+!i122 1073
+R15
+Z50 8/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
+Z51 F/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
+l0
+R18
+VV5ABnOY1@C84YczbbMJm43
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Adataflow
+R13
+R14
+DEx4 work 4 invg 0 22 V5ABnOY1@C84YczbbMJm43
+!i122 1073
+l31
+L30 6
+V?c8XNF03kj`aK82C8lK7Y1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Emux2t1
+R12
+R13
+R14
+!i122 1074
+R15
+Z52 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
+Z53 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
+l0
+R44
+V:M8U7bOR?><g?B]dN3ccW2
+!s100 __7T_:dn_:]6z>:>oP5Zg0
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructure
+R13
+R14
+DEx4 work 6 mux2t1 0 22 :M8U7bOR?><g?B]dN3ccW2
+!i122 1074
+l53
+L26 50
+VigHnT48FYI8JICe=:IH?=1
+!s100 3zS^>:ec`S]kWJ]4I=VJD1
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Emux2t1_n
+R12
+R13
+R14
+!i122 1075
+R15
+Z54 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
+Z55 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
+l0
+Z56 L21 1
+VGKAGGZo@HoE^@ac=ahMbD3
+!s100 BKZeKCAB2i6lge3>7TA3d3
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructural
+R13
+R14
+DEx4 work 8 mux2t1_n 0 22 GKAGGZo@HoE^@ac=ahMbD3
+!i122 1075
+l39
+L30 21
+VD8JT;V151T[9DO=XS34I]1
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Eonescomp
+R12
+R13
+R14
+!i122 1068
+R15
+Z57 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
+Z58 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
+l0
+R44
+V20?1AEF6DoOzBPa>VTPPW0
+!s100 gG9W5;_ifCkaUjnTgCAmg3
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructure
+R13
+R14
+DEx4 work 8 onescomp 0 22 20?1AEF6DoOzBPa>VTPPW0
+!i122 1068
+l32
+L24 15
+VQ<nJIC4<<eQI;983zki0M1
+!s100 O3JziCj`AH4fjD5b=9QaT0
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Eonescomp_n
+R12
+R13
+R14
+!i122 1069
+R15
+Z59 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
+Z60 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
+l0
+L16 1
+V@NEnRE`QGWRW`7m?_;bI@1
+!s100 kA1d1]kg6HS1BEU=K8kfj0
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Astructural
+R13
+R14
+DEx4 work 10 onescomp_n 0 22 @NEnRE`QGWRW`7m?_;bI@1
+!i122 1069
+l30
+L23 17
+Vlho`oKe6eaG=A]cDgLSVH2
+!s100 c2GCA8z4?][F`jkTQgJ332
+R19
+33
+R20
+!i10b 1
+!i113 0
+R21
+R22
+Eorg2
+R12
+R13
+R14
+!i122 1076
+R15
+Z61 8/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
+Z62 F/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
+l0
+R18
+Vmi<eg7K]IQ]UHDeXadIRl2
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R19
+33
+R41
+!i10b 1
+!i113 0
+R21
+R22
+Adataflow
+R13
+R14
+DEx4 work 4 org2 0 22 mi<eg7K]IQ]UHDeXadIRl2
+!i122 1076
+l32
+R23
+VYPSCdk<=TCTdM`giL9TZ10
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R19
+33
+R41
+!i10b 1
+!i113 0
+R21
+R22
+Etb_barrelshifter
+Z63 w1727991116
+R13
+R14
+!i122 230
+R15
+Z64 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+Z65 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_barrelShifter.vhd
+l0
+R44
+VGe2lZW;K8]YOgjajPAKQP1
+!s100 IT;N0fD>5GXYCXG1=LCWk1
+R19
+32
+Z66 !s1m255
+K4
+z2
 !s8c locked
 !s11f vlog 2024.2 2024.05, May 20 2024
 !s11e vcom 2024.2 2024.05, May 20 2024
