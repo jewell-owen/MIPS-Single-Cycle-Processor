@@ -145,16 +145,16 @@ architecture structure of MIPS_Processor is
 	o_Zero			: out std_logic;
 	o_C			: out std_logic;
 	o_O			: out std_logic;
-	o_AluOut		: out std_logic(31 downto 0)
+	o_AluOut		: out std_logic_vector(31 downto 0)
 	);
   end component;
 
 
 
-  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui		: std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong				: std_logic_vector(31 downto 0);  
   signal s_is_Brch, s_is_Jump, s_is_JumpReg, s_is_JumpLink, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel	: std_logic;
-  signal s_rs_sel,s_rt_sel    						: std_logic_vector(4 downto 0);
-  signal s_aluctr    							: std_logic_vector(3 downto 0);
+  signal s_rs_sel,s_rt_sel    														: std_logic_vector(4 downto 0);
+  signal s_aluctr    															: std_logic_vector(3 downto 0);
   
 
 
@@ -202,8 +202,8 @@ begin
 		i_CLK        => iCLK, 
        		i_RST        => iRST, 
 		i_regWrite   => s_RegWr, 
-       		i_rs_sel     => s_Inst,
-       		i_rt_sel     => s_Inst,
+       		i_rs_sel     => s_Inst(25 downto 21),
+       		i_rt_sel     => s_Inst(20 downto 16),
        		i_rd_sel     => s_RegWrAddr, 
        		i_rd_D	     => s_RegWrData, 
        		o_rs_D       => s_rs_DA,
@@ -214,10 +214,14 @@ begin
 
   g_NBITMUX_RegWrAddr: mux2t1_N port map (
 		i_S => s_regDst,	
-		i_D0 => s_Inst,   
-		i_D1 => s_Inst, 
-		o_O => s_RegWrAddr
+		i_D0(31 downto 5) => "000000000000000000000000000", -- 27 zeros and 5 address bits
+		i_D0(4 downto 0) => s_Inst(20 downto 16), 
+		i_D1(31 downto 5) => "000000000000000000000000000", -- 27 zeros and 5 address bits
+		i_D1(4 downto 0) => s_Inst(15 downto 11), 
+		o_O => s_RegWrAddrLong
 		);
+
+  s_RegWrAddr <= s_RegWrAddrLong(4 downto 0);
 
   g_NBITMUX_ALUB: mux2t1_N port map (
 		i_S => s_aluSrc,	
@@ -243,7 +247,7 @@ begin
   g_NBITMUX_Lui: mux2t1_N port map (
 		i_S => s_is_Lui,	
 		i_D0 => s_DMemOrAlu,   
-		i_D1(31 downto 16) => s_Inst, -- Lui: upper 16 bits is immediate value and lower 16 bits is filled with zeros
+		i_D1(31 downto 16) => s_Inst(15 downto 0), -- Lui: upper 16 bits is immediate value and lower 16 bits is filled with zeros
 		i_D1(15 downto 0) => x"0000",
 		o_O => s_DMemOrAluOrLui
 		);
@@ -263,8 +267,8 @@ begin
 		);
 
   g_CONTRUNIT : controlUnit port map(
-		op_Code	    		=> s_Inst,	
-		Funct		    	=> s_Inst,	
+		op_Code	    		=> s_Inst(31 downto 26),	
+		Funct		    	=> s_Inst(5 downto 0),	
 		RegDst		    	=> s_regDst,	
 		MemtoReg 	   	=> s_MemtoReg,	
 		MemWrite 	    	=> s_DMemWr,	
@@ -275,8 +279,8 @@ begin
  		bne 		    	=> s_is_Brch,
 		j  		        => s_is_Jump,	
 		jr 		        => s_is_JumpReg,	
-		sltu            	=> CLK,	--
-		shiftVariable   	=> CLK,	--
+		sltu            	=> iCLK,	--
+		shiftVariable   	=> iCLK,	--
 		upper_immediate 	=> s_is_Lui,	
 		--jal 			=> s_is_JumpLink,	
 		--signExtSel 		=> s_signExtSel,
@@ -286,7 +290,7 @@ begin
   g_ALU : alu port map(
 		i_A			=> s_rs_DA,
 		i_B			=> s_ialuB,
-		i_brr1Shamt		=> s_Inst,
+		i_brr1Shamt		=> s_Inst(10 downto 6),
 		i_AluCntrl		=> s_aluctr,
 		o_Zero			=> s_is_zero,
 		o_C			=> s_aluCar,
