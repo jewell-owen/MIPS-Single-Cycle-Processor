@@ -159,6 +159,8 @@ signal s_NorOut  : std_logic_vector(31 downto 0);
 signal s_SltOut  : std_logic_vector(31 downto 0);
 signal s_OrNorOut  : std_logic_vector(31 downto 0);
 signal s_EqlMuxOut : std_logic_vector(31 downto 0);
+signal s_NotAluZero : std_logic;
+signal s_NotAluTwo : std_logic;
 signal s_EqlOut    : std_logic;
 signal s_NotEqlOut : std_logic;
 
@@ -238,10 +240,21 @@ MUXORNOR: mux2t1_N
            i_D1     => s_OrOut,  
            o_O      => s_OrNorOut);  
 
+g_NotAluZero: invg
+  port map(
+           i_A      => i_AluCntrl(0),
+           o_F      => s_NotAluZero);
+
+g_NotAluTwo: invg
+  port map(
+           i_A      => i_AluCntrl(2),
+           o_F      => s_NotAluTwo);
+
+
 b_barrelShifter : barrelShifter
   port map(
            i_Shft_Type_Sel    =>   i_AluCntrl(0),
-           i_Shft_Dir         =>   i_AluCntrl(2),
+           i_Shft_Dir         =>   s_NotAluTwo,
  	   i_Shft_Amt         =>   i_BrrlShamt,      
            i_D                =>   i_B,                  
            o_O                =>   s_BrrlOut); 
