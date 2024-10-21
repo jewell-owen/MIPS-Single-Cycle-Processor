@@ -1,10 +1,13 @@
-/home/ojewell/cpre381/CprE381Project1/Project1/tb_ALU.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_ALU.vhd
+/home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity tb_ALU
--- Compiling architecture mixed of tb_ALU
+-- Loading package std_logic_textio
+-- Loading package ENV
+** Warning: /home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd(15): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_mux8t1_32
+-- Compiling architecture mixed of tb_mux8t1_32
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/lessThanModule.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/lessThanModule.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -15,17 +18,6 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STD_LOGIC_SIGNED
 -- Compiling entity lessThanModule
 -- Compiling architecture dataflow of lessThanModule
-
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_textio
--- Loading package ENV
-** Warning: /home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd(15): (vcom-1516) Package "STD.ENV" does not exist in this language version.
--- Compiling entity tb_mux8t1_32
--- Compiling architecture mixed of tb_mux8t1_32
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -62,14 +54,6 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity tb_equalityModule
 -- Compiling architecture mixed of tb_equalityModule
 
-} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity carryLookaheadAdder
--- Compiling architecture mixed of carryLookaheadAdder
-
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
@@ -77,6 +61,14 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package std_logic_1164
 -- Compiling entity onesComp_N
 -- Compiling architecture structural of onesComp_N
+
+} {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity carryLookaheadAdder
+-- Compiling architecture mixed of carryLookaheadAdder
 
 } {} {}} /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
