@@ -230,7 +230,7 @@ begin
 
   g_NBITMUX_RegWrAddrJAL: mux2t1_N port map (
 		i_S => s_is_Jump,	
-		i_D0 => s_RegWrAddrLongOut
+		i_D0 => s_RegWrAddrLongOut,
 		i_D1 => x"0000001F",
 		o_O => s_RegWrAddrLong
 		);
