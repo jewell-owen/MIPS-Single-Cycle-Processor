@@ -9,6 +9,10 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
 Z2 !s12c _opt1
 R1
 R0
@@ -126,10 +130,10 @@ n@_opt1
 R11
 R4
 T_opt2
-!s110 1729457512
-VGm2T2H9h>7I8kMn:B?9=02
+!s110 1729522979
+V]LACcZ`<=h;mXe_hz1nNJ0
 R12
-=1-6805ca47c5a4-67156d68-6744d-54e0
+=1-6805ca47c5a4-67166d23-b0b37-28d3
 R1
 R5
 R6
@@ -140,10 +144,10 @@ R10
 n@_opt2
 R11
 Ealu
-Z13 w1729457497
+Z13 w1729522830
 Z14 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z15 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 2007
+!i122 2067
 Z16 d/home/ojewell/cpre381/CprE381Project1/Project1
 Z17 8/home/ojewell/cpre381/CprE381Project1/Project1/alu.vhd
 Z18 F/home/ojewell/cpre381/CprE381Project1/Project1/alu.vhd
@@ -153,9 +157,9 @@ VhQMXjN]5BQXE9ek59@^OC1
 !s100 mXhViLe9m[Lm7S_eWmRSn3
 Z20 OL;C;2024.2;79
 32
-Z21 !s110 1729457500
+Z21 !s110 1729522972
 !i10b 1
-Z22 !s108 1729457500.000000
+Z22 !s108 1729522972.000000
 Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/alu.vhd|
 Z24 !s107 /home/ojewell/cpre381/CprE381Project1/Project1/alu.vhd|
 !i113 0
@@ -165,11 +169,11 @@ Astructural
 R14
 R15
 DEx4 work 3 alu 0 22 hQMXjN]5BQXE9ek59@^OC1
-!i122 2007
+!i122 2067
 l168
 L56 220
-VnRm4TGebfS_XEEH9W`T<`2
-!s100 D=z@MLTF675N;LW[Bo7K[2
+V_NNQR=]:Aan66eXembOSO1
+!s100 O39PVhSS2MXFk>K1@SP9^2
 R20
 32
 R21
@@ -184,7 +188,7 @@ Eandg2
 Z27 w1728928672
 R14
 R15
-!i122 1999
+!i122 2059
 R16
 Z28 8/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
 Z29 F/home/ojewell/cpre381/CprE381Project1/Project1/andg2.vhd
@@ -206,7 +210,7 @@ Adataflow
 R14
 R15
 DEx4 work 5 andg2 0 22 14;Kgg<l^NcUXfn4K3W9P2
-!i122 1999
+!i122 2059
 l32
 Z34 L31 6
 V9c5LK:0kmmhln[C60E=TS2
@@ -225,7 +229,7 @@ Ebarrelshifter
 Z35 w1729199292
 R14
 R15
-!i122 1997
+!i122 2057
 R16
 Z36 8/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
 Z37 F/home/ojewell/cpre381/CprE381Project1/Project1/barrelShifter.vhd
@@ -247,7 +251,7 @@ Astructural
 R14
 R15
 DEx4 work 13 barrelshifter 0 22 @4bPn7NOlCIkWLJ[Wj@WT2
-!i122 1997
+!i122 2057
 l53
 L27 166
 V5zEmS2AgWDQZ`Oz1WDO5U3
@@ -307,7 +311,7 @@ Ecarrylookaheadadder
 R35
 R14
 R15
-!i122 1995
+!i122 2055
 R16
 Z45 8/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
 Z46 F/home/ojewell/cpre381/CprE381Project1/Project1/carryLookAheadAdder.vhd
@@ -329,7 +333,7 @@ Amixed
 R14
 R15
 DEx4 work 19 carrylookaheadadder 0 22 N032K:7DGUM;TGTRc;0bR0
-!i122 1995
+!i122 2055
 l78
 L38 88
 Ve@UQmW>=<Klcf`YGRbbCZ0
@@ -389,7 +393,7 @@ Eequalitymodule
 R35
 R14
 R15
-!i122 2005
+!i122 2065
 R16
 Z56 8/home/ojewell/cpre381/CprE381Project1/Project1/equalityModule.vhd
 Z57 F/home/ojewell/cpre381/CprE381Project1/Project1/equalityModule.vhd
@@ -411,7 +415,7 @@ Adataflow
 R14
 R15
 DEx4 work 14 equalitymodule 0 22 [lUGSQX6AFX86H]i5N]Qe2
-!i122 2005
+!i122 2065
 l29
 Z61 L27 8
 Ve1S[J;_z:3A7ZXC5_SfaF0
@@ -430,7 +434,7 @@ Eequalitymuxmodule
 R35
 R14
 R15
-!i122 2008
+!i122 2068
 R16
 Z62 8/home/ojewell/cpre381/CprE381Project1/Project1/equalityMuxModule.vhd
 Z63 F/home/ojewell/cpre381/CprE381Project1/Project1/equalityMuxModule.vhd
@@ -452,7 +456,7 @@ Adataflow
 R14
 R15
 DEx4 work 17 equalitymuxmodule 0 22 KZOKHBTXJ_L=ioj2[]N<B0
-!i122 2008
+!i122 2068
 l29
 R61
 VdR1UP^5IfLEzjF`N=Z_Hc1
@@ -471,7 +475,7 @@ Efulladder
 R35
 R14
 R15
-!i122 1996
+!i122 2056
 R16
 Z66 8/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
 Z67 F/home/ojewell/cpre381/CprE381Project1/Project1/fullAdder.vhd
@@ -493,7 +497,7 @@ Astructure
 R14
 R15
 DEx4 work 9 fulladder 0 22 jOZBC@XhXI>IkVCCIeAQ_3
-!i122 1996
+!i122 2056
 l55
 L27 56
 Vhn4Z<?lb7WYWLk1faHgon0
@@ -594,7 +598,7 @@ Einvg
 R27
 R14
 R15
-!i122 2000
+!i122 2060
 R16
 Z80 8/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
 Z81 F/home/ojewell/cpre381/CprE381Project1/Project1/invg.vhd
@@ -616,7 +620,7 @@ Adataflow
 R14
 R15
 DEx4 work 4 invg 0 22 V5ABnOY1@C84YczbbMJm43
-!i122 2000
+!i122 2060
 l31
 L30 6
 V?c8XNF03kj`aK82C8lK7Y1
@@ -637,7 +641,7 @@ Z84 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z85 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 R14
 R15
-!i122 2009
+!i122 2069
 R16
 Z86 8/home/ojewell/cpre381/CprE381Project1/Project1/lessThanModule.vhd
 Z87 F/home/ojewell/cpre381/CprE381Project1/Project1/lessThanModule.vhd
@@ -661,7 +665,7 @@ R85
 R14
 R15
 DEx4 work 14 lessthanmodule 0 22 9N5SG1^_zB9Knb456Gc:70
-!i122 2009
+!i122 2069
 l30
 L28 11
 Vh^We@[;Cj0GMYAoEN]C9l0
@@ -680,7 +684,7 @@ Emux2t1
 R27
 R14
 R15
-!i122 2001
+!i122 2061
 R16
 Z90 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
 Z91 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1.vhd
@@ -702,7 +706,7 @@ Astructure
 R14
 R15
 DEx4 work 6 mux2t1 0 22 :M8U7bOR?><g?B]dN3ccW2
-!i122 2001
+!i122 2061
 l53
 L26 50
 VigHnT48FYI8JICe=:IH?=1
@@ -721,7 +725,7 @@ Emux2t1_n
 R27
 R14
 R15
-!i122 2002
+!i122 2062
 R16
 Z94 8/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
 Z95 F/home/ojewell/cpre381/CprE381Project1/Project1/mux2t1_N.vhd
@@ -743,7 +747,7 @@ Astructural
 R14
 R15
 DEx4 work 8 mux2t1_n 0 22 GKAGGZo@HoE^@ac=ahMbD3
-!i122 2002
+!i122 2062
 l39
 L30 21
 VD8JT;V151T[9DO=XS34I]1
@@ -762,7 +766,7 @@ Emux8t1_32
 R35
 R14
 R15
-!i122 2006
+!i122 2066
 R16
 Z99 8/home/ojewell/cpre381/CprE381Project1/Project1/mux8t1_32.vhd
 Z100 F/home/ojewell/cpre381/CprE381Project1/Project1/mux8t1_32.vhd
@@ -784,7 +788,7 @@ Astructural
 R14
 R15
 DEx4 work 9 mux8t1_32 0 22 0CNXzJBKB;iYjkcFka:Dj1
-!i122 2006
+!i122 2066
 l41
 L30 63
 VzWc]Z7]^lnNFnh01_AN?E3
@@ -803,7 +807,7 @@ Eonescomp
 R35
 R14
 R15
-!i122 2011
+!i122 2071
 R16
 Z103 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
 Z104 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp.vhd
@@ -825,7 +829,7 @@ Astructure
 R14
 R15
 DEx4 work 8 onescomp 0 22 lKeHUgMj^cUokm=IjD3On2
-!i122 2011
+!i122 2071
 l32
 L24 15
 Vj092eKmEXRR<jiQ`8X0fm1
@@ -844,7 +848,7 @@ Eonescomp_n
 R35
 R14
 R15
-!i122 2010
+!i122 2070
 R16
 Z107 8/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
 Z108 F/home/ojewell/cpre381/CprE381Project1/Project1/onesComp_N.vhd
@@ -866,7 +870,7 @@ Astructural
 R14
 R15
 DEx4 work 10 onescomp_n 0 22 [MbIMXTB2AkdJ<bY5N<NU1
-!i122 2010
+!i122 2070
 l30
 L23 17
 V;Dg?IPED6RjS?Di<RLTHc3
@@ -885,7 +889,7 @@ Eorg2
 R27
 R14
 R15
-!i122 2003
+!i122 2063
 R16
 Z111 8/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
 Z112 F/home/ojewell/cpre381/CprE381Project1/Project1/org2.vhd
@@ -907,7 +911,7 @@ Adataflow
 R14
 R15
 DEx4 work 4 org2 0 22 mi<eg7K]IQ]UHDeXadIRl2
-!i122 2003
+!i122 2063
 l32
 R34
 VYPSCdk<=TCTdM`giL9TZ10
@@ -923,10 +927,10 @@ R114
 R33
 R26
 Etb_alu
-Z115 w1729456489
+Z115 w1729522957
 R14
 R15
-!i122 2012
+!i122 2072
 R16
 Z116 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_ALU.vhd
 Z117 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_ALU.vhd
@@ -948,11 +952,11 @@ Amixed
 R14
 R15
 DEx4 work 6 tb_alu 0 22 L7XgUn^ePRWTFj:XS1K<[2
-!i122 2012
+!i122 2072
 l46
 L21 481
-VEgH1Y4maFQ2C5;0f5KiI;3
-!s100 bZnYU3mN9LOofY4eddmJD3
+V:AA;0eo6Xj3MOSZQ:MhB:3
+!s100 STl37ekj3oYLYDdJSMcR;0
 R20
 32
 R21
@@ -1055,7 +1059,7 @@ R128
 R129
 R14
 R15
-!i122 2013
+!i122 2073
 R16
 Z136 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_equalityModule.vhd
 Z137 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_equalityModule.vhd
@@ -1079,7 +1083,7 @@ R129
 R14
 R15
 DEx4 work 17 tb_equalitymodule 0 22 3TcBWkMX9]VHFbFXJCcfG0
-!i122 2013
+!i122 2073
 l47
 L22 114
 VME84d407K`<E5MZaN85ce3
@@ -1100,7 +1104,7 @@ R128
 R129
 R14
 R15
-!i122 2014
+!i122 2074
 R16
 Z140 8/home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd
 Z141 F/home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd
@@ -1110,7 +1114,7 @@ V`C[:iea51zlCT0GO^G1]01
 !s100 JdBb@z;mnAXMh`I1;Sbhi3
 R20
 32
-Z142 !s110 1729457501
+Z142 !s110 1729522973
 !i10b 1
 R22
 Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/ojewell/cpre381/CprE381Project1/Project1/tb_mux8t1_32.vhd|
@@ -1124,7 +1128,7 @@ R129
 R14
 R15
 DEx4 work 12 tb_mux8t1_32 0 22 `C[:iea51zlCT0GO^G1]01
-!i122 2014
+!i122 2074
 l59
 L22 204
 V@H3f:fOC_n>=1RiHZjd@d2
@@ -1184,7 +1188,7 @@ Evectorreverser_n
 R35
 R14
 R15
-!i122 1998
+!i122 2058
 R16
 Z150 8/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
 Z151 F/home/ojewell/cpre381/CprE381Project1/Project1/vectorReverser_N.vhd
@@ -1206,7 +1210,7 @@ Adataflow
 R14
 R15
 DEx4 work 16 vectorreverser_n 0 22 Pz0iNcOaAaa;DFITjN?jA2
-!i122 1998
+!i122 2058
 l29
 L25 19
 VD1SKoD^zzfNM3X<c7O?iZ2
@@ -1225,7 +1229,7 @@ Exorg2
 R27
 R14
 R15
-!i122 2004
+!i122 2064
 R16
 Z154 8/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
 Z155 F/home/ojewell/cpre381/CprE381Project1/Project1/xorg2.vhd
@@ -1247,7 +1251,7 @@ Adataflow
 R14
 R15
 DEx4 work 5 xorg2 0 22 OZPm5jBoVdPDb7[3zWzZD2
-!i122 2004
+!i122 2064
 l32
 R34
 V7_ZYiRRQelNmCooYeK?5e0

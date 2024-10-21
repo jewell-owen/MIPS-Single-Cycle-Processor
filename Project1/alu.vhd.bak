@@ -253,7 +253,7 @@ g_NotAluTwo: invg
 
 b_barrelShifter : barrelShifter
   port map(
-           i_Shft_Type_Sel    =>   i_AluCntrl(2),
+           i_Shft_Type_Sel    =>   i_AluCntrl(0),
            i_Shft_Dir         =>   s_NotAluTwo,
  	   i_Shft_Amt         =>   i_BrrlShamt,      
            i_D                =>   i_B,                  
