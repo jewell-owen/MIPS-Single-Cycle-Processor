@@ -32,6 +32,7 @@ entity controlUnit is
 	sltu            	: out std_logic;
 	shiftVariable   	: out std_logic;
 	upper_immediate 	: out std_logic;
+	signSel		 	: out std_logic;
 	halt                    : out std_logic);
 
 
@@ -71,6 +72,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
 					shiftVariable   <= '0';
+					signSel	        <= '1';
 					upper_immediate <= '0';
                 		
 				--Instruction -> "add"
@@ -88,6 +90,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 
@@ -105,6 +108,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 				
 				--Instruction -> "and"
@@ -121,6 +125,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "nor"
@@ -137,6 +142,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "xor"
@@ -153,6 +159,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "or"
@@ -169,6 +176,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 	
 				--Instruction -> "slt"
@@ -185,6 +193,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "sltu"
@@ -201,6 +210,7 @@ begin
 					jr              <= '0';
 					sltu            <= '1';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "sll"
@@ -217,6 +227,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "srl"
@@ -233,6 +244,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "sra"
@@ -249,6 +261,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "sllv"
@@ -265,6 +278,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '1';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "srlv"
@@ -281,6 +295,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '1';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 				
 				--Instruction -> "srav"
@@ -297,6 +312,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '1';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 		
 				--Instruction -> "sub"	
@@ -313,6 +329,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 				
 				--Instruction -> "subu"
@@ -329,6 +346,7 @@ begin
 					jr              <= '0';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 				--Instruction -> "jr" //jump and register
@@ -345,6 +363,7 @@ begin
 					jr              <= '1';
 					sltu            <= '0';
                     			shiftVariable   <= '0';
+					signSel	        <= '1';
                     			upper_immediate <= '0';
 
 			--Immediate instructions
@@ -362,6 +381,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 			--Instruction -> "addiu"
@@ -378,6 +398,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -395,6 +416,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '0';
                 		upper_immediate <= '0';
 
 
@@ -412,6 +434,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '1';
 
 
@@ -429,6 +452,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -446,6 +470,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '0';
                 		upper_immediate <= '0';
 
 			
@@ -463,6 +488,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -480,6 +506,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '1';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -498,6 +525,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -515,6 +543,7 @@ begin
                 		jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -533,6 +562,7 @@ begin
 				jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 
@@ -550,6 +580,7 @@ begin
 				jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 
 			--Instruction -> "j"
@@ -566,6 +597,7 @@ begin
 				jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
 			
 			--Instruction -> "jal"
@@ -582,6 +614,7 @@ begin
 				jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
                 		
 			--Instruction -> "halt"
@@ -598,6 +631,7 @@ begin
 				jr              <= '0';
                 		sltu            <= '0';
                 		shiftVariable   <= '0';
+				signSel	        <= '1';
                 		upper_immediate <= '0';
                 		s_halt          <= '1';
 
