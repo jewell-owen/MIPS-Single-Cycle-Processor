@@ -1,4 +1,20 @@
-/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd
+/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux8t1_32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux8t1_32.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux8t1_32
+-- Compiling architecture structural of mux8t1_32
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/equalityModule.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/equalityModule.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity equalityModule
+-- Compiling architecture dataflow of equalityModule
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/andg2.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -51,27 +67,15 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
 
-} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd {0 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/lessThanModule.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/lessThanModule.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package MIPS_types
--- Compiling entity MIPS_Processor
--- Compiling architecture structure of MIPS_Processor
-** Error: /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(148): (vcom-1353) Element constraint at depth 1 cannot apply to non-composite type (ieee.std_logic_1164.STD_LOGIC).
-** Error: /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(278): Cannot assign to object "iCLK" of mode IN.
-** Error: /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(279): Cannot assign to object "iCLK" of mode IN.
-** Error: /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(294): Signal "s_aluOut" is type ieee.std_logic_1164.STD_LOGIC_VECTOR; expecting type ieee.std_logic_1164.STD_LOGIC.
-** Error (suppressible): /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(219): (vcom-1272) Length of formal "o_O" is 32; length of actual is 5.
-** Note: /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/MIPS_Processor.vhd(302): VHDL Compiler exiting
-
-} {9.0 13.0} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/array_type.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling package array_type
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity lessThanModule
+-- Compiling architecture dataflow of lessThanModule
 
 } {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/adder1bit.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
@@ -114,6 +118,14 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity adder_N
 -- Compiling architecture structure of adder_N
 
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/equalityMuxModule.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/equalityMuxModule.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity equalityMuxModule
+-- Compiling architecture dataflow of equalityMuxModule
+
 } {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/dffg.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
@@ -130,6 +142,14 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity fetchLogic
 -- Compiling architecture structural of fetchLogic
 
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity controlUnit
+-- Compiling architecture behavioral of controlUnit
+
 } {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/sign_ext.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
@@ -140,14 +160,6 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling entity sign_ext
 -- Compiling architecture dataflow of sign_ext
 
-} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/controlUnit.vhd
-QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity controlUnit
--- Compiling architecture behavioral of controlUnit
-
 } {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/mux2t1.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package STANDARD
@@ -155,6 +167,14 @@ QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
 -- Loading package std_logic_1164
 -- Compiling entity mux2t1
 -- Compiling architecture structure of mux2t1
+
+} {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/alu.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/alu.vhd
+QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity alu
+-- Compiling architecture structural of alu
 
 } {} {}} /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/high_level/xorg2.vhd
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
