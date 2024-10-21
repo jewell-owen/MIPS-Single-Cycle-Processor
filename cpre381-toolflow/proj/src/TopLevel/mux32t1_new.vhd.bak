@@ -18,7 +18,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 library work;
-use work.MIPS_types.all;
+use work.array_type.all;
 
 entity mux32t1_new is
 
