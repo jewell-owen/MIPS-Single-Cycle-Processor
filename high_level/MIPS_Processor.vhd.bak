@@ -158,7 +158,7 @@ architecture structure of MIPS_Processor is
 
 
   signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong				: std_logic_vector(31 downto 0);  
-  signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp		: std_logic;
+  signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp, tempt		: std_logic;
   signal s_rs_sel,s_rt_sel    														: std_logic_vector(4 downto 0);
   signal s_aluctr    															: std_logic_vector(3 downto 0);
   
@@ -286,7 +286,7 @@ begin
 		j  		        => s_is_Jump,	-- used to j and jal control
 		jr 		        => s_is_JumpReg,	
 		sltu            	=> temp,	-- not needed?
-		shiftVariable   	=> temp,	-- not needed?
+		shiftVariable   	=> tempt,	-- not needed?
 		upper_immediate 	=> s_is_Lui,	
 		--signExtSel 		=> s_signExtSel,
 		halt                    => s_Halt	

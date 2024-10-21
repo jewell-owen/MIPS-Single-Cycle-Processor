@@ -98,6 +98,7 @@ architecture structure of MIPS_Processor is
 	sltu            	: out std_logic;
 	shiftVariable   	: out std_logic;
 	upper_immediate 	: out std_logic;
+	signSel		 	: out std_logic;
 	halt                    : out std_logic
 	);
   end component;
@@ -288,7 +289,7 @@ begin
 		sltu            	=> temp,	-- not needed?
 		shiftVariable   	=> tempt,	-- not needed?
 		upper_immediate 	=> s_is_Lui,	
-		--signExtSel 		=> s_signExtSel,
+		signSel 		=> s_signExtSel,
 		halt                    => s_Halt	
 		);
 

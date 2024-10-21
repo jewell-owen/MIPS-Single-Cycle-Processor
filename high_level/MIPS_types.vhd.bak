@@ -29,9 +29,3 @@ end package MIPS_types;
 package body MIPS_types is
   -- Probably won't need anything here... function bodies, etc.
 end package body MIPS_types;
-
-package array_type is
-	
-	type array_logic_vector is array (natural range <>) of std_logic_vector;
-
-end package array_type;
