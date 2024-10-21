@@ -130,7 +130,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0011";
+					ALUControl      <= "0000";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -210,7 +210,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1111";
+					ALUControl      <= "1101";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -226,7 +226,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1000";
+					ALUControl      <= "1001";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -242,7 +242,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1101";
+					ALUControl      <= "1000";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -306,7 +306,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0110";
+					ALUControl      <= "0011";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -322,7 +322,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0110";
+					ALUControl      <= "0011";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -422,7 +422,7 @@ begin
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
-				ALUControl      <= "0001";
+				ALUControl      <= "0100";
 				beq             <= '0';
                 		bne             <= '0';
                 		j               <= '0';
