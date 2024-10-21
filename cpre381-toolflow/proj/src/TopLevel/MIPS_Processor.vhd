@@ -201,7 +201,7 @@ begin
 
   g_SIGNEXT: sign_ext port map(
 		i_signSel 	=> s_signExtSel,
-		i_imm 		=> s_Inst, 
+		i_imm 		=> s_Inst(15 downto 0), 
 		o_imm 		=> s_imm 
 		);
 
