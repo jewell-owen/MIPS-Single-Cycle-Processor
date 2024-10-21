@@ -369,7 +369,7 @@ begin
 			--Immediate instructions
 			--Instruction -> "addi"
 			elsif (code = "001000" and R_type='0') then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -386,7 +386,7 @@ begin
 
 			--Instruction -> "addiu"
 			elsif (code = "001001") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -404,7 +404,7 @@ begin
 
 			--Instruction -> "andi"
 			elsif (code = "001100") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -422,7 +422,7 @@ begin
 
 			--Instruction -> "lui"
 			elsif (code = "001111") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -440,7 +440,7 @@ begin
 
 			--Instruction -> "xori"
 			elsif (code = "001110") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -458,7 +458,7 @@ begin
 
 			--Instruction -> "ori"
 			elsif (code = "001101") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -476,7 +476,7 @@ begin
 			
 			--Instruction -> "slti"
 		 	elsif (code = "001010") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -494,7 +494,7 @@ begin
 
 			--Instruction -> "sltiu"
 			elsif (code = "001011") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
