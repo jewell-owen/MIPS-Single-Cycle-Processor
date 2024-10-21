@@ -141,7 +141,7 @@ architecture structure of MIPS_Processor is
   component alu is
     port(i_A			: in std_logic_vector(31 downto 0);
 	i_B			: in std_logic_vector(31 downto 0);
-	i_brr1Shamt		: in std_logic_vector(4 downto 0);
+	i_Brr1Shamt		: in std_logic_vector(4 downto 0);
 	i_AluCntrl		: in std_logic_vector(3 downto 0);
 	o_Zero			: out std_logic;
 	o_C			: out std_logic;
@@ -296,7 +296,7 @@ begin
   g_ALU : alu port map(
 		i_A			=> s_rs_DA,
 		i_B			=> s_ialuB,
-		i_brr1Shamt		=> s_Inst(10 downto 6),
+		i_Brr1Shamt		=> s_Inst(10 downto 6),
 		i_AluCntrl		=> s_aluctr,
 		o_Zero			=> s_is_zero,
 		o_C			=> s_aluCar,
