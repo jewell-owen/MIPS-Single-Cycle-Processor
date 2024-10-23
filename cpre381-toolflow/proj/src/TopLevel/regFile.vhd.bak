@@ -20,7 +20,7 @@ use IEEE.numeric_std_unsigned.all;
 use IEEE.numeric_std.all;
 
 library work;
-use work.array_type.all;
+use work.MIPS_types.all;
 
 entity regFile is
   

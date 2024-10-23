@@ -119,7 +119,7 @@ G_NBit_FULL: for i in 0 to 31 generate
 
 g_Xor: xorg2
     port MAP(i_A             => w_C(31),
-             i_B             => s_CO,
+             i_B             => ,
              o_F             => o_O);
 
 w_C(0) <= i_nAddSub;
