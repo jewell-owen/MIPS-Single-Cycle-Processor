@@ -32,7 +32,7 @@ end reg_N;
 architecture structure of reg_N is
 
 
-  component dffgPC
+  component dffg
     port(i_CLK        : in std_logic;     -- Clock input
          i_RST        : in std_logic;     -- Reset input
          i_WE         : in std_logic;     -- Write enable input
@@ -44,7 +44,7 @@ architecture structure of reg_N is
 begin
 
   G_NBit_Reg: for i in 0 to N-1 generate
-    REGI: dffgPC port map(
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
