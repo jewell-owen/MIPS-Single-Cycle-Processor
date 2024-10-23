@@ -5,7 +5,7 @@
 -------------------------------------------------------------------------
 -- control_tb.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contains a Control Unit test bench implementation
+-- DESCRIPTION: This file contains a control test bench implementation
 -------------------------------------------------------------------------
 
 
@@ -76,7 +76,12 @@ begin
 P_TEST_CASES: process
     begin
 
-    --each test
+   --initialize inputs
+    s_O <= "000000"; -- Initialize opcode to a valid value
+    s_F <= "000000"; -- Initialize function to a valid value
+    wait for 100 ns;
+
+    --begin each test case
     --Instruction -> "add"
     s_O <= "000000";
     s_F <= "100000";
@@ -225,7 +230,7 @@ P_TEST_CASES: process
     s_F <= "000000";
     wait for 100 ns;
 
-    --Instruction -> "jr" //jump and register
+    --Instruction -> "jr" 
     s_O <= "000000";
     s_F <= "001000";
     wait for 100 ns;
@@ -236,7 +241,7 @@ P_TEST_CASES: process
     wait for 100 ns;
     
     --Instruction -> "halt"
-    s_O <= "010100";
+    s_O <= "010001";
     s_F <= "000000";
     wait for 100 ns;
 

@@ -3,20 +3,15 @@
 -- Department of Electrical and Computer Engineering
 -- Iowa State University
 -------------------------------------------------------------------------
--- ControlUnit.vhd
+-- control.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contain a Control  
--- implementation.
+-- DESCRIPTION: This file contains a control implementation.
 -------------------------------------------------------------------------
-
--- Over the weekend will finish the implementation according to the CPRE 381 Project 1 Schematics
--- Specifically will focus on the input implemtation with the instruction memory module. 
-
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity controlUnit is
+entity control is
   port(op_Code	    		: in std_logic_vector(5 downto 0);
 	Funct		    	: in std_logic_vector(5 downto 0);
 	RegDst		    	: out std_logic;
@@ -36,9 +31,9 @@ entity controlUnit is
 
 
 
-end controlUnit;
+end control;
 
-architecture behavioral of controlUnit is
+architecture behavioral of control is
 signal opCode                   : std_logic_vector(5 downto 0);
 signal	functCode	: std_logic_vector(5 downto 0);
 signal	code		: std_logic_vector(5 downto 0);
@@ -59,12 +54,12 @@ begin
 			
 				--Instruction -> "NOOP"
 				if(code = "111111") then
-					RegDst          <= '0';
-					ALUSrc          <= '0';
-					MemtoReg        <= '0';
-					RegWrite        <= '0';
-					MemWrite        <= '0';
-					ALUControl      <= "0000";
+					RegDst          <= 'X';
+					ALUSrc          <= 'X';
+					MemtoReg        <= 'X';
+					RegWrite        <= 'X';
+					MemWrite        <= 'X';
+					ALUControl      <= "XXXX";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -130,7 +125,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0011";
+					ALUControl      <= "0000";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -210,7 +205,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1111";
+					ALUControl      <= "1101";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -226,7 +221,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1000";
+					ALUControl      <= "1001";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -242,7 +237,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "1101";
+					ALUControl      <= "1000";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -306,7 +301,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0110";
+					ALUControl      <= "0011";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -322,7 +317,7 @@ begin
 					MemtoReg        <= '0';
 					RegWrite        <= '1';
 					MemWrite        <= '0';
-					ALUControl      <= "0110";
+					ALUControl      <= "0011";
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
@@ -331,7 +326,7 @@ begin
                     			shiftVariable   <= '0';
                     			upper_immediate <= '0';
 
-				--Instruction -> "jr" //jump and register
+				--Instruction -> "jr" 
 				elsif(code = "001000"and R_type='1') then
 					RegDst          <= '1';
 					ALUSrc          <= '0';
@@ -350,7 +345,7 @@ begin
 			--Immediate instructions
 			--Instruction -> "addi"
 			elsif (code = "001000" and R_type='0') then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '0';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -366,7 +361,7 @@ begin
 
 			--Instruction -> "addiu"
 			elsif (code = "001001") then
-				RegDst          <= '1';
+				RegDst          <= '0';
 				ALUSrc          <= '0';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
@@ -383,8 +378,8 @@ begin
 
 			--Instruction -> "andi"
 			elsif (code = "001100") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
@@ -400,12 +395,12 @@ begin
 
 			--Instruction -> "lui"
 			elsif (code = "001111") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
-				ALUControl      <= "1001";
+				ALUControl      <= "XXXX";
 				beq             <= '0';
                 		bne             <= '0';
                 		j               <= '0';
@@ -417,12 +412,12 @@ begin
 
 			--Instruction -> "xori"
 			elsif (code = "001110") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
-				ALUControl      <= "0001";
+				ALUControl      <= "0100";
 				beq             <= '0';
                 		bne             <= '0';
                 		j               <= '0';
@@ -434,8 +429,8 @@ begin
 
 			--Instruction -> "ori"
 			elsif (code = "001101") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
@@ -451,8 +446,8 @@ begin
 			
 			--Instruction -> "slti"
 		 	elsif (code = "001010") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
@@ -468,8 +463,8 @@ begin
 
 			--Instruction -> "sltiu"
 			elsif (code = "001011") then
-				RegDst          <= '1';
-				ALUSrc          <= '0';
+				RegDst          <= '0';
+				ALUSrc          <= '1';
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
@@ -506,8 +501,8 @@ begin
 				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
-				RegWrite        <= '1';
-				MemWrite        <= '0';
+				RegWrite        <= '0';
+				MemWrite        <= '1';
 				ALUControl      <= "0010";
 				beq             <= '0';
                 		bne             <= '0';
@@ -585,7 +580,7 @@ begin
                 		upper_immediate <= '0';
                 		
 			--Instruction -> "halt"
-			elsif (code = "010100") then
+			elsif (code = "010001") then
 				RegDst          <= '0';
 				ALUSrc          <= '0';
 				MemtoReg        <= '0';
