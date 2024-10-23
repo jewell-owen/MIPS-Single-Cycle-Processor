@@ -313,6 +313,7 @@ begin
 		);
 
  oALUOut <= s_aluOut;
+ s_DMemAddr <= s_aluOut;
 
 
 
