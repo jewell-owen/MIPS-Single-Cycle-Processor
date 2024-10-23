@@ -158,7 +158,7 @@ architecture structure of MIPS_Processor is
 
 
 
-  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong				: std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut				: std_logic_vector(31 downto 0);  
   signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp, tempt		: std_logic;
   signal s_rs_sel,s_rt_sel    														: std_logic_vector(4 downto 0);
   signal s_aluctr    															: std_logic_vector(3 downto 0);
@@ -225,6 +225,13 @@ begin
 		i_D0(4 downto 0) => s_Inst(20 downto 16), 
 		i_D1(31 downto 5) => "000000000000000000000000000", -- 27 zeros and 5 address bits
 		i_D1(4 downto 0) => s_Inst(15 downto 11), 
+		o_O => s_RegWrAddrLongOut
+		);
+
+  g_NBITMUX_RegWrAddrJAL: mux2t1_N port map (
+		i_S => s_is_Jump,	
+		i_D0 => s_RegWrAddrLongOut
+		i_D1 => x"0000001F",
 		o_O => s_RegWrAddrLong
 		);
 
@@ -243,6 +250,7 @@ begin
 		i_D1 => s_PCfour, 
 		o_O => s_RegWrData
 		);
+
 
   g_NBITMUX_MemtoReg: mux2t1_N port map (
 		i_S => s_MemtoReg,	
