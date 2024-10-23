@@ -76,7 +76,6 @@ begin
 					RegWrite        <= '1';
 					MemWrite        <= '0';
 					ALUControl      <= "0010";
-					--These apply to all
 					beq             <= '0';
 					bne             <= '0';
 					j               <= '0';
