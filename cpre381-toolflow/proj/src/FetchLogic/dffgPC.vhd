@@ -51,7 +51,7 @@ begin
   process (i_CLK, i_RST)
   begin
     if (i_RST = '1') then
-      s_Q <= '0'; -- Use "(others => '0')" for N-bit values
+      s_Q <= '1'; -- Use "(others => '0')" for N-bit values
     elsif (rising_edge(i_CLK)) then
       s_Q <= s_D;
     end if;
