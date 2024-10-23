@@ -9,32 +9,114 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src
-Pmips_types
-Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
-Z3 w1729527998
+Edffgpc
+Z1 w1729704121
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 6
 R0
-Z4 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd
-Z5 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd
+Z4 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/dffgPC.vhd
+Z5 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/dffgPC.vhd
+l0
+L23 1
+VamMY_7MPb3EM;B6E?n9kn1
+!s100 U>e`amc<:OOXj<Je8aE940
+Z6 OL;C;2024.2;79
+33
+Z7 !s110 1729704375
+!i10b 1
+Z8 !s108 1729704375.000000
+Z9 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/dffgPC.vhd|
+Z10 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/dffgPC.vhd|
+!i113 0
+Z11 o-work work
+Z12 tExplicit 1 NoCoverage 1 CvgOpt 0
+Amixed
+R2
+R3
+DEx4 work 6 dffgpc 0 22 amMY_7MPb3EM;B6E?n9kn1
+!i122 6
+l37
+L33 29
+V9a4oodZ<>;8JPkg<ieiKX2
+!s100 ?W@dAzM@U3HCBIaJQUNz_1
+R6
+33
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Efetchlogic
+Z13 w1729202471
+R2
+R3
+!i122 8
+R0
+Z14 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/fetchLogic.vhd
+Z15 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/fetchLogic.vhd
+l0
+L18 1
+VfJYR`XW1;W=l:OaX3Bz<i0
+!s100 [T^L?i?GAOBCjK1k:99Jz0
+R6
+33
+Z16 !s110 1729704377
+!i10b 1
+Z17 !s108 1729704377.000000
+Z18 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/fetchLogic.vhd|
+!s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/fetchLogic.vhd|
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 10 fetchlogic 0 22 fJYR`XW1;W=l:OaX3Bz<i0
+!i122 8
+l68
+L25 112
+VRWTC3PbAk3S=d3JfB=n811
+!s100 YU?5J]fNRK>NNlBR:E2@H1
+R6
+33
+R16
+!i10b 1
+R17
+R18
+Z19 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/fetchLogic.vhd|
+!i113 0
+R11
+R12
+Pmips_types
+R2
+R3
+!i122 0
+Z20 w1729527998
+R0
+Z21 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd
+Z22 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd
 l0
 L15 15
 ViFJmeooMjX`m_B4A<]J>L0
 !s100 Kc[eI=z[bcI?XA0UDi]kX0
-Z6 OL;C;2024.2;79
+R6
 33
-Z7 !s110 1729528681
+Z23 !s110 1729528681
 !i10b 1
-Z8 !s108 1729528681.000000
-Z9 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd|
-!s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd|
+Z24 !s108 1729528681.000000
+Z25 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd|
+Z26 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd|
 !i113 0
-Z10 o-work work
-Z11 tExplicit 1 NoCoverage 1 CvgOpt 0
+R11
+R12
 Bbody
 DPx4 work 10 mips_types 0 22 iFJmeooMjX`m_B4A<]J>L0
-R1
 R2
+R3
 !i122 0
 l0
 L31 3
@@ -42,11 +124,52 @@ VaWWdMSlhZcYn^;d3EW58`3
 !s100 G]A=k@II?z3fA=4QFo6TE2
 R6
 33
-R7
+R23
 !i10b 1
-R8
-R9
-Z12 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/MIPS_types.vhd|
+R24
+R25
+R26
 !i113 0
-R10
 R11
+R12
+Ereg_n
+Z27 w1729704363
+R2
+R3
+!i122 7
+R0
+Z28 8/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/reg_N.vhd
+Z29 F/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/reg_N.vhd
+l0
+L21 1
+V@bC98WzIUX=R6@FgeJNPT3
+!s100 Z5_5[G?6MI9S3LhnCKMao0
+R6
+33
+Z30 !s110 1729704376
+!i10b 1
+Z31 !s108 1729704376.000000
+Z32 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/reg_N.vhd|
+Z33 !s107 /home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/cpre381-toolflow/proj/src/FetchLogic/reg_N.vhd|
+!i113 0
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 5 reg_n 0 22 @bC98WzIUX=R6@FgeJNPT3
+!i122 7
+l46
+L32 38
+V3nJoZ12NI>W9GW;CV?_YS3
+!s100 ;HI<ZAlR6a^BK5d5G7F7P0
+R6
+33
+R30
+!i10b 1
+R31
+R32
+R33
+!i113 0
+R11
+R12

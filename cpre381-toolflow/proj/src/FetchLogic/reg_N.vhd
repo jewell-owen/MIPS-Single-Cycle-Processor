@@ -40,16 +40,30 @@ architecture structure of reg_N is
          o_Q          : out std_logic);   -- Data value output
   end component;
 
+  signal s_D    : std_logic_vector(N-1 downto 0);    -- Multiplexed input to the FF
+  signal s_WE    : std_logic;    -- Output of the FF
 
 begin
+
+  s_D <= i_D; 
+  s_WE <= i_WE; 
 
   G_NBit_Reg: for i in 0 to N-1 generate
     REGI: dffgPC port map(
 	      i_CLK     => i_CLK,
-	      i_RST     => i_RST,
-	      i_WE      => i_WE,
-	      i_D       => i_D(i),
+	      i_RST     => '0',
+	      i_WE      => s_WE,
+	      i_D       => s_D(i),
 	      o_Q       => o_Q(i));
   end generate G_NBit_Reg;
+
+  process (i_RST)
+  begin
+    if (i_RST = '1') then
+      s_WE <= '1'; 
+      s_D <= x"00400000";
+    end if;
+
+  end process;
   
 end structure;
