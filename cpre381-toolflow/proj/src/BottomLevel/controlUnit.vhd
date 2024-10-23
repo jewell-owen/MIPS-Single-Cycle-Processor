@@ -534,8 +534,8 @@ begin
 				RegDst          <= '0';
 				ALUSrc          <= '1';
 				MemtoReg        <= '0';
-				RegWrite        <= '1';
-				MemWrite        <= '0';
+				RegWrite        <= '0';
+				MemWrite        <= '1';
 				ALUControl      <= "0010";
 				beq             <= '0';
                 		bne             <= '0';
