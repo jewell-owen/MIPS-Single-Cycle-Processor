@@ -78,7 +78,7 @@ P_CLK: process
     -- Case 3: 0x00000000 shifted by 16   (Logical Shift)    Expected: 0x00000000
    s_Shift_Type        <= '0';
    s_Shift_Dir         <= '1';
-   s_Shift_Amount      <= "00000";     
+   s_Shift_Amount      <= "10000";     
    s_D                 <= "00000000000000000000000000000000";         
 
     wait for cCLK_PER;
@@ -124,6 +124,44 @@ P_CLK: process
     wait for cCLK_PER;
 
 -----------------------------END RIGHT SHIFTS------------------------------------------------------------
+
+
+---------------------------------START LEFT SHIFTS------------------------------------------------------------
+
+    -- Case 9: 0x00000000 shifted by 0    (Left Shift)    Expected: 0x00000000
+   s_Shift_Type        <= '0';
+   s_Shift_Dir         <= '0';
+   s_Shift_Amount      <= "00000";     
+   s_D                 <= "00000000000000000000000000000000";         
+
+    wait for cCLK_PER;
+
+    -- Case 10: 10xFFFFFFFF shifted by 16  (Left Shift)    Expected: 0xFFFF0000
+   s_Shift_Type        <= '0';
+   s_Shift_Dir         <= '0';
+   s_Shift_Amount      <= "10000";     
+   s_D                 <= "11111111111111111111111111111111";         
+
+    wait for cCLK_PER;
+
+    -- Case 11: 0x00000000 shifted by 16   (Left Shift)    Expected: 0x00000000
+   s_Shift_Type        <= '0';
+   s_Shift_Dir         <= '0';
+   s_Shift_Amount      <= "10000";     
+   s_D                 <= "00000000000000000000000000000000";         
+
+    wait for cCLK_PER;
+
+    -- Case 12: 0xAAAAAAAA shifted by 5   (Left Shift)     Expected: 0x05555540
+   s_Shift_Type        <= '0';
+   s_Shift_Dir         <= '0';
+   s_Shift_Amount      <= "00101";     
+   s_D                 <= "10101010101010101010101010101010";  
+      
+    wait for cCLK_PER;
+
+
+-----------------------------END LEFT SHIFTS------------------------------------------------------------
 
 
  
