@@ -110,7 +110,7 @@ P_CLK: process
     -- Case 7: 0x00000000 shifted by 16   (Arithmetic Shift)    Expected: 0x00000000
    s_Shift_Type        <= '1';
    s_Shift_Dir         <= '1';
-   s_Shift_Amount      <= "00000";     
+   s_Shift_Amount      <= "10000";     
    s_D                 <= "00000000000000000000000000000000";         
 
     wait for cCLK_PER;

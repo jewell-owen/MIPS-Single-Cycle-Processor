@@ -1,19 +1,23 @@
 [N
-7
-2
+9
+5
 8 mux2t1_n
 4
 1 N
-6
-5 mixed
+8
+8 behavior
+2
+16 vectorreverser_n
+3
+8 dataflow
 1
 51 /home/ojewell/cpre381/CprE381Project1/Project1/work
-3
+6
 10 structural
-5
-12 tb_mux8t1_32
-7
+9
 9 gCLK_HPER
+7
+16 tb_barrelshifter
 ]
 [G
 1
@@ -34,16 +38,30 @@
 5
 6
 1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
 7
+8
+1
+9
 0
 0
 0
 0
 8 8
 -128
--106
--104
-0
+-16
+-6
+2
 0
 0
 0
