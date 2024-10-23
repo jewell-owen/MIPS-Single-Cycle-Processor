@@ -45,5 +45,4 @@ failure:
     j exit                  # Jump to exit
 
 exit:
-    li $v0, 10              # Exit syscall
-    syscall
+    halt
