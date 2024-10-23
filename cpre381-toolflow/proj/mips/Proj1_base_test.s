@@ -1,7 +1,3 @@
-#
-# Project 1 Base Test
-# (Each logical/arithmetic instruction was tested at least once)
-#
     .text
     .globl main
 main:
@@ -38,19 +34,22 @@ main:
     # Branch/Jump instructions
     beq $t1, $t2, skip      # t1 != t2, so no branch
     bne $t1, $t2, continue  # t1 != t2, so branch to continue
+   
     
 skip:
     j end                   # Jump to end
 
 continue:
     jal dummy_function      # Jump and link to dummy_function
+    halt
+    j end 
 
 dummy_function:
     # Dummy function to demonstrate jal and jr usage
     jr $ra                  # Jump to the return address (continue execution at end)
 
 end:
-    halt
+  
 
 # Expected final register states:
 # $t0 = 0             # t0 = t1 + t2 = 0 + 0 = 0 (initial state)
