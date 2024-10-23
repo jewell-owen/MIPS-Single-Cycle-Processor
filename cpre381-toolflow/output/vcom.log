@@ -1,5 +1,5 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-Start time: 12:15:20 on Oct 23,2024
+Start time: 12:33:13 on Oct 23,2024
 vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/controlUnit.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/xorg2.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/org2.vhd proj/src/FetchLogic/reg_N.vhd proj/src/FetchLogic/adder_N.vhd proj/src/FetchLogic/dffgPC.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/alu.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -33,11 +33,8 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture dataflow of org2
 -- Compiling entity reg_N
 -- Compiling architecture structure of reg_N
--- Compiling entity adder_N
--- Compiling architecture structure of adder_N
--- Compiling entity dffgPC
--- Compiling architecture mixed of dffgPC
-** Error: proj/src/FetchLogic/dffgPC.vhd(54): Bit string literal found where non-array type ieee.std_logic_1164.STD_LOGIC was expected.
-** Note: proj/src/FetchLogic/dffgPC.vhd(61): VHDL Compiler exiting
-End time: 12:15:20 on Oct 23,2024, Elapsed time: 0:00:00
-Errors: 1, Warnings: 1
+** Error: proj/src/FetchLogic/reg_N.vhd(64): Symbol "G_NBit_Reg" has already been declared in this region.
+** Error: proj/src/FetchLogic/reg_N.vhd(73): Symbol "G_NBit_Reg" has already been declared in this region.
+** Note: proj/src/FetchLogic/reg_N.vhd(83): VHDL Compiler exiting
+End time: 12:33:13 on Oct 23,2024, Elapsed time: 0:00:00
+Errors: 2, Warnings: 1

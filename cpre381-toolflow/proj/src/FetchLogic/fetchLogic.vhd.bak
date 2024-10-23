@@ -43,7 +43,7 @@ architecture structural of fetchLogic is
   end component;
 
 
-  component reg_NPC
+  component reg_N
   	generic(N : integer := 32); 
   	port(	i_CLK        : in std_logic;     -- Clock input
        		i_RST        : in std_logic;     -- Reset input
@@ -88,7 +88,7 @@ g_NBITADDER_PC: adder_N port map (
 		);
 
 
-g_NBITREG: reg_NPC port map(
+g_NBITREG: reg_N port map(
 	        i_CLK     => i_CLK,
 	        i_RST     => i_RST,
 	        i_WE      => '1',
