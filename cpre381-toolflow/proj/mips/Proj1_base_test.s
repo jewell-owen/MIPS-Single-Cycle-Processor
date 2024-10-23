@@ -50,7 +50,7 @@ dummy_function:
     jr $ra                  # Jump to the return address (continue execution at end)
 
 end:
-    j end                   # Loop forever (simulating the end of the program)
+    halt
 
 # Expected final register states:
 # $t0 = 0             # t0 = t1 + t2 = 0 + 0 = 0 (initial state)
