@@ -85,7 +85,7 @@ wait for gCLK_HPER/2;
 
 ---------------------------------regular fetch logic------------------------------------------------------------
 
--- Case 1: PC = 0x00000000    (normal PC + 4)    Expected: 0x00000004
+-- Case 1: PC = 0x00400000    (normal PC + 4)    Expected: 0x00400004
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
@@ -98,7 +98,7 @@ s_rs_data		<= x"00000000";
 
 wait for cCLK_PER;
 
--- Case 2: PC = 0x00000004    (normal PC + 4)    Expected: 0x00000008
+-- Case 2: PC = 0x00400004    (normal PC + 4)    Expected: 0x00400008
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
@@ -111,38 +111,13 @@ s_rs_data		<= x"00000000";
 
 wait for cCLK_PER;
 
--- Case 3: PC = 0x00000008    (normal PC + 4)    Expected: 0x0000000C
-s_is_Brch		<= '0';
-s_is_zero		<= '0';
-s_immed			<= x"00000000";
-
-s_is_Jump		<= '0';
-s_instr			<= x"00000000";
-
-s_is_JumpReg		<= '0';
-s_rs_data		<= x"00000000";
-
-wait for cCLK_PER;
-
--- Case 4: PC = 0x0000000C    (normal PC + 4)    Expected: 0x00000010
-s_is_Brch		<= '0';
-s_is_zero		<= '0';
-s_immed			<= x"00000000";
-
-s_is_Jump		<= '0';
-s_instr			<= x"00000000";
-
-s_is_JumpReg		<= '0';
-s_rs_data		<= x"00000000";
-
-wait for cCLK_PER;
 
 ---------------------------------branch fetch logic------------------------------------------------------------
 
--- Case 5: PC = 0x00000010    (Branch offset = 0x00020000)    Expected: 0x00080014
+-- Case 4: PC = 0x00400008    (Branch offset = 0x000FF000)    Expected: 0x0040000C
 s_is_Brch		<= '1';
-s_is_zero		<= '1';
-s_immed			<= x"00020000";
+s_is_zero		<= '0';
+s_immed			<= x"000FF000";
 
 s_is_Jump		<= '0';
 s_instr			<= x"00000000";
@@ -152,7 +127,20 @@ s_rs_data		<= x"00000000";
 
 wait for cCLK_PER;
 
--- Case 6: PC = 0x00080014    (normal PC + 4)    Expected: 0x00080018
+-- Case 5: PC = 0x0040000C    (Branch offset = 0x00002000)    Expected: 0x00408010
+s_is_Brch		<= '1';
+s_is_zero		<= '1';
+s_immed			<= x"00002000";
+
+s_is_Jump		<= '0';
+s_instr			<= x"00000000";
+
+s_is_JumpReg		<= '0';
+s_rs_data		<= x"00000000";
+
+wait for cCLK_PER;
+
+-- Case 6: PC = 0x00408010    (normal PC + 4)    Expected: 0x00408014
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
@@ -167,20 +155,20 @@ wait for cCLK_PER;
 
 ---------------------------------jump fetch logic------------------------------------------------------------
 
--- Case 7: PC = 0x00080018    (jump address = 0x00300004)    Expected: 0x00C00010
+-- Case 7: PC = 0x00408014    (jump address = 0x03300004)    Expected: 0x0CC00010
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
 
 s_is_Jump		<= '1';
-s_instr			<= x"00300004";
+s_instr			<= x"03300004";
 
 s_is_JumpReg		<= '0';
 s_rs_data		<= x"00000000";
 
 wait for cCLK_PER;
 
--- Case 8: PC = 0x00C00010    (normal PC + 4)    Expected: 0x00C00014
+-- Case 8: PC = 0x0CC00010    (normal PC + 4)    Expected: 0x0CC00014
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
@@ -195,7 +183,7 @@ wait for cCLK_PER;
 
 ---------------------------------jump register fetch logic------------------------------------------------------------
 
--- Case 9: PC = 0x00C00014    (jump register = 0x2020FF50)    Expected: 0x2020FF50
+-- Case 9: PC = 0x0CC00014    (jump register = 0x2020FF50)    Expected: 0x2020FF50
 s_is_Brch		<= '0';
 s_is_zero		<= '0';
 s_immed			<= x"00000000";
