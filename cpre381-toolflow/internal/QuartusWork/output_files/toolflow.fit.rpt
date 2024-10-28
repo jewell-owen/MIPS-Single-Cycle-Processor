@@ -1,5 +1,5 @@
 Fitter report for toolflow
-Mon Oct 28 11:34:54 2024
+Mon Oct 28 12:30:22 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Oct 28 11:34:54 2024           ;
+; Fitter Status                      ; Successful - Mon Oct 28 12:30:21 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Standard Edition ;
 ; Revision Name                      ; toolflow                                        ;
 ; Top-level Entity Name              ; MIPS_Processor                                  ;
@@ -161,7 +161,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 4            ;   0.7%      ;
 ;     Processor 5            ;   0.7%      ;
 ;     Processor 6            ;   0.7%      ;
-;     Processor 7            ;   0.6%      ;
+;     Processor 7            ;   0.7%      ;
 ;     Processor 8            ;   0.6%      ;
 ;     Processors 9-12        ;   0.5%      ;
 +----------------------------+-------------+
@@ -39139,14 +39139,14 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:10
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:01:44
+Info (170192): Fitter placement operations ending: elapsed time is 00:01:43
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 36% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 65% of the available device resources in the region that extends from location X23_Y37 to location X33_Y48
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:19:54
-Info (11888): Total time spent on timing analysis during the Fitter is 402.62 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:19:11
+Info (11888): Total time spent on timing analysis during the Fitter is 396.59 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -39154,10 +39154,10 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:17
 Info (144001): Generated suppressed messages file /home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/internal/QuartusWork/output_files/toolflow.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 3507 megabytes
-    Info: Processing ended: Mon Oct 28 11:35:01 2024
-    Info: Elapsed time: 00:23:27
-    Info: Total CPU time (on all processors): 00:34:51
+    Info: Peak virtual memory: 3436 megabytes
+    Info: Processing ended: Mon Oct 28 12:30:28 2024
+    Info: Elapsed time: 00:22:41
+    Info: Total CPU time (on all processors): 00:33:57
 
 
 +----------------------------+
