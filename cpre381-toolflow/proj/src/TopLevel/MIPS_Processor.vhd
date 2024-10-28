@@ -90,6 +90,7 @@ architecture structure of MIPS_Processor is
 	MemWrite 	    	: out std_logic;
 	ALUSrc 		   	: out std_logic;
 	RegWrite 	   	: out std_logic;
+	UnsignedNoOverflow	: out std_logic;
 	ALUControl	    	: out std_logic_vector(3 downto 0);
 	beq 		    	: out std_logic;
  	bne 		    	: out std_logic;
@@ -159,7 +160,7 @@ architecture structure of MIPS_Processor is
 
 
   signal s_rs_DA, s_rt_DB, s_imm, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut				: std_logic_vector(31 downto 0);  
-  signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp, tempt		: std_logic;
+  signal s_is_Jump, s_is_JumpReg, s_is_zero, s_aluCar, s_aluSrc, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, temp, tempt, s_ALUOverflow, s_CntrlOverflow	: std_logic;
   signal s_rs_sel,s_rt_sel    														: std_logic_vector(4 downto 0);
   signal s_aluctr    															: std_logic_vector(3 downto 0);
   
@@ -289,6 +290,7 @@ begin
 		MemWrite 	    	=> s_DMemWr,	
 		ALUSrc 		   	=> s_aluSrc,	
 		RegWrite 	   	=> s_RegWr,
+		UnsignedNoOverflow	=> s_CntrlOverflow,
 		ALUControl	    	=> s_aluctr,	
 		beq 		    	=> s_BrchEq,	-- only need one branch control so they are ORed
  		bne 		    	=> s_BrchNe,	
@@ -308,11 +310,13 @@ begin
 		i_AluCntrl		=> s_aluctr,
 		o_Zero			=> s_is_zero,
 		o_C			=> s_aluCar,
-		o_O			=> s_Ovfl,
+		o_O			=> s_ALUOverflow,
 		o_AluOut		=> s_aluOut 	--outputs to s_DMemData too
 		);
 
- oALUOut <= s_aluOut;
+
+ s_Ovfl     <= s_ALUOverflow and (not s_CntrlOverflow);
+ oALUOut    <= s_aluOut;
  s_DMemAddr <= s_aluOut;
 
 

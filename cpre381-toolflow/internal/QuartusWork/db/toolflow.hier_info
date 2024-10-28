@@ -31340,6 +31340,7 @@ MemtoReg <= MemtoReg$latch.DB_MAX_OUTPUT_PORT_TYPE
 MemWrite <= MemWrite$latch.DB_MAX_OUTPUT_PORT_TYPE
 ALUSrc <= ALUSrc$latch.DB_MAX_OUTPUT_PORT_TYPE
 RegWrite <= RegWrite$latch.DB_MAX_OUTPUT_PORT_TYPE
+UnsignedNoOverflow <= UnsignedNoOverflow$latch.DB_MAX_OUTPUT_PORT_TYPE
 ALUControl[0] <= ALUControl[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 ALUControl[1] <= ALUControl[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 ALUControl[2] <= ALUControl[2]$latch.DB_MAX_OUTPUT_PORT_TYPE

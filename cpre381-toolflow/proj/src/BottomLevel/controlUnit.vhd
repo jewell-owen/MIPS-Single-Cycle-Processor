@@ -24,6 +24,7 @@ entity controlUnit is
 	MemWrite 	    	: out std_logic;
 	ALUSrc 		   	: out std_logic;
 	RegWrite 	   	: out std_logic;
+	UnsignedNoOverflow	: out std_logic;
 	ALUControl	    	: out std_logic_vector(3 downto 0);
 	beq 		    	: out std_logic;
  	bne 		    	: out std_logic;
@@ -74,6 +75,7 @@ begin
 					shiftVariable   <= '0';
 					signSel	        <= '1';
 					upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
                 		
 				--Instruction -> "add"
 				elsif (code = "100000") then
@@ -92,6 +94,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 
 				--Instruction -> "addu"
@@ -110,6 +113,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '1';
 				
 				--Instruction -> "and"
 				elsif (code = "100100") then
@@ -127,6 +131,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "nor"
 				elsif (code = "100111") then
@@ -144,6 +149,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "xor"
 				elsif (code = "100110") then
@@ -161,6 +167,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "or"
 				elsif (code = "100101") then
@@ -178,6 +185,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 	
 				--Instruction -> "slt"
 				elsif (code = "101010") then
@@ -195,6 +203,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "sltu"
 				elsif (code = "101011" and R_type= '1') then
@@ -212,6 +221,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '1';
 
 				--Instruction -> "sll"
 				elsif (code = "000000" and R_type = '1') then
@@ -229,6 +239,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "srl"
 				elsif (code = "000010" and R_type = '1') then
@@ -246,6 +257,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "sra"
 				elsif (code = "000011" and R_type = '1') then
@@ -263,6 +275,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "sllv"
 				elsif (code = "000100" and R_type = '1') then
@@ -280,6 +293,7 @@ begin
                     			shiftVariable   <= '1';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 				--Instruction -> "srlv"
 				elsif (code = "000110") then
@@ -297,6 +311,7 @@ begin
                     			shiftVariable   <= '1';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 				
 				--Instruction -> "srav"
 				elsif (code = "000111") then
@@ -314,6 +329,7 @@ begin
                     			shiftVariable   <= '1';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 		
 				--Instruction -> "sub"	
 				elsif (code = "100010") then
@@ -331,6 +347,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 				
 				--Instruction -> "subu"
 				elsif (code = "100011" and R_type = '1') then
@@ -348,6 +365,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '1';
 
 				--Instruction -> "jr" //jump and register
 				elsif(code = "001000"and R_type='1') then
@@ -365,6 +383,7 @@ begin
                     			shiftVariable   <= '0';
 					signSel	        <= '1';
                     			upper_immediate <= '0';
+					UnsignedNoOverflow <= '0';
 
 			--Immediate instructions
 			--Instruction -> "addi"
@@ -383,6 +402,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 			--Instruction -> "addiu"
 			elsif (code = "001001") then
@@ -400,6 +420,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '1';
 
 
 			--Instruction -> "andi"
@@ -418,6 +439,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '0';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "lui"
@@ -436,6 +458,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '1';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "xori"
@@ -454,6 +477,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "ori"
@@ -472,6 +496,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '0';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 			
 			--Instruction -> "slti"
@@ -490,6 +515,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "sltiu"
@@ -508,6 +534,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Load and Store Instructions
@@ -527,6 +554,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "sw"
@@ -545,6 +573,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Branch Instructions
@@ -564,6 +593,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 
 			--Instruction -> "bne"
@@ -582,6 +612,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 
 			--Instruction -> "j"
 			elsif (code = "000010" and R_type = '0') then
@@ -599,6 +630,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
 			
 			--Instruction -> "jal"
 			elsif (code = "000011" and R_type = '0') then
@@ -616,6 +648,7 @@ begin
                 		shiftVariable   <= '0';
 				signSel	        <= '1';
                 		upper_immediate <= '0';
+				UnsignedNoOverflow <= '0';
                 		
 			--Instruction -> "halt"
 			elsif (code = "010100") then
@@ -634,6 +667,7 @@ begin
 				signSel	        <= '1';
                 		upper_immediate <= '0';
                 		s_halt          <= '1';
+				UnsignedNoOverflow <= '0';
 
 		end if;
 		

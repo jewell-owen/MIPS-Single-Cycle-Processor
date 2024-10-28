@@ -1,0 +1,52 @@
+m255
+K4
+z2
+!s11e vcom 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src
+Econtrolunit
+Z1 w1730131295
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8/home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src/BottomLevel/controlUnit.vhd
+Z5 F/home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src/BottomLevel/controlUnit.vhd
+l0
+L19 1
+VGkLWRjgn?XNKOSNZ><aG52
+!s100 BQ>S6XAO724Oi:o;9Lj^m1
+Z6 OL;C;2024.2;79
+33
+Z7 !s110 1730131308
+!i10b 1
+Z8 !s108 1730131308.000000
+Z9 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src/BottomLevel/controlUnit.vhd|
+!s107 /home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src/BottomLevel/controlUnit.vhd|
+!i113 0
+Z10 o-work work
+Z11 tExplicit 1 NoCoverage 1 CvgOpt 0
+Abehavioral
+R2
+R3
+DEx4 work 11 controlunit 0 22 GkLWRjgn?XNKOSNZ><aG52
+!i122 0
+l50
+L43 636
+VBCHbVbS=Fd18ljM=VOO0J1
+!s100 1`D9B^7aAmU`d3FW?F32Y2
+R6
+33
+R7
+!i10b 1
+R8
+R9
+Z12 !s107 /home/ojewell/cpre381/CprE381Project1/cpre381-toolflow/proj/src/BottomLevel/controlUnit.vhd|
+!i113 0
+R10
+R11
