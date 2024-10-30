@@ -8,6 +8,8 @@ Jason DiGiovanni | jdigi@iastate.edu
 
 Instructions and Control Signal Spreadsheet: https://docs.google.com/spreadsheets/d/13fNO1bZc3sDEmJnUykNK0UpfubOgruZlYfVBhear-vI/edit?usp=sharing
 
+Hardware Data Hazard Avoidance Spreadsheet: https://docs.google.com/spreadsheets/d/15Qg53TIyoqaS8sEyxoGxA9NNwZqGJCbrmAW0BXMRee8/edit?usp=sharing
+
 All project source files are in cpre381-toolflow/proj/src
 
 Individual module test benches are in cpre381-toolflow/proj/test
