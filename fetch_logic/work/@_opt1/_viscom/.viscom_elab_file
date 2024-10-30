@@ -1,1 +1,0 @@
-/usr/local/mentor/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 7422240 work.tb_fetchlogic -quiet -auto_acc_if_foreign -work work -allow_unnamed -o _opt1 -id 1-7486e22834bc-670ff79e-cc733-bdf9 +__design_bin_path+/home/coreybh/cpre381/Project1/MIPS-Single-Cycle-Processor/fetch_logic

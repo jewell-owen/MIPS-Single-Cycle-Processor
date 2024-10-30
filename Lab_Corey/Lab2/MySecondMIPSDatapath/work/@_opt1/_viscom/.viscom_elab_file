@@ -1,1 +1,0 @@
-/usr/local/mentor/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 19611936 work.tb_datapath2 -quiet -auto_acc_if_foreign -work work -allow_unnamed -o _opt1 -id 1-0050569b7970-66f739a5-8f22b-6682 +__design_bin_path+/home/coreybh/cpre381/Lab2/MySecondMIPSDatapath

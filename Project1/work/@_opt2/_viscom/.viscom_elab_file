@@ -1,1 +1,0 @@
-/usr/local/mentor/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 12140832 work.tb_alu -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt2 -id 1-6805ca47c5a4-67166d23-b0b37-28d3 +__design_bin_path+/home/ojewell/cpre381/CprE381Project1/Project1 +__betafsm
