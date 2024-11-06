@@ -27,7 +27,13 @@ entity reg_MEMWB is
        i_MemToReg   : in std_logic;     -- MemToReg control signal
        i_RegWr      : in std_logic;     -- RegWr control signal
        i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
-       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);   -- RegWrAddr
+       i_isJump     : in std_logic;     -- RegWr control signal
+       i_luiCtrl    : in std_logic;     -- RegWr control signal
+       i_Imm        : in std_logic_vector(15 downto 0);;     -- RegWr control signal
+       o_isJump     : in std_logic;     -- RegWr control signal
+       o_luiCtrl    : in std_logic;     -- RegWr control signal
+       o_Imm        : in std_logic_vector(15 downto 0);     -- RegWr control signal
        o_Branch     : out std_logic;     -- Branch control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
        o_RegWr      : out std_logic;     -- RegWr control signal
@@ -90,6 +96,30 @@ G_NBit_RegRegWr: for i in 0 to 4 generate
 	      i_D       => i_RegWrAddr(i),
 	      o_Q       => o_RegWrAddr(i));
   end generate G_NBit_RegRegWr;
+
+
+G_NBit_RegIMM: for i in 0 to 15 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_Imm(i),
+	      o_Q       => o_Imm(i));
+  end generate G_NBit_RegIMM;
+
+ isJump: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_isJump,
+	      o_Q       => o_isJump);
+
+ luiCtrl: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_luiCtrl,
+	      o_Q       => o_luiCtrl);
 
  Branch: dffg port map(
 	      i_CLK     => i_CLK,

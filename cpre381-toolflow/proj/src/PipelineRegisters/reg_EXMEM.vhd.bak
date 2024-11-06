@@ -31,6 +31,14 @@ entity reg_EXMEM is
        o_MemWr      : out std_logic;     -- MemWr control signal
        o_RegWr      : out std_logic;     -- RegWr control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
+       i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       i_isJump     : in std_logic;     -- RegWr control signal
+       i_luiCtrl    : in std_logic;     -- RegWr control signal
+       i_Imm        : in std_logic_vector(15 downto 0);;     -- RegWr control signal
+       o_isJump     : in std_logic;     -- RegWr control signal
+       o_luiCtrl    : in std_logic;     -- RegWr control signal
+       o_Imm        : in std_logic_vector(15 downto 0);
        i_AluOut     : in std_logic_vector(31 downto 0);     -- Alu input
        i_RdDataB    : in std_logic_vector(31 downto 0);     -- Read Data B input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC input
