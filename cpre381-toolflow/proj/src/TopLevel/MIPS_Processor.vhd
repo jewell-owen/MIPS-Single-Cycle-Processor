@@ -466,9 +466,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_instr    	=> s_InstIDEX, 
 		i_immed    	=> s_ImmIDEX, 
 		i_rs_data    	=> s_rs_DAIDEX, 
-                                                              -- Will take an additonal input of s_PCfourIDEX
-		o_PC		=> s_PCfetch, 
-		o_PCfour	=> s_PCfour );               --Will be removed 
+                i_PCplusFour    => s_PCfourIDEX,                                
+		o_PC		=> s_PCfetch, );              
 
 
    g_NBITMUX_ALUB: mux2t1_N port map (

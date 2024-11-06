@@ -495,8 +495,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,
        i_WE          =>   '1',
-       i_PCnext      =>   s_PCfetch --add to register delcaration
-       o_PCnext      =>   s_PCEXMEM --add to register delcaration
+       i_PCnext      =>   s_PCfetch 
+       o_PCnext      =>   s_PCEXMEM 
        i_Branch      =>   s_BranchIDEX, 
        i_MemWr       =>   s_DMemWrIDEX,
        i_RegWr       =>   s_RegWrIDEX,
