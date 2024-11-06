@@ -26,6 +26,8 @@ entity reg_MEMWB is
        i_Branch     : in std_logic;     -- Branch control signal
        i_MemToReg   : in std_logic;     -- MemToReg control signal
        i_RegWr      : in std_logic;     -- RegWr control signal
+       i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
        o_Branch     : out std_logic;     -- Branch control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
        o_RegWr      : out std_logic;     -- RegWr control signal
@@ -79,6 +81,15 @@ begin
 	      i_D       => i_MemData(i),
 	      o_Q       => o_MemData(i));
   end generate G_NBit_RegMemData;
+
+G_NBit_RegRegWr: for i in 0 to 4 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWrAddr(i),
+	      o_Q       => o_RegWrAddr(i));
+  end generate G_NBit_RegRegWr;
 
  Branch: dffg port map(
 	      i_CLK     => i_CLK,

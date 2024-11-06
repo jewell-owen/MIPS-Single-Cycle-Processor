@@ -31,6 +31,8 @@ entity reg_EXMEM is
        o_MemWr      : out std_logic;     -- MemWr control signal
        o_RegWr      : out std_logic;     -- RegWr control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
+       i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
        i_AluOut     : in std_logic_vector(31 downto 0);     -- Alu input
        i_RdDataB    : in std_logic_vector(31 downto 0);     -- Read Data B input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC input
@@ -81,6 +83,15 @@ begin
 	      i_D       => i_RdDataB(i),
 	      o_Q       => o_RdDataB(i));
   end generate G_NBit_RegRdDtaB;
+
+G_NBit_RegRegWr: for i in 0 to 4 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWrAddr(i),
+	      o_Q       => o_RegWrAddr(i));
+  end generate G_NBit_RegRegWr;
 
  Branch: dffg port map(
 	      i_CLK     => i_CLK,

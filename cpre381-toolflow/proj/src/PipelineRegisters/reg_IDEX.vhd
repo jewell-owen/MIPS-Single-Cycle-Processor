@@ -41,6 +41,8 @@ entity reg_IDEX is
        o_RegWr      : out std_logic;     -- RegWr control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
        o_RegDst     : out std_logic;     -- RegDst control signal
+       i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
        i_A          : in std_logic_vector(31 downto 0);     -- A input
        i_B          : in std_logic_vector(31 downto 0);     -- B input
        i_SignExt    : in std_logic_vector(31 downto 0);     -- Sign Extended input
@@ -102,6 +104,15 @@ begin
 	      i_D       => i_PC(i),
 	      o_Q       => o_PC(i));
   end generate G_NBit_RegPC;
+
+G_NBit_RegRegWr: for i in 0 to 4 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWrAddr(i),
+	      o_Q       => o_RegWrAddr(i));
+  end generate G_NBit_RegRegWr;
 
  J: dffg port map(
 	      i_CLK     => i_CLK,
