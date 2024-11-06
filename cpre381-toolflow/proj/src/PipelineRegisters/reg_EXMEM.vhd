@@ -73,6 +73,42 @@ begin
 	      o_Q       => o_PC(i));
   end generate G_NBit_RegPC;
 
+  G_NBit_RegRdDtaB: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RdDataB(i),
+	      o_Q       => o_RdDataB(i));
+  end generate G_NBit_RegRdDtaB;
+
+ Branch: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_Branch,
+	      o_Q       => o_Branch);
+
+ MemWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemWr,
+	      o_Q       => o_MemWr);
+
+ RegWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWr,
+	      o_Q       => o_RegWr);
+
+ MemToReg: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemToReg,
+	      o_Q       => o_MemToReg);
 
   
 end structure;

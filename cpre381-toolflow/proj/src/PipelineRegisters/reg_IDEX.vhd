@@ -23,7 +23,6 @@ entity reg_IDEX is
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
        i_WE         : in std_logic;     -- Write enable input
-       i_SignSel    : in std_logic;     -- SignSel control signal
        i_J          : in std_logic;     -- J control signal
        i_JR         : in std_logic;     -- JR control signal
        i_Branch     : in std_logic;     -- Branch control signal
@@ -33,6 +32,8 @@ entity reg_IDEX is
        i_RegWr      : in std_logic;     -- RegWr control signal
        i_MemToReg   : in std_logic;     -- MemToReg control signal
        i_RegDst     : in std_logic;     -- RegDst control signal
+       o_J          : out std_logic;     -- J control signal
+       o_JR         : out std_logic;     -- JR control signal
        o_Branch     : out std_logic;     -- Branch control signal
        o_AluSrc     : out std_logic;     -- AluSrc control signal
        o_AluCtrl    : out std_logic;     -- AluCtrl control signal
@@ -62,6 +63,7 @@ architecture structure of reg_IDEX is
          o_Q          : out std_logic);   -- Data value output
   end component;
 
+
 begin
 
 
@@ -83,6 +85,15 @@ begin
 	      o_Q       => o_B(i));
   end generate G_NBit_RegB;
 
+  G_NBit_RegSX: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_SignExt(i),
+	      o_Q       => o_SignExt(i));
+  end generate G_NBit_RegSX;
+
   G_NBit_RegPC: for i in 0 to 31 generate
     REGI: dffg port map(
 	      i_CLK     => i_CLK,
@@ -91,6 +102,70 @@ begin
 	      i_D       => i_PC(i),
 	      o_Q       => o_PC(i));
   end generate G_NBit_RegPC;
+
+ J: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_J,
+	      o_Q       => o_J);
+
+ JR: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_JR,
+	      o_Q       => o_JR);
+
+ Branch: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_Branch,
+	      o_Q       => o_Branch);
+
+ AluSrc: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_AluSrc,
+	      o_Q       => o_AluSrc);
+
+ AluCtrl: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_AluCtrl,
+	      o_Q       => o_AluCtrl);
+
+ MemWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemWr,
+	      o_Q       => o_MemWr);
+
+ RegWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWr,
+	      o_Q       => o_RegWr);
+
+ MemToReg: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemToReg,
+	      o_Q       => o_MemToReg);
+
+ RegDst: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegDst,
+	      o_Q       => o_RegDst);
+
 
 
   

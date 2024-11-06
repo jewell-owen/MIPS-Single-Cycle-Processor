@@ -26,6 +26,7 @@ entity reg_MEMWB is
        i_Branch     : in std_logic;     -- Branch control signal
        i_MemToReg   : in std_logic;     -- MemToReg control signal
        i_RegWr      : in std_logic;     -- RegWr control signal
+       o_Branch     : out std_logic;     -- Branch control signal
        o_MemToReg   : out std_logic;     -- MemToReg control signal
        o_RegWr      : out std_logic;     -- RegWr control signal
        i_MemData    : in std_logic_vector(31 downto 0);     -- Data mem ouput
@@ -52,14 +53,53 @@ architecture structure of reg_MEMWB is
 begin
 
 
-  G_NBit_Reg: for i in 0 to 31 generate
+  G_NBit_RegALU: for i in 0 to 31 generate
     REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_D(i),
-	      o_Q       => o_Q(i));
-  end generate G_NBit_Reg;
+	      i_D       => i_AluOut(i),
+	      o_Q       => o_AluOut(i));
+  end generate G_NBit_RegALU;
+
+  G_NBit_RegPC: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_PC(i),
+	      o_Q       => o_PC(i));
+  end generate G_NBit_RegPC;
+
+  G_NBit_RegMemData: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemData(i),
+	      o_Q       => o_MemData(i));
+  end generate G_NBit_RegMemData;
+
+ Branch: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_Branch,
+	      o_Q       => o_Branch);
+
+ RegWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RegWr,
+	      o_Q       => o_RegWr);
+
+ MemToReg: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemToReg,
+	      o_Q       => o_MemToReg);
 
 
   
