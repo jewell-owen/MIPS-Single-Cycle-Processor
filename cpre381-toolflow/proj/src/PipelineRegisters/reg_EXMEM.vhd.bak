@@ -20,31 +20,37 @@ use IEEE.std_logic_1164.all;
 
 entity reg_EXMEM is
 
-  port(i_CLK        : in std_logic;     -- Clock input
-       i_RST        : in std_logic;     -- Reset input
-       i_WE         : in std_logic;     -- Write enable input
-       i_Branch     : in std_logic;     -- Branch control signal
-       i_MemWr      : in std_logic;     -- MemWr control signal
-       i_RegWr      : in std_logic;     -- RegWr control signal
-       i_MemToReg   : in std_logic;     -- MemToReg control signal
-       o_Branch     : out std_logic;     -- Branch control signal
-       o_MemWr      : out std_logic;     -- MemWr control signal
-       o_RegWr      : out std_logic;     -- RegWr control signal
-       o_MemToReg   : out std_logic;     -- MemToReg control signal
-       i_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
-       o_RegWrAddr  : in std_logic_vector(4 downto 0);     -- RegWrAddr
-       i_isJump     : in std_logic;     -- RegWr control signal
-       i_luiCtrl    : in std_logic;     -- RegWr control signal
-       i_Imm        : in std_logic_vector(15 downto 0);;     -- RegWr control signal
-       o_isJump     : in std_logic;     -- RegWr control signal
-       o_luiCtrl    : in std_logic;     -- RegWr control signal
-       o_Imm        : in std_logic_vector(15 downto 0);
-       i_AluOut     : in std_logic_vector(31 downto 0);     -- Alu input
-       i_RdDataB    : in std_logic_vector(31 downto 0);     -- Read Data B input
-       i_PC         : in std_logic_vector(31 downto 0);     -- PC input
-       o_AluOut     : out std_logic_vector(31 downto 0);    -- Alu output
+  port(i_CLK        : in std_logic;                          -- Clock input
+       i_RST        : in std_logic;                          -- Reset input
+       i_WE         : in std_logic;                          -- Write enable input      
+       i_Branch     : in std_logic;     		     -- Branch control signal
+       i_MemToReg   : in std_logic;     		     -- MemToReg control signal
+       i_RegWr      : in std_logic;     		     -- RegWr control signal
+       i_MemWr      : in std_logic;     		     -- MemWr control signal
+       i_isJump     : in std_logic;                          -- RegWr control signal
+       i_isJumpReg  : in std_logic;   		             -- JumpReg control signal
+       i_AluZero    : in std_logic;     		     -- ALu is 0 control signal
+       i_luiCtrl    : in std_logic;                          -- RegWr control signal
+       i_RegWrAddr  : in std_logic_vector(4 downto 0);       -- RegWrAddr
+       i_Imm        : in std_logic_vector(15 downto 0);      -- RegWr control signal
+       i_PCnext     : in std_logic_vector(31 downto 0);      -- fetch calculated PC
+       i_AluOut     : in std_logic_vector(31 downto 0);      -- Alu input
+       i_RdDataB    : in std_logic_vector(31 downto 0);      -- Read Data B input
+       i_PC         : in std_logic_vector(31 downto 0);      -- PC input
+       o_Branch     : out std_logic;     		     -- Branch control signal
+       o_MemToReg   : out std_logic;    		     -- MemToReg control signal
+       o_RegWr      : out std_logic;     		     -- RegWr control signal
+       o_MemWr      : out std_logic;    		     -- MemWr control signal
+       o_isJump     : in std_logic;                          -- isJump control signal
+       o_isJumpReg  : in std_logic;  			     -- JumpReg control signal
+       o_AluZero    : in std_logic;     		     -- ALu is 0 control signal
+       o_luiCtrl    : in std_logic;                          -- lui control signal
+       o_RegWrAddr  : in std_logic_vector(4 downto 0);       -- RegWrAddr
+       o_Imm        : in std_logic_vector(15 downto 0);      -- Imm value
+       o_PCnext     : out std_logic_vector(31 downto 0);     -- fetch calculated PC
+       o_AluOut     : out std_logic_vector(31 downto 0);     -- Alu output
        o_RdDataB    : out std_logic_vector(31 downto 0);     -- Read Data B output
-       o_PC         : out std_logic_vector(31 downto 0));   -- Pc output  -- Pc output
+       o_PC         : out std_logic_vector(31 downto 0));    -- Pc output  
 
 end reg_EXMEM;
 
@@ -62,33 +68,61 @@ architecture structure of reg_EXMEM is
 
 begin
 
-
-  G_NBit_RegALU: for i in 0 to 31 generate
-    REGI: dffg port map(
+ Branch: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_AluOut(i),
-	      o_Q       => o_AluOut(i));
-  end generate G_NBit_RegALU;
+	      i_D       => i_Branch,
+	      o_Q       => o_Branch);
 
-  G_NBit_RegPC: for i in 0 to 31 generate
-    REGI: dffg port map(
+ MemToReg: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_PC(i),
-	      o_Q       => o_PC(i));
-  end generate G_NBit_RegPC;
+	      i_D       => i_MemToReg,
+	      o_Q       => o_MemToReg);
 
-  G_NBit_RegRdDtaB: for i in 0 to 31 generate
-    REGI: dffg port map(
+ RegWr: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_RdDataB(i),
-	      o_Q       => o_RdDataB(i));
-  end generate G_NBit_RegRdDtaB;
+	      i_D       => i_RegWr,
+	      o_Q       => o_RegWr);
+
+ MemWr: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_MemWr,
+	      o_Q       => o_MemWr);
+
+ isJump: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_isJump,
+	      o_Q       => o_isJump);
+
+ isJumpReg: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_isJumpReg,
+	      o_Q       => o_isJumpReg);
+
+ AluZero: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_AluZero,
+	      o_Q       => o_AluZero);
+
+ luiCtrl: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_luiCtrl,
+	      o_Q       => o_luiCtrl);
 
 G_NBit_RegRegWr: for i in 0 to 4 generate
     REGI: dffg port map(
@@ -99,33 +133,58 @@ G_NBit_RegRegWr: for i in 0 to 4 generate
 	      o_Q       => o_RegWrAddr(i));
   end generate G_NBit_RegRegWr;
 
- Branch: dffg port map(
+G_NBit_RegIMM: for i in 0 to 15 generate
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_Branch,
-	      o_Q       => o_Branch);
+	      i_D       => i_Imm(i),
+	      o_Q       => o_Imm(i));
+  end generate G_NBit_RegIMM;
 
- MemWr: dffg port map(
+ G_NBit_RegPCNext: for i in 0 to 31 generate
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_MemWr,
-	      o_Q       => o_MemWr);
+	      i_D       => i_PCnext(i),
+	      o_Q       => o_PCnext(i));
+  end generate G_NBit_RegPCNext;
 
- RegWr: dffg port map(
+  G_NBit_RegALU: for i in 0 to 31 generate
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_RegWr,
-	      o_Q       => o_RegWr);
+	      i_D       => i_AluOut(i),
+	      o_Q       => o_AluOut(i));
+  end generate G_NBit_RegALU;
 
- MemToReg: dffg port map(
+  G_NBit_RegRdDtaB: for i in 0 to 31 generate
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
-	      i_D       => i_MemToReg,
-	      o_Q       => o_MemToReg);
+	      i_D       => i_RdDataB(i),
+	      o_Q       => o_RdDataB(i));
+  end generate G_NBit_RegRdDtaB;
+
+  G_NBit_RegPC: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_PC(i),
+	      o_Q       => o_PC(i));
+  end generate G_NBit_RegPC;
+
+
+
+
+
+ 
+
+ 
 
   
 end structure;

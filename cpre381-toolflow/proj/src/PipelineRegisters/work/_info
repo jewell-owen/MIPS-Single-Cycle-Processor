@@ -1,0 +1,175 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters
+Ereg_exmem
+Z1 w1731003248
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 14
+R0
+Z4 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_EXMEM.vhd
+Z5 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_EXMEM.vhd
+l0
+Z6 L21 1
+VeHDYi4h>^kIV57>``PSo`0
+!s100 `VGk2hGazYJHP2<W=R:C10
+Z7 OL;C;2024.2;79
+32
+Z8 !s110 1731003608
+!i10b 1
+Z9 !s108 1731003608.000000
+Z10 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_EXMEM.vhd|
+Z11 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_EXMEM.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+DEx4 work 9 reg_exmem 0 22 eHDYi4h>^kIV57>``PSo`0
+!i122 14
+l69
+L57 134
+Vz7jka:eXHDi5YP`ZnKD9R3
+!s100 `IJQD@]fj9R7nL=6h9i]j0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ereg_idex
+Z14 w1731003596
+R2
+R3
+!i122 12
+R0
+Z15 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IDEX.vhd
+Z16 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IDEX.vhd
+l0
+R6
+VXVB59PJ5KzcEkBYU6AUjP1
+!s100 JmG:i]79`8W@ldImeFGL41
+R7
+32
+Z17 !s110 1731003605
+!i10b 1
+Z18 !s108 1731003605.000000
+Z19 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IDEX.vhd|
+Z20 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IDEX.vhd|
+!i113 0
+R12
+R13
+Astructure
+R2
+R3
+DEx4 work 8 reg_idex 0 22 XVB59PJ5KzcEkBYU6AUjP1
+!i122 12
+l75
+L63 162
+VcMK2JeYP_m_9T[gcY;cSL0
+!s100 b1Jj^GXU4L_FcgQQ?lLGU1
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R12
+R13
+Ereg_ifid
+Z21 w1730820754
+R2
+R3
+!i122 13
+R0
+Z22 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IFID.vhd
+Z23 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IFID.vhd
+l0
+R6
+Vk>F31lldO2ZkkoinYA`=O0
+!s100 _>G<gbRWn[bP4[GSOf1F<1
+R7
+32
+Z24 !s110 1731003607
+!i10b 1
+Z25 !s108 1731003607.000000
+Z26 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IFID.vhd|
+Z27 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_IFID.vhd|
+!i113 0
+R12
+R13
+Astructure
+R2
+R3
+DEx4 work 8 reg_ifid 0 22 k>F31lldO2ZkkoinYA`=O0
+!i122 13
+l45
+L33 36
+V;kP3oCPVER9a0jcQ=6YJi1
+!s100 YAe62e0deBWJchdm9hKOT0
+R7
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 0
+R12
+R13
+Ereg_memwb
+Z28 w1731003634
+R2
+R3
+!i122 16
+R0
+Z29 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_MEMWB.vhd
+Z30 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_MEMWB.vhd
+l0
+R6
+VDA7E]<mM0^nKi]`aMk8KJ3
+!s100 @d9oaHYS1F;GI9CbPSzY<1
+R7
+32
+Z31 !s110 1731003637
+!i10b 1
+Z32 !s108 1731003637.000000
+Z33 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_MEMWB.vhd|
+!s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_MEMWB.vhd|
+!i113 0
+R12
+R13
+Astructure
+R2
+R3
+DEx4 work 9 reg_memwb 0 22 DA7E]<mM0^nKi]`aMk8KJ3
+!i122 16
+l61
+L49 99
+VHQS@[A;5;GNnHg_VNoH3;2
+!s100 b6jo?i<A2DPa:^iTRe4@M1
+R7
+32
+R31
+!i10b 1
+R32
+R33
+Z34 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/PipelineRegisters/reg_MEMWB.vhd|
+!i113 0
+R12
+R13

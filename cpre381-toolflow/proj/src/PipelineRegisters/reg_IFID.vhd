@@ -20,12 +20,12 @@ use IEEE.std_logic_1164.all;
 
 entity reg_IFID is
 
-  port(i_CLK        : in std_logic;     -- Clock input
-       i_RST        : in std_logic;     -- Reset input
-       i_WE         : in std_logic;     -- Write enable input
+  port(i_CLK        : in std_logic;     		    -- Clock input
+       i_RST        : in std_logic;    			    -- Reset input
+       i_WE         : in std_logic;                         -- Write enable input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC value input
        i_Instr      : in std_logic_vector(31 downto 0);     -- Instruction value input
-       o_PC         : out std_logic_vector(31 downto 0);     -- PC value output
+       o_PC         : out std_logic_vector(31 downto 0);    -- PC value output
        o_Instr      : out std_logic_vector(31 downto 0));   -- Instruction value output
 
 end reg_IFID;

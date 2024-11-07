@@ -16,10 +16,17 @@ use IEEE.std_logic_1164.all;
 
 
 entity fetchLogic is
-   port(i_CLK, i_RST, is_Brch, is_Jump, is_JumpReg, is_zero		: in std_logic;
-	i_instr, i_immed, i_rs_data, i_PCplusFour			: in std_logic_vector(31 downto 0);
-	o_PC							: out std_logic_vector(31 downto 0));
-
+   port(i_CLK           : in std_logic;
+	i_RST           : in std_logic; 
+	is_Brch         : in std_logic; 
+	is_Jump         : in std_logic; 
+	is_JumpReg      : in std_logic;
+	is_zero		: in std_logic;
+	i_instr         : in std_logic_vector(31 downto 0);
+	i_immed         : in std_logic_vector(31 downto 0);
+	i_rs_data       : in std_logic_vector(31 downto 0);
+	i_PCplusFour	: in std_logic_vector(31 downto 0);
+	o_PC		: out std_logic_vector(31 downto 0));
 end fetchLogic;
 
 architecture structural of fetchLogic is

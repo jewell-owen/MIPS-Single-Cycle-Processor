@@ -1,5 +1,5 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-Start time: 11:36:05 on Nov 07,2024
+Start time: 13:02:14 on Nov 07,2024
 vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/Alu/alu.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd proj/src/PipelineRegisters/reg_MEMWB.vhd proj/src/PipelineRegisters/reg_IDEX.vhd proj/src/PipelineRegisters/reg_IFID.vhd proj/src/PipelineRegisters/reg_EXMEM.vhd proj/src/ControlLogic/controlUnit.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/org2.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/xorg2.vhd proj/src/FetchLogic/reg_NPC.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/reg_N.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/FetchLogic/adder_N.vhd proj/src/FetchLogic/dffgPC.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -23,16 +23,67 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(450): Signal "s_aluctr" is type ieee.std_logic_1164.STD_LOGIC_VECTOR; expecting type ieee.std_logic_1164.STD_LOGIC.
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(459): Signal "s_aluctrIDEX" is type ieee.std_logic_1164.STD_LOGIC_VECTOR; expecting type ieee.std_logic_1164.STD_LOGIC.
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(493): (vcom-1136) Unknown identifier "s_PCfetch".
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(492): (vcom-1484) Unknown formal identifier "i_PCplusFour".
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(527): near "i_isJumpReg": (vcom-1576) expecting ',' or ')'.
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(551): Statement cannot be labeled.
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(569): near "o_RegWrAddr": (vcom-1576) expecting ',' or ')'.
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(588): Statement cannot be labeled.
-** Error (suppressible): proj/src/TopLevel/MIPS_Processor.vhd(467): (vcom-1272) Length of formal "i_Imm" is 16; length of actual is 32.
-** Error (suppressible): proj/src/TopLevel/MIPS_Processor.vhd(469): (vcom-1272) Length of formal "o_Imm" is 16; length of actual is 32.
-** Note: proj/src/TopLevel/MIPS_Processor.vhd(615): VHDL Compiler exiting
-End time: 11:36:05 on Nov 07,2024, Elapsed time: 0:00:00
-Errors: 10, Warnings: 1
+-- Compiling entity decoder5t32
+-- Compiling architecture dataflow of decoder5t32
+-- Compiling entity alu
+-- Compiling architecture structural of alu
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity lessThanModule
+-- Compiling architecture dataflow of lessThanModule
+-- Compiling entity equalityModule
+-- Compiling architecture dataflow of equalityModule
+-- Compiling entity mux8t1_32
+-- Compiling architecture structural of mux8t1_32
+-- Compiling entity equalityMuxModule
+-- Compiling architecture dataflow of equalityMuxModule
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+-- Compiling entity onesComp
+-- Compiling architecture structure of onesComp
+-- Compiling entity reg_MEMWB
+-- Compiling architecture structure of reg_MEMWB
+-- Compiling entity reg_IDEX
+-- Compiling architecture structure of reg_IDEX
+-- Compiling entity reg_IFID
+-- Compiling architecture structure of reg_IFID
+-- Compiling entity reg_EXMEM
+-- Compiling architecture structure of reg_EXMEM
+-- Compiling entity controlUnit
+-- Compiling architecture behavioral of controlUnit
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity reg_NPC
+-- Compiling architecture structure of reg_NPC
+-- Compiling entity adder1bit
+-- Compiling architecture structure of adder1bit
+-- Compiling entity reg_N
+-- Compiling architecture structure of reg_N
+-- Compiling entity fetchLogic
+-- Compiling architecture structural of fetchLogic
+-- Compiling entity adder_N
+-- Compiling architecture structure of adder_N
+-- Compiling entity dffgPC
+-- Compiling architecture mixed of dffgPC
+-- Compiling entity vectorReverser_N
+-- Compiling architecture dataflow of vectorReverser_N
+-- Compiling entity barrelShifter
+-- Compiling architecture structural of barrelShifter
+-- Compiling entity carryLookaheadAdder
+-- Compiling architecture mixed of carryLookaheadAdder
+-- Compiling entity fullAdder
+-- Compiling architecture structure of fullAdder
+End time: 13:02:14 on Nov 07,2024, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
