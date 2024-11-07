@@ -22,7 +22,8 @@ entity reg_EXMEM is
 
   port(i_CLK        : in std_logic;                          -- Clock input
        i_RST        : in std_logic;                          -- Reset input
-       i_WE         : in std_logic;                          -- Write enable input      
+       i_WE         : in std_logic;                          -- Write enable input
+       i_Halt       : in std_logic;     		    -- Halt control signal      
        i_Branch     : in std_logic;     		     -- Branch control signal
        i_MemToReg   : in std_logic;     		     -- MemToReg control signal
        i_RegWr      : in std_logic;     		     -- RegWr control signal
@@ -37,6 +38,7 @@ entity reg_EXMEM is
        i_AluOut     : in std_logic_vector(31 downto 0);      -- Alu input
        i_RdDataB    : in std_logic_vector(31 downto 0);      -- Read Data B input
        i_PC         : in std_logic_vector(31 downto 0);      -- PC input
+       o_Halt       : out std_logic;     		    -- Halt control signal
        o_Branch     : out std_logic;     		     -- Branch control signal
        o_MemToReg   : out std_logic;    		     -- MemToReg control signal
        o_RegWr      : out std_logic;     		     -- RegWr control signal
@@ -67,6 +69,13 @@ architecture structure of reg_EXMEM is
 
 
 begin
+
+ Halt: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_Halt,
+	      o_Q       => o_Halt);
 
  Branch: dffg port map(
 	      i_CLK     => i_CLK,

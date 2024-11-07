@@ -195,6 +195,7 @@ component reg_IDEX is
   port(i_CLK        : in std_logic;     		    -- Clock input
        i_RST        : in std_logic;     		    -- Reset input
        i_WE         : in std_logic;     		    -- Write enable input
+       i_Halt       : in std_logic;     		    -- Halt control signal
        i_Branch     : in std_logic;     		    -- Branch control signal
        i_MemToReg   : in std_logic;     		    -- MemToReg control signal
        i_RegWr      : in std_logic;     		    -- RegWr control signal
@@ -212,6 +213,7 @@ component reg_IDEX is
        i_B          : in std_logic_vector(31 downto 0);     -- B input
        i_SignExt    : in std_logic_vector(31 downto 0);     -- Sign Extended input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC input
+       o_Halt       : out std_logic;     		    -- Halt control signal
        o_Branch     : out std_logic;     		    -- Branch control signal
        o_MemToReg   : out std_logic;    		    -- MemToReg control signal
        o_RegWr      : out std_logic;    		    -- RegWr control signal
@@ -234,7 +236,8 @@ end component;
 component reg_EXMEM is
   port(i_CLK        : in std_logic;                          -- Clock input
        i_RST        : in std_logic;                          -- Reset input
-       i_WE         : in std_logic;                          -- Write enable input      
+       i_WE         : in std_logic;                          -- Write enable input
+       i_Halt       : in std_logic;     		     -- Halt control signal      
        i_Branch     : in std_logic;     		     -- Branch control signal
        i_MemToReg   : in std_logic;     		     -- MemToReg control signal
        i_RegWr      : in std_logic;     		     -- RegWr control signal
@@ -249,6 +252,7 @@ component reg_EXMEM is
        i_AluOut     : in std_logic_vector(31 downto 0);      -- Alu input
        i_RdDataB    : in std_logic_vector(31 downto 0);      -- Read Data B input
        i_PC         : in std_logic_vector(31 downto 0);      -- PC input
+       o_Halt       : out std_logic;     		     -- Halt control signal
        o_Branch     : out std_logic;     		     -- Branch control signal
        o_MemToReg   : out std_logic;    		     -- MemToReg control signal
        o_RegWr      : out std_logic;     		     -- RegWr control signal
@@ -262,13 +266,14 @@ component reg_EXMEM is
        o_PCnext     : out std_logic_vector(31 downto 0);     -- fetch calculated PC
        o_AluOut     : out std_logic_vector(31 downto 0);     -- Alu output
        o_RdDataB    : out std_logic_vector(31 downto 0);     -- Read Data B output
-       o_PC         : out std_logic_vector(31 downto 0));    -- Pc output 
+       o_PC         : out std_logic_vector(31 downto 0));    -- Pc output  
 end component;
 
 component reg_MEMWB is
   port(i_CLK        : in std_logic;                         -- Clock input
        i_RST        : in std_logic;                         -- Reset input
        i_WE         : in std_logic;                         -- Write enable input
+       i_Halt       : in std_logic;     		    -- Halt control signal
        i_Branch     : in std_logic;                         -- Branch control signal
        i_MemToReg   : in std_logic;                         -- MemToReg control signal
        i_RegWr      : in std_logic;                         -- RegWr control signal
@@ -278,14 +283,15 @@ component reg_MEMWB is
        i_Imm        : in std_logic_vector(15 downto 0);     -- RegWr control signal
        i_MemData    : in std_logic_vector(31 downto 0);     -- Data mem ouput
        i_AluOut     : in std_logic_vector(31 downto 0);     -- Alu output
-       i_PC         : in std_logic_vector(31 downto 0);     -- PC input             
+       i_PC         : in std_logic_vector(31 downto 0);     -- PC input   
+       o_Halt       : out std_logic;     		    -- Halt control signal          
        o_Branch     : out std_logic;                        -- Branch control signal
        o_MemToReg   : out std_logic;                        -- MemToReg control signal
        o_RegWr      : out std_logic;                        -- RegWr control signal
-       o_isJump     : out std_logic;                         -- isJump control signal
-       o_luiCtrl    : out std_logic;                         -- lui control signal
-       o_RegWrAddr  : out std_logic_vector(4 downto 0);      -- RegWrAddr
-       o_Imm        : out std_logic_vector(15 downto 0);     -- Imm value
+       o_isJump     : out std_logic;                        -- isJump control signal
+       o_luiCtrl    : out std_logic;                        -- lui control signal
+       o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_Imm        : out std_logic_vector(15 downto 0);    -- Imm value
        o_MemData    : out std_logic_vector(31 downto 0);    -- Data mem output
        o_AluOut     : out std_logic_vector(31 downto 0);    -- Alu output
        o_PC         : out std_logic_vector(31 downto 0));   -- Pc output 
@@ -298,7 +304,7 @@ end component;
   signal s_rs_sel,s_rt_sel    : std_logic_vector(4 downto 0);
   signal s_rs_DA, s_rt_DB, s_immExt, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4 : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt : std_logic;
 
    
 
@@ -316,7 +322,7 @@ signal s_aluctrIDEX : std_logic_vector(3 downto 0);
 signal s_RegWrAddrIDEX : std_logic_vector(4 downto 0); 
 signal s_ImmIDEX : std_logic_vector(15 downto 0); 
 signal s_PCfourIDEX, s_InstIDEX, s_rs_DAIDEX,  s_rt_DBIDEX, s_immExtIDEX: std_logic_vector(31 downto 0);  
-signal s_isJumpIDEX, s_isJumpRegIDEX, s_luiCtrlIDEX, s_BranchIDEX, s_DMemWrIDEX, s_RegWrIDEX, s_regDstIDEX, s_MemtoRegIDEX, s_aluSrcIDEX     : std_logic;
+signal s_isJumpIDEX, s_isJumpRegIDEX, s_luiCtrlIDEX, s_BranchIDEX, s_DMemWrIDEX, s_RegWrIDEX, s_regDstIDEX, s_MemtoRegIDEX, s_aluSrcIDEX, s_HaltIDEX  : std_logic;
 ---------End ID/EX---------------
 
 
@@ -324,7 +330,7 @@ signal s_isJumpIDEX, s_isJumpRegIDEX, s_luiCtrlIDEX, s_BranchIDEX, s_DMemWrIDEX,
 signal s_RegWrAddrEXMEM : std_logic_vector(4 downto 0); 
 signal s_ImmEXMEM : std_logic_vector(15 downto 0); 
 signal s_PCfourEXMEM, s_aluOutEXMEM, s_rt_DBEXMEM, s_PCEXMEM : std_logic_vector(31 downto 0);
-signal s_isJumpEXMEM, s_isJumpRegEXMEM, s_luiCtrlEXMEM, s_BranchEXMEM, s_DMemWrEXMEM, s_RegWrEXMEM, s_MemtoRegEXMEM, s_AluZeroEXMEM : std_logic;
+signal s_isJumpEXMEM, s_isJumpRegEXMEM, s_luiCtrlEXMEM, s_BranchEXMEM, s_DMemWrEXMEM, s_RegWrEXMEM, s_MemtoRegEXMEM, s_AluZeroEXMEM, s_HaltEXMEM : std_logic;
 ---------End EX/MEM--------------
 
 
@@ -332,7 +338,7 @@ signal s_isJumpEXMEM, s_isJumpRegEXMEM, s_luiCtrlEXMEM, s_BranchEXMEM, s_DMemWrE
 signal s_RegWrAddrMEMWB : std_logic_vector(4 downto 0); 
 signal s_ImmMEMWB : std_logic_vector(15 downto 0);
 signal s_PCfourMEMWB, s_DMemOutMEMWB, s_aluOutMEMWB : std_logic_vector(31 downto 0);
-signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_RegWrMEMWB, s_MemtoRegMEMWB : std_logic;
+signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_RegWrMEMWB, s_MemtoRegMEMWB, s_HaltMEMWB : std_logic;
 ---------End MEM/WB--------------
 --===============================
                                                     
@@ -426,7 +432,7 @@ begin
 		shiftVariable   	=> tempt,	-- not needed?
 		upper_immediate 	=> s_is_Lui,	
 		signSel 		=> s_signExtSel,
-		halt                    => s_Halt);
+		halt                    => s_tempHalt);
 
 
 
@@ -451,6 +457,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,
        i_WE          =>   '1',
+       i_Halt        =>   s_tempHalt,
        i_Branch      =>   s_BrchEq OR s_BrchNe,
        i_MemToReg    =>   s_MemtoReg,
        i_RegWr       =>   s_RegWr,
@@ -468,6 +475,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_B           =>   s_rt_DBIFID,
        i_SignExt     =>   s_immExt,
        i_PC          =>   s_PCfourIFID,
+       o_Halt        =>   s_HaltIDEX,
        o_Branch      =>   s_BranchIDEX,
        o_MemToReg    =>   s_MemtoRegIDEX,
        o_RegWr       =>   s_RegWrIDEX,
@@ -526,6 +534,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,
        i_WE          =>   '1',
+       i_Halt        =>   s_HaltIDEX,
        i_Branch      =>   s_BranchIDEX, 
        i_MemToReg    =>   s_MemtoRegIDEX,
        i_RegWr       =>   s_RegWrIDEX,
@@ -540,6 +549,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_AluOut      =>   s_aluOut,
        i_RdDataB     =>   s_rt_DBIDEX,
        i_PC          =>   s_PCfourIDEX,
+       o_Halt        =>   s_HaltEXMEM,
        o_Branch      =>   s_BranchEXMEM,
        o_MemToReg    =>   s_MemtoRegEXMEM,
        o_RegWr       =>   s_RegWrEXMEM,
@@ -572,6 +582,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,
        i_WE          =>   '1',
+       i_Halt        =>   s_HaltEXMEM,
        i_Branch      =>   s_BranchEXMEM,
        i_MemToReg    =>   s_MemtoRegEXMEM,
        i_RegWr       =>   s_RegWrEXMEM,
@@ -582,6 +593,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_MemData     =>   s_DMemOut,
        i_AluOut      =>   s_aluOutEXMEM,
        i_PC          =>   s_PCfourEXMEM,
+       o_Halt        =>   s_HaltMEMWB,
        o_Branch      =>   s_BranchMEMWB,
        o_MemToReg    =>   s_MemtoRegMEMWB,
        o_RegWr       =>   s_RegWrMEMWB,
@@ -612,6 +624,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D0 => s_DMemOrAluOrLui,  
 		i_D1 => s_PCfourMEMWB, 
 		o_O => s_RegWrData);
+
+ s_Halt <= s_HaltMEMWB;
 ------------------------------------------------------End Write Back----------------------------------------------------------------------
 --========================================================================================================================================
 
