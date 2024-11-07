@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-Start time: 12:33:13 on Oct 23,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/controlUnit.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/xorg2.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/org2.vhd proj/src/FetchLogic/reg_N.vhd proj/src/FetchLogic/adder_N.vhd proj/src/FetchLogic/dffgPC.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/alu.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd 
+Start time: 11:36:05 on Nov 07,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/Alu/alu.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd proj/src/PipelineRegisters/reg_MEMWB.vhd proj/src/PipelineRegisters/reg_IDEX.vhd proj/src/PipelineRegisters/reg_IFID.vhd proj/src/PipelineRegisters/reg_EXMEM.vhd proj/src/ControlLogic/controlUnit.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/org2.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/xorg2.vhd proj/src/FetchLogic/reg_NPC.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/reg_N.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/FetchLogic/adder_N.vhd proj/src/FetchLogic/dffgPC.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -11,30 +11,28 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture mixed of tb
 ** Warning: proj/src/MIPS_types.vhd(15): (vcom-1615) Existing package 'MIPS_types' at line 15 will be overwritten.
 -- Compiling package MIPS_types
--- Compiling entity barrelShifter
--- Compiling architecture structural of barrelShifter
--- Compiling entity vectorReverser_N
--- Compiling architecture dataflow of vectorReverser_N
--- Compiling entity invg
--- Compiling architecture dataflow of invg
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
--- Compiling entity controlUnit
--- Compiling architecture behavioral of controlUnit
--- Compiling entity mux2t1_N
--- Compiling architecture structural of mux2t1_N
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
--- Compiling entity mux2t1
--- Compiling architecture structure of mux2t1
--- Compiling entity dffg
--- Compiling architecture mixed of dffg
--- Compiling entity org2
--- Compiling architecture dataflow of org2
--- Compiling entity reg_N
--- Compiling architecture structure of reg_N
-** Error: proj/src/FetchLogic/reg_N.vhd(64): Symbol "G_NBit_Reg" has already been declared in this region.
-** Error: proj/src/FetchLogic/reg_N.vhd(73): Symbol "G_NBit_Reg" has already been declared in this region.
-** Note: proj/src/FetchLogic/reg_N.vhd(83): VHDL Compiler exiting
-End time: 12:33:13 on Oct 23,2024, Elapsed time: 0:00:00
-Errors: 2, Warnings: 1
+-- Loading package MIPS_types
+-- Compiling entity mux32t1_new
+-- Compiling architecture mux_arch of mux32t1_new
+-- Loading package NUMERIC_STD
+-- Compiling entity sign_ext
+-- Compiling architecture dataflow of sign_ext
+-- Compiling entity regFile
+-- Compiling architecture structure of regFile
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+-- Compiling entity MIPS_Processor
+-- Compiling architecture structure of MIPS_Processor
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(450): Signal "s_aluctr" is type ieee.std_logic_1164.STD_LOGIC_VECTOR; expecting type ieee.std_logic_1164.STD_LOGIC.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(459): Signal "s_aluctrIDEX" is type ieee.std_logic_1164.STD_LOGIC_VECTOR; expecting type ieee.std_logic_1164.STD_LOGIC.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(493): (vcom-1136) Unknown identifier "s_PCfetch".
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(492): (vcom-1484) Unknown formal identifier "i_PCplusFour".
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(527): near "i_isJumpReg": (vcom-1576) expecting ',' or ')'.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(551): Statement cannot be labeled.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(569): near "o_RegWrAddr": (vcom-1576) expecting ',' or ')'.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(588): Statement cannot be labeled.
+** Error (suppressible): proj/src/TopLevel/MIPS_Processor.vhd(467): (vcom-1272) Length of formal "i_Imm" is 16; length of actual is 32.
+** Error (suppressible): proj/src/TopLevel/MIPS_Processor.vhd(469): (vcom-1272) Length of formal "o_Imm" is 16; length of actual is 32.
+** Note: proj/src/TopLevel/MIPS_Processor.vhd(615): VHDL Compiler exiting
+End time: 11:36:05 on Nov 07,2024, Elapsed time: 0:00:00
+Errors: 10, Warnings: 1
