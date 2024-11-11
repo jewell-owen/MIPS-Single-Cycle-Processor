@@ -63,48 +63,67 @@ main:
     addi $s1, $0, 0            # $s1 = i = 0        #Fetch.
     NOP                                             #Decode
     NOP                                             #Execute
+    NOP
 for1:
     # Check if i < n-1 using slt and beq
     sub $t0, $s0, $s1          # $t0 = n - i        #Memory Access    #Fetch.
     NOP                                             #Write Back       #Decode
     NOP                                                               #Execute
+    NOP
     addi $t0, $t0, -1          # $t0 = n - i - 1                      #Memory Access        #Fetch.
     NOP                                                               #Write Back           #Decode
     NOP                                                                                     #Execute
+    NOP
     slt $t1, $0, $t0           # $t1 = 1 if n - i - 1 > 0             #Fetch.               #Memory Access
     NOP                                                               #Decode               #Write Back
     NOP                                                               #Execute
+    NOP
     beq $t1, $0, exit_for1     # Exit if n - i - 1 <= 0               #Memory Access
+    NOP
+    NOP
+    NOP
 
     # Initialize j = 0 (inner loop index)
     addi $s2, $0, 0            # $s2 = j = 0                          #Write Back           #Fetch.
     NOP                                                                                     #Decode
     NOP                                                                                     #Execute
+    NOP
 for2:
     # Check if j < n - i - 1 using slt and beq
     slt $t1, $s2, $t0          # if j < n - i - 1                                           #Memory Access        #Fetch.
     NOP                                                                                     #Write Back           #Decode
     NOP                                                                                                           #Execute
+    NOP
     beq $t1, $0, next_for1     # Exit inner loop if j >= n - i - 1                                                #Memory Access
+    NOP
+    NOP
+    NOP
 
     # Load arr[j] and arr[j + 1]
     sll $t2, $s2, 2            # $t2 = j * 4 (word offset for arr[j])                       #Fetch.               #Write Back
     NOP                                                                                     #Decode
     NOP                                                                                     #Execute
+    NOP
     lw $t3, arr($t2)           # Load arr[j] into $t3                                       #Memory Access
     addi $t4, $t2, 4           # $t4 = (j + 1) * 4 (word offset for arr[j + 1])             #Write Back           #Fetch.
     NOP                                                                                                           #Decode
     NOP                                                                                                           #Execute
+    NOP
     lw $t5, arr($t4)           # Load arr[j + 1] into $t5                                   #Fetch.               #Memory Access
     NOP                                                                                     #Decode               #Write Back
     NOP                                                                                     #Execute
     NOP                                                                                     #Memory Access
+    NOP
 
     # Compare arr[j] > arr[j + 1]
     slt $t6, $t5, $t3          # $t6 = (arr[j] > arr[j + 1]) ? 1 : 0                        #Write Back            #Fetch.
     NOP                                                                                                            #Decode
     NOP                                                                                                            #Execute
-    beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap                                                #Memory Access
+    NOP
+    beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap   
+    NOP                                             #Memory Access
+    NOP
+    NOP
 
     # Swap arr[j] and arr[j+1]
     sw $t5, arr($t2)           # arr[j] = arr[j+1]                                                                 #Write Back
@@ -113,14 +132,20 @@ for2:
 skip_swap:
     addi $s2, $s2, 1           # j++                    #Fetch.
     NOP                                                 #Decode
+    NOP
     j for2                    # Repeat inner loop       #Execute
-                                                        #Mem and Write happen back at top of for2
+    NOP                                                     #Mem and Write happen back at top of for2
+    NOP
+    NOP
 
 next_for1:
     addi $s1, $s1, 1           # i++                    #Fetch.
     NOP                                                 #Decode
+    NOP
     j for1                    # Repeat outer loop       #Execute
-                                                        #Mem and Write happen back at top of for1
+    NOP                                                       #Mem and Write happen back at top of for1
+    NOP
+    NOP
 
 exit_for1:
     # Print sorted array

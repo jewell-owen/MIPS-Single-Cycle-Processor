@@ -302,7 +302,7 @@ end component;
 
   signal s_aluctr   : std_logic_vector(3 downto 0); 
   signal s_rs_sel,s_rt_sel    : std_logic_vector(4 downto 0);
-  signal s_rs_DA, s_rt_DB, s_immExt, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
          temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt : std_logic;
 
@@ -392,7 +392,7 @@ begin
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,   
        i_WE          =>   '1',     
-       i_PC          =>   s_PCfour,      
+       i_PC          =>   s_PC4,      
        i_Instr       =>   s_Inst,   
        o_PC          =>   s_PCfourIFID,    
        o_Instr       =>   s_InstIFID);
