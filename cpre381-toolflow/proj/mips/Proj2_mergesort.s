@@ -1,58 +1,93 @@
 #
-# Implement a mips program that sorts an array with N elements using the BubbleSort algorithm
+# Implement a mips program that sorts an array with N elements using the MergeSort algorithm
 # 
 # add, addi, addiu, addu, and, andi, lui, lw, nor, xor, xori, or, ori, slt, slti, sll, srl, sra, sw, sub, subu, beq, bne, j, jal, jr
 #
-#// Optimized implementation of Bubble sort
-#include <stdbool.h>
-#include <stdio.h>
-
-#void swap(int* xp, int* yp){
-#    int temp = *xp;
-#    *xp = *yp;
-#    *yp = temp;
-#}
+#// C program for the implementation of merge sort
+##include <stdio.h>
+##include <stdlib.h>
 #
-#// An optimized version of Bubble Sort
-#void bubbleSort(int arr[], int n){
-#    int i, j;
-#    bool swapped;
-#    for (i = 0; i < n - 1; i++) {
-#        for (j = 0; j < n - i - 1; j++) {
-#            if (arr[j] > arr[j + 1]) {
-#                swap(&arr[j], &arr[j + 1]);
-#                swapped = true;
-#            }
+#// Merges two subarrays of arr[].
+#// First subarray is arr[left..mid]
+#// Second subarray is arr[mid+1..right]
+#void merge(int arr[], int left, int mid, int right) {
+#    int i, j, k;
+#    int n1 = mid - left + 1;
+#    int n2 = right - mid;#
+#
+#    // Create temporary arrays
+#    int leftArr[n1], rightArr[n2];##
+#
+#    // Copy data to temporary arrays
+#    for (i = 0; i < n1; i++)
+#        leftArr[i] = arr[left + i];
+#    for (j = 0; j < n2; j++)
+#        rightArr[j] = arr[mid + 1 + j];
+#
+#    // Merge the temporary arrays back into arr[left..right]
+#    i = 0;
+#    j = 0;
+#    k = left;
+#    while (i < n1 && j < n2) {
+#        if (leftArr[i] <= rightArr[j]) {
+#            arr[k] = leftArr[i];
+#            i++;
 #        }
+#        else {
+#            arr[k] = rightArr[j];
+#            j++;
+#        }
+#        k++;
+#    }
 #
-#        // If no two elements were swapped by inner loop,
-#        // then break
-#        if (swapped == false)
-#            break;
+#    // Copy the remaining elements of leftArr[], if any
+#    while (i < n1) {
+#        arr[k] = leftArr[i];
+#        i++;
+#        k++;
+#    }#
+#
+#    // Copy the remaining elements of rightArr[], if any
+#    while (j < n2) {
+#        arr[k] = rightArr[j];
+#        j++;
+#        k++;
 #    }
 #}
 #
-#// Function to print an array
-#void printArray(int arr[], int size){
-#    int i;
-#    for (i = 0; i < size; i++)
-#        printf("%d ", arr[i]);
+#// The subarray to be sorted is in the index range [left-right]
+#void mergeSort(int arr[], int left, int right) {
+#    if (left < right) {
+#      
+#        // Calculate the midpoint
+#        int mid = left + (right - left) / 2;
+#
+#        // Sort first and second halves
+#        mergeSort(arr, left, mid);
+#        mergeSort(arr, mid + 1, right);
+#
+#        // Merge the sorted halves
+#        merge(arr, left, mid, right);
+#    }
 #}
 #
-#int main(){
-#    int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+#int main() {
+#    int arr[] = { 12, 11, 13, 5, 6, 7 };
 #    int n = sizeof(arr) / sizeof(arr[0]);
-#    bubbleSort(arr, n);
-#    printf("Sorted array: \n");
-#    printArray(arr, n);
+#    
+#      // Sorting arr using mergesort
+#    mergeSort(arr, 0, n - 1);
+#
+#    for (int i = 0; i < n; i++)
+#        printf("%d ", arr[i]);
 #    return 0;
 #}
 
 .data
 arr:
-    .word 5, 4, 3, 2, 1   # Unsorted array
+    .word 11, 12, 10, 5, 3, 4   # Unsorted array
 size:
-    .word 5              # Placeholder for size of array
+    .word 6              # Placeholder for size of array
 space: .asciiz "\n"
 
 
@@ -60,82 +95,44 @@ space: .asciiz "\n"
 .globl main
 main:
     # store size
-    lw $t1, size
-    
-    addi $t2, $0, 0	#i = 0
-    addi $t3, $0, 0	#j = 0
-    
-for1:
-    beq $t2, $t1, exit # for(i = 0; i < n-1;)
-    add $t3, $0, $0 # j = 0
-    addi $t2, $t2, 1 # (i++)
-    
-    j for2 # jump to for2
-for2:
-    beq $t3, $t1, for1 # for(j = 0; j < n-1;)
-    addi $t7, $t3, 1 # j + 1
-    sll $s1, $t3, 2 # current j shift left (multiply by 4)
-    sll $s2, $t7, 2 # current j + 1shift left (multiply by 4)
-    lw $t4, arr($s1) # load content of arr[j]
-    lw $t5, arr($s2) # load content of arr[j + 1]
-    slt $t6, $t4, $t5 # if (arr[j] > arr[j + 1])
-    
-    add $a0, $0, $t3
-    addi $v0, $0, 1
+    addi $s3, $0, 1 # $s3 is temporary 1
+    addi $s2, $0, 0 # left = 0
+    lw $s1, size    # size
+    sub $s3, $s1, $s3 # right = size - 1
+
+mergeSort:
+    #Debug Print
+    sll $t5, $s2, 2
+    sll $t6, $t3, 2
+    lw $s5, arr($t5) # $s3 = arr[0]
+    lw $s6, arr($t6) # $s6 = 
+
+    add $a0, $0, $s5           # Load $s5 (arr[0]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    add $a0, $0, $t7
-    addi $v0, $0, 1
+    add $a0, $0, $s6           # Load $s6 (arr[0]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
+
     
-    addi $v0, $0, 4
-    la $a0 , space
-    syscall
+    slt $t1, $s2, $s3 # if (left < right)
+    beq $t1, $0, exit
+
+    # Calculate Midpoint
+    sub $t2, $s3, $s2 # mid = right-left
+    srl $t2, $t2, 1 # mid = (right-left)/2
+    add $t2, $s2, $t2 # mid = left + (right-left) / 2
+
+    # Sort First and second halves
+    # First Half
+    add $s3, $0, $t2 # Right of first half is mid
+    jal mergeSort
+
+    # Second Half
+    addi $t3, $t2, 1 # mid + 1
+    add $s2, $0, $t3 # left = mid + 1
+    add $s3, $0, $s1 # right = right
     
-    lw $s5, arr
-    add $a0, $0, $s5
-    addi $v0, $0, 1
-    syscall
-    
-    addi $s6, $0, 4
-    lw $s6, arr($s6)
-    add $a0, $0, $s6
-    addi $v0, $0, 1
-    syscall
-    
-    addi $s7, $0, 8
-    lw $s7, arr($s7)
-    add $a0, $0, $s7
-    addi $v0, $0, 1
-    syscall
-    
-    addi $t8, $0, 12
-    lw $t8, arr($t8)
-    add $a0, $0, $t8
-    addi $v0, $0, 1
-    syscall
-    
-    addi $t9, $0, 16
-    lw $t9, arr($t9)
-    add $a0, $0, $t9
-    addi $v0, $0, 1
-    syscall
-    
-    addi $v0, $0, 4
-    la $a0 , space
-    syscall
-    
-    bne $t6, $0, swap # if t6 = 1, swap
-    addi $t3, $t3, 1 # (j++) if no swap
-swap: 
-    add $t7, $0, $t4 # temp = i
-    add $t4, $0, $t5 # i = j
-    add $t5, $0, $t7 # j = temp
-    sw $t4, arr($s1) # store i
-    sw $t5, arr($s2) # store j
-    
-    #addi $t3, $t3, 1 # (j++) after swap
-    j for2 # return to for2
 exit:
     
     halt
