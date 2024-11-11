@@ -1,3 +1,5 @@
+#add, addi, addiu, addu, and, andi, lui, lw, nor, xor, xori, or,
+#ori, slt, slti, sll, srl, sra, sw, sub, subu, beq, bne, j, jal, jr
     .text
     .globl main
 main:
@@ -41,7 +43,6 @@ skip:
 
 continue:
     jal dummy_function      # Jump and link to dummy_function
-    halt
     j end 
 
 dummy_function:
@@ -49,6 +50,7 @@ dummy_function:
     jr $ra                  # Jump to the return address (continue execution at end)
 
 end:
+    #halt
   
 
 # Expected final register states:
