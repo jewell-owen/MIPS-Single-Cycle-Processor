@@ -1,10 +1,13 @@
 #add, addi, addiu, addu, and, andi, lui, lw, nor, xor, xori, or,
 #ori, slt, slti, sll, srl, sra, sw, sub, subu, beq, bne, j, jal, jr
-
+.data
+value: .word 15
 #need to add lui, lw, sw
     .text
     .globl main
 main:
+    # Load upper immediate for memory access 
+    lui $a0, 0x1000
     # Arithmetic instructions
     add $t0, $t1, $t2       # t0 = t1 + t2 (Initially t1 = 0, t2 = 0, so t0 = 0)
     addi $t1, $zero, 100    # t1 = 100
@@ -13,6 +16,10 @@ main:
     
     sub $t4, $t3, $t1       # t4 = t3 - t1 = 300 - 100 = 200
     subu $t5, $t2, $t1      # t5 = t2 - t1 = 200 - 100 = 100
+    
+    # Load word from address of 'value' into $a1 (a1 = 15)
+    lw $a1, value           
+    addi $a1, $a1, 10
 
     # Logical instructions
     and $t6, $t1, $t2       # t6 = t1 & t2 = 100 & 200 = 64
@@ -25,6 +32,9 @@ main:
     xori $s1, $t1, 128      # s1 = t1 ^ 128 = 100 ^ 128 = 228
 
     nor $s2, $t1, $t2       # s2 = ~(t1 | t2) = ~(100 | 200) = -237
+    
+    # Store word from $a1 into address 0x10000000
+    sw $a1, value($0)
 
     # Shift instructions
     sll $s3, $t1, 2         # s3 = t1 << 2 = 100 << 2 = 400
@@ -56,6 +66,8 @@ end:
   
 
 # Expected final register states:
+# $a0 = 0x1000
+# $a1 = 0x00000019
 # $t0 = 0             # t0 = t1 + t2 = 0 + 0 = 0 (initial state)
 # $t1 = 100           # t1 = 100 (after addi)
 # $t2 = 200           # t2 = 200 (after addiu)
