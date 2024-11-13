@@ -270,5 +270,95 @@ exitMergeSort:
     jr $ra
     
 exit:
+#lw $s3, arr                # $s3 = arr[0]
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    lw $19, 0($1)
+    #lw $s4, arr+4              # $s4 = arr[1]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    
+    lw $20, 0($1)
+    #lw $s5, arr+8              # $s5 = arr[2]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $21, 0($1)
+    #lw $s6, arr+12             # $s6 = arr[3]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $22, 0($1)
+    #lw $s7, arr+16             # $s7 = arr[4]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $23, 0($1)
+    
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $24, 0($1)
+   # Print the contents of $s3 to $t8 (the array elements)
+    add $a0, $0, $s3           # Load $s3 (arr[0]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+
+    add $a0, $0, $s4           # Load $s4 (arr[1]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+
+    add $a0, $0, $s5           # Load $s5 (arr[2]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+
+    add $a0, $0, $s6           # Load $s6 (arr[3]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+
+    add $a0, $0, $s7           # Load $s7 (arr[4]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+    
+    add $a0, $0, $t8           # Load $s3 (arr[0]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
+    syscall
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
     
     #halt
