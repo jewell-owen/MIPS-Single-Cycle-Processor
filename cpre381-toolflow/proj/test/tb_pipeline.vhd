@@ -190,7 +190,7 @@ signal s_memWrite_MEM           : std_logic;
 signal s_ALUSrc                 : std_logic;
 signal s_sl                     : std_logic;
 signal s_sr                     : std_logic;
-signal s_ALUControl             : std_logic_vector(3 downto 0);
+signal s_ALUControl             : std_logic;
 signal s_ShiftVariable          : std_logic;
 signal s_upperImmediate_WB      : std_logic;
 signal s_sltu_WB                : std_logic;
