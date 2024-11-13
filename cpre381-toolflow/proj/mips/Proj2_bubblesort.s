@@ -196,52 +196,7 @@ exit_for1:
     NOP
     lw $23, 0($1)
 
-print:
-   # Print the contents of $s3 to $s7 (the array elements)
-    add $a0, $0, $s3           # Load $s3 (arr[0]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
 
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s4           # Load $s4 (arr[1]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s5           # Load $s5 (arr[2]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s6           # Load $s6 (arr[3]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s7           # Load $s7 (arr[4]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
 
 exit:
     # Exit program
