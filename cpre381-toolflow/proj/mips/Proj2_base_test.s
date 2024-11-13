@@ -12,13 +12,23 @@ main:
     add $t0, $t1, $t2       # t0 = t1 + t2 (Initially t1 = 0, t2 = 0, so t0 = 0)
     addi $t1, $zero, 100    # t1 = 100
     addiu $t2, $zero, 200   # t2 = 200
+    nop
+    nop
+    nop
     addu $t3, $t1, $t2      # t3 = t1 + t2 = 100 + 200 = 300
     
+
+    nop
+    nop
+    nop
     sub $t4, $t3, $t1       # t4 = t3 - t1 = 300 - 100 = 200
     subu $t5, $t2, $t1      # t5 = t2 - t1 = 200 - 100 = 100
     
     # Load word from address of 'value' into $a1 (a1 = 15)
-    lw $a1, value           
+    lw $a1, value  
+    nop
+    nop
+    nop         
     addi $a1, $a1, 10
 
     # Logical instructions

@@ -99,24 +99,36 @@ newline: .asciiz "\n"
 .globl main
 main:
     # store size
+    lw $s1, size    # size
     addi $s3, $0, 1 # $s3 is temporary 1
     addi $s2, $0, 0 # left = 0
-    lw $s1, size    # size
+    NOP
+    NOP
     sub $s3, $s1, $s3 # right = size - 1
     
 merge:
     sub $s4, $t3, $s2 # $s4 = mid - left
+    NOP
+    NOP
+    # for i = 0; i < n1; i++ using $t0
+    add $t0, $0, $0 # i = 0
     addi $s4, $s4, 1 # $s4 = mid - left + 1
     sub $s5, $s3, $t3 # $s5 = right - mid
     
     # copy data to temp arrays
-    # for i = 0; i < n1; i++ using $t0
-    add $t0, $0, $0 # i = 0
 mergeFor1:
     add $t7, $s2, $t0 # left + i
+    NOP
+    NOP
+    NOP
     sll $t7, $t7, 2
-    lw $t7, arr($t7) # $s7 = arr[i]
+    NOP
+    NOP
     sll $t5, $t0, 2
+    lw $t7, arr($t7) # $s7 = arr[i]
+    NOP
+    NOP
+    NOP
     sw $t7, arrLeft($t5)
     bne $t0, $s4, mergeFor1
     
@@ -129,10 +141,13 @@ mergeFor1:
     # While i < n1 && j < n2
         # if leftArr[i] <= rightArr[j]
             # arr[k] = leftArr[i]
+            NOP
             addi $t0, $t0, 1 # i++
         # else 
             #arr[k] = rightArr[j]
+    	    NOP
             addi $t1, $t1, 1 # j++
+	NOP
         addi $t4, $t4, 1 # k++
         
     # While i < n1
@@ -143,6 +158,7 @@ mergeFor1:
     # While j < n2
         # arr[k] = rightArr[j]
         addi $t1, $t1, 1 # j++
+        NOP
         addi $t4, $t4, 1 # k++
         
 
