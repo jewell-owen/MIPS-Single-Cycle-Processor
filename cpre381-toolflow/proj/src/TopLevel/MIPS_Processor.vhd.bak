@@ -213,7 +213,7 @@ component reg_IDEX is
        i_B          : in std_logic_vector(31 downto 0);     -- B input
        i_SignExt    : in std_logic_vector(31 downto 0);     -- Sign Extended input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC input
-       o_Halt       : in std_logic;     		    -- Halt control signal
+       o_Halt       : out std_logic;     		    -- Halt control signal
        o_Branch     : out std_logic;     		    -- Branch control signal
        o_MemToReg   : out std_logic;    		    -- MemToReg control signal
        o_RegWr      : out std_logic;    		    -- RegWr control signal
@@ -237,7 +237,7 @@ component reg_EXMEM is
   port(i_CLK        : in std_logic;                          -- Clock input
        i_RST        : in std_logic;                          -- Reset input
        i_WE         : in std_logic;                          -- Write enable input
-       i_Halt       : in std_logic;     		    -- Halt control signal      
+       i_Halt       : in std_logic;     		     -- Halt control signal      
        i_Branch     : in std_logic;     		     -- Branch control signal
        i_MemToReg   : in std_logic;     		     -- MemToReg control signal
        i_RegWr      : in std_logic;     		     -- RegWr control signal
@@ -252,7 +252,7 @@ component reg_EXMEM is
        i_AluOut     : in std_logic_vector(31 downto 0);      -- Alu input
        i_RdDataB    : in std_logic_vector(31 downto 0);      -- Read Data B input
        i_PC         : in std_logic_vector(31 downto 0);      -- PC input
-       o_Halt       : in std_logic;     		    -- Halt control signal
+       o_Halt       : out std_logic;     		     -- Halt control signal
        o_Branch     : out std_logic;     		     -- Branch control signal
        o_MemToReg   : out std_logic;    		     -- MemToReg control signal
        o_RegWr      : out std_logic;     		     -- RegWr control signal
@@ -283,15 +283,15 @@ component reg_MEMWB is
        i_Imm        : in std_logic_vector(15 downto 0);     -- RegWr control signal
        i_MemData    : in std_logic_vector(31 downto 0);     -- Data mem ouput
        i_AluOut     : in std_logic_vector(31 downto 0);     -- Alu output
-       o_Halt       : in std_logic;     		    -- Halt control signal
-       i_PC         : in std_logic_vector(31 downto 0);     -- PC input             
+       i_PC         : in std_logic_vector(31 downto 0);     -- PC input   
+       o_Halt       : out std_logic;     		    -- Halt control signal          
        o_Branch     : out std_logic;                        -- Branch control signal
        o_MemToReg   : out std_logic;                        -- MemToReg control signal
        o_RegWr      : out std_logic;                        -- RegWr control signal
-       o_isJump     : out std_logic;                         -- isJump control signal
-       o_luiCtrl    : out std_logic;                         -- lui control signal
-       o_RegWrAddr  : out std_logic_vector(4 downto 0);      -- RegWrAddr
-       o_Imm        : out std_logic_vector(15 downto 0);     -- Imm value
+       o_isJump     : out std_logic;                        -- isJump control signal
+       o_luiCtrl    : out std_logic;                        -- lui control signal
+       o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
+       o_Imm        : out std_logic_vector(15 downto 0);    -- Imm value
        o_MemData    : out std_logic_vector(31 downto 0);    -- Data mem output
        o_AluOut     : out std_logic_vector(31 downto 0);    -- Alu output
        o_PC         : out std_logic_vector(31 downto 0));   -- Pc output 
@@ -302,9 +302,9 @@ end component;
 
   signal s_aluctr   : std_logic_vector(3 downto 0); 
   signal s_rs_sel,s_rt_sel    : std_logic_vector(4 downto 0);
-  signal s_rs_DA, s_rt_DB, s_immExt, s_PCfour, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl : std_logic;
 
    
 
@@ -338,7 +338,7 @@ signal s_isJumpEXMEM, s_isJumpRegEXMEM, s_luiCtrlEXMEM, s_BranchEXMEM, s_DMemWrE
 signal s_RegWrAddrMEMWB : std_logic_vector(4 downto 0); 
 signal s_ImmMEMWB : std_logic_vector(15 downto 0);
 signal s_PCfourMEMWB, s_DMemOutMEMWB, s_aluOutMEMWB : std_logic_vector(31 downto 0);
-signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_RegWrMEMWB, s_MemtoRegMEMWB, s_HaltMEMWB : std_logic;
+signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_MemtoRegMEMWB, s_HaltMEMWB : std_logic;
 ---------End MEM/WB--------------
 --===============================
                                                     
@@ -392,7 +392,7 @@ begin
        i_CLK         =>   iCLK,
        i_RST         =>   iRST,   
        i_WE          =>   '1',     
-       i_PC          =>   s_PCfour,      
+       i_PC          =>   s_PC4,      
        i_Instr       =>   s_Inst,   
        o_PC          =>   s_PCfourIFID,    
        o_Instr       =>   s_InstIFID);
@@ -406,7 +406,7 @@ begin
   g_REGFILE: regFile port map(
 		i_CLK        => iCLK, 
        		i_RST        => iRST, 
-		i_regWrite   => s_RegWrMEMWB, 
+		i_regWrite   => s_RegWr, 
        		i_rs_sel     => s_InstIFID(25 downto 21),
        		i_rt_sel     => s_InstIFID(20 downto 16),
        		i_rd_sel     => s_RegWrAddrMEMWB, 
@@ -421,7 +421,7 @@ begin
 		MemtoReg 	   	=> s_MemtoReg,	
 		MemWrite 	    	=> s_memWr,	
 		ALUSrc 		   	=> s_aluSrc,	
-		RegWrite 	   	=> s_RegWr,
+		RegWrite 	   	=> s_RegWrCtrl,
 		UnsignedNoOverflow	=> s_CntrlOverflow,
 		ALUControl	    	=> s_aluctr,	
 		beq 		    	=> s_BrchEq,	-- only need one branch control so they are ORed
@@ -460,7 +460,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_Halt        =>   s_tempHalt,
        i_Branch      =>   s_BrchEq OR s_BrchNe,
        i_MemToReg    =>   s_MemtoReg,
-       i_RegWr       =>   s_RegWr,
+       i_RegWr       =>   s_RegWrCtrl,
        i_MemWr       =>   s_memWr,
        i_isJump      =>   s_isJump,
        i_isJumpReg   =>   s_isJumpReg,
@@ -596,7 +596,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_Halt        =>   s_HaltMEMWB,
        o_Branch      =>   s_BranchMEMWB,
        o_MemToReg    =>   s_MemtoRegMEMWB,
-       o_RegWr       =>   s_RegWrMEMWB,
+       o_RegWr       =>   s_RegWr,
        o_isJump      =>   s_isJumpMEMWB,
        o_luiCtrl     =>   s_luiCtrlMEMWB,
        o_RegWrAddr   =>   s_RegWrAddrMEMWB,
@@ -625,7 +625,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D1 => s_PCfourMEMWB, 
 		o_O => s_RegWrData);
 
- s_Halt <= s_HaltMEMWB
+ s_Halt <= s_HaltMEMWB;
 ------------------------------------------------------End Write Back----------------------------------------------------------------------
 --========================================================================================================================================
 
