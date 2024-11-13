@@ -40,14 +40,6 @@ architecture structure of reg_N is
          o_Q          : out std_logic);   -- Data value output
   end component;
 
-  component dffgPC
-    port(i_CLK        : in std_logic;     -- Clock input
-         i_RST        : in std_logic;     -- Reset input
-         i_WE         : in std_logic;     -- Write enable input
-         i_D          : in std_logic;     -- Data value input
-         o_Q          : out std_logic);   -- Data value output
-  end component;
-
 
 begin
 

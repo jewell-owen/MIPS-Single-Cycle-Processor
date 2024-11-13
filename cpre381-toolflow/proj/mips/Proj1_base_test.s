@@ -7,7 +7,6 @@ main:
     addiu $t2, $zero, 200   # t2 = 200
     nop
     nop
-    nop
     addu $t3, $t1, $t2      # t3 = t1 + t2 = 100 + 200 = 300
     nop   
     nop
