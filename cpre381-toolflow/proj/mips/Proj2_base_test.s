@@ -12,14 +12,22 @@ main:
     add $t0, $t1, $t2       # t0 = t1 + t2 (Initially t1 = 0, t2 = 0, so t0 = 0)
     addi $t1, $zero, 100    # t1 = 100
     addiu $t2, $zero, 200   # t2 = 200
+    NOP
+    NOP
+    NOP
     addu $t3, $t1, $t2      # t3 = t1 + t2 = 100 + 200 = 300
-    
+    NOP
+    NOP
+    NOP    
     sub $t4, $t3, $t1       # t4 = t3 - t1 = 300 - 100 = 200
+    NOP
+    NOP
+    NOP
     subu $t5, $t2, $t1      # t5 = t2 - t1 = 200 - 100 = 100
     
     # Load word from address of 'value' into $a1 (a1 = 15)
     lw $a1, value           
-    addi $a1, $a1, 10
+    
 
     # Logical instructions
     and $t6, $t1, $t2       # t6 = t1 & t2 = 100 & 200 = 64
@@ -32,14 +40,19 @@ main:
     xori $s1, $t1, 128      # s1 = t1 ^ 128 = 100 ^ 128 = 228
 
     nor $s2, $t1, $t2       # s2 = ~(t1 | t2) = ~(100 | 200) = -237
+
+    # Add to value
+    addi $a1, $a1, 10
     
-    # Store word from $a1 into address 0x10000000
-    sw $a1, value($0)
+    
 
     # Shift instructions
     sll $s3, $t1, 2         # s3 = t1 << 2 = 100 << 2 = 400
     srl $s4, $t2, 1         # s4 = t2 >> 1 = 200 >> 1 = 100
     sra $s5, $t3, 1         # s5 = t3 >> 1 (arithmetic) = 300 >> 1 = 150
+    
+    # Store word from $a1 into address 0x10000000
+    sw $a1, value($0)
 
     # Comparison instructions
     slt $t6, $t1, $t2       # t6 = (t1 < t2) ? 1 : 0 = (100 < 200) ? 1 : 0 = 1
