@@ -73,14 +73,6 @@ architecture structure of reg_IDEX is
          o_Q          : out std_logic);   -- Data value output
   end component;
 
-  component dffgNeg
-    port(i_CLK        : in std_logic;     -- Clock input
-         i_RST        : in std_logic;     -- Reset input
-         i_WE         : in std_logic;     -- Write enable input
-         i_D          : in std_logic;     -- Data value input
-         o_Q          : out std_logic);   -- Data value output
-  end component;
-
 begin
 
  Halt: dffg port map(
@@ -194,7 +186,7 @@ G_NBit_RegIMM: for i in 0 to 15 generate
 
 
   G_NBit_RegA: for i in 0 to 31 generate
-    REGI: dffgNeg port map(
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,
@@ -203,7 +195,7 @@ G_NBit_RegIMM: for i in 0 to 15 generate
   end generate G_NBit_RegA;
 
   G_NBit_RegB: for i in 0 to 31 generate
-    REGI: dffgNeg port map(
+    REGI: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
 	      i_WE      => i_WE,

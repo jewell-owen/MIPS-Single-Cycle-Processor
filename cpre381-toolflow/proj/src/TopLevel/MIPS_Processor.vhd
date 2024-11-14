@@ -403,7 +403,7 @@ begin
 		o_imm 		=> s_immExt);
 
   g_REGFILE: regFile port map(
-		i_CLK        => iCLK, 
+		i_CLK        => not iCLK, 
        		i_RST        => iRST, 
 		i_regWrite   => s_RegWr, 
        		i_rs_sel     => s_InstIFID(25 downto 21),

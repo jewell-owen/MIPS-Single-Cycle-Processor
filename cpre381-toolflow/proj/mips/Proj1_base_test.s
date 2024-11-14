@@ -10,7 +10,6 @@ main:
     addu $t3, $t1, $t2      # t3 = t1 + t2 = 100 + 200 = 300
     nop   
     nop
-    nop
     sub $t4, $t3, $t1       # t4 = t3 - t1 = 300 - 100 = 200
     subu $t5, $t2, $t1      # t5 = t2 - t1 = 200 - 100 = 100
 
