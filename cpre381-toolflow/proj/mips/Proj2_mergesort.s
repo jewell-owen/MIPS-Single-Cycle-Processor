@@ -94,7 +94,11 @@ main:
     addi $a1, $zero, 0     # $a1 = left index = 0 (low index)
     addi $a2, $zero, 7     # $a2 = right index = 7 (high index)
     jal mergeSort          # Call mergeSort function 
+    NOP
+    NOP
     jal print              # Call print function to display sorted array
+    NOP
+    NOP
 
 merge:
     add  $s0, $a1, $zero   # $s0 = i (low index), i = low
@@ -107,12 +111,15 @@ while1:
     NOP
     NOP
     bne $t1, $0, while2 	# exit while1 loop
+    NOP
     slt $t1, $a2, $s2	# If high < j
     NOP
     NOP
     NOP
     bne $t1, $0, while2	#exit while loop
+    NOP
     j  if                      # If i <= mid && j <= high, proceed to if block
+    NOP
     
 if:
     sll  $t0, $s0, 2           # $t0 = i*4, offset for accessing array[i]
@@ -142,6 +149,7 @@ if:
     NOP
     NOP
     bne  $t4, $0, else          # Jump to else block if a[j] < a[i]
+    NOP
     
     sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
     #sw   $t1, tempArray($t5)   # Store a[i] in tempArray[k]
@@ -156,6 +164,7 @@ if:
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s0, $s0, 1           # Increment i (s0)
     j    while1                # Go to next iteration of while1 loop
+    NOP
     
 else:
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
@@ -181,6 +190,7 @@ else:
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s2, $s2, 1           # Increment j (s2)
     j    while1                # Go to next iteration of while1 loop
+    NOP
     
 while2:
     slt  $t2, $a3, $s0         # If mid < i...
@@ -200,6 +210,7 @@ while2:
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s0, $s0, 1           # Increment i (s0)
     j    while2                # Go to next iteration of while2 loop
+    NOP
     
 while3:
     slt  $t2, $a2, $s1         # If high < j...
@@ -229,12 +240,14 @@ while3:
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s2, $s2, 1           # Increment j (s2)
     j    while3                # Go to next iteration of while3 loop
+    NOP
 
 forInit:
     add  $t0, $a1, $zero       # Initialize $t0 to low for for loop
     addi $t1, $a2, 1           # Initialize $t1 to high + 1 for for loop
     NOP
     j    for                    # Jump to for loop
+    NOP
 
 for:
     slt  $t7, $t0, $t1         # If $t0 < $t1, $t7 = 1
@@ -261,13 +274,20 @@ for:
     addi $t0, $t0, 1           # Increment $t0 (i++) for next iteration
     NOP
     j    for                   # Go to next iteration of for loop
+    NOP
 
 sortEnd:
+    NOP
+    NOP
     jr   $ra                    # Return from the merge function
+    NOP
     
 mergeSort:
     slt  $t0, $a1, $a2         # If low < high, set $t0 = 1
+    NOP
+    NOP
     beq  $t0, $zero, return     # If $t0 = 0, return (base case)
+    NOP
     
     addi $sp, $sp, -16          # Allocate space on stack for 4 items
     NOP
@@ -288,6 +308,8 @@ mergeSort:
     add  $a2, $s0, $zero        # Set high = mid to sort the first half of array
     NOP
     jal  mergeSort              # Recursive call to mergeSort for the first half
+    NOP
+    NOP
     
     lw   $s0, 0($sp)            # Load mid from the stack
     NOP
@@ -301,18 +323,25 @@ mergeSort:
     NOP
     NOP
     jal  mergeSort              # Recursive call to mergeSort for the second half
+    NOP
+    NOP
     
     lw   $a1, 8($sp)            # Restore low from the stack
     lw   $a2, 4($sp)            # Restore high from the stack
     lw   $a3, 0($sp)            # Restore mid from the stack and pass it to merge
     jal  merge                  # Call merge function to merge the sorted halves
+    NOP
+    NOP
     
     lw   $ra, 12($sp)           # Restore return address from the stack
     addi $sp, $sp, 16           # Restore stack pointer
     jr   $ra                    # Return from mergeSort
 
 return:
+    NOP
+    NOP
     jr   $ra                    # Return to the calling routine
+    NOP
 
 print:
     lui $1,4097
@@ -328,7 +357,7 @@ print:
 exit:
     li   $v0, 10                # Exit program syscall
     syscall
-    #halt
+    halt
     
     
     
