@@ -84,142 +84,258 @@
 #}
 
 .data
-arr:
-    .word 11, 12, 10, 5, 3, 4   # Unsorted array
-arrLeft:
-    .word 0:6
-arrRight:
-    .word 0:6
-size:
-    .word 6              # Placeholder for size of array
-newline: .asciiz "\n"
-
+newline: .asciiz "\n"      # Newline string for output
+tempArray:  .word 0:100    # Global array to store sorted values (c[100])
+array:    .word 25, 92, 79, 80, 31, 63, 16, 10  # Sample array with 8 elements
 
 .text
-.globl main
+
 main:
-    # store size
-    lw $s1, size    # size
-    addi $s3, $0, 1 # $s3 is temporary 1
-    addi $s2, $0, 0 # left = 0
-    NOP
-    NOP
-    sub $s3, $s1, $s3 # right = size - 1
-    
+    addi $a1, $zero, 0     # $a1 = left index = 0 (low index)
+    addi $a2, $zero, 7     # $a2 = right index = 7 (high index)
+    jal mergeSort          # Call mergeSort function 
+    jal print              # Call print function to display sorted array
+
 merge:
-    sub $s4, $t3, $s2 # $s4 = mid - left
-    NOP
-    NOP
-    # for i = 0; i < n1; i++ using $t0
-    add $t0, $0, $0 # i = 0
-    addi $s4, $s4, 1 # $s4 = mid - left + 1
-    sub $s5, $s3, $t3 # $s5 = right - mid
-    
-    # copy data to temp arrays
-mergeFor1:
-    add $t7, $s2, $t0 # left + i
-    NOP
-    NOP
-    NOP
-    sll $t7, $t7, 2
-    NOP
-    NOP
-    sll $t5, $t0, 2
-    lw $t7, arr($t7) # $s7 = arr[i]
-    NOP
-    NOP
-    NOP
-    sw $t7, arrLeft($t5)
-    bne $t0, $s4, mergeFor1
-    
-    # for j = 0; j < n2; j++ using $t1
-    
-    #Merge temp arrays back into arr
-    add $t0, $0, $0 # i = 0
-    add $t1, $0, $0 # j = 0
-    add $t4, $0, $s2 # k = left
-    # While i < n1 && j < n2
-        # if leftArr[i] <= rightArr[j]
-            # arr[k] = leftArr[i]
-            NOP
-            addi $t0, $t0, 1 # i++
-        # else 
-            #arr[k] = rightArr[j]
-    	    NOP
-            addi $t1, $t1, 1 # j++
-	NOP
-        addi $t4, $t4, 1 # k++
-        
-    # While i < n1
-        # arr[k] = leftArr[i]
-        addi $t0, $t0, 1 # i++
-        addi $t4, $t4, 1 # k++
-        
-    # While j < n2
-        # arr[k] = rightArr[j]
-        addi $t1, $t1, 1 # j++
-        NOP
-        addi $t4, $t4, 1 # k++
-        
+    add  $s0, $a1, $zero   # $s0 = i (low index), i = low
+    add  $s1, $a1, $zero   # $s1 = k (index for tempArray), k = low
+    addi $s2, $a3, 1       # $s2 = j (right half start), j = mid + 1
 
+while1: 
+    slt $t1, $a3, $s0	# If mid < i...
+    NOP
+    NOP
+    NOP
+    bne $t1, $0, while2 	# exit while1 loop
+    slt $t1, $a2, $s2	# If high < j
+    NOP
+    NOP
+    NOP
+    bne $t1, $0, while2	#exit while loop
+    j  if                      # If i <= mid && j <= high, proceed to if block
+    
+if:
+    sll  $t0, $s0, 2           # $t0 = i*4, offset for accessing array[i]
+    #lw   $t1, array($t0)       # Load value of a[i] into $t1
+    lui $1,4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1,$8
+    NOP
+    NOP
+    lw $9,404($1)
+    sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
+    #lw   $t3, array($t2)       # Load value of a[j] into $t3    
+    lui $1,4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1,$10
+    NOP
+    NOP
+    lw $11, 404($1)
+    NOP
+    NOP
+    NOP
+    slt  $t4, $t3, $t1         # If a[j] < a[i], set $t4 = 1
+    NOP
+    NOP
+    bne  $t4, $0, else          # Jump to else block if a[j] < a[i]
+    
+    sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
+    #sw   $t1, tempArray($t5)   # Store a[i] in tempArray[k]
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    addu $1, $1, $13
+    NOP
+    NOP
+    sw $9,4($1)
+    addi $s1, $s1, 1           # Increment k (s1)
+    addi $s0, $s0, 1           # Increment i (s0)
+    j    while1                # Go to next iteration of while1 loop
+    
+else:
+    sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
+    #lw   $t3, array($t2)       # Load value of a[j] into $t3  
+    lui $1,4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1,$10
+    NOP
+    NOP
+    lw $11,404($1)  
+    sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
+    #sw   $t3, tempArray($t5)   # Store a[j] in tempArray[k]
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1,$13
+    NOP
+    NOP
+    sw $11,4($1)
+    addi $s1, $s1, 1           # Increment k (s1)
+    addi $s2, $s2, 1           # Increment j (s2)
+    j    while1                # Go to next iteration of while1 loop
+    
+while2:
+    slt  $t2, $a3, $s0         # If mid < i...
+    #bne  $t2, 0, while3        # Jump to while3 if true
+    addi $1,$0,0
+    bne $1,$10,while3
+    sll  $t0, $s0, 2           # $t0 = i*4
+    #lw   $t1, array($t0)       # Load value of a[i] into $t1
+    lui $1,4097
+    addu $1,$1,$8
+    lw $9,404($1)
+    sll  $t3, $s1, 2           # $t3 = k*4
+    #sw   $t1, tempArray($t3)   # Store a[i] in tempArray[k]
+    lui $1,4097
+    addu $1,$1,$11
+    sw $9, 4($1)
+    addi $s1, $s1, 1           # Increment k (s1)
+    addi $s0, $s0, 1           # Increment i (s0)
+    j    while2                # Go to next iteration of while2 loop
+    
+while3:
+    slt  $t2, $a2, $s1         # If high < j...
+    #bne  $t2, 0, forInit       # Jump to forInit loop if true
+    addi $1,$0,0
+    NOP
+    NOP
+    bne $1,$10,forInit
+    sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
+    #lw   $t3, array($t2)       # Load value of a[j]
+    lui $1,4097
+    NOP
+    NOP
+    addu $1,$1,$10
+    NOP
+    NOP
+    lw $11,404($1)
+    sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
+    #sw   $t3, tempArray($t5)   # Store a[j] in tempArray[k]
+    lui $1,4097
+    NOP
+    NOP
+    addu $1,$1,$13
+    NOP
+    NOP
+    sw $11,4($1)
+    addi $s1, $s1, 1           # Increment k (s1)
+    addi $s2, $s2, 1           # Increment j (s2)
+    j    while3                # Go to next iteration of while3 loop
+
+forInit:
+    add  $t0, $a1, $zero       # Initialize $t0 to low for for loop
+    addi $t1, $a2, 1           # Initialize $t1 to high + 1 for for loop
+    NOP
+    j    for                    # Jump to for loop
+
+for:
+    slt  $t7, $t0, $t1         # If $t0 < $t1, $t7 = 1
+    beq  $t7, $zero, sortEnd   # If $t7 = 0, end the loop and go to sortEnd
+    sll  $t2, $t0, 2           # $t2 = $t0 * 4 to get the offset for tempArray
+    #lw   $t6, tempArray($t2)   # Load value from tempArray[i] into $t6
+    lui $1,4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1,$10
+    NOP
+    NOP
+    lw $14,4($1)
+    #sw   $t6, array($t2)       # Store the value from tempArray[i] into array[i]
+    lui $1,4097
+    NOP
+    NOP
+    NOP
+    addu $1,$1, $10
+    NOP
+    NOP
+    sw $14,404($1)
+    addi $t0, $t0, 1           # Increment $t0 (i++) for next iteration
+    NOP
+    j    for                   # Go to next iteration of for loop
+
+sortEnd:
+    jr   $ra                    # Return from the merge function
+    
 mergeSort:
-    #Debug Print
-    sll $t5, $s2, 2
-    sll $t6, $s3, 2
-    lw $s5, arr($t5) # $s3 = arr[0]
-    lw $s6, arr($t6) # $s6 = 
-
-    add $a0, $0, $s5           # Load $s5 (arr[0]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-    add $a0, $0, $s6           # Load $s6 (arr[0]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
+    slt  $t0, $a1, $a2         # If low < high, set $t0 = 1
+    beq  $t0, $zero, return     # If $t0 = 0, return (base case)
     
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-    
-    #save in stack
-    addi $sp, $sp, -12 
-    sw   $ra, 0($sp)
-    sw   $s2, 4($sp)
-    sw   $s3, 8($sp)
+    addi $sp, $sp, -16          # Allocate space on stack for 4 items
+    NOP
+    NOP
+    sw   $ra, 12($sp)           # Save return address on the stack
+    sw   $a1, 8($sp)            # Save value of low in the stack
+    sw   $a2, 4($sp)            # Save value of high in the stack
 
+    add  $s0, $a1, $a2          # mid = low + high
+    NOP
+    NOP
+    sra  $s0, $s0, 1            # mid = (low + high) / 2
+    NOP
+    NOP
+    sw   $s0, 0($sp)            # Save mid to the stack
+    NOP
+    NOP    
+    add  $a2, $s0, $zero        # Set high = mid to sort the first half of array
+    NOP
+    jal  mergeSort              # Recursive call to mergeSort for the first half
     
-    slt $t1, $s2, $s3 # if (left < right)
-    beq $t1, $0, exitMergeSort
-
-    # Calculate Midpoint
-    sub $t2, $s3, $s2 # mid = right-left
-    srl $t2, $t2, 1 # mid = (right-left)/2
-    add $t2, $s2, $t2 # mid = left + (right-left) / 2
-
-    # Sort First and second halves
-    # First Half
-    add $s3, $0, $t2 # Right of first half is mid
-    jal mergeSort
-
-    # Second Half
-    addi $t3, $t2, 1 # mid + 1
-    add $s2, $0, $t3 # left = mid + 1
-    add $s3, $0, $s1 # right = right
-    jal mergeSort
+    lw   $s0, 0($sp)            # Load mid from the stack
+    NOP
+    NOP
+    NOP
+    addi $s1, $s0, 1            # Set low = mid + 1 for the second half
+    NOP
+    NOP
+    add  $a1, $s1, $zero        # Set low = mid + 1
+    lw   $a2, 4($sp)            # Load high from the stack
+    NOP
+    NOP
+    jal  mergeSort              # Recursive call to mergeSort for the second half
     
-    j merge
+    lw   $a1, 8($sp)            # Restore low from the stack
+    lw   $a2, 4($sp)            # Restore high from the stack
+    lw   $a3, 0($sp)            # Restore mid from the stack and pass it to merge
+    jal  merge                  # Call merge function to merge the sorted halves
     
-exitMergeSort: 
-    #lw   $ra, 0($sp)        # read registers from stack
-    #lw   $s2, 4($sp)
-    #lw   $s3, 8($sp)
-    #addi $sp, $sp, 12       # bring back stack pointer
-    jr $ra
+    lw   $ra, 12($sp)           # Restore return address from the stack
+    addi $sp, $sp, 16           # Restore stack pointer
+    jr   $ra                    # Return from mergeSort
+
+return:
+    jr   $ra                    # Return to the calling routine
+
+print:
+    lui $1,4097
+    lw $8,404($1)
+    lw $9,408($1)
+    lw $10,412($1)
+    lw $11,416($1)
+    lw $12,420($1)
+    lw $13,424($1)
+    lw $14,428($1)
+    lw $15,432($1)
     
 exit:
-    
+    li   $v0, 10                # Exit program syscall
+    syscall
     #halt
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
