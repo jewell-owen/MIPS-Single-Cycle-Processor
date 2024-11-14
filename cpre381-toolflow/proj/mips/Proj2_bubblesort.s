@@ -57,150 +57,149 @@ newline: .asciiz "\n"
 .globl main
 main:
     # Load size of the array into $s0 (size)
-    lw $s0, size               # $s0 = size (n)
+    #lw $s0, size               # $s0 = size (n)
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    lw $16,20($1)
 
     # Initialize i = 0 (outer loop index)
     addi $s1, $0, 0            # $s1 = i = 0        #Fetch.
     NOP                                             #Decode
     NOP                                             #Execute
-    NOP
 for1:
     # Check if i < n-1 using slt and beq
     sub $t0, $s0, $s1          # $t0 = n - i        #Memory Access    #Fetch.
     NOP                                             #Write Back       #Decode
     NOP                                                               #Execute
-    NOP
     addi $t0, $t0, -1          # $t0 = n - i - 1                      #Memory Access        #Fetch.
     NOP                                                               #Write Back           #Decode
     NOP                                                                                     #Execute
-    NOP
     slt $t1, $0, $t0           # $t1 = 1 if n - i - 1 > 0             #Fetch.               #Memory Access
     NOP                                                               #Decode               #Write Back
     NOP                                                               #Execute
-    NOP
     beq $t1, $0, exit_for1     # Exit if n - i - 1 <= 0               #Memory Access
-    NOP
-    NOP
     NOP
 
     # Initialize j = 0 (inner loop index)
     addi $s2, $0, 0            # $s2 = j = 0                          #Write Back           #Fetch.
     NOP                                                                                     #Decode
     NOP                                                                                     #Execute
-    NOP
 for2:
     # Check if j < n - i - 1 using slt and beq
     slt $t1, $s2, $t0          # if j < n - i - 1                                           #Memory Access        #Fetch.
     NOP                                                                                     #Write Back           #Decode
     NOP                                                                                                           #Execute
-    NOP
     beq $t1, $0, next_for1     # Exit inner loop if j >= n - i - 1                                                #Memory Access
-    NOP
-    NOP
     NOP
 
     # Load arr[j] and arr[j + 1]
     sll $t2, $s2, 2            # $t2 = j * 4 (word offset for arr[j])                       #Fetch.               #Write Back
     NOP                                                                                     #Decode
     NOP                                                                                     #Execute
+    #lw $t3, arr($t2)           # Load arr[j] into $t3                                       #Memory Access
+    lui $1, 4097
     NOP
-    lw $t3, arr($t2)           # Load arr[j] into $t3                                       #Memory Access
+    NOP
+    NOP
+    addu $1, $1, $10
+    NOP
+    NOP
+    lw $11, 0($1)
     addi $t4, $t2, 4           # $t4 = (j + 1) * 4 (word offset for arr[j + 1])             #Write Back           #Fetch.
     NOP                                                                                                           #Decode
     NOP                                                                                                           #Execute
+    #lw $t5, arr($t4)           # Load arr[j + 1] into $t5                                   #Fetch.               #Memory Access
+    lui $1, 4097
     NOP
-    lw $t5, arr($t4)           # Load arr[j + 1] into $t5                                   #Fetch.               #Memory Access
+    NOP
+    NOP
+    addu $1, $1, $12
     NOP                                                                                     #Decode               #Write Back
     NOP                                                                                     #Execute
+    lw $13, 0($1)
     NOP                                                                                     #Memory Access
+    NOP
     NOP
 
     # Compare arr[j] > arr[j + 1]
     slt $t6, $t5, $t3          # $t6 = (arr[j] > arr[j + 1]) ? 1 : 0                        #Write Back            #Fetch.
     NOP                                                                                                            #Decode
     NOP                                                                                                            #Execute
-    NOP
-    beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap   
-    NOP                                             #Memory Access
-    NOP
+    beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap                                                #Memory Access
     NOP
 
     # Swap arr[j] and arr[j+1]
-    sw $t5, arr($t2)           # arr[j] = arr[j+1]                                                                 #Write Back
-    sw $t3, arr($t4)           # arr[j+1] = arr[j]
+    #sw $t5, arr($t2)           # arr[j] = arr[j+1]                                                                 #Write Back
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    addu $1, $1, $10
+    NOP
+    NOP
+    sw $13, 0($1)
+    #sw $t3, arr($t4)           # arr[j+1] = arr[j]
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    addu $1, $1, $12
+    NOP
+    NOP
+    sw $11, 0($1)
+    
+    
 
 skip_swap:
     addi $s2, $s2, 1           # j++                    #Fetch.
     NOP                                                 #Decode
-    NOP
     j for2                    # Repeat inner loop       #Execute
-    NOP                                                     #Mem and Write happen back at top of for2
-    NOP
-    NOP
+    NOP                                                    #Mem and Write happen back at top of for2
 
 next_for1:
     addi $s1, $s1, 1           # i++                    #Fetch.
     NOP                                                 #Decode
-    NOP
     j for1                    # Repeat outer loop       #Execute
-    NOP                                                       #Mem and Write happen back at top of for1
-    NOP
-    NOP
+    NOP                                                    #Mem and Write happen back at top of for1
 
 exit_for1:
     # Print sorted array
-    lw $s3, arr                # $s3 = arr[0]
-    lw $s4, arr+4              # $s4 = arr[1]
-    lw $s5, arr+8              # $s5 = arr[2]
-    lw $s6, arr+12             # $s6 = arr[3]
-    lw $s7, arr+16             # $s7 = arr[4]
+    addi $12, $0, 4
+    #lw $s3, arr                # $s3 = arr[0]
+    lui $1, 4097
+    NOP
+    NOP
+    NOP
+    lw $19, 0($1)
+    #lw $s4, arr+4              # $s4 = arr[1]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    
+    lw $20, 0($1)
+    #lw $s5, arr+8              # $s5 = arr[2]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $21, 0($1)
+    #lw $s6, arr+12             # $s6 = arr[3]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $22, 0($1)
+    #lw $s7, arr+16             # $s7 = arr[4]
+    #lui $1, 4097
+    addu $1, $1, $12
+    NOP
+    NOP
+    lw $23, 0($1)
 
-print:
-   # Print the contents of $s3 to $s7 (the array elements)
-    add $a0, $0, $s3           # Load $s3 (arr[0]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
 
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s4           # Load $s4 (arr[1]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s5           # Load $s5 (arr[2]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s6           # Load $s6 (arr[3]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
-
-    add $a0, $0, $s7           # Load $s7 (arr[4]) into $a0 for printing
-    addi $v0, $0, 1            # syscall for print integer
-    syscall
-
-    # Print newline
-    addi $v0, $0, 4            # syscall for print string
-    la $a0, newline
-    syscall
 
 exit:
     # Exit program

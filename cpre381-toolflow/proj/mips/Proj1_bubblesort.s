@@ -49,93 +49,112 @@
 #}
 
 .data
-arr:
-    .word 5, 4, 3, 2, 1   # Unsorted array
-size:
-    .word 5              # Placeholder for size of array
-space: .asciiz "\n"
-
+arr:    .word 7, 10, 20, 6, 50    # Unsorted array
+size:   .word 5                # Size of the array
+newline: .asciiz "\n"
 
 .text
 .globl main
 main:
-    # store size
-    lw $t1, size
-    
-    addi $t2, $0, 0	#i = 0
-    addi $t3, $0, 0	#j = 0
-    
+    # Load size of the array into $s0 (size)
+    lw $s0, size               # $s0 = size (n)
+
+    # Initialize i = 0 (outer loop index)
+    addi $s1, $0, 0            # $s1 = i = 0
 for1:
-    beq $t2, $t1, exit # for(i = 0; i < n-1;)
-    add $t3, $0, $0 # j = 0
-    addi $t2, $t2, 1 # (i++)
-    
-    j for2 # jump to for2
+    # Check if i < n-1 using slt and beq
+    sub $t0, $s0, $s1          # $t0 = n - i
+    addi $t0, $t0, -1          # $t0 = n - i - 1
+    slt $t1, $0, $t0           # $t1 = 1 if n - i - 1 > 0
+    beq $t1, $0, exit_for1     # Exit if n - i - 1 <= 0
+
+    # Initialize j = 0 (inner loop index)
+    addi $s2, $0, 0            # $s2 = j = 0
 for2:
-    beq $t3, $t1, for1 # for(j = 0; j < n-1;)
-    addi $t7, $t3, 1 # j + 1
-    sll $s1, $t3, 2 # current j shift left (multiply by 4)
-    sll $s2, $t7, 2 # current j + 1shift left (multiply by 4)
-    lw $t4, arr($s1) # load content of arr[j]
-    lw $t5, arr($s2) # load content of arr[j + 1]
-    slt $t6, $t4, $t5 # if (arr[j] > arr[j + 1])
-    
-    add $a0, $0, $t3
-    addi $v0, $0, 1
+    # Check if j < n - i - 1 using slt and beq
+    slt $t1, $s2, $t0          # if j < n - i - 1
+    beq $t1, $0, next_for1     # Exit inner loop if j >= n - i - 1
+
+    # Load arr[j] and arr[j + 1]
+    sll $t2, $s2, 2            # $t2 = j * 4 (word offset for arr[j])
+    lw $t3, arr($t2)           # Load arr[j] into $t3
+    addi $t4, $t2, 4           # $t4 = (j + 1) * 4 (word offset for arr[j + 1])
+    lw $t5, arr($t4)           # Load arr[j + 1] into $t5
+
+    # Compare arr[j] > arr[j + 1]
+    slt $t6, $t5, $t3          # $t6 = (arr[j] > arr[j + 1]) ? 1 : 0
+    beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap
+
+    # Swap arr[j] and arr[j+1]
+    sw $t5, arr($t2)           # arr[j] = arr[j+1]
+    sw $t3, arr($t4)           # arr[j+1] = arr[j]
+
+skip_swap:
+    addi $s2, $s2, 1           # j++
+    j for2                    # Repeat inner loop
+
+next_for1:
+    addi $s1, $s1, 1           # i++
+    j for1                    # Repeat outer loop
+
+exit_for1:
+    # Print sorted array
+    lw $s3, arr                # $s3 = arr[0]
+    lw $s4, arr+4              # $s4 = arr[1]
+    lw $s5, arr+8              # $s5 = arr[2]
+    lw $s6, arr+12             # $s6 = arr[3]
+    lw $s7, arr+16             # $s7 = arr[4]
+
+print:
+   # Print the contents of $s3 to $s7 (the array elements)
+    add $a0, $0, $s3           # Load $s3 (arr[0]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    add $a0, $0, $t7
-    addi $v0, $0, 1
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
     syscall
-    
-    addi $v0, $0, 4
-    la $a0 , space
+
+    add $a0, $0, $s4           # Load $s4 (arr[1]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    lw $s5, arr
-    add $a0, $0, $s5
-    addi $v0, $0, 1
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
     syscall
-    
-    addi $s6, $0, 4
-    lw $s6, arr($s6)
-    add $a0, $0, $s6
-    addi $v0, $0, 1
+
+    add $a0, $0, $s5           # Load $s5 (arr[2]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    addi $s7, $0, 8
-    lw $s7, arr($s7)
-    add $a0, $0, $s7
-    addi $v0, $0, 1
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
     syscall
-    
-    addi $t8, $0, 12
-    lw $t8, arr($t8)
-    add $a0, $0, $t8
-    addi $v0, $0, 1
+
+    add $a0, $0, $s6           # Load $s6 (arr[3]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    addi $t9, $0, 16
-    lw $t9, arr($t9)
-    add $a0, $0, $t9
-    addi $v0, $0, 1
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
     syscall
-    
-    addi $v0, $0, 4
-    la $a0 , space
+
+    add $a0, $0, $s7           # Load $s7 (arr[4]) into $a0 for printing
+    addi $v0, $0, 1            # syscall for print integer
     syscall
-    
-    bne $t6, $0, swap # if t6 = 1, swap
-    addi $t3, $t3, 1 # (j++) if no swap
-swap: 
-    add $t7, $0, $t4 # temp = i
-    add $t4, $0, $t5 # i = j
-    add $t5, $0, $t7 # j = temp
-    sw $t4, arr($s1) # store i
-    sw $t5, arr($s2) # store j
-    
-    #addi $t3, $t3, 1 # (j++) after swap
-    j for2 # return to for2
+
+    # Print newline
+    addi $v0, $0, 4            # syscall for print string
+    la $a0, newline
+    syscall
+
 exit:
-    
+    # Exit program
+    li $v0, 10                 # syscall for exit
+    syscall
+
     halt

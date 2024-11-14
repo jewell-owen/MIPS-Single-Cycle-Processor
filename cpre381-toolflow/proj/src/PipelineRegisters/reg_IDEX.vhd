@@ -73,7 +73,6 @@ architecture structure of reg_IDEX is
          o_Q          : out std_logic);   -- Data value output
   end component;
 
-
 begin
 
  Halt: dffg port map(

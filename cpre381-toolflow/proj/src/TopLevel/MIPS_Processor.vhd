@@ -136,6 +136,13 @@ architecture structure of MIPS_Processor is
   		);
   end component;
 
+  component mux2t1 is
+    port(i_S                  : in std_logic;
+         i_D0                 : in std_logic;
+         i_D1                 : in std_logic;
+         o_O                  : out std_logic);
+  end component;
+
 
   component mux2t1_N is
     port(i_S                  : in std_logic;
@@ -297,6 +304,12 @@ component reg_MEMWB is
        o_PC         : out std_logic_vector(31 downto 0));   -- Pc output 
 end component;
 
+component equalityModule is
+  port(i_A          : in std_logic_vector(31 downto 0);
+       i_B          : in std_logic_vector(31 downto 0);
+       o_F          : out std_logic);
+end component;
+
 
 
 
@@ -304,7 +317,7 @@ end component;
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut : std_logic;
 
    
 
@@ -364,9 +377,9 @@ begin
 		
 
   g_NBITMUX_PCnextAddr: mux2t1_N port map (
-		i_S => ((s_AluZeroEXMEM and s_BranchEXMEM) or s_isJumpEXMEM or s_isJumpRegEXMEM) ,	
+		i_S => ((s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
 		i_D0 => s_PC4,
-		i_D1 => s_PCEXMEM,
+		i_D1 => s_PCfetch,
 		o_O => si_PC);
 
 
@@ -403,7 +416,7 @@ begin
 		o_imm 		=> s_immExt);
 
   g_REGFILE: regFile port map(
-		i_CLK        => iCLK, 
+		i_CLK        => not iCLK, 
        		i_RST        => iRST, 
 		i_regWrite   => s_RegWr, 
        		i_rs_sel     => s_InstIFID(25 downto 21),
@@ -412,6 +425,45 @@ begin
        		i_rd_D	     => s_RegWrData,
        		o_rs_D       => s_rs_DAIFID,
        		o_rt_D	     => s_rt_DBIFID);
+
+e_equalityModule: equalityModule
+  port map(
+            i_A  => s_rs_DAIFID,
+      	    i_B  => s_rt_DBIFID,
+      	    o_F  => s_EqlOut);
+
+BrnchMux: mux2t1 
+  port map(
+           i_S      => s_BrchNe,      -- if bit is 0 then beq, if bit is a 1 then bne
+           i_D0     => s_EqlOut, 
+           i_D1     => not s_EqlOut,  
+           o_O      => s_BrnchMuxOut);  
+
+  g_FETCHLOGIC : fetchLogic port map(
+		i_CLK       	=> iCLK, 
+       		i_RST       	=> iRST, 
+		is_Brch  	=> s_BrchEq OR s_BrchNe,
+		is_Jump  	=> s_isJump,
+		is_JumpReg  	=> s_isJumpReg,
+		is_zero  	=> s_BrnchMuxOut,
+		i_instr    	=> s_InstIFID, 
+		i_immed    	=> s_immExt, 
+		i_rs_data    	=> s_rs_DAIFID, 
+                i_PCplusFour    => s_PCfourIFID,                                
+		o_PC		=> s_PCfetch); 
+
+--  g_FETCHLOGIC : fetchLogic port map(
+--		i_CLK       	=> iCLK, 
+--       		i_RST       	=> iRST, 
+--		is_Brch  	=> s_BranchIDEX,
+--		is_Jump  	=> s_isJumpIDEX,
+--		is_JumpReg  	=> s_isJumpRegIDEX,
+--		is_zero  	=> s_is_zero,
+--		i_instr    	=> s_InstIDEX, 
+--		i_immed    	=> s_ImmExtIDEX, 
+--		i_rs_data    	=> s_rs_DAIDEX, 
+--                i_PCplusFour    => s_PCfourIDEX,                                
+--		o_PC		=> s_PCfetch); 
 
   g_CONTRUNIT : controlUnit port map(
 		op_Code	    		=> s_InstIFID(31 downto 26),	
@@ -494,20 +546,6 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_PC          =>   s_PCfourIDEX);
 
 ------------------------------------------------------Start Execute-----------------------------------------------------------------------
-   
-  g_FETCHLOGIC : fetchLogic port map(
-		i_CLK       	=> iCLK, 
-       		i_RST       	=> iRST, 
-		is_Brch  	=> s_BranchIDEX,
-		is_Jump  	=> s_isJumpIDEX,
-		is_JumpReg  	=> s_isJumpRegIDEX,
-		is_zero  	=> s_is_zero,
-		i_instr    	=> s_InstIDEX, 
-		i_immed    	=> s_ImmExtIDEX, 
-		i_rs_data    	=> s_rs_DAIDEX, 
-                i_PCplusFour    => s_PCfourIDEX,                                
-		o_PC		=> s_PCfetch);              
-
 
    g_NBITMUX_ALUB: mux2t1_N port map (
 		i_S => s_aluSrcIDEX,	
