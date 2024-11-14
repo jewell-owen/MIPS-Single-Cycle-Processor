@@ -37,23 +37,18 @@ main:
     # Branch/Jump instructions
     beq $t1, $t2, skip      # t1 != t2, so no branch
     nop
-    nop
-    nop
+
     bne $t1, $t2, continue  # t1 != t2, so branch to continue
-    nop
-    nop
     nop
    
     
 skip:
     j end                   # Jump to end
     nop
-    nop
-    nop
+
 
 continue:
     jal dummy_function      # Jump and link to dummy_function
-    nop
     nop
     nop
     halt
@@ -61,10 +56,12 @@ continue:
 
 dummy_function:
     # Dummy function to demonstrate jal and jr usage
+    nop
+    nop
     jr $ra                  # Jump to the return address (continue execution at end)
     nop
-    nop
-    nop
+
+
 end:
   
 
