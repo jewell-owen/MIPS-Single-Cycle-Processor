@@ -310,6 +310,21 @@ component equalityModule is
        o_F          : out std_logic);
 end component;
 
+component hazardDetectionUnit is
+  port(i_RegRdAddrMEMWB    : in std_logic;
+       i_RegWriteMEMWB     : in std_logic;
+       i_RegRdAddrEXMEM    : in std_logic;
+       i_RegWriteEXMEM     : in std_logic;
+       i_RegRsAddrIDEX     : in std_logic;
+       i_RegRtAddrIDEX     : in std_logic;
+       i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
+       i_RegRsAddrIFID     : in std_logic;
+       i_RegRtAddrIFID     : in std_logic;
+       o_Stall             : in std_logic;
+       o_forwardA          : out std_logic_vector(2 downto 0);
+       o_forwardB          : out std_logic_vector(2 downto 0));
+end component;
+
 
 
 
@@ -353,6 +368,10 @@ signal s_PCfourMEMWB, s_DMemOutMEMWB, s_aluOutMEMWB : std_logic_vector(31 downto
 signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_MemtoRegMEMWB, s_HaltMEMWB : std_logic;
 ---------End MEM/WB--------------
 --===============================
+
+---------Start STALL/FLUSH SIGNALS------------
+signal s_flushIFID, s_flushIDEX, s_flushEXMEM, s_flushMEMWB, s_stallIFID, s_stallIDEX, s_stallEXMEM, s_stallMEMWB : std_logic;
+---------End Start STALL/FLUSH SIGNALS--------------
                                                     
   
 
@@ -368,7 +387,7 @@ begin
 
 ------------------------------------------------------Start Fetch-------------------------------------------------------------------------
   
-  g_NBITREG: reg_NPC port map(
+  g_NBITREG_PC: reg_NPC port map(
 	        i_CLK     => iCLK,
 	        i_RST     => iRST,
 	        i_WE      => '1',
@@ -402,8 +421,8 @@ begin
 
   IFID_Pipeline_Reg : reg_IFID port map (
        i_CLK         =>   iCLK,
-       i_RST         =>   iRST,   
-       i_WE          =>   '1',     
+       i_RST         =>   s_flushIFID,   
+       i_WE          =>   not s_stallIFID,     
        i_PC          =>   s_PC4,      
        i_Instr       =>   s_Inst,   
        o_PC          =>   s_PCfourIFID,    
@@ -506,8 +525,8 @@ BrnchMux: mux2t1
 
 IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   iRST,
-       i_WE          =>   '1',
+       i_RST         =>   s_flushIDEX,
+       i_WE          =>   not s_stallIDEX,
        i_Halt        =>   s_tempHalt,
        i_Branch      =>   s_BrchEq OR s_BrchNe,
        i_MemToReg    =>   s_MemtoReg,
@@ -569,8 +588,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 
   EXMEM_Pipeline_Red :  reg_EXMEM port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   iRST,
-       i_WE          =>   '1',
+       i_RST         =>   s_flushEXMEM,
+       i_WE          =>   not s_stallEXMEM,
        i_Halt        =>   s_HaltIDEX,
        i_Branch      =>   s_BranchIDEX, 
        i_MemToReg    =>   s_MemtoRegIDEX,
@@ -617,8 +636,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 
   MEMWB :  reg_MEMWB port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   iRST,
-       i_WE          =>   '1',
+       i_RST         =>   s_flushMEMWB,
+       i_WE          =>   not s_stallMEMWB,
        i_Halt        =>   s_HaltEXMEM,
        i_Branch      =>   s_BranchEXMEM,
        i_MemToReg    =>   s_MemtoRegEXMEM,
