@@ -292,6 +292,7 @@ mergeSort:
     addi $sp, $sp, -16          # Allocate space on stack for 4 items
     NOP
     NOP
+    NOP
     sw   $ra, 12($sp)           # Save return address on the stack
     sw   $a1, 8($sp)            # Save value of low in the stack
     sw   $a2, 4($sp)            # Save value of high in the stack
@@ -338,7 +339,6 @@ mergeSort:
     jr   $ra                    # Return from mergeSort
 
 return:
-    NOP
     NOP
     jr   $ra                    # Return to the calling routine
     NOP

@@ -12,11 +12,12 @@
 --
 -- NOTES:
 -- Created 9/22/24
+-- Updated 11/16/24 by Owen Jewell, adding StackPointer
 -------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.numeric_std_unsigned.all;
+--use IEEE.numeric_std_unsigned.all;
 use IEEE.numeric_std.all;
 
 library work;
@@ -48,6 +49,14 @@ architecture structure of regFile is
        		i_D          : in std_logic_vector(N-1 downto 0);     -- Data value inputs
        		o_Q          : out std_logic_vector(N-1 downto 0));   -- Data value outputs
   end component;
+
+component stackPointerRegister is
+  port(i_CLK        : in std_logic;     -- Clock input
+       i_RST        : in std_logic;     -- Reset input
+       i_WE         : in std_logic;     -- Write enable input
+       i_D          : in std_logic_vector(31 downto 0);     -- Data value inputs
+       o_Q          : out std_logic_vector(31 downto 0));   -- Data value outputs
+end component;
 
   component decoder5t32
   	port(	i_S          : in std_logic_vector(4 downto 0);
@@ -82,31 +91,43 @@ begin
 	        i_RST     => '1',
 	        i_WE      => s_rd_address(i) and i_regWrite,
 	        i_D       => i_rd_D,
-	        o_Q       => s_Darr(i)
-		);
+	        o_Q       => s_Darr(i));
   end generate G_N_Reg_ZERO;
 
-  G_N_Reg: for i in 1 to 31 generate
+  G_N_Reg: for i in 1 to 28 generate
     REGI: reg_N port map(
 	        i_CLK     => i_CLK,
 	        i_RST     => i_RST,
 	        i_WE      => s_rd_address(i) and i_regWrite,
 	        i_D       => i_rd_D,
-	        o_Q       => s_Darr(i)
-		);
+	        o_Q       => s_Darr(i));
   end generate G_N_Reg;
+
+  STACK_POINTER: stackPointerRegister port map(
+	        i_CLK     => i_CLK,
+	        i_RST     => i_RST,
+	        i_WE      => s_rd_address(29) and i_regWrite,
+	        i_D       => i_rd_D,
+	        o_Q       => s_Darr(29));
+
+  G_N_Reg1: for i in 30 to 31 generate
+    REGI: reg_N port map(
+	        i_CLK     => i_CLK,
+	        i_RST     => i_RST,
+	        i_WE      => s_rd_address(i) and i_regWrite,
+	        i_D       => i_rd_D,
+	        o_Q       => s_Darr(i));
+  end generate G_N_Reg1;
 
 
   g_MUX_RS: mux32t1_new port map(
 		i_S => to_integer(unsigned(i_rs_sel)),
 		i_D => s_Darr,
-		o_F => o_rs_D
-		);
+		o_F => o_rs_D);
 
   g_MUX_RT: mux32t1_new port map(
 		i_S => to_integer(unsigned(i_rt_sel)),
 		i_D => s_Darr,
-		o_F => o_rt_D
-		);
+		o_F => o_rt_D);
 
 end structure;
