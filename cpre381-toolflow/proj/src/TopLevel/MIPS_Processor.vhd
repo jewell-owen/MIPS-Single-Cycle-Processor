@@ -491,6 +491,21 @@ BrnchMux: mux2t1
 		signSel 		=> s_signExtSel,
 		halt                    => s_tempHalt);
 
+ hazard_Detection : hazardDetectionUnit port map (
+       i_RegRdAddrMEMWB        => s_RegWrAddr,
+       i_RegWriteMEMWB         => s_RegWr,
+       i_RegRdAddrEXMEM        => s_RegWrAddrEXMEM,
+       i_RegWriteEXMEM         => s_RegWrEXMEM,
+       i_RegRsAddrIDEX         =>
+       i_RegRtAddrIDEX         =>
+       i_MemToRegIDEX          =>
+       i_RegRtAddrIFID         =>
+       o_Stall                 => -----TODO
+       o_forwardA              =>
+       o_forwardB              =>);
+
+end hazardDetectionUnit;
+
 
 
  g_NBITMUX_RegWrAddr: mux2t1_N port map (
