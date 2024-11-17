@@ -310,7 +310,7 @@ component equalityModule is
        o_F          : out std_logic);
 end component;
 
-component hazardDetectionUnit is
+entity hazardDetectionUnit is
   port(i_RegRdAddrMEMWB    : in std_logic;
        i_RegWriteMEMWB     : in std_logic;
        i_RegRdAddrEXMEM    : in std_logic;
@@ -320,10 +320,10 @@ component hazardDetectionUnit is
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegRsAddrIFID     : in std_logic;
        i_RegRtAddrIFID     : in std_logic;
-       o_Stall             : in std_logic;
-       o_forwardA          : out std_logic_vector(2 downto 0);
-       o_forwardB          : out std_logic_vector(2 downto 0));
-end component;
+       o_Stall             : out std_logic;
+       o_forwardA          : out std_logic_vector(1 downto 0);
+       o_forwardB          : out std_logic_vector(1 downto 0));
+end hazardDetectionUnit;
 
 
 
@@ -470,19 +470,6 @@ BrnchMux: mux2t1
 		i_rs_data    	=> s_rs_DAIFID, 
                 i_PCplusFour    => s_PCfourIFID,                                
 		o_PC		=> s_PCfetch); 
-
---  g_FETCHLOGIC : fetchLogic port map(
---		i_CLK       	=> iCLK, 
---       		i_RST       	=> iRST, 
---		is_Brch  	=> s_BranchIDEX,
---		is_Jump  	=> s_isJumpIDEX,
---		is_JumpReg  	=> s_isJumpRegIDEX,
---		is_zero  	=> s_is_zero,
---		i_instr    	=> s_InstIDEX, 
---		i_immed    	=> s_ImmExtIDEX, 
---		i_rs_data    	=> s_rs_DAIDEX, 
---                i_PCplusFour    => s_PCfourIDEX,                                
---		o_PC		=> s_PCfetch); 
 
   g_CONTRUNIT : controlUnit port map(
 		op_Code	    		=> s_InstIFID(31 downto 26),	
