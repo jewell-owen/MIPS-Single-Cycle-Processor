@@ -16,6 +16,8 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
+--https://stackoverflow.com/questions/59782631/type-error-resolving-infix-expression-or-as-type-std-standard-boolean
+
 entity hazardDetectionUnit is
 
   port(i_RegRdAddrMEMWB    : in std_logic;
@@ -42,10 +44,10 @@ process is
 	begin
 
 -------------------Forwarding A Logic ----------------------------------------------------------
-	if (i_RegWriteEXMEM and (i_RegRdAddrEXMEM = i_RegRsAddrIDEX)) 
+	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRsAddrIDEX)) 
 		then o_forwardA <= "10";
 
-	elsif (i_RegWriteMEMWB and (i_RegRdAddrMEMWB /= '0') and (not(i_RegWriteEXMEM and (i_RegRdAddrEXMEM /= '0') and (i_RegRdAddrEXMEM = i_RegRsAddrIDEX))) and (i_RegRdAddrMEMWB = i_RegRsAddrIDEX)) 
+	elsif ((i_RegWriteMEMWB = '1') and (i_RegRdAddrMEMWB = '1') and (i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRsAddrIDEX) and (i_RegRdAddrMEMWB = i_RegRsAddrIDEX)) 
 		then o_forwardA <= "01";
 
 	else
@@ -56,10 +58,10 @@ process is
 
 
 -------------------Forwarding B Logic ----------------------------------------------------------
-	if (i_RegWriteEXMEM and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX)) 
+	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX)) 
 		then o_forwardB <= "10";
 
-	elsif (i_RegWriteMEMWB and (i_RegRdAddrMEMWB /= '0') and (not(i_RegWriteEXMEM and (i_RegRdAddrEXMEM /= '0') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX))) and (i_RegRdAddrMEMWB = i_RegRtAddrIDEX)) 
+	elsif ((i_RegWriteMEMWB = '1') and (i_RegRdAddrMEMWB = '1') and (i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX) and (i_RegRdAddrMEMWB = i_RegRtAddrIDEX)) 
 		then o_forwardB <= "01";
 
 	else
@@ -67,9 +69,16 @@ process is
 	end if;
 -------------------Forwarding B Logic ----------------------------------------------------------
 
+        if ((i_MemToRegIDEX = '1') and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID)))
+                then o_Stall <= '1';
+        else
+                o_Stall <= '0';
+
 end process;
 
-o_Stall <= (i_MemToRegIDEX and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID)));
+
+
+
 
 
 
