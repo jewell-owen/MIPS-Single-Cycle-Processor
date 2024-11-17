@@ -449,7 +449,7 @@ begin
 				MemtoReg        <= '0';
 				RegWrite        <= '1';
 				MemWrite        <= '0';
-				ALUControl      <= "1001";
+				ALUControl      <= "XXXX";
 				beq             <= '0';
                 		bne             <= '0';
                 		j               <= '0';
