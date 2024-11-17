@@ -196,16 +196,27 @@ while2:
     slt  $t2, $a3, $s0         # If mid < i...
     #bne  $t2, 0, while3        # Jump to while3 if true
     addi $1,$0,0
+    NOP
+    NOP
     bne $1,$10,while3
+    NOP
     sll  $t0, $s0, 2           # $t0 = i*4
     #lw   $t1, array($t0)       # Load value of a[i] into $t1
     lui $1,4097
+    NOP
+    NOP
     addu $1,$1,$8
+    NOP
+    NOP
     lw $9,404($1)
     sll  $t3, $s1, 2           # $t3 = k*4
     #sw   $t1, tempArray($t3)   # Store a[i] in tempArray[k]
     lui $1,4097
+    NOP
+    NOP
     addu $1,$1,$11
+    NOP
+    NOP
     sw $9, 4($1)
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s0, $s0, 1           # Increment i (s0)
@@ -219,6 +230,7 @@ while3:
     NOP
     NOP
     bne $1,$10,forInit
+    NOP
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
     #lw   $t3, array($t2)       # Load value of a[j]
     lui $1,4097
@@ -251,7 +263,10 @@ forInit:
 
 for:
     slt  $t7, $t0, $t1         # If $t0 < $t1, $t7 = 1
+    NOP
+    NOP
     beq  $t7, $zero, sortEnd   # If $t7 = 0, end the loop and go to sortEnd
+    NOP
     sll  $t2, $t0, 2           # $t2 = $t0 * 4 to get the offset for tempArray
     #lw   $t6, tempArray($t2)   # Load value from tempArray[i] into $t6
     lui $1,4097
@@ -312,6 +327,7 @@ mergeSort:
     NOP
     NOP
     
+    NOP
     lw   $s0, 0($sp)            # Load mid from the stack
     NOP
     NOP
@@ -336,6 +352,7 @@ mergeSort:
     
     lw   $ra, 12($sp)           # Restore return address from the stack
     addi $sp, $sp, 16           # Restore stack pointer
+    NOP
     jr   $ra                    # Return from mergeSort
 
 return:
@@ -345,6 +362,8 @@ return:
 
 print:
     lui $1,4097
+    NOP
+    NOP
     lw $8,404($1)
     lw $9,408($1)
     lw $10,412($1)
