@@ -17,39 +17,77 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Loading package NUMERIC_STD
 -- Compiling entity sign_ext
 -- Compiling architecture dataflow of sign_ext
--- Compiling entity regFile
--- Compiling architecture structure of regFile
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
 -- Compiling entity decoder5t32
 -- Compiling architecture dataflow of decoder5t32
--- Compiling entity hazardDetectionUnit
--- Compiling architecture dataflow of hazardDetectionUnit
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(45): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(45): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in operand of prefix expression 'not'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in right operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(59): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(59): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in operand of prefix expression 'not'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in right operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Warning: proj/src/HazardDetection/hazardDetectionUnit.vhd(70): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(72): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(72): Type error resolving infix expression "and" as type ieee.std_logic_1164.STD_LOGIC.
-** Note: proj/src/HazardDetection/hazardDetectionUnit.vhd(78): VHDL Compiler exiting
-End time: 13:47:11 on Nov 15,2024, Elapsed time: 0:00:00
-Errors: 22, Warnings: 2
+-- Compiling entity alu
+-- Compiling architecture structural of alu
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity lessThanModule
+-- Compiling architecture dataflow of lessThanModule
+-- Compiling entity equalityModule
+-- Compiling architecture dataflow of equalityModule
+-- Compiling entity mux8t1_32
+-- Compiling architecture structural of mux8t1_32
+-- Compiling entity equalityMuxModule
+-- Compiling architecture dataflow of equalityMuxModule
+-- Compiling entity reg_N
+-- Compiling architecture structure of reg_N
+-- Compiling entity regFile
+-- Compiling architecture structure of regFile
+-- Compiling entity stackPointerRegister
+-- Compiling architecture structure of stackPointerRegister
+-- Compiling entity dffgPC
+-- Compiling architecture mixed of dffgPC
+-- Compiling entity reg_NPC
+-- Compiling architecture structure of reg_NPC
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+-- Compiling entity onesComp
+-- Compiling architecture structure of onesComp
+-- Compiling entity reg_IFID
+-- Compiling architecture structure of reg_IFID
+-- Compiling entity reg_EXMEM
+-- Compiling architecture structure of reg_EXMEM
+-- Compiling entity reg_MEMWB
+-- Compiling architecture structure of reg_MEMWB
+-- Compiling entity reg_IDEX
+-- Compiling architecture structure of reg_IDEX
+-- Compiling entity dffgNeg
+-- Compiling architecture mixed of dffgNeg
+-- Compiling entity controlUnit
+-- Compiling architecture behavioral of controlUnit
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity adder1bit
+-- Compiling architecture structure of adder1bit
+-- Compiling entity fetchLogic
+-- Compiling architecture structural of fetchLogic
+-- Compiling entity adder_N
+-- Compiling architecture structure of adder_N
+-- Compiling entity vectorReverser_N
+-- Compiling architecture dataflow of vectorReverser_N
+-- Compiling entity barrelShifter
+-- Compiling architecture structural of barrelShifter
+-- Compiling entity carryLookaheadAdder
+-- Compiling architecture mixed of carryLookaheadAdder
+-- Compiling entity fullAdder
+-- Compiling architecture structure of fullAdder
+End time: 12:16:52 on Nov 16,2024, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1
