@@ -75,7 +75,8 @@ for1:
                                                                                         #Execute
     slt $t1, $0, $t0           # $t1 = 1 if n - i - 1 > 0             #Fetch.               #Memory Access
                                                                    #Decode               #Write Back
-                                                                   #Execute
+    NOP
+    NOP                                                               #Execute
     beq $t1, $0, exit_for1     # Exit if n - i - 1 <= 0               #Memory Access
     NOP
 
@@ -87,7 +88,8 @@ for2:
     # Check if j < n - i - 1 using slt and beq
     slt $t1, $s2, $t0          # if j < n - i - 1                                           #Memory Access        #Fetch.
                                                                                          #Write Back           #Decode
-                                                                                                               #Execute
+    NOP
+    NOP                                                                                                           #Execute
     beq $t1, $0, next_for1     # Exit inner loop if j >= n - i - 1                                                #Memory Access
     NOP
 
@@ -112,10 +114,10 @@ for2:
     
     
     
-    addu $1, $1, $12
+    addu $1, $1, $t4
                                                                                          #Decode               #Write Back
                                                                                          #Execute
-    lw $13, 0($1)
+    lw $t5, 0($1)
                                                                                          #Memory Access
     
     
@@ -124,6 +126,8 @@ for2:
     slt $t6, $t5, $t3          # $t6 = (arr[j] > arr[j + 1]) ? 1 : 0                        #Write Back            #Fetch.
                                                                                                                 #Decode
                                                                                                                 #Execute
+    NOP
+    NOP
     beq $t6, $0, skip_swap     # If arr[j] <= arr[j + 1], skip swap                                                #Memory Access
     NOP
 

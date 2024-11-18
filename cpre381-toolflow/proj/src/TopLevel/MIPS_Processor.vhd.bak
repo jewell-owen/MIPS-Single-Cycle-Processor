@@ -324,20 +324,29 @@ component equalityModule is
 end component;
 
 component hazardDetectionUnit is
-  port(i_RegRdAddrMEMWB    : in std_logic_vector(4 downto 0);
-       i_RegWriteMEMWB     : in std_logic;
-       i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
-       i_RegWriteEXMEM     : in std_logic;
-       i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
+  port(
+       i_CLK               : in std_logic;
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        o_Stall             : out std_logic;
-       o_Flush             : out std_logic;
+       o_Flush             : out std_logic);
+end component;
+
+component forwardingUnit is
+  port(
+       i_RegRdAddrMEMWB    : in std_logic_vector(4 downto 0);
+       i_RegWriteMEMWB     : in std_logic;
+       i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
+       i_RegWriteEXMEM     : in std_logic;
+       i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
+       i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
+       i_selImmIDEX        : in std_logic;
        o_forwardA          : out std_logic_vector(1 downto 0);
        o_forwardB          : out std_logic_vector(1 downto 0));
 end component;
+
 
 
 
@@ -507,20 +516,16 @@ BrnchMux: mux2t1
 		signSel 		=> s_signExtSel,
 		halt                    => s_tempHalt);
 
+
+
  hazard_Detection : hazardDetectionUnit port map (
-       i_RegRdAddrMEMWB        => s_RegWrAddr,
-       i_RegWriteMEMWB         => s_RegWr,
-       i_RegRdAddrEXMEM        => s_RegWrAddrEXMEM,
-       i_RegWriteEXMEM         => s_RegWrEXMEM,
-       i_RegRsAddrIDEX         => s_RsAddrIDEX,
+       i_CLK                   => iCLK,
        i_RegRtAddrIDEX         => s_RtAddrIDEX,
-       i_MemToRegIDEX          => s_MemtoRegIDEX,
+       i_MemToRegIDEX          => s_MemtoReg, -- s_MemtoRegIDEX
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        o_Stall                 => s_stallIFID,
-       o_Flush                 => s_flushIDEX,
-       o_forwardA              => s_forwardSelA,
-       o_forwardB              => s_forwardSelB);
+       o_Flush                 => s_flushIDEX);
 
 s_stallPC <= s_stallIFID;
 
@@ -599,15 +604,28 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D1 => s_immExtIDEX, 
 		o_O => s_ialuB);
 
+forwarding_Unit : forwardingUnit port map (
+       i_RegRdAddrMEMWB    =>    s_RegWrAddr,
+       i_RegWriteMEMWB     =>    s_RegWr,
+       i_RegRdAddrEXMEM    =>    s_RegWrAddrEXMEM,
+       i_RegWriteEXMEM     =>    s_RegWrEXMEM,
+       i_RegRsAddrIDEX     =>    s_RsAddrIDEX,
+       i_RegRtAddrIDEX     =>    s_RtAddrIDEX,
+       i_selImmIDEX        =>    s_aluSrcIDEX,
+       o_forwardA          =>    s_forwardSelA,
+       o_forwardB          =>    s_forwardSelB);
+
+
+
 forward_MUX_A : mux3t1_32 port map (
-       i_S          => s_forwardSelA, 
+       i_S          => s_forwardSelA, --   s_forwardSelAIDEX
        i_D0         => s_rs_DAIDEX,
        i_D1         => s_RegWrData,  
        i_D2         => s_aluOutEXMEM, 
        o_O          => s_forwardMuxOutA ); 
 
 forward_MUX_B : mux3t1_32 port map (
-       i_S          =>  s_forwardSelB,
+       i_S          =>  s_forwardSelB, --   s_forwardSelBIDEX
        i_D0         =>  s_ialuB,
        i_D1         =>  s_RegWrData,    -- These two are switched on the diagram
        i_D2         =>  s_aluOutEXMEM,      -- Possibly diagram wrong
