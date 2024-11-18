@@ -1,11 +1,6 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-<<<<<<< HEAD
-Start time: 13:47:11 on Nov 15,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/HazardDetection/hazardDetectionUnit.vhd proj/src/Alu/alu.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/Forwarding/forwardingUnit.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd proj/src/PipelineRegisters/reg_IFID.vhd proj/src/PipelineRegisters/reg_EXMEM.vhd proj/src/PipelineRegisters/reg_MEMWB.vhd proj/src/PipelineRegisters/reg_IDEX.vhd proj/src/PipelineRegisters/dffgNeg.vhd proj/src/ControlLogic/controlUnit.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/org2.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/xorg2.vhd proj/src/FetchLogic/reg_NPC.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/reg_N.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/FetchLogic/adder_N.vhd proj/src/FetchLogic/dffgPC.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd 
-=======
-Start time: 11:42:21 on Nov 16,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/Alu/alu.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/Registers/reg_N.vhd proj/src/Registers/regFile.vhd proj/src/Registers/stackPointerRegister.vhd proj/src/Registers/dffgPC.vhd proj/src/Registers/reg_NPC.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd proj/src/PipelineRegisters/reg_IFID.vhd proj/src/PipelineRegisters/reg_EXMEM.vhd proj/src/PipelineRegisters/reg_MEMWB.vhd proj/src/PipelineRegisters/reg_IDEX.vhd proj/src/PipelineRegisters/dffgNeg.vhd proj/src/ControlLogic/controlUnit.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/org2.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/xorg2.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/FetchLogic/adder_N.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd 
->>>>>>> sw-datapath
+Start time: 20:00:47 on Nov 17,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/MIPS_types.vhd proj/src/TopLevel/mux32t1_new.vhd proj/src/TopLevel/sign_ext.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/HazardDetection/hazardDetectionUnit.vhd proj/src/HazardDetection/mux3t1_32.vhd proj/src/Alu/alu.vhd proj/src/Alu/lessThanModule.vhd proj/src/Alu/equalityModule.vhd proj/src/Alu/mux8t1_32.vhd proj/src/Alu/equalityMuxModule.vhd proj/src/Registers/stackPointerRegister.vhd proj/src/Registers/reg_N.vhd proj/src/Registers/dffgPC.vhd proj/src/Registers/reg_NPC.vhd proj/src/Registers/regFile.vhd proj/src/OnesComp/onesComp_N.vhd proj/src/OnesComp/onesComp.vhd proj/src/PipelineRegisters/reg_IFID.vhd proj/src/PipelineRegisters/reg_EXMEM.vhd proj/src/PipelineRegisters/reg_MEMWB.vhd proj/src/PipelineRegisters/reg_IDEX.vhd proj/src/PipelineRegisters/dffgNeg.vhd proj/src/ControlLogic/controlUnit.vhd proj/src/BottomLevel/andg2.vhd proj/src/BottomLevel/mux2t1_N.vhd proj/src/BottomLevel/mux2t1.vhd proj/src/BottomLevel/invg.vhd proj/src/BottomLevel/org2.vhd proj/src/BottomLevel/dffg.vhd proj/src/BottomLevel/xorg2.vhd proj/src/FetchLogic/adder1bit.vhd proj/src/FetchLogic/fetchLogic.vhd proj/src/FetchLogic/adder_N.vhd proj/src/BarrelShifter/vectorReverser_N.vhd proj/src/BarrelShifter/barrelShifter.vhd proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd proj/src/CarryLookaheadAdder/fullAdder.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -22,67 +17,12 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Loading package NUMERIC_STD
 -- Compiling entity sign_ext
 -- Compiling architecture dataflow of sign_ext
-<<<<<<< HEAD
--- Compiling entity regFile
--- Compiling architecture structure of regFile
-=======
->>>>>>> sw-datapath
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
--- Compiling entity decoder5t32
--- Compiling architecture dataflow of decoder5t32
-<<<<<<< HEAD
--- Compiling entity hazardDetectionUnit
--- Compiling architecture dataflow of hazardDetectionUnit
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(45): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(45): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in operand of prefix expression 'not'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in right operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(48): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(59): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(59): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in operand of prefix expression 'not'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in right operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): (vcom-1590) Bad expression in left operand of infix expression 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(62): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Warning: proj/src/HazardDetection/hazardDetectionUnit.vhd(70): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(72): (vcom-1581) No feasible entries for infix operator 'and'.
-** Error: proj/src/HazardDetection/hazardDetectionUnit.vhd(72): Type error resolving infix expression "and" as type ieee.std_logic_1164.STD_LOGIC.
-** Note: proj/src/HazardDetection/hazardDetectionUnit.vhd(78): VHDL Compiler exiting
-End time: 13:47:11 on Nov 15,2024, Elapsed time: 0:00:00
-Errors: 22, Warnings: 2
-=======
--- Compiling entity alu
--- Compiling architecture structural of alu
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity lessThanModule
--- Compiling architecture dataflow of lessThanModule
--- Compiling entity equalityModule
--- Compiling architecture dataflow of equalityModule
--- Compiling entity mux8t1_32
--- Compiling architecture structural of mux8t1_32
--- Compiling entity equalityMuxModule
--- Compiling architecture dataflow of equalityMuxModule
--- Compiling entity reg_N
--- Compiling architecture structure of reg_N
--- Compiling entity regFile
--- Compiling architecture structure of regFile
--- Compiling entity stackPointerRegister
--- Compiling architecture structure of stackPointerRegister
-** Error: proj/src/Registers/stackPointerRegister.vhd(90): Labels do not match: 'G_NBit_Reg2' and 'G_NBit_Reg3'.
-** Note: proj/src/Registers/stackPointerRegister.vhd(100): VHDL Compiler exiting
-End time: 11:42:21 on Nov 16,2024, Elapsed time: 0:00:00
-Errors: 1, Warnings: 1
->>>>>>> sw-datapath
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(549): near "i_Halt": (vcom-1576) expecting ',' or ')'.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(596): Statement cannot be labeled.
+** Note: proj/src/TopLevel/MIPS_Processor.vhd(733): VHDL Compiler exiting
+End time: 20:00:47 on Nov 17,2024, Elapsed time: 0:00:00
+Errors: 2, Warnings: 1

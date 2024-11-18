@@ -32,8 +32,12 @@ entity reg_IDEX is
        i_isJumpReg  : in std_logic;     		    -- JR control signal
        i_RegDst     : in std_logic;     		    -- RegDst control signal
        i_luiCtrl    : in std_logic;                         -- lui control signal
+       i_forwardA   : in std_logic_vector(1 downto 0);      -- forward A control
+       i_forwardB   : in std_logic_vector(1 downto 0);      -- forward B control
        i_AluSrc     : in std_logic;    		 	    -- AluSrc control signal
        i_AluCtrl    : in std_logic_vector(3 downto 0);      -- AluCtrl control signal
+       i_RsAddr     : in std_logic_vector(4 downto 0);      -- Rs Addr
+       i_RtAddr     : in std_logic_vector(4 downto 0);      -- Rt Addr
        i_RegWrAddr  : in std_logic_vector(4 downto 0);      -- RegWrAddr
        i_Imm        : in std_logic_vector(15 downto 0);     -- Imm value 
        i_Instr      : in std_logic_vector(31 downto 0);     -- Instr
@@ -50,8 +54,12 @@ entity reg_IDEX is
        o_isJumpReg  : out std_logic;    		    -- JR control signal
        o_RegDst     : out std_logic;     		    -- RegDst control signal
        o_luiCtrl    : out std_logic;                        -- lui control signal
+       o_forwardA   : out std_logic_vector(1 downto 0);     -- forward A control
+       o_forwardB   : out std_logic_vector(1 downto 0);     -- forward B control
        o_AluSrc     : out std_logic;     		    -- AluSrc control signal
        o_AluCtrl    : out std_logic_vector(3 downto 0);     -- AluCtrl control signal
+       o_RsAddr     : out std_logic_vector(4 downto 0);     -- Rs Addr
+       o_RtAddr     : out std_logic_vector(4 downto 0);     -- Rt Addr
        o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
        o_Imm        : out std_logic_vector(15 downto 0);    -- Imm value
        o_Instr      : out std_logic_vector(31 downto 0);    -- Instr
@@ -140,6 +148,24 @@ begin
 	      i_D       => i_luiCtrl,
 	      o_Q       => o_luiCtrl);
 
+G_NBit_forwardA: for i in 0 to 1 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_forwardA(i),
+	      o_Q       => o_forwardA(i));
+  end generate G_NBit_forwardA;
+
+G_NBit_forwardB: for i in 0 to 1 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_forwardB(i),
+	      o_Q       => o_forwardB(i));
+  end generate G_NBit_forwardB;
+
  AluSrc: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,
@@ -165,6 +191,24 @@ G_NBit_RegRegWr: for i in 0 to 4 generate
 	      i_D       => i_RegWrAddr(i),
 	      o_Q       => o_RegWrAddr(i));
   end generate G_NBit_RegRegWr;
+
+G_NBit_RegRsAddr: for i in 0 to 4 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RsAddr(i),
+	      o_Q       => o_RsAddr(i));
+  end generate G_NBit_RegRsAddr;
+
+G_NBit_RegRtAddr: for i in 0 to 4 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_RtAddr(i),
+	      o_Q       => o_RtAddr(i));
+  end generate G_NBit_RegRtAddr;
 
 G_NBit_RegIMM: for i in 0 to 15 generate
     REGI: dffg port map(

@@ -31,7 +31,6 @@ entity reg_EXMEM is
        i_isJump     : in std_logic;                          -- RegWr control signal
        i_isJumpReg  : in std_logic;   		             -- JumpReg control signal
        i_AluZero    : in std_logic;     		     -- ALu is 0 control signal
-       i_luiCtrl    : in std_logic;                          -- RegWr control signal
        i_RegWrAddr  : in std_logic_vector(4 downto 0);       -- RegWrAddr
        i_Imm        : in std_logic_vector(15 downto 0);      -- RegWr control signal
        i_PCnext     : in std_logic_vector(31 downto 0);      -- fetch calculated PC
@@ -46,7 +45,6 @@ entity reg_EXMEM is
        o_isJump     : out std_logic;                         -- isJump control signal
        o_isJumpReg  : out std_logic;  			     -- JumpReg control signal
        o_AluZero    : out std_logic;     		     -- ALu is 0 control signal
-       o_luiCtrl    : out std_logic;                         -- lui control signal
        o_RegWrAddr  : out std_logic_vector(4 downto 0);      -- RegWrAddr
        o_Imm        : out std_logic_vector(15 downto 0);     -- Imm value
        o_PCnext     : out std_logic_vector(31 downto 0);     -- fetch calculated PC
@@ -125,13 +123,6 @@ begin
 	      i_WE      => i_WE,
 	      i_D       => i_AluZero,
 	      o_Q       => o_AluZero);
-
- luiCtrl: dffg port map(
-	      i_CLK     => i_CLK,
-	      i_RST     => i_RST,
-	      i_WE      => i_WE,
-	      i_D       => i_luiCtrl,
-	      o_Q       => o_luiCtrl);
 
 G_NBit_RegRegWr: for i in 0 to 4 generate
     REGI: dffg port map(

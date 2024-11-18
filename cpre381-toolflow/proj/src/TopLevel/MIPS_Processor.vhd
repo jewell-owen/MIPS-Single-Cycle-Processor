@@ -151,6 +151,15 @@ architecture structure of MIPS_Processor is
          o_O                  : out std_logic_vector(31 downto 0));
   end component;
 
+component mux3t1_32 is
+  port(i_S          : in std_logic_vector(1 downto 0);
+       i_D0         : in std_logic_vector(31 downto 0);
+       i_D1         : in std_logic_vector(31 downto 0);
+       i_D2         : in std_logic_vector(31 downto 0);
+       o_O          : out std_logic_vector(31 downto 0));
+end component;
+
+
   component alu is
     port(i_A			: in std_logic_vector(31 downto 0);
 	i_B			: in std_logic_vector(31 downto 0);
@@ -211,8 +220,12 @@ component reg_IDEX is
        i_isJumpReg  : in std_logic;     		    -- JR control signal
        i_RegDst     : in std_logic;     		    -- RegDst control signal
        i_luiCtrl    : in std_logic;                         -- lui control signal
+       i_forwardA   : in std_logic_vector(1 downto 0);      -- forward A control
+       i_forwardB   : in std_logic_vector(1 downto 0);      -- forward B control
        i_AluSrc     : in std_logic;    		 	    -- AluSrc control signal
        i_AluCtrl    : in std_logic_vector(3 downto 0);      -- AluCtrl control signal
+       i_RsAddr     : in std_logic_vector(4 downto 0);      -- Rs Addr
+       i_RtAddr     : in std_logic_vector(4 downto 0);      -- Rt Addr
        i_RegWrAddr  : in std_logic_vector(4 downto 0);      -- RegWrAddr
        i_Imm        : in std_logic_vector(15 downto 0);     -- Imm value 
        i_Instr      : in std_logic_vector(31 downto 0);     -- Instr
@@ -229,8 +242,12 @@ component reg_IDEX is
        o_isJumpReg  : out std_logic;    		    -- JR control signal
        o_RegDst     : out std_logic;     		    -- RegDst control signal
        o_luiCtrl    : out std_logic;                        -- lui control signal
+       o_forwardA   : out std_logic_vector(1 downto 0);     -- forward A control
+       o_forwardB   : out std_logic_vector(1 downto 0);     -- forward B control
        o_AluSrc     : out std_logic;     		    -- AluSrc control signal
        o_AluCtrl    : out std_logic_vector(3 downto 0);     -- AluCtrl control signal
+       o_RsAddr     : out std_logic_vector(4 downto 0);      -- Rs Addr
+       o_RtAddr     : out std_logic_vector(4 downto 0);      -- Rt Addr
        o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
        o_Imm        : out std_logic_vector(15 downto 0);    -- Imm value
        o_Instr      : out std_logic_vector(31 downto 0);    -- Instr
@@ -252,7 +269,6 @@ component reg_EXMEM is
        i_isJump     : in std_logic;                          -- RegWr control signal
        i_isJumpReg  : in std_logic;   		             -- JumpReg control signal
        i_AluZero    : in std_logic;     		     -- ALu is 0 control signal
-       i_luiCtrl    : in std_logic;                          -- RegWr control signal
        i_RegWrAddr  : in std_logic_vector(4 downto 0);       -- RegWrAddr
        i_Imm        : in std_logic_vector(15 downto 0);      -- RegWr control signal
        i_PCnext     : in std_logic_vector(31 downto 0);      -- fetch calculated PC
@@ -267,7 +283,6 @@ component reg_EXMEM is
        o_isJump     : out std_logic;                         -- isJump control signal
        o_isJumpReg  : out std_logic;  			     -- JumpReg control signal
        o_AluZero    : out std_logic;     		     -- ALu is 0 control signal
-       o_luiCtrl    : out std_logic;                         -- lui control signal
        o_RegWrAddr  : out std_logic_vector(4 downto 0);      -- RegWrAddr
        o_Imm        : out std_logic_vector(15 downto 0);     -- Imm value
        o_PCnext     : out std_logic_vector(31 downto 0);     -- fetch calculated PC
@@ -285,7 +300,6 @@ component reg_MEMWB is
        i_MemToReg   : in std_logic;                         -- MemToReg control signal
        i_RegWr      : in std_logic;                         -- RegWr control signal
        i_isJump     : in std_logic;                         -- isJump control signal
-       i_luiCtrl    : in std_logic;                         -- lui control signal
        i_RegWrAddr  : in std_logic_vector(4 downto 0);      -- RegWrAddr
        i_Imm        : in std_logic_vector(15 downto 0);     -- RegWr control signal
        i_MemData    : in std_logic_vector(31 downto 0);     -- Data mem ouput
@@ -296,7 +310,6 @@ component reg_MEMWB is
        o_MemToReg   : out std_logic;                        -- MemToReg control signal
        o_RegWr      : out std_logic;                        -- RegWr control signal
        o_isJump     : out std_logic;                        -- isJump control signal
-       o_luiCtrl    : out std_logic;                        -- lui control signal
        o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
        o_Imm        : out std_logic_vector(15 downto 0);    -- Imm value
        o_MemData    : out std_logic_vector(31 downto 0);    -- Data mem output
@@ -310,27 +323,29 @@ component equalityModule is
        o_F          : out std_logic);
 end component;
 
-entity hazardDetectionUnit is
-  port(i_RegRdAddrMEMWB    : in std_logic;
+component hazardDetectionUnit is
+  port(i_RegRdAddrMEMWB    : in std_logic_vector(4 downto 0);
        i_RegWriteMEMWB     : in std_logic;
-       i_RegRdAddrEXMEM    : in std_logic;
+       i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
        i_RegWriteEXMEM     : in std_logic;
-       i_RegRsAddrIDEX     : in std_logic;
-       i_RegRtAddrIDEX     : in std_logic;
+       i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
+       i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
-       i_RegRsAddrIFID     : in std_logic;
-       i_RegRtAddrIFID     : in std_logic;
+       i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
+       i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        o_Stall             : out std_logic;
+       o_Flush             : out std_logic;
        o_forwardA          : out std_logic_vector(1 downto 0);
        o_forwardB          : out std_logic_vector(1 downto 0));
-end hazardDetectionUnit;
+end component;
 
 
 
 
   signal s_aluctr   : std_logic_vector(3 downto 0); 
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
-  signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch, s_aluUnitOut : std_logic_vector(31 downto 0);  
+  signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
+         s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
          temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut : std_logic;
 
@@ -347,7 +362,7 @@ signal s_PCfourIFID, s_InstIFID, s_rs_DAIFID, s_rt_DBIFID : std_logic_vector(31 
 
 ---------Start ID/EX-------------
 signal s_aluctrIDEX : std_logic_vector(3 downto 0); 
-signal s_RegWrAddrIDEX : std_logic_vector(4 downto 0); 
+signal s_RegWrAddrIDEX, s_RsAddrIDEX, s_RtAddrIDEX : std_logic_vector(4 downto 0); 
 signal s_ImmIDEX : std_logic_vector(15 downto 0); 
 signal s_PCfourIDEX, s_InstIDEX, s_rs_DAIDEX,  s_rt_DBIDEX, s_immExtIDEX: std_logic_vector(31 downto 0);  
 signal s_isJumpIDEX, s_isJumpRegIDEX, s_luiCtrlIDEX, s_BranchIDEX, s_DMemWrIDEX, s_RegWrIDEX, s_regDstIDEX, s_MemtoRegIDEX, s_aluSrcIDEX, s_HaltIDEX  : std_logic;
@@ -370,7 +385,8 @@ signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_MemtoRegMEMWB, s_HaltMEMW
 --===============================
 
 ---------Start STALL/FLUSH SIGNALS------------
-signal s_flushIFID, s_flushIDEX, s_flushEXMEM, s_flushMEMWB, s_stallIFID, s_stallIDEX, s_stallEXMEM, s_stallMEMWB : std_logic;
+signal s_flushIFID, s_flushIDEX, s_flushEXMEM, s_flushMEMWB, s_stallIFID, s_stallIDEX, s_stallEXMEM, s_stallMEMWB, s_stallPC : std_logic;
+signal s_forwardSelA, s_forwardSelB, s_forwardSelAIDEX, s_forwardSelBIDEX : std_logic_vector(1 downto 0);
 ---------End Start STALL/FLUSH SIGNALS--------------
                                                     
   
@@ -390,7 +406,7 @@ begin
   g_NBITREG_PC: reg_NPC port map(
 	        i_CLK     => iCLK,
 	        i_RST     => iRST,
-	        i_WE      => '1',
+	        i_WE      => not s_stallPC,
 	        i_D       => si_PC,
 	        o_Q       => s_NextInstAddr);	-- stores PC value
 		
@@ -421,7 +437,7 @@ begin
 
   IFID_Pipeline_Reg : reg_IFID port map (
        i_CLK         =>   iCLK,
-       i_RST         =>   s_flushIFID,   
+       i_RST         =>     iRST,   -- or s_flushIFID
        i_WE          =>   not s_stallIFID,     
        i_PC          =>   s_PC4,      
        i_Instr       =>   s_Inst,   
@@ -496,16 +512,17 @@ BrnchMux: mux2t1
        i_RegWriteMEMWB         => s_RegWr,
        i_RegRdAddrEXMEM        => s_RegWrAddrEXMEM,
        i_RegWriteEXMEM         => s_RegWrEXMEM,
-       i_RegRsAddrIDEX         =>
-       i_RegRtAddrIDEX         =>
-       i_MemToRegIDEX          =>
-       i_RegRtAddrIFID         =>
-       o_Stall                 => -----TODO
-       o_forwardA              =>
-       o_forwardB              =>);
+       i_RegRsAddrIDEX         => s_RsAddrIDEX,
+       i_RegRtAddrIDEX         => s_RtAddrIDEX,
+       i_MemToRegIDEX          => s_MemtoRegIDEX,
+       i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
+       i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
+       o_Stall                 => s_stallIFID,
+       o_Flush                 => s_flushIDEX,
+       o_forwardA              => s_forwardSelA,
+       o_forwardB              => s_forwardSelB);
 
-end hazardDetectionUnit;
-
+s_stallPC <= s_stallIFID;
 
 
  g_NBITMUX_RegWrAddr: mux2t1_N port map (
@@ -527,8 +544,8 @@ end hazardDetectionUnit;
 
 IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   s_flushIDEX,
-       i_WE          =>   not s_stallIDEX,
+       i_RST         =>   s_flushIDEX or iRST,
+       i_WE          =>   '1',  --not s_stallIDEX
        i_Halt        =>   s_tempHalt,
        i_Branch      =>   s_BrchEq OR s_BrchNe,
        i_MemToReg    =>   s_MemtoReg,
@@ -538,8 +555,12 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_isJumpReg   =>   s_isJumpReg,
        i_RegDst      =>   s_regDst,
        i_luiCtrl     =>   s_is_Lui,
+       i_forwardA    =>   s_forwardSelA,
+       i_forwardB    =>   s_forwardSelB,
        i_AluSrc      =>   s_aluSrc,
        i_AluCtrl     =>   s_aluctr,
+       i_RsAddr      =>   s_InstIFID(25 downto 21),
+       i_RtAddr      =>   s_InstIFID(20 downto 16),
        i_RegWrAddr   =>   s_RegWrAddrCtrl,
        i_Imm         =>   s_InstIFID(15 downto 0),
        i_Instr       =>   s_InstIFID,
@@ -556,8 +577,12 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_isJumpReg   =>   s_isJumpRegIDEX,
        o_RegDst      =>   s_regDstIDEX,
        o_luiCtrl     =>   s_luiCtrlIDEX,
+       o_forwardA    =>   s_forwardSelAIDEX,
+       o_forwardB    =>   s_forwardSelBIDEX,
        o_AluSrc      =>   s_aluSrcIDEX,
        o_AluCtrl     =>   s_aluctrIDEX,
+       o_RsAddr      =>   s_RsAddrIDEX,
+       o_RtAddr      =>   s_RtAddrIDEX,
        o_Imm         =>   s_ImmIDEX,
        o_RegWrAddr   =>   s_RegWrAddrIDEX,
        o_Instr       =>   s_InstIDEX,
@@ -574,9 +599,25 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D1 => s_immExtIDEX, 
 		o_O => s_ialuB);
 
+forward_MUX_A : mux3t1_32 port map (
+       i_S          => s_forwardSelAIDEX, 
+       i_D0         => s_rs_DAIDEX,
+       i_D1         => s_RegWrData,  
+       i_D2         => s_aluOutEXMEM, 
+       o_O          => s_forwardMuxOutA ); 
+
+forward_MUX_B : mux3t1_32 port map (
+       i_S          =>  s_forwardSelBIDEX,
+       i_D0         =>  s_ialuB,
+       i_D1         =>  s_RegWrData,    -- These two are switched on the diagram
+       i_D2         =>  s_aluOutEXMEM,      -- Possibly diagram wrong
+       o_O          =>  s_forwardMuxOutB );
+
+
+
     g_ALU : alu port map(
-		i_A			=> s_rs_DAIDEX,
-		i_B			=> s_ialuB,
+		i_A			=> s_forwardMuxOutA,
+		i_B			=> s_forwardMuxOutB,
 		i_BrrlShamt		=> s_InstIDEX(10 downto 6),
 		i_AluCntrl		=> s_aluctrIDEX,
 		o_Zero			=> s_is_zero,
@@ -597,8 +638,8 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 
   EXMEM_Pipeline_Red :  reg_EXMEM port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   s_flushEXMEM,
-       i_WE          =>   not s_stallEXMEM,
+       i_RST         =>   iRST, --s_flushEXMEM or 
+       i_WE          =>   '1', -- not s_stallEXMEM
        i_Halt        =>   s_HaltIDEX,
        i_Branch      =>   s_BranchIDEX, 
        i_MemToReg    =>   s_MemtoRegIDEX,
@@ -607,7 +648,6 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_isJump      =>   s_isJumpIDEX,
        i_isJumpReg   =>   s_isJumpRegIDEX,
        i_AluZero     =>   s_is_zero,
-       i_luiCtrl     =>   s_luiCtrlIDEX,
        i_RegWrAddr   =>   s_RegWrAddrIDEX,
        i_Imm         =>   s_ImmIDEX,
        i_PCnext      =>   s_PCfetch, 
@@ -622,7 +662,6 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_isJump      =>   s_isJumpEXMEM,
        o_isJumpReg   =>   s_isJumpRegEXMEM,
        o_AluZero     =>   s_AluZeroEXMEM,
-       o_luiCtrl     =>   s_luiCtrlEXMEM,
        o_RegWrAddr   =>   s_RegWrAddrEXMEM,
        o_Imm         =>   s_ImmEXMEM,
        o_PCnext      =>   s_PCEXMEM, 
@@ -645,14 +684,13 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 
   MEMWB :  reg_MEMWB port map(
        i_CLK         =>   iCLK,
-       i_RST         =>   s_flushMEMWB,
-       i_WE          =>   not s_stallMEMWB,
+       i_RST         =>   iRST, -- or s_flushMEMWB
+       i_WE          =>   '1', --not s_stallMEMWB
        i_Halt        =>   s_HaltEXMEM,
        i_Branch      =>   s_BranchEXMEM,
        i_MemToReg    =>   s_MemtoRegEXMEM,
        i_RegWr       =>   s_RegWrEXMEM,
        i_isJump      =>   s_isJumpEXMEM,
-       i_luiCtrl     =>   s_luiCtrlEXMEM,
        i_RegWrAddr   =>   s_RegWrAddrEXMEM,
        i_Imm         =>   s_ImmEXMEM,
        i_MemData     =>   s_DMemOut,
@@ -663,7 +701,6 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_MemToReg    =>   s_MemtoRegMEMWB,
        o_RegWr       =>   s_RegWr,
        o_isJump      =>   s_isJumpMEMWB,
-       o_luiCtrl     =>   s_luiCtrlMEMWB,
        o_RegWrAddr   =>   s_RegWrAddr,
        o_Imm         =>   s_ImmMEMWB,
        o_MemData     =>   s_DMemOutMEMWB,

@@ -1,0 +1,95 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection
+Ehazarddetectionunit
+Z1 w1731893060
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 4
+R0
+Z5 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
+Z6 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
+l0
+L21 1
+VZ;gAhNPcHADb?U5jIHaiG2
+!s100 VTnl]YH1^caY`7`8k6CJ02
+Z7 OL;C;2024.2;79
+32
+Z8 !s110 1731893384
+!i10b 1
+Z9 !s108 1731893384.000000
+Z10 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
+!s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
+!i113 0
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Adataflow
+R2
+R3
+R4
+DEx4 work 19 hazarddetectionunit 0 22 Z;gAhNPcHADb?U5jIHaiG2
+!i122 4
+l44
+L40 55
+VLQkFomKV2IL@[^gPDFAk_3
+!s100 Z`HH4ZMDIMkPKk_9O<UF41
+R7
+32
+R8
+!i10b 1
+R9
+R10
+Z13 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
+!i113 0
+R11
+R12
+Emux3t1_32
+Z14 w1731890985
+R3
+R4
+!i122 3
+R0
+Z15 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/mux3t1_32.vhd
+Z16 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/mux3t1_32.vhd
+l0
+L16 1
+VAH9L^z3=DRl:7TG6DNUHE2
+!s100 ;h]dMG9Qh]KJ47OS[bKYc3
+R7
+32
+Z17 !s110 1731890988
+!i10b 1
+Z18 !s108 1731890988.000000
+Z19 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/mux3t1_32.vhd|
+Z20 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/mux3t1_32.vhd|
+!i113 0
+R11
+R12
+Astructural
+R3
+R4
+DEx4 work 9 mux3t1_32 0 22 AH9L^z3=DRl:7TG6DNUHE2
+!i122 3
+l36
+L25 37
+VQoM>N?o@W9nG058KGRcHE2
+!s100 >4FCkP:FIYLfMJU[n]U^d3
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R11
+R12
