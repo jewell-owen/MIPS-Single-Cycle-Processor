@@ -109,11 +109,9 @@ while1:
     slt $t1, $a3, $s0	# If mid < i...
     NOP
     NOP
-    NOP
     bne $t1, $0, while2 	# exit while1 loop
     NOP
     slt $t1, $a2, $s2	# If high < j
-    NOP
     NOP
     NOP
     bne $t1, $0, while2	#exit while loop
@@ -125,26 +123,13 @@ if:
     sll  $t0, $s0, 2           # $t0 = i*4, offset for accessing array[i]
     #lw   $t1, array($t0)       # Load value of a[i] into $t1
     lui $1,4097
-    NOP
-    NOP
-    NOP
     addu $1,$1,$8
-    NOP
-    NOP
     lw $9,404($1)
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
     #lw   $t3, array($t2)       # Load value of a[j] into $t3    
     lui $1,4097
-    NOP
-    NOP
-    NOP
     addu $1,$1,$10
-    NOP
-    NOP
     lw $11, 404($1)
-    NOP
-    NOP
-    NOP
     slt  $t4, $t3, $t1         # If a[j] < a[i], set $t4 = 1
     NOP
     NOP
@@ -154,12 +139,7 @@ if:
     sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
     #sw   $t1, tempArray($t5)   # Store a[i] in tempArray[k]
     lui $1, 4097
-    NOP
-    NOP
-    NOP
     addu $1, $1, $13
-    NOP
-    NOP
     sw $9,4($1)
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s0, $s0, 1           # Increment i (s0)
@@ -170,22 +150,12 @@ else:
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
     #lw   $t3, array($t2)       # Load value of a[j] into $t3  
     lui $1,4097
-    NOP
-    NOP
-    NOP
     addu $1,$1,$10
-    NOP
-    NOP
     lw $11,404($1)  
     sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
     #sw   $t3, tempArray($t5)   # Store a[j] in tempArray[k]
     lui $1, 4097
-    NOP
-    NOP
-    NOP
     addu $1,$1,$13
-    NOP
-    NOP
     sw $11,4($1)
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s2, $s2, 1           # Increment j (s2)
@@ -203,20 +173,12 @@ while2:
     sll  $t0, $s0, 2           # $t0 = i*4
     #lw   $t1, array($t0)       # Load value of a[i] into $t1
     lui $1,4097
-    NOP
-    NOP
     addu $1,$1,$8
-    NOP
-    NOP
     lw $9,404($1)
     sll  $t3, $s1, 2           # $t3 = k*4
     #sw   $t1, tempArray($t3)   # Store a[i] in tempArray[k]
     lui $1,4097
-    NOP
-    NOP
     addu $1,$1,$11
-    NOP
-    NOP
     sw $9, 4($1)
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s0, $s0, 1           # Increment i (s0)
@@ -234,20 +196,12 @@ while3:
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
     #lw   $t3, array($t2)       # Load value of a[j]
     lui $1,4097
-    NOP
-    NOP
     addu $1,$1,$10
-    NOP
-    NOP
     lw $11,404($1)
     sll  $t5, $s1, 2           # $t5 = k*4, offset for storing in tempArray
     #sw   $t3, tempArray($t5)   # Store a[j] in tempArray[k]
     lui $1,4097
-    NOP
-    NOP
     addu $1,$1,$13
-    NOP
-    NOP
     sw $11,4($1)
     addi $s1, $s1, 1           # Increment k (s1)
     addi $s2, $s2, 1           # Increment j (s2)
@@ -257,7 +211,6 @@ while3:
 forInit:
     add  $t0, $a1, $zero       # Initialize $t0 to low for for loop
     addi $t1, $a2, 1           # Initialize $t1 to high + 1 for for loop
-    NOP
     j    for                    # Jump to for loop
     NOP
 
@@ -270,24 +223,13 @@ for:
     sll  $t2, $t0, 2           # $t2 = $t0 * 4 to get the offset for tempArray
     #lw   $t6, tempArray($t2)   # Load value from tempArray[i] into $t6
     lui $1,4097
-    NOP
-    NOP
-    NOP
     addu $1,$1,$10
-    NOP
-    NOP
     lw $14,4($1)
     #sw   $t6, array($t2)       # Store the value from tempArray[i] into array[i]
     lui $1,4097
-    NOP
-    NOP
-    NOP
     addu $1,$1, $10
-    NOP
-    NOP
     sw $14,404($1)
     addi $t0, $t0, 1           # Increment $t0 (i++) for next iteration
-    NOP
     j    for                   # Go to next iteration of for loop
     NOP
 
@@ -305,22 +247,13 @@ mergeSort:
     NOP
     
     addi $sp, $sp, -16          # Allocate space on stack for 4 items
-    NOP
-    NOP
-    NOP
     sw   $ra, 12($sp)           # Save return address on the stack
     sw   $a1, 8($sp)            # Save value of low in the stack
     sw   $a2, 4($sp)            # Save value of high in the stack
 
     add  $s0, $a1, $a2          # mid = low + high
-    NOP
-    NOP
     sra  $s0, $s0, 1            # mid = (low + high) / 2
-    NOP
-    NOP
-    sw   $s0, 0($sp)            # Save mid to the stack
-    NOP
-    NOP    
+    sw   $s0, 0($sp)            # Save mid to the stack    
     add  $a2, $s0, $zero        # Set high = mid to sort the first half of array
     NOP
     jal  mergeSort              # Recursive call to mergeSort for the first half
@@ -329,12 +262,7 @@ mergeSort:
     
     NOP
     lw   $s0, 0($sp)            # Load mid from the stack
-    NOP
-    NOP
-    NOP
     addi $s1, $s0, 1            # Set low = mid + 1 for the second half
-    NOP
-    NOP
     add  $a1, $s1, $zero        # Set low = mid + 1
     lw   $a2, 4($sp)            # Load high from the stack
     NOP
