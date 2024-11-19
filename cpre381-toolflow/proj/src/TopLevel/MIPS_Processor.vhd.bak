@@ -340,9 +340,11 @@ component forwardingUnit is
        i_RegWriteMEMWB     : in std_logic;
        i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
        i_RegWriteEXMEM     : in std_logic;
+       i_MemWriteIDEX      : in std_logic;
        i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_selImmIDEX        : in std_logic;
+       o_forwardBMEM       : out std_logic;
        o_forwardA          : out std_logic_vector(1 downto 0);
        o_forwardB          : out std_logic_vector(1 downto 0));
 end component;
@@ -356,7 +358,7 @@ end component;
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
          s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_forwardMemB, s_forwardSelBMem : std_logic;
 
    
 
@@ -521,7 +523,7 @@ BrnchMux: mux2t1
  hazard_Detection : hazardDetectionUnit port map (
        i_CLK                   => iCLK,
        i_RegRtAddrIDEX         => s_RtAddrIDEX,
-       i_MemToRegIDEX          => s_MemtoReg, -- s_MemtoRegIDEX
+       i_MemToRegIDEX          => s_MemtoRegIDEX, -- 
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        o_Stall                 => s_stallIFID,
@@ -608,10 +610,12 @@ forwarding_Unit : forwardingUnit port map (
        i_RegRdAddrMEMWB    =>    s_RegWrAddr,
        i_RegWriteMEMWB     =>    s_RegWr,
        i_RegRdAddrEXMEM    =>    s_RegWrAddrEXMEM,
+       i_MemWriteIDEX      =>    s_DMemWrIDEX,
        i_RegWriteEXMEM     =>    s_RegWrEXMEM,
        i_RegRsAddrIDEX     =>    s_RsAddrIDEX,
        i_RegRtAddrIDEX     =>    s_RtAddrIDEX,
        i_selImmIDEX        =>    s_aluSrcIDEX,
+       o_forwardBMEM       =>    s_forwardSelBMem,
        o_forwardA          =>    s_forwardSelA,
        o_forwardB          =>    s_forwardSelB);
 
@@ -650,6 +654,13 @@ forward_MUX_B : mux3t1_32 port map (
 		i_D1(15 downto 0) => x"0000",
 		o_O => s_aluOut);
 
+
+   g_NBITMUX_DMEM_FORWARD: mux2t1_N port map (
+		i_S => s_forwardSelBMem,	
+		i_D0 => s_rt_DBIDEX,   
+		i_D1 => s_aluOutEXMEM, 
+		o_O => s_forwardMemB);
+
  s_Ovfl     <= s_ALUOverflow and (not s_CntrlOverflow);
  oALUOut    <= s_aluOut;
 ------------------------------------------------------End Execute-------------------------------------------------------------------------
@@ -670,7 +681,7 @@ forward_MUX_B : mux3t1_32 port map (
        i_Imm         =>   s_ImmIDEX,
        i_PCnext      =>   s_PCfetch, 
        i_AluOut      =>   s_aluOut,
-       i_RdDataB     =>   s_rt_DBIDEX,
+       i_RdDataB     =>   s_forwardMemB,
        i_PC          =>   s_PCfourIDEX,
        o_Halt        =>   s_HaltEXMEM,
        o_Branch      =>   s_BranchEXMEM,

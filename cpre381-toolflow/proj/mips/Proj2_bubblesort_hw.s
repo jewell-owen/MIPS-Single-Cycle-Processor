@@ -75,8 +75,7 @@ for1:
                                                                                         #Execute
     slt $t1, $0, $t0           # $t1 = 1 if n - i - 1 > 0             #Fetch.               #Memory Access
                                                                    #Decode               #Write Back
-    NOP
-    NOP                                                               #Execute
+                                                                 #Execute
     beq $t1, $0, exit_for1     # Exit if n - i - 1 <= 0               #Memory Access
     NOP
 
