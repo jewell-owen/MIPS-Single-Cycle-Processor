@@ -6,3 +6,5 @@ main:
 lw   $s0, value
 NOP
 addi $s1, $s0, 8
+
+halt

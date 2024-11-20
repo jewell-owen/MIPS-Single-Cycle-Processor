@@ -95,9 +95,7 @@ main:
     addi $a2, $zero, 7     # $a2 = right index = 7 (high index)
     jal mergeSort          # Call mergeSort function 
     NOP
-    NOP
     jal print              # Call print function to display sorted array
-    NOP
     NOP
 
 merge:
@@ -222,8 +220,6 @@ for:
     NOP
 
 sortEnd:
-    NOP
-    NOP
     jr   $ra                    # Return from the merge function
     NOP
     
@@ -241,20 +237,15 @@ mergeSort:
     sra  $s0, $s0, 1            # mid = (low + high) / 2
     sw   $s0, 0($sp)            # Save mid to the stack    
     add  $a2, $s0, $zero        # Set high = mid to sort the first half of array
-    NOP
     jal  mergeSort              # Recursive call to mergeSort for the first half
     NOP
-    NOP
-    
-    NOP
+
+   
     lw   $s0, 0($sp)            # Load mid from the stack
     addi $s1, $s0, 1            # Set low = mid + 1 for the second half
     add  $a1, $s1, $zero        # Set low = mid + 1
     lw   $a2, 4($sp)            # Load high from the stack
-    NOP
-    NOP
     jal  mergeSort              # Recursive call to mergeSort for the second half
-    NOP
     NOP
     
     lw   $a1, 8($sp)            # Restore low from the stack
@@ -262,15 +253,14 @@ mergeSort:
     lw   $a3, 0($sp)            # Restore mid from the stack and pass it to merge
     jal  merge                  # Call merge function to merge the sorted halves
     NOP
-    NOP
     
     lw   $ra, 12($sp)           # Restore return address from the stack
     addi $sp, $sp, 16           # Restore stack pointer
     NOP
     jr   $ra                    # Return from mergeSort
+    NOP
 
 return:
-    NOP
     jr   $ra                    # Return to the calling routine
     NOP
 

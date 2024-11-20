@@ -5,3 +5,5 @@ value:   .word 42
 main:
 lw   $s0, value
 addi $s1, $s0, 8
+
+halt
