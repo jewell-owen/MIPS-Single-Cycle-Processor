@@ -333,6 +333,8 @@ component hazardDetectionUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
+       i_isJump            : in std_logic;       
+       o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;
        o_Flush             : out std_logic);
 end component;
@@ -426,13 +428,13 @@ begin
   g_NBITREG_PC: reg_NPC port map(
 	        i_CLK     => iCLK,
 	        i_RST     => iRST,
-	        i_WE      => not s_stallPC,
+	        i_WE      => (not s_stallPC),
 	        i_D       => si_PC,
 	        o_Q       => s_NextInstAddr);	-- stores PC value
 		
 
   g_NBITMUX_PCnextAddr: mux2t1_N port map (
-		i_S => ((s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
+		i_S => ((  (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	-- and s_BrnchMuxOut
 		i_D0 => s_PC4,
 		i_D1 => s_PCfetch,
 		o_O => si_PC);
@@ -457,7 +459,7 @@ begin
 
   IFID_Pipeline_Reg : reg_IFID port map (
        i_CLK         =>   iCLK,
-       i_RST         =>     iRST,   -- or s_flushIFID
+       i_RST         =>   iRST or s_flushIFID,   -- or s_flushIFID
        i_WE          =>   not s_stallIFID,     
        i_PC          =>   s_PC4,      
        i_Instr       =>   s_Inst,   
@@ -552,6 +554,8 @@ BrnchMux: mux2t1
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        i_isBranchIFID          => s_BrchEq OR s_BrchNe,
+       i_isJump                => s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg,
+       o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
        o_Flush                 => s_flushIDEX);
 
@@ -573,6 +577,8 @@ s_stallPC <= s_stallIFID;
 		o_O => s_RegWrAddrLong);
 
   s_RegWrAddrCtrl <= s_RegWrAddrLong(4 downto 0);
+
+
 ------------------------------------------------------End Decode--------------------------------------------------------------------------
 
 IDEX_Pipeline_Reg:  reg_IDEX port map(
@@ -580,7 +586,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_RST         =>   s_flushIDEX or iRST,
        i_WE          =>   '1',  --not s_stallIDEX
        i_Halt        =>   s_tempHalt,
-       i_Branch      =>   s_BrchEq OR s_BrchNe,
+       i_Branch      =>   s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg,
        i_MemToReg    =>   s_MemtoReg,
        i_RegWr       =>   s_RegWrCtrl,
        i_MemWr       =>   s_memWr,

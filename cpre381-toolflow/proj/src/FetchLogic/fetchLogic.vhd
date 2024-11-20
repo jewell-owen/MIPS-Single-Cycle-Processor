@@ -57,8 +57,8 @@ architecture structural of fetchLogic is
   end component;
 
 
-signal so_bshftI, so_bshftJ, so_Sum_I, si_PC, so_PC4_I, so_PC4_I_J         : std_logic_vector(31 downto 0);
-signal so_Car_I, so_Car_PC4, ss_Brch 							: std_logic;
+signal so_Sum_I, si_PC, so_PC4_I, so_PC4_I_J         : std_logic_vector(31 downto 0);
+signal so_Car_I, ss_Brch 							: std_logic;
 
 
 
