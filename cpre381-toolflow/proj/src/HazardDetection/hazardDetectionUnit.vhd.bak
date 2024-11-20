@@ -20,10 +20,13 @@ entity hazardDetectionUnit is
 
   port(
        i_CLK               : in std_logic;
+       i_RegWrAddrEXMEM     : in std_logic_vector(4 downto 0);
+       i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
+       i_isBranchIFID      : in std_logic;
        o_Stall             : out std_logic;
        o_Flush             : out std_logic);
 
@@ -43,20 +46,40 @@ process_label : process( i_CLK ) --i_RegRtAddrIDEX, i_MemToRegIDEX, i_RegRsAddrI
  
         if ((i_MemToRegIDEX = '1') and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID)))
                 then o_Flush <= '1';
+
+	elsif ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrIDEX) or (i_RegRtAddrIFID = i_RegWrAddrIDEX)) )
+		then o_Flush <= '1';
+
+	elsif ((i_isBranchIFID = '1') and (i_RegWrAddrEXMEM /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrEXMEM) or (i_RegRtAddrIFID = i_RegWrAddrEXMEM)))
+		then o_Flush <= '1';
+
         else
                 o_Flush <= '0';
-	end if;
-
-        if ((i_MemToRegIDEX = '1') and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID)))
-                then o_Stall <= '1';
-        else
-               o_Stall <= '0';
 	end if;
 
 else 
     o_Flush <= '0';
 
 end if;
+
+ if (falling_edge(i_CLK)) then
+
+        if ((i_MemToRegIDEX = '1') and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID))) 
+                then o_Stall <= '1';
+
+	elsif ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrIDEX) or (i_RegRtAddrIFID = i_RegWrAddrIDEX)) )
+		then o_Stall <= '1';
+
+	elsif ((i_isBranchIFID = '1') and (i_RegWrAddrEXMEM /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrEXMEM) or (i_RegRtAddrIFID = i_RegWrAddrEXMEM)))
+		then o_Stall <= '1';
+        else
+               o_Stall <= '0';
+	end if;
+
+
+
+end if;
+
 
 end process;
 

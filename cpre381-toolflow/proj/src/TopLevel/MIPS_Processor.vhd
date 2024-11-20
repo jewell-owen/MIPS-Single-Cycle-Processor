@@ -326,10 +326,13 @@ end component;
 component hazardDetectionUnit is
   port(
        i_CLK               : in std_logic;
+       i_RegWrAddrEXMEM     : in std_logic_vector(4 downto 0);
+       i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
+       i_isBranchIFID      : in std_logic;
        o_Stall             : out std_logic;
        o_Flush             : out std_logic);
 end component;
@@ -343,10 +346,16 @@ component forwardingUnit is
        i_MemWriteIDEX      : in std_logic;
        i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
+       i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
        i_selImmIDEX        : in std_logic;
+       i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
+       i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
+       i_isBranchIFID      : in std_logic;
        o_forwardBMEM       : out std_logic;
        o_forwardA          : out std_logic_vector(1 downto 0);
-       o_forwardB          : out std_logic_vector(1 downto 0));
+       o_forwardB          : out std_logic_vector(1 downto 0);
+       o_BranchForwardA    : out std_logic_vector(1 downto 0);
+       o_BranchForwardB    : out std_logic_vector(1 downto 0));
 end component;
 
 
@@ -356,7 +365,7 @@ end component;
   signal s_aluctr   : std_logic_vector(3 downto 0); 
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
-         s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB : std_logic_vector(31 downto 0);  
+         s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, s_forwardBrnchMuxOutB : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
          temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_forwardSelBMem : std_logic;
 
@@ -397,7 +406,7 @@ signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_MemtoRegMEMWB, s_HaltMEMW
 
 ---------Start STALL/FLUSH SIGNALS------------
 signal s_flushIFID, s_flushIDEX, s_flushEXMEM, s_flushMEMWB, s_stallIFID, s_stallIDEX, s_stallEXMEM, s_stallMEMWB, s_stallPC : std_logic;
-signal s_forwardSelA, s_forwardSelB, s_forwardSelAIDEX, s_forwardSelBIDEX : std_logic_vector(1 downto 0);
+signal s_forwardSelA, s_forwardSelB, s_forwardSelAIDEX, s_forwardSelBIDEX, s_brnchMuxForwardSelA, s_brnchMuxForwardSelB : std_logic_vector(1 downto 0);
 ---------End Start STALL/FLUSH SIGNALS--------------
                                                     
   
@@ -472,10 +481,25 @@ begin
        		o_rs_D       => s_rs_DAIFID,
        		o_rt_D	     => s_rt_DBIFID);
 
+forwardBrnch_MUX_A : mux3t1_32 port map (
+       i_S          => s_brnchMuxForwardSelA, --   s_forwardSelAIDEX
+       i_D0         => s_rs_DAIFID,
+       i_D1         => s_aluOutEXMEM,  
+       i_D2         => s_aluOutEXMEM, 
+       o_O          => s_forwardBrnchMuxOutA ); 
+
+forwardBrnch_MUX_B : mux3t1_32 port map (
+       i_S          =>  s_brnchMuxForwardSelB, --   s_forwardSelBIDEX
+       i_D0         =>  s_rt_DBIFID,
+       i_D1         =>  s_aluOutEXMEM,    -- These two are switched on the diagram
+       i_D2         =>  s_aluOutEXMEM,      -- Possibly diagram wrong
+       o_O          =>  s_forwardBrnchMuxOutB );
+
+
 e_equalityModule: equalityModule
   port map(
-            i_A  => s_rs_DAIFID,
-      	    i_B  => s_rt_DBIFID,
+            i_A  => s_forwardBrnchMuxOutA,
+      	    i_B  => s_forwardBrnchMuxOutB,
       	    o_F  => s_EqlOut);
 
 BrnchMux: mux2t1 
@@ -519,13 +543,15 @@ BrnchMux: mux2t1
 		halt                    => s_tempHalt);
 
 
-
  hazard_Detection : hazardDetectionUnit port map (
        i_CLK                   => iCLK,
+       i_RegWrAddrEXMEM        => s_RegWrAddrEXMEM,
+       i_RegWrAddrIDEX         => s_RegWrAddrIDEX,
        i_RegRtAddrIDEX         => s_RtAddrIDEX,
        i_MemToRegIDEX          => s_MemtoRegIDEX, -- 
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
+       i_isBranchIFID          => s_BrchEq OR s_BrchNe,
        o_Stall                 => s_stallIFID,
        o_Flush                 => s_flushIDEX);
 
@@ -606,18 +632,25 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D1 => s_immExtIDEX, 
 		o_O => s_ialuB);
 
+
 forwarding_Unit : forwardingUnit port map (
        i_RegRdAddrMEMWB    =>    s_RegWrAddr,
        i_RegWriteMEMWB     =>    s_RegWr,
        i_RegRdAddrEXMEM    =>    s_RegWrAddrEXMEM,
-       i_MemWriteIDEX      =>    s_DMemWrIDEX,
        i_RegWriteEXMEM     =>    s_RegWrEXMEM,
+       i_MemWriteIDEX      =>    s_DMemWrIDEX,
        i_RegRsAddrIDEX     =>    s_RsAddrIDEX,
        i_RegRtAddrIDEX     =>    s_RtAddrIDEX,
        i_selImmIDEX        =>    s_aluSrcIDEX,
+       i_RegRsAddrIFID     =>    s_InstIFID(25 downto 21),
+       i_RegRtAddrIFID     =>    s_InstIFID(20 downto 16),
+       i_RegWrAddrIDEX     =>    s_RegWrAddrIDEX,
+       i_isBranchIFID      =>    s_BrchEq OR s_BrchNe, 
        o_forwardBMEM       =>    s_forwardSelBMem,
        o_forwardA          =>    s_forwardSelA,
-       o_forwardB          =>    s_forwardSelB);
+       o_forwardB          =>    s_forwardSelB,
+       o_BranchForwardA    =>    s_brnchMuxForwardSelA,
+       o_BranchForwardB    =>    s_brnchMuxForwardSelB);
 
 
 

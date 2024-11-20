@@ -25,10 +25,16 @@ entity forwardingUnit is
        i_MemWriteIDEX      : in std_logic;
        i_RegRsAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
+       i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
        i_selImmIDEX        : in std_logic;
+       i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
+       i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
+       i_isBranchIFID      : in std_logic;
        o_forwardBMEM       : out std_logic;
        o_forwardA          : out std_logic_vector(1 downto 0);
-       o_forwardB          : out std_logic_vector(1 downto 0));
+       o_forwardB          : out std_logic_vector(1 downto 0);
+       o_BranchForwardA    : out std_logic_vector(1 downto 0);
+       o_BranchForwardB    : out std_logic_vector(1 downto 0));
 
 end forwardingUnit;
 
@@ -38,11 +44,11 @@ architecture dataflow of forwardingUnit is
 
 begin
 
-process_label : process( i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddrEXMEM , i_RegWriteEXMEM, i_RegRsAddrIDEX, i_RegRtAddrIDEX, i_selImmIDEX )
+process_label : process( all  ) --i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddrEXMEM , i_MemWriteIDEX, i_RegWriteEXMEM, i_RegWrAddrIDEX, i_RegRsAddrIDEX, i_RegRtAddrIDEX, i_selImmIDEX, i_isBranchIFID, i_RegRtAddrIFID, i_RegRsAddrIFID
 
 	begin
 
-
+--(i_isBranchIFID = '0') and 
 
 -------------------Forwarding A Logic ----------------------------------------------------------
 	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRsAddrIDEX) and (i_RegRdAddrEXMEM /= "00000") and (i_RegRsAddrIDEX /= "00000"))
@@ -70,13 +76,42 @@ process_label : process( i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddrEXMEM , i
 	end if;
 -------------------Forwarding B Logic ----------------------------------------------------------
 
-
+---------------------------Load Word Use Case Hazard---------------------------------------
 	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX) and (i_RegRdAddrEXMEM /= "00000")  and ((i_MemWriteIDEX = '1'))) -- 
 		then o_forwardBMem <= '1';
 
 	else
 		o_forwardBMem <= '0';
 	end if;
+---------------------------Load Word Use Case Hazard---------------------------------------
+
+
+---------------------------Branch Decision Forwarding---------------------------------------
+
+
+	if ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and (i_RegRsAddrIFID = i_RegWrAddrIDEX))
+		then o_BranchForwardA <= "10";
+
+	elsif ((i_isBranchIFID = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRsAddrIFID = i_RegRdAddrEXMEM) )
+		then o_BranchForwardA <= "01";
+
+        else 
+                 o_BranchForwardA <= "00";
+        end if;
+
+
+	if ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and (i_RegRtAddrIFID = i_RegWrAddrIDEX))
+		then o_BranchForwardB <= "10";
+
+	elsif ((i_isBranchIFID = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRtAddrIFID = i_RegRdAddrEXMEM) )
+		then o_BranchForwardB <= "01";
+
+        else 
+                 o_BranchForwardB <= "00";
+	 end if;
+
+
+---------------------------Branch Decision Forwarding---------------------------------------
 
 end process;
 
