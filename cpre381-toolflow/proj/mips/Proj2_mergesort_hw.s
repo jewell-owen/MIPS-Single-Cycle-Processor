@@ -107,13 +107,9 @@ merge:
 
 while1: 
     slt $t1, $a3, $s0	# If mid < i...
-    NOP
-    NOP
     bne $t1, $0, while2 	# exit while1 loop
     NOP
     slt $t1, $a2, $s2	# If high < j
-    NOP
-    NOP
     bne $t1, $0, while2	#exit while loop
     NOP
     j  if                      # If i <= mid && j <= high, proceed to if block
@@ -131,8 +127,6 @@ if:
     addu $1,$1,$10
     lw $11, 404($1)
     slt  $t4, $t3, $t1         # If a[j] < a[i], set $t4 = 1
-    NOP
-    NOP
     bne  $t4, $0, else          # Jump to else block if a[j] < a[i]
     NOP
     
@@ -166,8 +160,6 @@ while2:
     slt  $t2, $a3, $s0         # If mid < i...
     #bne  $t2, 0, while3        # Jump to while3 if true
     addi $1,$0,0
-    NOP
-    NOP
     bne $1,$10,while3
     NOP
     sll  $t0, $s0, 2           # $t0 = i*4
@@ -189,8 +181,6 @@ while3:
     slt  $t2, $a2, $s1         # If high < j...
     #bne  $t2, 0, forInit       # Jump to forInit loop if true
     addi $1,$0,0
-    NOP
-    NOP
     bne $1,$10,forInit
     NOP
     sll  $t2, $s2, 2           # $t2 = j*4, offset for accessing array[j]
@@ -216,8 +206,6 @@ forInit:
 
 for:
     slt  $t7, $t0, $t1         # If $t0 < $t1, $t7 = 1
-    NOP
-    NOP
     beq  $t7, $zero, sortEnd   # If $t7 = 0, end the loop and go to sortEnd
     NOP
     sll  $t2, $t0, 2           # $t2 = $t0 * 4 to get the offset for tempArray
@@ -241,8 +229,6 @@ sortEnd:
     
 mergeSort:
     slt  $t0, $a1, $a2         # If low < high, set $t0 = 1
-    NOP
-    NOP
     beq  $t0, $zero, return     # If $t0 = 0, return (base case)
     NOP
     
@@ -290,8 +276,6 @@ return:
 
 print:
     lui $1,4097
-    NOP
-    NOP
     lw $8,404($1)
     lw $9,408($1)
     lw $10,412($1)
