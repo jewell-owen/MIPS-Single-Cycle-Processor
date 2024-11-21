@@ -13,24 +13,24 @@ main:
     addi $t1, $zero, 100    # t1 = 100
     addiu $t2, $zero, 200   # t2 = 200
 
-    NOP
-    NOP
+    
+    
     addu $t3, $t1, $t2      # t3 = t1 + t2 = 100 + 200 = 300
 
-    NOP
-    NOP    
+    
+      
 
     sub $t4, $t3, $t1       # t4 = t3 - t1 = 300 - 100 = 200
 
-    NOP
-    NOP
+    
+    
     subu $t5, $t2, $t1      # t5 = t2 - t1 = 200 - 100 = 100
     
     # Load word from address of 'value' into $a1 (a1 = 15)
 
     lw $a1, value  
-    nop
-    nop       
+    
+           
     addi $a1, $a1, 10
 
 
@@ -65,36 +65,36 @@ main:
 
     # Branch/Jump instructions
     beq $t1, $t2, skip      # t1 != t2, so no branch
-    nop
+    
 
 
     bne $t1, $t2, continue  # t1 != t2, so branch to continue
-    nop
+    
 
 
    
     
 skip:
     j end                   # Jump to end
-    nop
-    nop
+    
+    
 
 continue:
     jal dummy_function      # Jump and link to dummy_function
-    nop
-    nop
+    
+    
 
     j end 
-    nop
+    
 
 
 dummy_function:
     # Dummy function to demonstrate jal and jr usage
-    nop
-    nop
+    
+    
     jr $ra                  # Jump to the return address (continue execution at end)
 
-    nop
+    
 
 end:
     halt

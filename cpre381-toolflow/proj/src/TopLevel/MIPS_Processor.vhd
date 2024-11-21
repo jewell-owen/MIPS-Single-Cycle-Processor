@@ -434,7 +434,7 @@ begin
 		
 
   g_NBITMUX_PCnextAddr: mux2t1_N port map (
-		i_S => ((  (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	-- and s_BrnchMuxOut
+		i_S => (( s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
 		i_D0 => s_PC4,
 		i_D1 => s_PCfetch,
 		o_O => si_PC);
@@ -554,7 +554,7 @@ BrnchMux: mux2t1
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        i_isBranchIFID          => s_BrchEq OR s_BrchNe,
-       i_isJump                => s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg,
+       i_isJump                => (s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg ,
        o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
        o_Flush                 => s_flushIDEX);
