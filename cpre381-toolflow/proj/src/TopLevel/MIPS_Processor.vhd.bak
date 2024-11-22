@@ -326,7 +326,8 @@ end component;
 component hazardDetectionUnit is
   port(
        i_CLK               : in std_logic;
-       i_RegWrAddrEXMEM     : in std_logic_vector(4 downto 0);
+       i_RegWrAddrEXMEM    : in std_logic_vector(4 downto 0);
+       i_MemToRegEXMEM     : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIDEX     : in std_logic_vector(4 downto 0);
        i_MemToRegIDEX      : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
@@ -343,6 +344,7 @@ component forwardingUnit is
   port(
        i_RegRdAddrMEMWB    : in std_logic_vector(4 downto 0);
        i_RegWriteMEMWB     : in std_logic;
+       i_MemWriteMEMWB     : in std_logic;
        i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
        i_RegWriteEXMEM     : in std_logic;
        i_MemWriteIDEX      : in std_logic;
@@ -353,7 +355,7 @@ component forwardingUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
-       o_forwardBMEM       : out std_logic;
+       o_forwardBMEM       : out std_logic_vector(1 downto 0);
        o_forwardA          : out std_logic_vector(1 downto 0);
        o_forwardB          : out std_logic_vector(1 downto 0);
        o_BranchForwardA    : out std_logic_vector(1 downto 0);
@@ -369,7 +371,7 @@ end component;
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
          s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, s_forwardBrnchMuxOutB : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_forwardSelBMem : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_OverFlowTemp : std_logic;
 
    
 
@@ -408,7 +410,7 @@ signal s_isJumpMEMWB, s_luiCtrlMEMWB, s_BranchMEMWB, s_MemtoRegMEMWB, s_HaltMEMW
 
 ---------Start STALL/FLUSH SIGNALS------------
 signal s_flushIFID, s_flushIDEX, s_flushEXMEM, s_flushMEMWB, s_stallIFID, s_stallIDEX, s_stallEXMEM, s_stallMEMWB, s_stallPC : std_logic;
-signal s_forwardSelA, s_forwardSelB, s_forwardSelAIDEX, s_forwardSelBIDEX, s_brnchMuxForwardSelA, s_brnchMuxForwardSelB : std_logic_vector(1 downto 0);
+signal s_forwardSelA, s_forwardSelB, s_forwardSelAIDEX, s_forwardSelBIDEX, s_brnchMuxForwardSelA, s_brnchMuxForwardSelB, s_forwardSelBMem : std_logic_vector(1 downto 0);
 ---------End Start STALL/FLUSH SIGNALS--------------
                                                     
   
@@ -493,8 +495,8 @@ forwardBrnch_MUX_A : mux3t1_32 port map (
 forwardBrnch_MUX_B : mux3t1_32 port map (
        i_S          =>  s_brnchMuxForwardSelB, --   s_forwardSelBIDEX
        i_D0         =>  s_rt_DBIFID,
-       i_D1         =>  s_aluOutEXMEM,    -- These two are switched on the diagram
-       i_D2         =>  s_aluOutEXMEM,      -- Possibly diagram wrong
+       i_D1         =>  s_aluOutEXMEM,    
+       i_D2         =>  s_aluOutEXMEM,     
        o_O          =>  s_forwardBrnchMuxOutB );
 
 
@@ -520,7 +522,7 @@ BrnchMux: mux2t1
 		is_zero  	=> s_BrnchMuxOut,
 		i_instr    	=> s_InstIFID, 
 		i_immed    	=> s_immExt, 
-		i_rs_data    	=> s_rs_DAIFID, 
+		i_rs_data    	=> s_forwardBrnchMuxOutA, --s_rs_DAIFID
                 i_PCplusFour    => s_PCfourIFID,                                
 		o_PC		=> s_PCfetch); 
 
@@ -548,13 +550,14 @@ BrnchMux: mux2t1
  hazard_Detection : hazardDetectionUnit port map (
        i_CLK                   => iCLK,
        i_RegWrAddrEXMEM        => s_RegWrAddrEXMEM,
+       i_MemToRegEXMEM         => s_MemtoRegEXMEM,
        i_RegWrAddrIDEX         => s_RegWrAddrIDEX,
        i_RegRtAddrIDEX         => s_RtAddrIDEX,
        i_MemToRegIDEX          => s_MemtoRegIDEX, -- 
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        i_isBranchIFID          => s_BrchEq OR s_BrchNe,
-       i_isJump                => s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg or s_BrnchMuxOut,
+       i_isJump                => (s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg ,
        o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
        o_Flush                 => s_flushIDEX);
@@ -586,7 +589,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_RST         =>   s_flushIDEX or iRST,
        i_WE          =>   '1',  --not s_stallIDEX
        i_Halt        =>   s_tempHalt,
-       i_Branch      =>   s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg,
+       i_Branch      =>   s_CntrlOverflow, --s_BrchEq or s_BrchNe or s_isJump or s_isJumpReg, -- being used for overflow control
        i_MemToReg    =>   s_MemtoReg,
        i_RegWr       =>   s_RegWrCtrl,
        i_MemWr       =>   s_memWr,
@@ -608,7 +611,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_SignExt     =>   s_immExt,
        i_PC          =>   s_PCfourIFID,
        o_Halt        =>   s_HaltIDEX,
-       o_Branch      =>   s_BranchIDEX,
+       o_Branch      =>   s_BranchIDEX, -- being used for overflow control
        o_MemToReg    =>   s_MemtoRegIDEX,
        o_RegWr       =>   s_RegWrIDEX,
        o_MemWr       =>   s_DMemWrIDEX,
@@ -642,6 +645,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 forwarding_Unit : forwardingUnit port map (
        i_RegRdAddrMEMWB    =>    s_RegWrAddr,
        i_RegWriteMEMWB     =>    s_RegWr,
+       i_MemWriteMEMWB     =>    s_MemtoRegMEMWB,
        i_RegRdAddrEXMEM    =>    s_RegWrAddrEXMEM,
        i_RegWriteEXMEM     =>    s_RegWrEXMEM,
        i_MemWriteIDEX      =>    s_DMemWrIDEX,
@@ -651,7 +655,7 @@ forwarding_Unit : forwardingUnit port map (
        i_RegRsAddrIFID     =>    s_InstIFID(25 downto 21),
        i_RegRtAddrIFID     =>    s_InstIFID(20 downto 16),
        i_RegWrAddrIDEX     =>    s_RegWrAddrIDEX,
-       i_isBranchIFID      =>    s_BrchEq OR s_BrchNe, 
+       i_isBranchIFID      =>    s_BrchEq OR s_BrchNe OR s_isJumpReg, -- cases for jump register are same as branching
        o_forwardBMEM       =>    s_forwardSelBMem,
        o_forwardA          =>    s_forwardSelA,
        o_forwardB          =>    s_forwardSelB,
@@ -694,13 +698,21 @@ forward_MUX_B : mux3t1_32 port map (
 		o_O => s_aluOut);
 
 
-   g_NBITMUX_DMEM_FORWARD: mux2t1_N port map (
-		i_S => s_forwardSelBMem,	
-		i_D0 => s_rt_DBIDEX,   
-		i_D1 => s_aluOutEXMEM, 
-		o_O => s_forwardMemB);
+   --g_NBITMUX_DMEM_FORWARD: mux2t1_N port map (
+		--i_S => s_forwardSelBMem,	
+		--i_D0 => s_rt_DBIDEX,   
+		--i_D1 => s_aluOutEXMEM, 
+		--o_O => s_forwardMemB);
 
- s_Ovfl     <= s_ALUOverflow and (not s_CntrlOverflow);
+forward_DMEM_D : mux3t1_32 port map (
+       i_S          => s_forwardSelBMem, 
+       i_D0         => s_rt_DBIDEX,
+       i_D1         => s_RegWrData,  
+       i_D2         => s_aluOutEXMEM, 
+       o_O          => s_forwardMemB ); 
+
+ --s_Ovfl     <= s_ALUOverflow and (not s_BranchIDEX); 
+ s_OverFlowTemp     <= s_ALUOverflow and (not s_BranchIDEX); -- s_BranchIDEX is being used for overflow control from Decode stage
  oALUOut    <= s_aluOut;
 ------------------------------------------------------End Execute-------------------------------------------------------------------------
 
@@ -709,7 +721,7 @@ forward_MUX_B : mux3t1_32 port map (
        i_RST         =>   iRST, --s_flushEXMEM or 
        i_WE          =>   '1', -- not s_stallEXMEM
        i_Halt        =>   s_HaltIDEX,
-       i_Branch      =>   s_BranchIDEX, 
+       i_Branch      =>   s_OverFlowTemp, -- s_Branch is being used for overflow control passing through until the WB stage
        i_MemToReg    =>   s_MemtoRegIDEX,
        i_RegWr       =>   s_RegWrIDEX,
        i_MemWr       =>   s_DMemWrIDEX,
@@ -788,6 +800,7 @@ forward_MUX_B : mux3t1_32 port map (
 		i_D1 => s_PCfourMEMWB, 
 		o_O => s_RegWrData);
 
+ s_Ovfl <= s_BranchMEMWB;
  s_Halt <= s_HaltMEMWB;
 ------------------------------------------------------End Write Back----------------------------------------------------------------------
 --========================================================================================================================================

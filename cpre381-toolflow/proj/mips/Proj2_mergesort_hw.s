@@ -254,7 +254,7 @@ mergeSort:
     
     lw   $ra, 12($sp)           # Restore return address from the stack
     addi $sp, $sp, 16           # Restore stack pointer
-    
+    NOP
     jr   $ra                    # Return from mergeSort
     
 

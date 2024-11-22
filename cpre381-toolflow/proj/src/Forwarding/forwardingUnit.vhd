@@ -20,6 +20,7 @@ entity forwardingUnit is
   port(
        i_RegRdAddrMEMWB    : in std_logic_vector(4 downto 0);
        i_RegWriteMEMWB     : in std_logic;
+       i_MemWriteMEMWB     : in std_logic;
        i_RegRdAddrEXMEM    : in std_logic_vector(4 downto 0);
        i_RegWriteEXMEM     : in std_logic;
        i_MemWriteIDEX      : in std_logic;
@@ -30,7 +31,7 @@ entity forwardingUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
-       o_forwardBMEM       : out std_logic;
+       o_forwardBMEM       : out std_logic_vector(1 downto 0);
        o_forwardA          : out std_logic_vector(1 downto 0);
        o_forwardB          : out std_logic_vector(1 downto 0);
        o_BranchForwardA    : out std_logic_vector(1 downto 0);
@@ -68,7 +69,7 @@ process_label : process( all  ) --i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddr
 	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX) and (i_RegRdAddrEXMEM /= "00000")  and ((i_selImmIDEX = '0'))) -- 
 		then o_forwardB <= "10";
 
-	elsif ((i_RegWriteMEMWB = '1') and (i_RegRdAddrMEMWB /= "00000") and not ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX)) and (i_RegRdAddrMEMWB = i_RegRtAddrIDEX)) 
+	elsif ((i_RegWriteMEMWB = '1') and (i_RegRdAddrMEMWB /= "00000") and not ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX)) and (i_RegRdAddrMEMWB = i_RegRtAddrIDEX) and (i_selImmIDEX = '0')) 
 		then o_forwardB <= "01";
 
 	else
@@ -77,11 +78,17 @@ process_label : process( all  ) --i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddr
 -------------------Forwarding B Logic ----------------------------------------------------------
 
 ---------------------------Load Word Use Case Hazard---------------------------------------
-	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX) and (i_RegRdAddrEXMEM /= "00000")  and ((i_MemWriteIDEX = '1'))) -- 
-		then o_forwardBMem <= '1';
+	
+	-- case if lw address is not ready the previous instruction
+	if ((i_RegWriteEXMEM = '1') and (i_RegRdAddrEXMEM = i_RegRtAddrIDEX) and (i_RegRdAddrEXMEM /= "00000")  and (i_MemWriteIDEX = '1')) -- 
+		then o_forwardBMem <= "10";
+
+	-- case if lw address is not ready the 2nd previous instruction
+	elsif ((i_RegWriteMEMWB = '1') and (i_RegRdAddrMEMWB = i_RegRtAddrIDEX) and (i_RegRdAddrMEMWB /= "00000")  and (i_MemWriteIDEX = '1')) -- 
+		then o_forwardBMem <= "01";
 
 	else
-		o_forwardBMem <= '0';
+		o_forwardBMem <= "00";
 	end if;
 ---------------------------Load Word Use Case Hazard---------------------------------------
 
@@ -89,9 +96,11 @@ process_label : process( all  ) --i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddr
 ---------------------------Branch Decision Forwarding---------------------------------------
 
 
-	if ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and (i_RegRsAddrIFID = i_RegWrAddrIDEX))
+	-- case of branch directly follows a lw needing two stalls and a forward from WB to decode
+	if ((i_isBranchIFID = '1') and (i_RegRdAddrMEMWB /= "00000") and (i_RegRsAddrIFID = i_RegRdAddrMEMWB) and (i_MemWriteMEMWB = '1'))
 		then o_BranchForwardA <= "10";
 
+	-- There will always be a gap because no gap causes a data hazard causing a stall
 	elsif ((i_isBranchIFID = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRsAddrIFID = i_RegRdAddrEXMEM) )
 		then o_BranchForwardA <= "01";
 
@@ -100,7 +109,7 @@ process_label : process( all  ) --i_RegRdAddrMEMWB, i_RegWriteMEMWB, i_RegRdAddr
         end if;
 
 
-	if ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and (i_RegRtAddrIFID = i_RegWrAddrIDEX))
+	if ((i_isBranchIFID = '1')  and (i_RegRdAddrMEMWB /= "00000") and (i_RegRtAddrIFID = i_RegRdAddrMEMWB) and (i_MemWriteMEMWB = '1'))
 		then o_BranchForwardB <= "10";
 
 	elsif ((i_isBranchIFID = '1') and (i_RegRdAddrEXMEM /= "00000") and (i_RegRtAddrIFID = i_RegRdAddrEXMEM) )
