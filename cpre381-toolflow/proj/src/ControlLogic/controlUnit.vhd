@@ -708,4 +708,3 @@ end process p_whichInstr;
 	--halt <= s_halt;
 	
 end behavioral;
-

@@ -326,6 +326,7 @@ end component;
 component hazardDetectionUnit is
   port(
        i_CLK               : in std_logic;
+       i_RST               : in std_logic;
        i_RegWrAddrEXMEM    : in std_logic_vector(4 downto 0);
        i_MemToRegEXMEM     : in std_logic;  -- Should be mem read but we are reusing MemToReg because only lw reads from mem
        i_RegWrAddrIDEX     : in std_logic_vector(4 downto 0);
@@ -337,7 +338,7 @@ component hazardDetectionUnit is
        i_isJump            : in std_logic;       
        o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;
-       o_Flush             : out std_logic);
+       o_FlushIDEX         : out std_logic);
 end component;
 
 component forwardingUnit is
@@ -396,7 +397,7 @@ signal s_isJumpIDEX, s_isJumpRegIDEX, s_luiCtrlIDEX, s_BranchIDEX, s_DMemWrIDEX,
 ---------Start EX/MEM------------
 signal s_RegWrAddrEXMEM : std_logic_vector(4 downto 0); 
 signal s_ImmEXMEM : std_logic_vector(15 downto 0); 
-signal s_PCfourEXMEM, s_aluOutEXMEM, s_rt_DBEXMEM, s_PCEXMEM : std_logic_vector(31 downto 0);
+signal s_PCfourEXMEM, s_aluOutEXMEM, s_rt_DBEXMEM, s_PCEXMEM, s_EXMEMforwardData : std_logic_vector(31 downto 0);
 signal s_isJumpEXMEM, s_isJumpRegEXMEM, s_luiCtrlEXMEM, s_BranchEXMEM, s_DMemWrEXMEM, s_RegWrEXMEM, s_MemtoRegEXMEM, s_AluZeroEXMEM, s_HaltEXMEM : std_logic;
 ---------End EX/MEM--------------
 
@@ -488,14 +489,14 @@ begin
 forwardBrnch_MUX_A : mux3t1_32 port map (
        i_S          => s_brnchMuxForwardSelA, --   s_forwardSelAIDEX
        i_D0         => s_rs_DAIFID,
-       i_D1         => s_aluOutEXMEM,  
+       i_D1         => s_EXMEMforwardData,  
        i_D2         => s_RegWrData, 
        o_O          => s_forwardBrnchMuxOutA ); 
 
 forwardBrnch_MUX_B : mux3t1_32 port map (
        i_S          =>  s_brnchMuxForwardSelB, --   s_forwardSelBIDEX
        i_D0         =>  s_rt_DBIFID,
-       i_D1         =>  s_aluOutEXMEM,    
+       i_D1         =>  s_EXMEMforwardData,    
        i_D2         =>  s_RegWrData,     
        o_O          =>  s_forwardBrnchMuxOutB );
 
@@ -549,6 +550,7 @@ BrnchMux: mux2t1
 
  hazard_Detection : hazardDetectionUnit port map (
        i_CLK                   => iCLK,
+       i_RST                   => iRST,
        i_RegWrAddrEXMEM        => s_RegWrAddrEXMEM,
        i_MemToRegEXMEM         => s_MemtoRegEXMEM,
        i_RegWrAddrIDEX         => s_RegWrAddrIDEX,
@@ -556,11 +558,11 @@ BrnchMux: mux2t1
        i_MemToRegIDEX          => s_MemtoRegIDEX, -- 
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
-       i_isBranchIFID          => s_BrchEq OR s_BrchNe,
+       i_isBranchIFID          => s_BrchEq OR s_BrchNe OR s_isJumpReg, -- cases for jump register are same as branching
        i_isJump                => (s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg ,
        o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
-       o_Flush                 => s_flushIDEX);
+       o_FlushIDEX             => s_flushIDEX);
 
 s_stallPC <= s_stallIFID;
 
@@ -668,14 +670,14 @@ forward_MUX_A : mux3t1_32 port map (
        i_S          => s_forwardSelA, --   s_forwardSelAIDEX
        i_D0         => s_rs_DAIDEX,
        i_D1         => s_RegWrData,  
-       i_D2         => s_aluOutEXMEM, 
+       i_D2         => s_EXMEMforwardData, --s_aluOutEXMEM, 
        o_O          => s_forwardMuxOutA ); 
 
 forward_MUX_B : mux3t1_32 port map (
        i_S          =>  s_forwardSelB, --   s_forwardSelBIDEX
        i_D0         =>  s_ialuB,
        i_D1         =>  s_RegWrData,    -- These two are switched on the diagram
-       i_D2         =>  s_aluOutEXMEM,      -- Possibly diagram wrong
+       i_D2         =>  s_EXMEMforwardData, --s_aluOutEXMEM,      -- Possibly diagram wrong
        o_O          =>  s_forwardMuxOutB );
 
 
@@ -708,7 +710,7 @@ forward_DMEM_D : mux3t1_32 port map (
        i_S          => s_forwardSelBMem, 
        i_D0         => s_rt_DBIDEX,
        i_D1         => s_RegWrData,  
-       i_D2         => s_aluOutEXMEM, 
+       i_D2         => s_EXMEMforwardData, --s_aluOutEXMEM, 
        o_O          => s_forwardMemB ); 
 
  --s_Ovfl     <= s_ALUOverflow and (not s_BranchIDEX); 
@@ -752,6 +754,13 @@ forward_DMEM_D : mux3t1_32 port map (
    s_aluOutEXMEM <= s_DMemAddr;
 
 ------------------------------------------------------Start Memory------------------------------------------------------------------------
+  
+  g_NBITMUX_JR_Dforward: mux2t1_N port map (
+		i_S => s_isJumpEXMEM,	
+		i_D0 => s_aluOutEXMEM,   
+		i_D1 => s_PCfourEXMEM, 
+		o_O => s_EXMEMforwardData);
+
   DMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)

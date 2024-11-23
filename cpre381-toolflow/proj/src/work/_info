@@ -8,40 +8,40 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src
+d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src
 Ehazarddetectionunit
-Z1 w1731882770
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 28
-R0
-Z5 8/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
-Z6 F/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
+Z0 w1732322421
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 31
+Z4 d/home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src
+Z5 8/home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
+Z6 F/home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd
 l0
-L21 1
-Veh?ezRjF^=[35O:SX^>7B1
-!s100 nmQ>OFSILagb]`Jn6<FOE2
+L19 1
+VeJ3bmDc?ZnM_:36APcR^c0
+!s100 dJOAbNJ^F;RMdACWT?BFJ0
 Z7 OL;C;2024.2;79
 33
-Z8 !s110 1731882775
+Z8 !s110 1732322433
 !i10b 1
-Z9 !s108 1731882775.000000
-Z10 !s90 -reportprogress|300|-work|work|/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
-Z11 !s107 /home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
+Z9 !s108 1732322433.000000
+Z10 !s90 -reportprogress|300|-work|work|/home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
+Z11 !s107 /home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow/proj/src/HazardDetection/hazardDetectionUnit.vhd|
 !i113 0
 Z12 o-work work
 Z13 tExplicit 1 NoCoverage 1 CvgOpt 0
 Adataflow
+R1
 R2
 R3
-R4
-Z14 DEx4 work 19 hazarddetectionunit 0 22 eh?ezRjF^=[35O:SX^>7B1
-!i122 28
-l41
-Z15 L39 50
-Z16 V8l[ZE3POl4c_TWZ7`?@Cg1
-Z17 !s100 69NH>VLS<Ri5Z8T=ojP4D1
+Z14 DEx4 work 19 hazarddetectionunit 0 22 eJ3bmDc?ZnM_:36APcR^c0
+!i122 31
+l55
+L40 205
+VdRAE1lJU;hIPgYDZHCeLO2
+!s100 OimndbdVJFUmM@P8GTAWV3
 R7
 33
 R8

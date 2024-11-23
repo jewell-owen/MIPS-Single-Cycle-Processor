@@ -1,16 +1,12 @@
 .data
-x: .word 3
-.text
-.globl main
+val1:	.word 5
+val2:	.word 7
 
-main:
-    
-                                                                
-    addi $t0, $0, 10 
-    la $t1, x                                                                                   
-    sw $t0, 0($t1)
-    addi $t2, $t1, 0   
-    lw $t3, 0($t2)
-   
-exit:
-    halt
+.text
+	lw $t0, val1		# $t0 = 5
+	lw $t1, val2		# $t1 = 10
+	bne $t0, $t1, goTo	# if $t0 not equal to $t1
+	addi $t2, $zero, 1	# Should be skipped
+goTo:
+	addi $t2, $zero, 2	# Should be executed
+halt
