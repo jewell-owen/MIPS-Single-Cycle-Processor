@@ -24,8 +24,10 @@ entity reg_IFID is
        i_RST        : in std_logic;    			    -- Reset input
        i_WE         : in std_logic;                         -- Write enable input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC value input
+       i_PCNext     : in std_logic_vector(31 downto 0);     -- PC value Addr input
        i_Instr      : in std_logic_vector(31 downto 0);     -- Instruction value input
        o_PC         : out std_logic_vector(31 downto 0);    -- PC value output
+       o_PCNext     : out std_logic_vector(31 downto 0);     -- PC value Addr output
        o_Instr      : out std_logic_vector(31 downto 0));   -- Instruction value output
 
 end reg_IFID;
@@ -62,6 +64,15 @@ begin
 	      i_D       => i_PC(i),
 	      o_Q       => o_PC(i));
   end generate G_NBit_RegPC;
+
+  G_NBit_RegPCNext: for i in 0 to 31 generate
+    REGI: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_PCNext(i),
+	      o_Q       => o_PCNext(i));
+  end generate G_NBit_RegPCNext;
 
 
   

@@ -202,8 +202,10 @@ component reg_IFID is
        i_RST        : in std_logic;    			    -- Reset input
        i_WE         : in std_logic;                         -- Write enable input
        i_PC         : in std_logic_vector(31 downto 0);     -- PC value input
+       i_PCNext     : in std_logic_vector(31 downto 0);     -- PC value Addr input
        i_Instr      : in std_logic_vector(31 downto 0);     -- Instruction value input
        o_PC         : out std_logic_vector(31 downto 0);    -- PC value output
+       o_PCNext     : out std_logic_vector(31 downto 0);     -- PC value Addr output
        o_Instr      : out std_logic_vector(31 downto 0));   -- Instruction value output
 end component;
 
@@ -373,7 +375,7 @@ end component;
 
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
          s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, 
-	 s_forwardBrnchMuxOutB, s_immExtFetch, s_immExtFetchExt, s_BrnchCheckMuxOut : std_logic_vector(31 downto 0);
+	 s_forwardBrnchMuxOutB, s_immExtFetch, s_immExtFetchExt, s_BrnchCheckMuxOut, s_NextInstAddrIFID : std_logic_vector(31 downto 0);
 
   
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, 
@@ -483,9 +485,11 @@ begin
        i_CLK         =>   iCLK,
        i_RST         =>   iRST or s_flushIFID,   -- or s_flushIFID
        i_WE          =>   not s_stallIFID,     
-       i_PC          =>   s_PC4,      
+       i_PC          =>   s_PC4,
+       i_PCNext      =>   s_NextInstAddr,      
        i_Instr       =>   s_Inst,   
-       o_PC          =>   s_PCfourIFID,    
+       o_PC          =>   s_PCfourIFID,
+       o_PCNext      =>   s_NextInstAddrIFID,     
        o_Instr       =>   s_InstIFID);
 
 ------------------------------------------------------Start Decode------------------------------------------------------------------------
