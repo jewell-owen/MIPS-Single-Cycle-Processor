@@ -368,11 +368,17 @@ end component;
 
 
   signal s_aluctr   : std_logic_vector(3 downto 0); 
+
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
+
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
-         s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, s_forwardBrnchMuxOutB : std_logic_vector(31 downto 0);  
-  signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_OverFlowTemp : std_logic;
+         s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, 
+	 s_forwardBrnchMuxOutB, s_immExtFetch, s_immExtFetchExt, s_BrnchCheckMuxOut : std_logic_vector(31 downto 0);
+
+  
+  signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, 
+	 s_BrchEq, s_BrchNe, temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, 
+	 s_BrnchMuxOut, s_OverFlowTemp, isBeqOrBneFetch : std_logic;
 
    
 
@@ -434,21 +440,34 @@ begin
 	        i_WE      => (not s_stallPC),
 	        i_D       => si_PC,
 	        o_Q       => s_NextInstAddr);	-- stores PC value
+
+  g_SIGNEXT_Fetch: sign_ext port map(
+		i_signSel 	=> '1',                               --Always do sign extend, never need to 0 extend the immediate for branch address
+		i_imm 		=> s_Inst(15 downto 0), 
+		o_imm 		=> s_immExtFetch);
+
+  s_immExtFetchExt <= s_immExtFetch(29 downto 0) & "00";
 		
+
+  g_NBITMUX_BrnchCheckMUX: mux2t1_N port map (
+		i_S =>  (s_Inst(31 downto 26) = "000101") or (s_Inst(31 downto 26) = "000100") ,	
+		i_D0 => s_NextInstAddr,
+		i_D1 => s_immExtFetchExt,
+		o_O => s_BrnchCheckMuxOut); 
+
+
+  g_NBITADDER_PC: adder_N port map (
+	    	i_C => '0',
+	    	i_A => s_BrnchCheckMuxOut,
+	    	i_B => x"00000004",	-- adding 4 for PC value
+	    	o_S => s_PC4,
+	    	o_C => so_Car_PC4);
 
   g_NBITMUX_PCnextAddr: mux2t1_N port map (
 		i_S => (( s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
 		i_D0 => s_PC4,
 		i_D1 => s_PCfetch,
-		o_O => si_PC);
-
-
-  g_NBITADDER_PC: adder_N port map (
-	    	i_C => '0',
-	    	i_A => s_NextInstAddr,
-	    	i_B => x"00000004",	-- adding 4 for PC value
-	    	o_S => s_PC4,
-	    	o_C => so_Car_PC4); 
+		o_O => si_PC); 
 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
@@ -470,7 +489,7 @@ begin
        o_Instr       =>   s_InstIFID);
 
 ------------------------------------------------------Start Decode------------------------------------------------------------------------
-  g_SIGNEXT: sign_ext port map(
+  g_SIGNEXT_DECODE: sign_ext port map(
 		i_signSel 	=> s_signExtSel,
 		i_imm 		=> s_InstIFID(15 downto 0), 
 		o_imm 		=> s_immExt);
