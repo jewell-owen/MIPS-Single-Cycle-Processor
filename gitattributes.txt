@@ -1,0 +1,2 @@
+*.hdl linguist-detectable=false
+*.py linguist-detectable=false
