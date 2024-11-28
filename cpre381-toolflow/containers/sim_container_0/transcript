@@ -1,0 +1,84 @@
+# vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
+# Start time: 20:34:19 on Nov 27,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb(mixed)#1
+# Loading work.mips_types
+# Loading work.mips_processor(structure)#1
+# Loading work.reg_npc(structure)#1
+# Loading work.dffg(mixed)#1
+# Loading work.dffgpc(mixed)#1
+# Loading ieee.numeric_std(body)
+# Loading work.sign_ext(dataflow)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.adder_n(structure)#1
+# Loading work.adder1bit(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+# Loading work.reg_ifid(structure)#1
+# Loading work.regfile(structure)#1
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structure)#1
+# Loading work.stackpointerregister(structure)#1
+# Loading work.mux32t1_new(mux_arch)#1
+# Loading work.mux3t1_32(structural)#1
+# Loading work.equalitymodule(dataflow)#1
+# Loading work.fetchlogic(structural)#1
+# Loading work.controlunit(behavioral)#1
+# Loading work.hazarddetectionunit(dataflow)#1
+# Loading work.reg_idex(structure)#1
+# Loading work.forwardingunit(dataflow)#1
+# Loading work.alu(structural)#1
+# Loading work.equalitymuxmodule(dataflow)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading work.lessthanmodule(dataflow)#1
+# Loading work.carrylookaheadadder(mixed)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.onescomp(structure)#1
+# Loading work.fulladder(structure)#1
+# Loading work.barrelshifter(structural)#1
+# Loading work.vectorreverser_n(dataflow)#1
+# Loading work.mux8t1_32(structural)#1
+# Loading work.reg_exmem(structure)#1
+# Loading work.reg_memwb(structure)#1
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
+# do modelsim_framework.do
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/DMem
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/g_ALU/l_lessThanModule
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/g_ALU/l_lessThanModule
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/g_REGFILE
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/g_REGFILE
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/IMem
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 5 ns  Iteration: 9  Instance: /tb/MyMips/g_ALU/l_lessThanModule
+# End time: 20:34:26 on Nov 27,2024, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 7

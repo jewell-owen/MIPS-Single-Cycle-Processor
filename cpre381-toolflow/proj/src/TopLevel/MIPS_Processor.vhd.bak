@@ -337,6 +337,7 @@ component hazardDetectionUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
+       i_isIncorrectBranchIFID: in std_logic;
        i_isJump            : in std_logic;       
        o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;
@@ -373,14 +374,16 @@ end component;
 
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
 
+  signal beqOpCode, bneOpCode, s_OpCode  : std_logic_vector(5 downto 0);
+
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, 
          s_PC4, si_PC, s_PCfetch, s_aluUnitOut, s_forwardMuxOutA, s_forwardMuxOutB, s_forwardMemB, s_forwardBrnchMuxOutA, 
-	 s_forwardBrnchMuxOutB, s_immExtFetch, s_immExtFetchExt, s_BrnchCheckMuxOut : std_logic_vector(31 downto 0);
+	 s_forwardBrnchMuxOutB, s_immExtFetch, s_immExtFetchExt, s_BrnchCheckMuxOut, s_NextInstAddrIFID : std_logic_vector(31 downto 0);
 
   
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, 
 	 s_BrchEq, s_BrchNe, temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, 
-	 s_BrnchMuxOut, s_OverFlowTemp, isBeqOrBneFetch : std_logic;
+	 s_BrnchMuxOut, s_OverFlowTemp, isBeqOrBneFetch, s_BrnchCheckMuxSel : std_logic;
 
    
 
@@ -449,10 +452,19 @@ begin
 		o_imm 		=> s_immExtFetch);
 
   s_immExtFetchExt <= s_immExtFetch(29 downto 0) & "00";
+
+
+  beqOpCode <= "000100";
+  bneOpCode <= "000101";
+
+  s_OpCode <= s_Inst(31 downto 26);
+
+  s_BrnchCheckMuxSel <= '1' when (s_OpCode = beqOpCode) or (s_OpCode = beqOpCode) 
+  else '0'; 
 		
 
   g_NBITMUX_BrnchCheckMUX: mux2t1_N port map (
-		i_S =>  (s_Inst(31 downto 26) = "000101") or (s_Inst(31 downto 26) = "000100") ,	
+		i_S =>   s_BrnchCheckMuxSel,	
 		i_D0 => s_NextInstAddr,
 		i_D1 => s_immExtFetchExt,
 		o_O => s_BrnchCheckMuxOut); 
@@ -464,12 +476,6 @@ begin
 	    	i_B => x"00000004",	-- adding 4 for PC value
 	    	o_S => s_PC4,
 	    	o_C => so_Car_PC4);
-
-  g_NBITMUX_PCnextAddr: mux2t1_N port map (
-		i_S => (( s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
-		i_D0 => s_PC4,
-		i_D1 => s_PCfetch,
-		o_O => si_PC); 
 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
@@ -537,6 +543,12 @@ BrnchMux: mux2t1
            i_D1     => not s_EqlOut,  
            o_O      => s_BrnchMuxOut);  
 
+  g_NBITMUX_PCnextAddr: mux2t1_N port map (
+		i_S => (( s_BrnchMuxOut and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg) ,	
+		i_D0 => s_NextInstAddrIFID,
+		i_D1 => s_PCfetch,
+		o_O => si_PC); 
+
   g_FETCHLOGIC : fetchLogic port map(
 		i_CLK       	=> iCLK, 
        		i_RST       	=> iRST, 
@@ -582,6 +594,7 @@ BrnchMux: mux2t1
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        i_isBranchIFID          => s_BrchEq OR s_BrchNe OR s_isJumpReg, -- cases for jump register are same as branching
+       i_isIncorrectBranchIFID =>
        i_isJump                => (s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)) or s_isJump or s_isJumpReg ,
        o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
