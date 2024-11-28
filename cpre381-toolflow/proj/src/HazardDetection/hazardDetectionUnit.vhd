@@ -29,6 +29,7 @@ entity hazardDetectionUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
+       i_isIncorrectBranchIFID : in std_logic;
        i_isJump            : in std_logic;       
        o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;

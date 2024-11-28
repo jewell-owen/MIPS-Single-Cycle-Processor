@@ -29,7 +29,6 @@ entity hazardDetectionUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
-       i_isIncorrectBranchIFID: in std_logic;
        i_isJump            : in std_logic;       
        o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;
@@ -68,8 +67,8 @@ process_label : process( i_CLK ) --i_RegRtAddrIDEX, i_MemToRegIDEX, i_RegRsAddrI
         if ((i_MemToRegIDEX = '1') and ((i_RegRtAddrIDEX = i_RegRsAddrIFID) or (i_RegRtAddrIDEX = i_RegRtAddrIFID)))
                 then s_FlushIDEX <= '1'; --o_FlushIDEX
 
-	-- case of branch taken when should not have been
-	elsif ((i_isBranchIFID = '1')  and (i_isIncorrectBranchIFID = '1' ))
+	-- case of branch values not being ready from the previous instruction
+	elsif ((i_isBranchIFID = '1')  and (i_RegWrAddrIDEX /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrIDEX) or (i_RegRtAddrIFID = i_RegWrAddrIDEX)) )
 		then s_FlushIDEX <= '1'; --o_FlushIDEX
 
 	-- case of branch directly follows a lw needing two stalls
