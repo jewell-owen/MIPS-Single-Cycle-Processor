@@ -140,7 +140,7 @@ end if;
 		then s_FlushIFID <= '0'; --o_FlushIFID
 
 	--case of flushing the instruction after jump or branch to retrieve target address
-	elsif (i_isJump = '1')
+	elsif ((i_isJump = '1') or (i_isIncorrectBranchIFID = '1'))
                 then s_FlushIFID <= '1'; --o_FlushIFID
 
         else
@@ -173,7 +173,7 @@ end if;
 		then s_FlushIFIDnot <= '0'; --o_FlushIFID
 
 	--case of flushing the instruction after jump or branch to retrieve target address
-	elsif (i_isJump = '1')
+	elsif ((i_isJump = '1') or (i_isIncorrectBranchIFID = '1'))
                 then s_FlushIFIDnot <= '1'; --o_FlushIFID
 
         else

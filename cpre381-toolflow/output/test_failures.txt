@@ -1,7 +1,0 @@
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/beq_1.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/beq_2.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/beq_3.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/beq_4.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/bne_1.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/jr_1.s
-proj/mips/fa2023_unit_tests/cpre381-test-programs-master-fa2023-base/fa2023/base/jr_2.s

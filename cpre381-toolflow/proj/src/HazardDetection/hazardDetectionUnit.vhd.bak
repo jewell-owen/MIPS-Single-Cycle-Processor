@@ -29,6 +29,7 @@ entity hazardDetectionUnit is
        i_RegRsAddrIFID     : in std_logic_vector(4 downto 0);
        i_RegRtAddrIFID     : in std_logic_vector(4 downto 0);
        i_isBranchIFID      : in std_logic;
+       i_isIncorrectBranchIFID : in std_logic;
        i_isJump            : in std_logic;       
        o_FlushIFID         : out std_logic;
        o_Stall             : out std_logic;
@@ -135,11 +136,11 @@ end if;
 		then s_FlushIFID <= '0'; --o_FlushIFID
 
 	--case of flushing the instruction after jump or branch to retrieve target address
-	elsif ((i_isBranchIFID = '1') and (i_MemToRegEXMEM = '1') and (i_RegWrAddrEXMEM /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrEXMEM) or (i_RegRtAddrIFID = i_RegWrAddrEXMEM)))
-		then s_FlushIFID <= '0'; --o_FlushIFID
+	--elsif ((i_isBranchIFID = '1') and (i_MemToRegEXMEM = '1') and (i_RegWrAddrEXMEM /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrEXMEM) or (i_RegRtAddrIFID = i_RegWrAddrEXMEM)))
+		--then s_FlushIFID <= '0'; --o_FlushIFID
 
 	--case of flushing the instruction after jump or branch to retrieve target address
-	elsif (i_isJump = '1')
+	elsif ((i_isJump = '1') or (i_isIncorrectBranchIFID = '1'))
                 then s_FlushIFID <= '1'; --o_FlushIFID
 
         else
@@ -172,7 +173,7 @@ end if;
 		then s_FlushIFIDnot <= '0'; --o_FlushIFID
 
 	--case of flushing the instruction after jump or branch to retrieve target address
-	elsif (i_isJump = '1')
+	elsif ((i_isJump = '1') or (i_isIncorrectBranchIFID = '1'))
                 then s_FlushIFIDnot <= '1'; --o_FlushIFID
 
         else
