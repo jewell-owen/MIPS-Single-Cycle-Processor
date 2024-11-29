@@ -204,6 +204,7 @@ end if;
 	-- case of branch directly follows a lw needing two stalls
 	elsif ((i_isBranchIFID = '1') and (i_MemToRegEXMEM = '1') and (i_RegWrAddrEXMEM /= "00000") and ((i_RegRsAddrIFID = i_RegWrAddrEXMEM) or (i_RegRtAddrIFID = i_RegWrAddrEXMEM)))
 		then o_Stall <= '1';
+
         else
                o_Stall <= '0';
 	end if;
@@ -247,7 +248,7 @@ end process;
 
 
 
-o_FlushIFID <= (s_FlushIFID and not s_FlushIFIDwaitwait and i_isJump); -- or (s_FlushIFID and s_FlushIFIDwait and s_FlushIFIDnot);
+o_FlushIFID <= ((s_FlushIFID and not s_FlushIFIDwaitwait) or (s_FlushIFID and s_FlushIFIDwait and s_FlushIFIDnot)) and (i_isJump or i_isBranchIFID); --  )
 o_FlushIDEX <= (s_FlushIDEX and not s_FlushIDEXwaitwait) or (s_FlushIDEX and s_FlushIDEXwait and s_FlushIDEXwaitwait and s_FlushIDEXnot);
 
 --o_FlushIFID <= s_FlushIFID and i_CLK; --and not i_CLK;
