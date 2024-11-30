@@ -3,12 +3,12 @@
 # CprE 381 toolflow Timing dump
 #
 
-FMax: 42.91mhz Clk Constraint: 20.00ns Slack: -3.30ns
+FMax: 41.82mhz Clk Constraint: 20.00ns Slack: -3.91ns
 
 The path is given below
 
  ===================================================================
- From Node    : mem:IMem|altsyncram:ram_rtl_0|altsyncram_02e1:auto_generated|ram_block1a9~portb_address_reg0
+ From Node    : mem:IMem|altsyncram:ram_rtl_0|altsyncram_02e1:auto_generated|ram_block1a0~portb_address_reg0
  To Node      : hazardDetectionUnit:hazard_Detection|s_FlushIFIDnot
  Launch Clock : iCLK
  Latch Clock  : iCLK (INVERTED)
@@ -16,40 +16,40 @@ The path is given below
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
       0.000      0.000           launch edge time
-      3.384      3.384  R        clock network delay
-      3.647      0.263     uTco  mem:IMem|altsyncram:ram_rtl_0|altsyncram_02e1:auto_generated|ram_block1a9~portb_address_reg0
-      6.537      2.890 FR  CELL  IMem|ram_rtl_0|auto_generated|ram_block1a9|portbdataout[7]
-      6.940      0.403 RR    IC  IMem|ram~53|datad
-      7.095      0.155 RR  CELL  IMem|ram~53|combout
-      8.195      1.100 RR    IC  forwarding_Unit|process_label~5|dataa
-      8.624      0.429 RF  CELL  forwarding_Unit|process_label~5|combout
-      9.248      0.624 FF    IC  forwarding_Unit|process_label~6|datac
-      9.529      0.281 FF  CELL  forwarding_Unit|process_label~6|combout
-      9.948      0.419 FF    IC  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:31:MUXI|g_Or|o_F~0|datac
-     10.228      0.280 FF  CELL  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:31:MUXI|g_Or|o_F~0|combout
-     12.293      2.065 FF    IC  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:25:MUXI|g_Or|o_F~1|dataa
-     12.717      0.424 FF  CELL  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:25:MUXI|g_Or|o_F~1|combout
-     12.967      0.250 FF    IC  e_equalityModule|Equal0~34|datad
-     13.117      0.150 FR  CELL  e_equalityModule|Equal0~34|combout
-     14.482      1.365 RR    IC  e_equalityModule|Equal0~37|datab
-     14.914      0.432 RF  CELL  e_equalityModule|Equal0~37|combout
-     15.636      0.722 FF    IC  e_equalityModule|Equal0~41|datac
-     15.917      0.281 FF  CELL  e_equalityModule|Equal0~41|combout
-     16.145      0.228 FF    IC  g_FETCHLOGIC|g_ADD|o_F~0|datad
-     16.295      0.150 FR  CELL  g_FETCHLOGIC|g_ADD|o_F~0|combout
-     16.569      0.274 RR    IC  hazard_Detection|s_FlushIFID~4|datad
-     16.724      0.155 RR  CELL  hazard_Detection|s_FlushIFID~4|combout
-     16.724      0.000 RR    IC  hazard_Detection|s_FlushIFIDnot|d
-     16.811      0.087 RR  CELL  hazardDetectionUnit:hazard_Detection|s_FlushIFIDnot
+      3.383      3.383  R        clock network delay
+      3.646      0.263     uTco  mem:IMem|altsyncram:ram_rtl_0|altsyncram_02e1:auto_generated|ram_block1a0~portb_address_reg0
+      6.536      2.890 FR  CELL  IMem|ram_rtl_0|auto_generated|ram_block1a0|portbdataout[6]
+      7.251      0.715 RR    IC  IMem|ram~50|datad
+      7.406      0.155 RR  CELL  IMem|ram~50|combout
+      9.111      1.705 RR    IC  g_REGFILE|g_MUX_RS|Mux21~0|datab
+      9.513      0.402 RR  CELL  g_REGFILE|g_MUX_RS|Mux21~0|combout
+      9.961      0.448 RR    IC  g_REGFILE|g_MUX_RS|Mux21~1|datab
+     10.379      0.418 RR  CELL  g_REGFILE|g_MUX_RS|Mux21~1|combout
+     12.824      2.445 RR    IC  g_REGFILE|g_MUX_RS|Mux21~19|datac
+     13.111      0.287 RR  CELL  g_REGFILE|g_MUX_RS|Mux21~19|combout
+     13.735      0.624 RR    IC  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:10:MUXI|g_Or|o_F~1|datad
+     13.890      0.155 RR  CELL  forwardBrnch_MUX_A|MUX3|\G_NBit_MUX:10:MUXI|g_Or|o_F~1|combout
+     14.647      0.757 RR    IC  e_equalityModule|Equal0~23|datad
+     14.786      0.139 RF  CELL  e_equalityModule|Equal0~23|combout
+     15.062      0.276 FF    IC  e_equalityModule|Equal0~26|dataa
+     15.468      0.406 FR  CELL  e_equalityModule|Equal0~26|combout
+     16.139      0.671 RR    IC  e_equalityModule|Equal0~36|datab
+     16.484      0.345 RR  CELL  e_equalityModule|Equal0~36|combout
+     16.687      0.203 RR    IC  g_FETCHLOGIC|g_ADD|o_F|datad
+     16.826      0.139 RF  CELL  g_FETCHLOGIC|g_ADD|o_F|combout
+     17.133      0.307 FF    IC  hazard_Detection|s_FlushIFID~3|datad
+     17.283      0.150 FR  CELL  hazard_Detection|s_FlushIFID~3|combout
+     17.283      0.000 RR    IC  hazard_Detection|s_FlushIFIDnot|d
+     17.370      0.087 RR  CELL  hazardDetectionUnit:hazard_Detection|s_FlushIFIDnot
  Data Required Path:
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
      10.000     10.000           latch edge time
-     13.477      3.477  F        clock network delay
-     13.509      0.032           clock pessimism removed
-     13.489     -0.020           clock uncertainty
-     13.507      0.018     uTsu  hazardDetectionUnit:hazard_Detection|s_FlushIFIDnot
- Data Arrival Time  :    16.811
- Data Required Time :    13.507
- Slack              :    -3.304 (VIOLATED)
+     13.453      3.453  F        clock network delay
+     13.461      0.008           clock pessimism removed
+     13.441     -0.020           clock uncertainty
+     13.459      0.018     uTsu  hazardDetectionUnit:hazard_Detection|s_FlushIFIDnot
+ Data Arrival Time  :    17.370
+ Data Required Time :    13.459
+ Slack              :    -3.911 (VIOLATED)
  ===================================================================
