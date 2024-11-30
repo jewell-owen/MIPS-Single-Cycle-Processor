@@ -466,7 +466,7 @@ begin
 
   s_OpCode <= s_Inst(31 downto 26);
 
-  s_BrnchCheckMuxSel <= '1' when (s_OpCode = beqOpCode) or (s_OpCode = beqOpCode) 
+  s_BrnchCheckMuxSel <= '1' when (s_OpCode = beqOpCode) or (s_OpCode = bneOpCode) 
   else '0'; 
 
  g_NBITADDER_PC: adder_N port map (
@@ -599,6 +599,8 @@ BrnchMux: mux2t1
 		halt                    => s_tempHalt);
 
 
+
+
  hazard_Detection : hazardDetectionUnit port map (
        i_CLK                   => iCLK,
        i_RST                   => iRST,
@@ -610,8 +612,8 @@ BrnchMux: mux2t1
        i_RegRsAddrIFID         => s_InstIFID(25 downto 21),
        i_RegRtAddrIFID         => s_InstIFID(20 downto 16),
        i_isBranchIFID          => s_BrchEq OR s_BrchNe OR s_isJumpReg, -- cases for jump register are same as branching
-       i_isIncorrectBranchIFID => not s_BrnchMuxOut,
-       i_isJump                => (not s_BrnchMuxOut) or s_isJump or s_isJumpReg , --s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)
+       i_isIncorrectBranchIFID => not s_BrnchMuxOut and s_BrchEq and s_BrchNe,
+       i_isJump                => s_isJump or s_isJumpReg , --s_BrnchMuxOut  and (s_BrchEq or s_BrchNe)
        o_FlushIFID             => s_flushIFID,
        o_Stall                 => s_stallIFID,
        o_FlushIDEX             => s_flushIDEX);

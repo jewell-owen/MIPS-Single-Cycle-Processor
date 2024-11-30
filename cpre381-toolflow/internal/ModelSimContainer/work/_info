@@ -8,13 +8,13 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow
+d/home/ojewell/cpre381/Pipelined-MIPS-Processors/cpre381-toolflow
 Eadder1bit
-Z1 w1730310162
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 173
-R0
+Z0 w1730309775
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 184
+Z3 d/home/coreybh/cpre381/Project2/Pipelined-MIPS-Processors/cpre381-toolflow
 Z4 8proj/src/FetchLogic/adder1bit.vhd
 Z5 Fproj/src/FetchLogic/adder1bit.vhd
 l0
@@ -23,19 +23,19 @@ VAhTSMkHSoQa:KDFjb8:g[0
 !s100 jJ60i:X3@X[MN^POR?G5g0
 Z7 OL;C;2024.2;79
 33
-Z8 !s110 1732922914
+Z8 !s110 1733001704
 !i10b 1
-Z9 !s108 1732922914.000000
-Z10 !s90 -2008|-work|internal/ModelSimContainer/work|proj/src/MIPS_types.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|proj/src/TopLevel/mux32t1_new.vhd|proj/src/TopLevel/sign_ext.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/decoder5t32.vhd|proj/src/HazardDetection/hazardDetectionUnit.vhd|proj/src/HazardDetection/mux3t1_32.vhd|proj/src/Alu/alu.vhd|proj/src/Alu/lessThanModule.vhd|proj/src/Alu/equalityModule.vhd|proj/src/Alu/mux8t1_32.vhd|proj/src/Alu/equalityMuxModule.vhd|proj/src/Forwarding/forwardingUnit.vhd|proj/src/Registers/reg_N.vhd|proj/src/Registers/regFile.vhd|proj/src/Registers/dffgPC.vhd|proj/src/Registers/reg_NPC.vhd|proj/src/Registers/stackPointerRegister.vhd|proj/src/OnesComp/onesComp_N.vhd|proj/src/OnesComp/onesComp.vhd|proj/src/PipelineRegisters/reg_IFID.vhd|proj/src/PipelineRegisters/reg_EXMEM.vhd|proj/src/PipelineRegisters/reg_MEMWB.vhd|proj/src/PipelineRegisters/reg_IDEX.vhd|proj/src/PipelineRegisters/dffgNeg.vhd|proj/src/ControlLogic/controlUnit.vhd|proj/src/BottomLevel/andg2.vhd|proj/src/BottomLevel/mux2t1_N.vhd|proj/src/BottomLevel/mux2t1.vhd|proj/src/BottomLevel/invg.vhd|proj/src/BottomLevel/org2.vhd|proj/src/BottomLevel/dffg.vhd|proj/src/BottomLevel/xorg2.vhd|proj/src/FetchLogic/adder1bit.vhd|proj/src/FetchLogic/fetchLogic.vhd|proj/src/FetchLogic/adder_N.vhd|proj/src/BarrelShifter/vectorReverser_N.vhd|proj/src/BarrelShifter/barrelShifter.vhd|proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd|proj/src/CarryLookaheadAdder/fullAdder.vhd|
-Z11 !s107 proj/src/CarryLookaheadAdder/fullAdder.vhd|proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd|proj/src/BarrelShifter/barrelShifter.vhd|proj/src/BarrelShifter/vectorReverser_N.vhd|proj/src/FetchLogic/adder_N.vhd|proj/src/FetchLogic/fetchLogic.vhd|proj/src/FetchLogic/adder1bit.vhd|proj/src/BottomLevel/xorg2.vhd|proj/src/BottomLevel/dffg.vhd|proj/src/BottomLevel/org2.vhd|proj/src/BottomLevel/invg.vhd|proj/src/BottomLevel/mux2t1.vhd|proj/src/BottomLevel/mux2t1_N.vhd|proj/src/BottomLevel/andg2.vhd|proj/src/ControlLogic/controlUnit.vhd|proj/src/PipelineRegisters/dffgNeg.vhd|proj/src/PipelineRegisters/reg_IDEX.vhd|proj/src/PipelineRegisters/reg_MEMWB.vhd|proj/src/PipelineRegisters/reg_EXMEM.vhd|proj/src/PipelineRegisters/reg_IFID.vhd|proj/src/OnesComp/onesComp.vhd|proj/src/OnesComp/onesComp_N.vhd|proj/src/Registers/stackPointerRegister.vhd|proj/src/Registers/reg_NPC.vhd|proj/src/Registers/dffgPC.vhd|proj/src/Registers/regFile.vhd|proj/src/Registers/reg_N.vhd|proj/src/Forwarding/forwardingUnit.vhd|proj/src/Alu/equalityMuxModule.vhd|proj/src/Alu/mux8t1_32.vhd|proj/src/Alu/equalityModule.vhd|proj/src/Alu/lessThanModule.vhd|proj/src/Alu/alu.vhd|proj/src/HazardDetection/mux3t1_32.vhd|proj/src/HazardDetection/hazardDetectionUnit.vhd|proj/src/TopLevel/decoder5t32.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/sign_ext.vhd|proj/src/TopLevel/mux32t1_new.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|
+Z9 !s108 1733001703.000000
+Z10 !s90 -2008|-work|internal/ModelSimContainer/work|proj/src/MIPS_types.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|proj/src/Forwarding/forwardingUnit.vhd|proj/src/Alu/equalityMuxModule.vhd|proj/src/Alu/alu.vhd|proj/src/Alu/equalityModule.vhd|proj/src/Alu/mux8t1_32.vhd|proj/src/Alu/lessThanModule.vhd|proj/src/OnesComp/onesComp_N.vhd|proj/src/OnesComp/onesComp.vhd|proj/src/ControlLogic/controlUnit.vhd|proj/src/PipelineRegisters/reg_EXMEM.vhd|proj/src/PipelineRegisters/dffgNeg.vhd|proj/src/PipelineRegisters/reg_MEMWB.vhd|proj/src/PipelineRegisters/reg_IFID.vhd|proj/src/PipelineRegisters/reg_IDEX.vhd|proj/src/Registers/stackPointerRegister.vhd|proj/src/Registers/reg_NPC.vhd|proj/src/Registers/dffgPC.vhd|proj/src/Registers/reg_N.vhd|proj/src/Registers/regFile.vhd|proj/src/TopLevel/sign_ext.vhd|proj/src/TopLevel/mux32t1_new.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/decoder5t32.vhd|proj/src/FetchLogic/adder_N.vhd|proj/src/FetchLogic/fetchLogic.vhd|proj/src/FetchLogic/adder1bit.vhd|proj/src/HazardDetection/hazardDetectionUnit.vhd|proj/src/HazardDetection/mux3t1_32.vhd|proj/src/BottomLevel/andg2.vhd|proj/src/BottomLevel/mux2t1_N.vhd|proj/src/BottomLevel/org2.vhd|proj/src/BottomLevel/dffg.vhd|proj/src/BottomLevel/invg.vhd|proj/src/BottomLevel/xorg2.vhd|proj/src/BottomLevel/mux2t1.vhd|proj/src/CarryLookaheadAdder/fullAdder.vhd|proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd|proj/src/BarrelShifter/vectorReverser_N.vhd|proj/src/BarrelShifter/barrelShifter.vhd|
+Z11 !s107 proj/src/BarrelShifter/barrelShifter.vhd|proj/src/BarrelShifter/vectorReverser_N.vhd|proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd|proj/src/CarryLookaheadAdder/fullAdder.vhd|proj/src/BottomLevel/mux2t1.vhd|proj/src/BottomLevel/xorg2.vhd|proj/src/BottomLevel/invg.vhd|proj/src/BottomLevel/dffg.vhd|proj/src/BottomLevel/org2.vhd|proj/src/BottomLevel/mux2t1_N.vhd|proj/src/BottomLevel/andg2.vhd|proj/src/HazardDetection/mux3t1_32.vhd|proj/src/HazardDetection/hazardDetectionUnit.vhd|proj/src/FetchLogic/adder1bit.vhd|proj/src/FetchLogic/fetchLogic.vhd|proj/src/FetchLogic/adder_N.vhd|proj/src/TopLevel/decoder5t32.vhd|proj/src/TopLevel/mem.vhd|proj/src/TopLevel/MIPS_Processor.vhd|proj/src/TopLevel/mux32t1_new.vhd|proj/src/TopLevel/sign_ext.vhd|proj/src/Registers/regFile.vhd|proj/src/Registers/reg_N.vhd|proj/src/Registers/dffgPC.vhd|proj/src/Registers/reg_NPC.vhd|proj/src/Registers/stackPointerRegister.vhd|proj/src/PipelineRegisters/reg_IDEX.vhd|proj/src/PipelineRegisters/reg_IFID.vhd|proj/src/PipelineRegisters/reg_MEMWB.vhd|proj/src/PipelineRegisters/dffgNeg.vhd|proj/src/PipelineRegisters/reg_EXMEM.vhd|proj/src/ControlLogic/controlUnit.vhd|proj/src/OnesComp/onesComp.vhd|proj/src/OnesComp/onesComp_N.vhd|proj/src/Alu/lessThanModule.vhd|proj/src/Alu/mux8t1_32.vhd|proj/src/Alu/equalityModule.vhd|proj/src/Alu/alu.vhd|proj/src/Alu/equalityMuxModule.vhd|proj/src/Forwarding/forwardingUnit.vhd|internal/testpy/tb.vhd|proj/src/MIPS_types.vhd|
 !i113 0
 Z12 o-2008 -work internal/ModelSimContainer/work
 Z13 tExplicit 1 CvgOpt 0
 Astructure
+R1
 R2
-R3
 Z14 DEx4 work 9 adder1bit 0 22 AhTSMkHSoQa:KDFjb8:g[0
-!i122 173
+!i122 184
 l63
 Z15 L32 54
 Z16 VK;IR2i7VKCgzI;6Z3g2:W0
@@ -51,11 +51,11 @@ R11
 R12
 R13
 Eadder_n
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
 Z18 8proj/src/FetchLogic/adder_N.vhd
 Z19 Fproj/src/FetchLogic/adder_N.vhd
 l0
@@ -73,10 +73,10 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
 Z20 DEx4 work 7 adder_n 0 22 F1[1kXH`QT;:a5cl]D5OG0
-!i122 173
+!i122 184
 l48
 Z21 L32 34
 Z22 V1dc=FL2O7;2N75l3?4YVW2
@@ -92,15 +92,15 @@ R11
 R12
 R13
 Ealu
-Z24 w1730310161
-R2
-R3
-!i122 173
 R0
-Z25 8proj/src/Alu/alu.vhd
-Z26 Fproj/src/Alu/alu.vhd
+R1
+R2
+!i122 184
+R3
+Z24 8proj/src/Alu/alu.vhd
+Z25 Fproj/src/Alu/alu.vhd
 l0
-Z27 L16 1
+Z26 L16 1
 VX@TO?NJQ_Y24V=E4<]S4;3
 !s100 mXhViLe9m[Lm7S_eWmRSn3
 R7
@@ -114,14 +114,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z28 DEx4 work 3 alu 0 22 X@TO?NJQ_Y24V=E4<]S4;3
-!i122 173
+Z27 DEx4 work 3 alu 0 22 X@TO?NJQ_Y24V=E4<]S4;3
+!i122 184
 l168
-Z29 L56 220
-Z30 VCzdYz]DiWA<MXnP3K3ohC0
-Z31 !s100 O39PVhSS2MXFk>K1@SP9^2
+Z28 L56 220
+Z29 VCzdYz]DiWA<MXnP3K3ohC0
+Z30 !s100 O39PVhSS2MXFk>K1@SP9^2
 R7
 33
 R8
@@ -133,15 +133,15 @@ R11
 R12
 R13
 Eandg2
-R24
-R2
-R3
-!i122 173
 R0
-Z32 8proj/src/BottomLevel/andg2.vhd
-Z33 Fproj/src/BottomLevel/andg2.vhd
+R1
+R2
+!i122 184
+R3
+Z31 8proj/src/BottomLevel/andg2.vhd
+Z32 Fproj/src/BottomLevel/andg2.vhd
 l0
-Z34 L23 1
+Z33 L23 1
 Vzkd6DAMQeJ>Gdbz_JED5>0
 !s100 YT?bGzEmcFo:DlnoC^B4_0
 R7
@@ -155,14 +155,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z35 DEx4 work 5 andg2 0 22 zkd6DAMQeJ>Gdbz_JED5>0
-!i122 173
+Z34 DEx4 work 5 andg2 0 22 zkd6DAMQeJ>Gdbz_JED5>0
+!i122 184
 l32
-Z36 L31 6
-Z37 ViHL2DEfeDAgY8?F@RAnWH0
-Z38 !s100 I`@Z@UBObS]<7m8bPgKUS1
+Z35 L31 6
+Z36 ViHL2DEfeDAgY8?F@RAnWH0
+Z37 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R7
 33
 R8
@@ -174,15 +174,15 @@ R11
 R12
 R13
 Ebarrelshifter
-R24
-R2
-R3
-!i122 173
 R0
-Z39 8proj/src/BarrelShifter/barrelShifter.vhd
-Z40 Fproj/src/BarrelShifter/barrelShifter.vhd
+R1
+R2
+!i122 184
+R3
+Z38 8proj/src/BarrelShifter/barrelShifter.vhd
+Z39 Fproj/src/BarrelShifter/barrelShifter.vhd
 l0
-Z41 L18 1
+Z40 L18 1
 VHR<Ik`19I=fll_JcK`ODK3
 !s100 ]@7>=@Eo0Tl]SW:lkIIJ62
 R7
@@ -196,14 +196,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z42 DEx4 work 13 barrelshifter 0 22 HR<Ik`19I=fll_JcK`ODK3
-!i122 173
+Z41 DEx4 work 13 barrelshifter 0 22 HR<Ik`19I=fll_JcK`ODK3
+!i122 184
 l53
-Z43 L27 166
-Z44 V_JSh1c[A6jRMOMSV72Z3U2
-Z45 !s100 >OhzN8oY?51`F@76kIgJo3
+Z42 L27 166
+Z43 V_JSh1c[A6jRMOMSV72Z3U2
+Z44 !s100 >OhzN8oY?51`F@76kIgJo3
 R7
 33
 R8
@@ -215,13 +215,13 @@ R11
 R12
 R13
 Ecarrylookaheadadder
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z46 8proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd
-Z47 Fproj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd
+Z45 8proj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd
+Z46 Fproj/src/CarryLookaheadAdder/carryLookAheadAdder.vhd
 l0
 L29 1
 V5[hX<^VNZai5A:KkoUZFo3
@@ -237,14 +237,14 @@ R11
 R12
 R13
 Amixed
+R1
 R2
-R3
-Z48 DEx4 work 19 carrylookaheadadder 0 22 5[hX<^VNZai5A:KkoUZFo3
-!i122 173
+Z47 DEx4 work 19 carrylookaheadadder 0 22 5[hX<^VNZai5A:KkoUZFo3
+!i122 184
 l80
-Z49 L39 90
-Z50 V;0@1oSlTlFDKFH]bJ^WGY1
-Z51 !s100 ShRV4FSVPmYDh?oJmn07`2
+Z48 L39 90
+Z49 V;0@1oSlTlFDKFH]bJ^WGY1
+Z50 !s100 ShRV4FSVPmYDh?oJmn07`2
 R7
 33
 R8
@@ -256,15 +256,15 @@ R11
 R12
 R13
 Econtrolunit
-Z52 w1732652994
+Z51 w1732990684
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z53 8proj/src/ControlLogic/controlUnit.vhd
-Z54 Fproj/src/ControlLogic/controlUnit.vhd
+Z52 8proj/src/ControlLogic/controlUnit.vhd
+Z53 Fproj/src/ControlLogic/controlUnit.vhd
 l0
-Z55 L19 1
+Z54 L19 1
 V8MQ@jV6>P4g3fk=;KaQl22
 !s100 BQ>S6XAO724Oi:o;9Lj^m1
 R7
@@ -278,14 +278,14 @@ R11
 R12
 R13
 Abehavioral
+R1
 R2
-R3
-Z56 DEx4 work 11 controlunit 0 22 8MQ@jV6>P4g3fk=;KaQl22
-!i122 173
+Z55 DEx4 work 11 controlunit 0 22 8MQ@jV6>P4g3fk=;KaQl22
+!i122 184
 l50
-Z57 L43 668
-Z58 VHdPbO[i13CfUVhbaH_U7J1
-Z59 !s100 G=VgCUIhNWBi<NJ:>@7h^0
+Z56 L43 668
+Z57 VHdPbO[i13CfUVhbaH_U7J1
+Z58 !s100 G=VgCUIhNWBi<NJ:>@7h^0
 R7
 33
 R8
@@ -297,15 +297,15 @@ R11
 R12
 R13
 Edecoder5t32
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z60 8proj/src/TopLevel/decoder5t32.vhd
-Z61 Fproj/src/TopLevel/decoder5t32.vhd
+Z59 8proj/src/TopLevel/decoder5t32.vhd
+Z60 Fproj/src/TopLevel/decoder5t32.vhd
 l0
-Z62 L20 1
+Z61 L20 1
 VeeNhACfN:MPL]]<cE23Vj1
 !s100 Q8M8LeaOgElA7_c`C>DLk1
 R7
@@ -319,14 +319,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z63 DEx4 work 11 decoder5t32 0 22 eeNhACfN:MPL]]<cE23Vj1
-!i122 173
+Z62 DEx4 work 11 decoder5t32 0 22 eeNhACfN:MPL]]<cE23Vj1
+!i122 184
 l29
-Z64 L28 43
-Z65 V3O><V^j?WZ;AQW@9Yg;YZ3
-Z66 !s100 ZQhM:7^He[]PdoG7g>M@a2
+Z63 L28 43
+Z64 V3O><V^j?WZ;AQW@9Yg;YZ3
+Z65 !s100 ZQhM:7^He[]PdoG7g>M@a2
 R7
 33
 R8
@@ -338,15 +338,15 @@ R11
 R12
 R13
 Edffg
-Z67 w1732158171
-R2
-R3
-!i122 173
 R0
-Z68 8proj/src/BottomLevel/dffg.vhd
-Z69 Fproj/src/BottomLevel/dffg.vhd
+R1
+R2
+!i122 184
+R3
+Z66 8proj/src/BottomLevel/dffg.vhd
+Z67 Fproj/src/BottomLevel/dffg.vhd
 l0
-R34
+R33
 V>PZ[eHl^ZDc^T627=nThL3
 !s100 T4gcXQGMCgKJbn8XhBM;b0
 R7
@@ -360,14 +360,14 @@ R11
 R12
 R13
 Amixed
+R1
 R2
-R3
-Z70 DEx4 work 4 dffg 0 22 >PZ[eHl^ZDc^T627=nThL3
-!i122 173
+Z68 DEx4 work 4 dffg 0 22 >PZ[eHl^ZDc^T627=nThL3
+!i122 184
 l37
-Z71 L33 29
-Z72 VKI^@FPEc]eSB[32H4XI822
-Z73 !s100 iOdlTUid@@]UimFK_53^C1
+Z69 L33 29
+Z70 VKI^@FPEc]eSB[32H4XI822
+Z71 !s100 iOdlTUid@@]UimFK_53^C1
 R7
 33
 R8
@@ -379,15 +379,15 @@ R11
 R12
 R13
 Edffgneg
-Z74 w1731625772
+Z72 w1732146923
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z75 8proj/src/PipelineRegisters/dffgNeg.vhd
-Z76 Fproj/src/PipelineRegisters/dffgNeg.vhd
+Z73 8proj/src/PipelineRegisters/dffgNeg.vhd
+Z74 Fproj/src/PipelineRegisters/dffgNeg.vhd
 l0
-R34
+R33
 Vc=odZ[^PC[6B0aJI9;XBH2
 !s100 oMOTbNMV?lFboH7koNVo22
 R7
@@ -401,14 +401,14 @@ R11
 R12
 R13
 Amixed
+R1
 R2
-R3
-Z77 DEx4 work 7 dffgneg 0 22 c=odZ[^PC[6B0aJI9;XBH2
-!i122 173
+Z75 DEx4 work 7 dffgneg 0 22 c=odZ[^PC[6B0aJI9;XBH2
+!i122 184
 l37
-R71
-Z78 VCIg2F6_Kk?S<OzHz0h8cg3
-Z79 !s100 cf6[kA3A2XBedG;^SG_PD3
+R69
+Z76 VCIg2F6_Kk?S<OzHz0h8cg3
+Z77 !s100 cf6[kA3A2XBedG;^SG_PD3
 R7
 33
 R8
@@ -420,15 +420,15 @@ R11
 R12
 R13
 Edffgpc
-Z80 w1732131346
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z81 8proj/src/Registers/dffgPC.vhd
-Z82 Fproj/src/Registers/dffgPC.vhd
+Z78 8proj/src/Registers/dffgPC.vhd
+Z79 Fproj/src/Registers/dffgPC.vhd
 l0
-R34
+R33
 V:7c;[e5AP1f=WZ5gY1c3@0
 !s100 U>e`amc<:OOXj<Je8aE940
 R7
@@ -442,14 +442,14 @@ R11
 R12
 R13
 Amixed
+R1
 R2
-R3
-Z83 DEx4 work 6 dffgpc 0 22 :7c;[e5AP1f=WZ5gY1c3@0
-!i122 173
+Z80 DEx4 work 6 dffgpc 0 22 :7c;[e5AP1f=WZ5gY1c3@0
+!i122 184
 l37
-R71
-Z84 VMdRS5R8TZK?9:Qe;63R];0
-Z85 !s100 _V6h<5EP<GSf?kT22<gNG2
+R69
+Z81 VMdRS5R8TZK?9:Qe;63R];0
+Z82 !s100 _V6h<5EP<GSf?kT22<gNG2
 R7
 33
 R8
@@ -461,15 +461,15 @@ R11
 R12
 R13
 Eequalitymodule
-R24
-R2
-R3
-!i122 173
 R0
-Z86 8proj/src/Alu/equalityModule.vhd
-Z87 Fproj/src/Alu/equalityModule.vhd
+R1
+R2
+!i122 184
+R3
+Z83 8proj/src/Alu/equalityModule.vhd
+Z84 Fproj/src/Alu/equalityModule.vhd
 l0
-R55
+R54
 V;NAYBz61CE9cAi3WMc3Fg3
 !s100 [j?6ScTNYY[NP[hgHTF[90
 R7
@@ -483,14 +483,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z88 DEx4 work 14 equalitymodule 0 22 ;NAYBz61CE9cAi3WMc3Fg3
-!i122 173
+Z85 DEx4 work 14 equalitymodule 0 22 ;NAYBz61CE9cAi3WMc3Fg3
+!i122 184
 l29
-Z89 L27 8
-Z90 VW<GKE_C<Ag=YDUZk6INAz1
-Z91 !s100 1GgAlid?]=:K5g<Of@^IG2
+Z86 L27 8
+Z87 VW<GKE_C<Ag=YDUZk6INAz1
+Z88 !s100 1GgAlid?]=:K5g<Of@^IG2
 R7
 33
 R8
@@ -502,15 +502,15 @@ R11
 R12
 R13
 Eequalitymuxmodule
-R24
-R2
-R3
-!i122 173
 R0
-Z92 8proj/src/Alu/equalityMuxModule.vhd
-Z93 Fproj/src/Alu/equalityMuxModule.vhd
+R1
+R2
+!i122 184
+R3
+Z89 8proj/src/Alu/equalityMuxModule.vhd
+Z90 Fproj/src/Alu/equalityMuxModule.vhd
 l0
-R55
+R54
 V5z_<ioWdf:RCmb1jBRGNF2
 !s100 KYQDecUcQD4HZ1L?z7o1a1
 R7
@@ -524,14 +524,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z94 DEx4 work 17 equalitymuxmodule 0 22 5z_<ioWdf:RCmb1jBRGNF2
-!i122 173
+Z91 DEx4 work 17 equalitymuxmodule 0 22 5z_<ioWdf:RCmb1jBRGNF2
+!i122 184
 l29
-R89
-Z95 Vb@ORZ9gCaM_iG1mJF7efc3
-Z96 !s100 6EWKoGDD<Q6aVHlEGEbHK3
+R86
+Z92 Vb@ORZ9gCaM_iG1mJF7efc3
+Z93 !s100 6EWKoGDD<Q6aVHlEGEbHK3
 R7
 33
 R8
@@ -543,15 +543,15 @@ R11
 R12
 R13
 Efetchlogic
-Z97 w1732139612
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z98 8proj/src/FetchLogic/fetchLogic.vhd
-Z99 Fproj/src/FetchLogic/fetchLogic.vhd
+Z94 8proj/src/FetchLogic/fetchLogic.vhd
+Z95 Fproj/src/FetchLogic/fetchLogic.vhd
 l0
-R41
+R40
 Vi@1fE4ZFo5VR@aWl<jFOX3
 !s100 ;1SifT=T39NjICkWBz[g<1
 R7
@@ -565,14 +565,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z100 DEx4 work 10 fetchlogic 0 22 i@1fE4ZFo5VR@aWl<jFOX3
-!i122 173
+Z96 DEx4 work 10 fetchlogic 0 22 i@1fE4ZFo5VR@aWl<jFOX3
+!i122 184
 l66
-Z101 L32 79
-Z102 Vd<lM_zA0Tn0NJKf9WDBb80
-Z103 !s100 oz?]NoCh2b4dfiCV8De4K3
+Z97 L32 79
+Z98 Vd<lM_zA0Tn0NJKf9WDBb80
+Z99 !s100 oz?]NoCh2b4dfiCV8De4K3
 R7
 33
 R8
@@ -584,16 +584,16 @@ R11
 R12
 R13
 Eforwardingunit
-Z104 w1732921684
-Z105 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R51
+Z100 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z106 8proj/src/Forwarding/forwardingUnit.vhd
-Z107 Fproj/src/Forwarding/forwardingUnit.vhd
+Z101 8proj/src/Forwarding/forwardingUnit.vhd
+Z102 Fproj/src/Forwarding/forwardingUnit.vhd
 l0
-R41
+R40
 V`1NQkG8Ga]kT<hCQh_He:2
 !s100 eGdD]2jQlcE>7Z<lRQ6181
 R7
@@ -607,15 +607,15 @@ R11
 R12
 R13
 Adataflow
-R105
+R100
+R1
 R2
-R3
-Z108 DEx4 work 14 forwardingunit 0 22 `1NQkG8Ga]kT<hCQh_He:2
-!i122 173
+Z103 DEx4 work 14 forwardingunit 0 22 `1NQkG8Ga]kT<hCQh_He:2
+!i122 184
 l46
-Z109 L43 93
-Z110 Veg^<AT0k;i1=IlZ[_NkF?2
-Z111 !s100 I5Wk:3mDnJ2YDPjADN4_l2
+Z104 L43 93
+Z105 Veg^<AT0k;i1=IlZ[_NkF?2
+Z106 !s100 I5Wk:3mDnJ2YDPjADN4_l2
 R7
 33
 R8
@@ -627,15 +627,15 @@ R11
 R12
 R13
 Efulladder
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z112 8proj/src/CarryLookaheadAdder/fullAdder.vhd
-Z113 Fproj/src/CarryLookaheadAdder/fullAdder.vhd
+Z107 8proj/src/CarryLookaheadAdder/fullAdder.vhd
+Z108 Fproj/src/CarryLookaheadAdder/fullAdder.vhd
 l0
-Z114 L17 1
+Z109 L17 1
 VDag>CchZ^F94`_mT3RNoi0
 !s100 9AL1eZY<oRI^zSVec0f]72
 R7
@@ -649,14 +649,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z115 DEx4 work 9 fulladder 0 22 Dag>CchZ^F94`_mT3RNoi0
-!i122 173
+Z110 DEx4 work 9 fulladder 0 22 Dag>CchZ^F94`_mT3RNoi0
+!i122 184
 l55
-Z116 L27 56
-Z117 VK7PJ>gM=fndNlS;BdT;673
-Z118 !s100 DE@YU0m:QjkmZYQ<7C@La1
+Z111 L27 56
+Z112 VK7PJ>gM=fndNlS;BdT;673
+Z113 !s100 DE@YU0m:QjkmZYQ<7C@La1
 R7
 33
 R8
@@ -668,16 +668,16 @@ R11
 R12
 R13
 Ehazarddetectionunit
-Z119 w1732922897
-R105
+R51
+R100
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z120 8proj/src/HazardDetection/hazardDetectionUnit.vhd
-Z121 Fproj/src/HazardDetection/hazardDetectionUnit.vhd
+Z114 8proj/src/HazardDetection/hazardDetectionUnit.vhd
+Z115 Fproj/src/HazardDetection/hazardDetectionUnit.vhd
 l0
-R55
+R54
 V?<cQF[kQOBznT>3G@T`8P3
 !s100 U?UkLMUn3g[DF1AX1abz80
 R7
@@ -691,15 +691,15 @@ R11
 R12
 R13
 Adataflow
-R105
+R100
+R1
 R2
-R3
-Z122 DEx4 work 19 hazarddetectionunit 0 22 ?<cQF[kQOBznT>3G@T`8P3
-!i122 173
+Z116 DEx4 work 19 hazarddetectionunit 0 22 ?<cQF[kQOBznT>3G@T`8P3
+!i122 184
 l56
-Z123 L41 221
-VE22AZ?zBK6JDnWHHRMGkN0
-!s100 IHMMZ]BVSV5zecl_XUVg63
+Z117 L41 221
+Z118 VE22AZ?zBK6JDnWHHRMGkN0
+Z119 !s100 IHMMZ]BVSV5zecl_XUVg63
 R7
 33
 R8
@@ -711,15 +711,15 @@ R11
 R12
 R13
 Einvg
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z124 8proj/src/BottomLevel/invg.vhd
-Z125 Fproj/src/BottomLevel/invg.vhd
+Z120 8proj/src/BottomLevel/invg.vhd
+Z121 Fproj/src/BottomLevel/invg.vhd
 l0
-R34
+R33
 VEIV8[cYGC3d^KTkcGjzd81
 !s100 _XK?_^5z0Rm1<k12?;5R?2
 R7
@@ -733,14 +733,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z126 DEx4 work 4 invg 0 22 EIV8[cYGC3d^KTkcGjzd81
-!i122 173
+Z122 DEx4 work 4 invg 0 22 EIV8[cYGC3d^KTkcGjzd81
+!i122 184
 l31
-Z127 L30 6
-Z128 VgCOFGMYmXN`?<=SMTD_mC1
-Z129 !s100 bk7I76o8e1LURdoZEQb8H0
+Z123 L30 6
+Z124 VgCOFGMYmXN`?<=SMTD_mC1
+Z125 !s100 bk7I76o8e1LURdoZEQb8H0
 R7
 33
 R8
@@ -752,17 +752,17 @@ R11
 R12
 R13
 Elessthanmodule
-R24
-Z130 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z131 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
-R2
-R3
-!i122 173
 R0
-Z132 8proj/src/Alu/lessThanModule.vhd
-Z133 Fproj/src/Alu/lessThanModule.vhd
+Z126 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z127 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R1
+R2
+!i122 184
+R3
+Z128 8proj/src/Alu/lessThanModule.vhd
+Z129 Fproj/src/Alu/lessThanModule.vhd
 l0
-R62
+R61
 VgIg9>dXH@88BkA>CJCn:D0
 !s100 51bPf0B?je>P]CCggUf>a1
 R7
@@ -776,16 +776,16 @@ R11
 R12
 R13
 Adataflow
-R130
-R131
+R126
+R127
+R1
 R2
-R3
-Z134 DEx4 work 14 lessthanmodule 0 22 gIg9>dXH@88BkA>CJCn:D0
-!i122 173
+Z130 DEx4 work 14 lessthanmodule 0 22 gIg9>dXH@88BkA>CJCn:D0
+!i122 184
 l30
-Z135 L28 11
-Z136 VW5okg4XGPVlKBK[MoR4P21
-Z137 !s100 VJJ>l6oj>MmiWZ_o_f9Sz3
+Z131 L28 11
+Z132 VW5okg4XGPVlKBK[MoR4P21
+Z133 !s100 VJJ>l6oj>MmiWZ_o_f9Sz3
 R7
 33
 R8
@@ -797,14 +797,14 @@ R11
 R12
 R13
 Emem
-R1
-R105
-R2
-R3
-!i122 173
 R0
-Z138 8proj/src/TopLevel/mem.vhd
-Z139 Fproj/src/TopLevel/mem.vhd
+R100
+R1
+R2
+!i122 184
+R3
+Z134 8proj/src/TopLevel/mem.vhd
+Z135 Fproj/src/TopLevel/mem.vhd
 l0
 L8 1
 V`DCP5]PX0@1FzLJ]HFPC51
@@ -820,15 +820,15 @@ R11
 R12
 R13
 Artl
-R105
+R100
+R1
 R2
-R3
-Z140 DEx4 work 3 mem 0 22 `DCP5]PX0@1FzLJ]HFPC51
-!i122 173
+Z136 DEx4 work 3 mem 0 22 `DCP5]PX0@1FzLJ]HFPC51
+!i122 184
 l37
-Z141 L27 24
-Z142 V7=z6;Jh7Kho4J>IEcD31I0
-Z143 !s100 OI8_3><BhDkT3l3n8`OXd3
+Z137 L27 24
+Z138 V7=z6;Jh7Kho4J>IEcD31I0
+Z139 !s100 OI8_3><BhDkT3l3n8`OXd3
 R7
 33
 R8
@@ -840,16 +840,16 @@ R11
 R12
 R13
 Emips_processor
-Z144 w1732840638
-Z145 DPx4 work 10 mips_types 0 22 75cZhdbbJ^R8ki@P@5@Y72
+Z140 w1733001109
+Z141 DPx4 work 10 mips_types 0 22 75cZhdbbJ^R8ki@P@5@Y72
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z146 8proj/src/TopLevel/MIPS_Processor.vhd
-Z147 Fproj/src/TopLevel/MIPS_Processor.vhd
+Z142 8proj/src/TopLevel/MIPS_Processor.vhd
+Z143 Fproj/src/TopLevel/MIPS_Processor.vhd
 l0
-Z148 L24 1
+Z144 L24 1
 VARZ81d6oK54`c`V?JLL@]3
 !s100 <4R`NPn@]CLX?i[IX0fLT0
 R7
@@ -863,15 +863,15 @@ R11
 R12
 R13
 Astructure
-R145
+R141
+R1
 R2
-R3
-Z149 DEx4 work 14 mips_processor 0 22 ARZ81d6oK54`c`V?JLL@]3
-!i122 173
+Z145 DEx4 work 14 mips_processor 0 22 ARZ81d6oK54`c`V?JLL@]3
+!i122 184
 l432
-Z150 L36 840
-Z151 V<^7>g7Nj0CEdTMZgUB_Cz0
-Z152 !s100 IJTS7lW8l4nk?fzD2RIf@1
+Z146 L36 842
+Z147 V=CRFDH1EHbc]]l[L;1JQ`1
+Z148 !s100 c3HB66MRMd28fo9cj1X`<2
 R7
 33
 R8
@@ -883,11 +883,11 @@ R11
 R12
 R13
 Pmips_types
-R2
-R3
-!i122 173
 R1
+R2
+!i122 184
 R0
+R3
 8proj/src/MIPS_types.vhd
 Fproj/src/MIPS_types.vhd
 l0
@@ -905,15 +905,15 @@ R11
 R12
 R13
 Emux2t1
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z153 8proj/src/BottomLevel/mux2t1.vhd
-Z154 Fproj/src/BottomLevel/mux2t1.vhd
+Z149 8proj/src/BottomLevel/mux2t1.vhd
+Z150 Fproj/src/BottomLevel/mux2t1.vhd
 l0
-R114
+R109
 VjM]Lo`VN8_TI;V@ZMciPn0
 !s100 __7T_:dn_:]6z>:>oP5Zg0
 R7
@@ -927,14 +927,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z155 DEx4 work 6 mux2t1 0 22 jM]Lo`VN8_TI;V@ZMciPn0
-!i122 173
+Z151 DEx4 work 6 mux2t1 0 22 jM]Lo`VN8_TI;V@ZMciPn0
+!i122 184
 l53
-Z156 L26 50
-Z157 V:8DlA_aAGdlFEEbQ`?lh[3
-Z158 !s100 3zS^>:ec`S]kWJ]4I=VJD1
+Z152 L26 50
+Z153 V:8DlA_aAGdlFEEbQ`?lh[3
+Z154 !s100 3zS^>:ec`S]kWJ]4I=VJD1
 R7
 33
 R8
@@ -946,13 +946,13 @@ R11
 R12
 R13
 Emux2t1_n
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z159 8proj/src/BottomLevel/mux2t1_N.vhd
-Z160 Fproj/src/BottomLevel/mux2t1_N.vhd
+Z155 8proj/src/BottomLevel/mux2t1_N.vhd
+Z156 Fproj/src/BottomLevel/mux2t1_N.vhd
 l0
 R6
 VGZ`>;oeU_8jndT_KOSU<31
@@ -968,14 +968,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z161 DEx4 work 8 mux2t1_n 0 22 GZ`>;oeU_8jndT_KOSU<31
-!i122 173
+Z157 DEx4 work 8 mux2t1_n 0 22 GZ`>;oeU_8jndT_KOSU<31
+!i122 184
 l39
-Z162 L30 21
-Z163 VZN9<A@:Ed@c7fc;5^P2=91
-Z164 !s100 W>5MMWO2LBg`K8[P>h>Ye1
+Z158 L30 21
+Z159 VZN9<A@:Ed@c7fc;5^P2=91
+Z160 !s100 W>5MMWO2LBg`K8[P>h>Ye1
 R7
 33
 R8
@@ -987,16 +987,16 @@ R11
 R12
 R13
 Emux32t1_new
-R1
-R145
-R2
-R3
-!i122 173
 R0
-Z165 8proj/src/TopLevel/mux32t1_new.vhd
-Z166 Fproj/src/TopLevel/mux32t1_new.vhd
+R141
+R1
+R2
+!i122 184
+R3
+Z161 8proj/src/TopLevel/mux32t1_new.vhd
+Z162 Fproj/src/TopLevel/mux32t1_new.vhd
 l0
-R34
+R33
 VZ>L74Sm_3mYzeR9S1B3?b3
 !s100 m50R8NY]XmHVJ@6<5=MLF2
 R7
@@ -1010,15 +1010,15 @@ R11
 R12
 R13
 Amux_arch
-R145
+R141
+R1
 R2
-R3
-Z167 DEx4 work 11 mux32t1_new 0 22 Z>L74Sm_3mYzeR9S1B3?b3
-!i122 173
+Z163 DEx4 work 11 mux32t1_new 0 22 Z>L74Sm_3mYzeR9S1B3?b3
+!i122 184
 l34
-Z168 L32 7
-Z169 V<<ViHcYYAYgaLPZh`Y7QD2
-Z170 !s100 O?McS@ORzBS<A[RJ_P@iA1
+Z164 L32 7
+Z165 V<<ViHcYYAYgaLPZh`Y7QD2
+Z166 !s100 O?McS@ORzBS<A[RJ_P@iA1
 R7
 33
 R8
@@ -1030,15 +1030,15 @@ R11
 R12
 R13
 Emux3t1_32
-Z171 w1732131345
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z172 8proj/src/HazardDetection/mux3t1_32.vhd
-Z173 Fproj/src/HazardDetection/mux3t1_32.vhd
+Z167 8proj/src/HazardDetection/mux3t1_32.vhd
+Z168 Fproj/src/HazardDetection/mux3t1_32.vhd
 l0
-R27
+R26
 Vi_eAK8TL;0<S9?eeBEW6F3
 !s100 ;h]dMG9Qh]KJ47OS[bKYc3
 R7
@@ -1052,14 +1052,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z174 DEx4 work 9 mux3t1_32 0 22 i_eAK8TL;0<S9?eeBEW6F3
-!i122 173
+Z169 DEx4 work 9 mux3t1_32 0 22 i_eAK8TL;0<S9?eeBEW6F3
+!i122 184
 l36
-Z175 L25 37
-Z176 V`I<=>K3MDFVVM2EYNY:zO3
-Z177 !s100 >4FCkP:FIYLfMJU[n]U^d3
+Z170 L25 37
+Z171 V`I<=>K3MDFVVM2EYNY:zO3
+Z172 !s100 >4FCkP:FIYLfMJU[n]U^d3
 R7
 33
 R8
@@ -1071,15 +1071,15 @@ R11
 R12
 R13
 Emux8t1_32
-R24
-R2
-R3
-!i122 173
 R0
-Z178 8proj/src/Alu/mux8t1_32.vhd
-Z179 Fproj/src/Alu/mux8t1_32.vhd
+R1
+R2
+!i122 184
+R3
+Z173 8proj/src/Alu/mux8t1_32.vhd
+Z174 Fproj/src/Alu/mux8t1_32.vhd
 l0
-R27
+R26
 VL9`MjTbme^<kchF04e4IS1
 !s100 cl7Mb`imaDmTS;lgj?SG]2
 R7
@@ -1093,14 +1093,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z180 DEx4 work 9 mux8t1_32 0 22 L9`MjTbme^<kchF04e4IS1
-!i122 173
+Z175 DEx4 work 9 mux8t1_32 0 22 L9`MjTbme^<kchF04e4IS1
+!i122 184
 l41
-Z181 L30 63
-Z182 VQOLi9kMdMbK7fY@T3`IOm3
-Z183 !s100 Ian@@L?4@z0TeLFXEPRSk0
+Z176 L30 63
+Z177 VQOLi9kMdMbK7fY@T3`IOm3
+Z178 !s100 Ian@@L?4@z0TeLFXEPRSk0
 R7
 33
 R8
@@ -1112,15 +1112,15 @@ R11
 R12
 R13
 Eonescomp
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z184 8proj/src/OnesComp/onesComp.vhd
-Z185 Fproj/src/OnesComp/onesComp.vhd
+Z179 8proj/src/OnesComp/onesComp.vhd
+Z180 Fproj/src/OnesComp/onesComp.vhd
 l0
-R114
+R109
 Vo1=j489ei@Z6MPaUo>6ZX0
 !s100 gG9W5;_ifCkaUjnTgCAmg3
 R7
@@ -1134,14 +1134,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z186 DEx4 work 8 onescomp 0 22 o1=j489ei@Z6MPaUo>6ZX0
-!i122 173
+Z181 DEx4 work 8 onescomp 0 22 o1=j489ei@Z6MPaUo>6ZX0
+!i122 184
 l32
-Z187 L24 15
-Z188 V_TY9_Akc;NAQj_^^PSVUZ0
-Z189 !s100 O3JziCj`AH4fjD5b=9QaT0
+Z182 L24 15
+Z183 V_TY9_Akc;NAQj_^^PSVUZ0
+Z184 !s100 O3JziCj`AH4fjD5b=9QaT0
 R7
 33
 R8
@@ -1153,15 +1153,15 @@ R11
 R12
 R13
 Eonescomp_n
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z190 8proj/src/OnesComp/onesComp_N.vhd
-Z191 Fproj/src/OnesComp/onesComp_N.vhd
+Z185 8proj/src/OnesComp/onesComp_N.vhd
+Z186 Fproj/src/OnesComp/onesComp_N.vhd
 l0
-R27
+R26
 V5l_VhPT?Km9i;0KoMnCai1
 !s100 kA1d1]kg6HS1BEU=K8kfj0
 R7
@@ -1175,14 +1175,14 @@ R11
 R12
 R13
 Astructural
+R1
 R2
-R3
-Z192 DEx4 work 10 onescomp_n 0 22 5l_VhPT?Km9i;0KoMnCai1
-!i122 173
+Z187 DEx4 work 10 onescomp_n 0 22 5l_VhPT?Km9i;0KoMnCai1
+!i122 184
 l30
-Z193 L23 17
-Z194 ViS[WS0aPg9]jZE:j>5ea91
-Z195 !s100 c2GCA8z4?][F`jkTQgJ332
+Z188 L23 17
+Z189 ViS[WS0aPg9]jZE:j>5ea91
+Z190 !s100 c2GCA8z4?][F`jkTQgJ332
 R7
 33
 R8
@@ -1194,15 +1194,15 @@ R11
 R12
 R13
 Eorg2
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z196 8proj/src/BottomLevel/org2.vhd
-Z197 Fproj/src/BottomLevel/org2.vhd
+Z191 8proj/src/BottomLevel/org2.vhd
+Z192 Fproj/src/BottomLevel/org2.vhd
 l0
-R34
+R33
 V?NH`3h?82EVlQHGfZGfFO0
 !s100 bGQ1F9eW^Q17OoL9h4g7z2
 R7
@@ -1216,14 +1216,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z198 DEx4 work 4 org2 0 22 ?NH`3h?82EVlQHGfZGfFO0
-!i122 173
+Z193 DEx4 work 4 org2 0 22 ?NH`3h?82EVlQHGfZGfFO0
+!i122 184
 l32
-R36
-Z199 V<Wo>dNlmZ7b3Bf:M>4HRk1
-Z200 !s100 h5_AzR3TdRA0a_K=dQ>mI2
+R35
+Z194 V<Wo>dNlmZ7b3Bf:M>4HRk1
+Z195 !s100 h5_AzR3TdRA0a_K=dQ>mI2
 R7
 33
 R8
@@ -1235,13 +1235,13 @@ R11
 R12
 R13
 Ereg_exmem
-R171
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z201 8proj/src/PipelineRegisters/reg_EXMEM.vhd
-Z202 Fproj/src/PipelineRegisters/reg_EXMEM.vhd
+Z196 8proj/src/PipelineRegisters/reg_EXMEM.vhd
+Z197 Fproj/src/PipelineRegisters/reg_EXMEM.vhd
 l0
 R6
 VcbR9D=FR``CXbB3T5`bkM2
@@ -1257,14 +1257,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z203 DEx4 work 9 reg_exmem 0 22 cbR9D=FR``CXbB3T5`bkM2
-!i122 173
+Z198 DEx4 work 9 reg_exmem 0 22 cbR9D=FR``CXbB3T5`bkM2
+!i122 184
 l69
-Z204 L57 134
-Z205 VI>emB^TLRmD1W9]fiEJa50
-Z206 !s100 V1PgB5b[F;z]2WRzaZd=Y2
+Z199 L57 134
+Z200 VI>emB^TLRmD1W9]fiEJa50
+Z201 !s100 V1PgB5b[F;z]2WRzaZd=Y2
 R7
 33
 R8
@@ -1276,13 +1276,13 @@ R11
 R12
 R13
 Ereg_idex
-Z207 w1732222156
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z208 8proj/src/PipelineRegisters/reg_IDEX.vhd
-Z209 Fproj/src/PipelineRegisters/reg_IDEX.vhd
+Z202 8proj/src/PipelineRegisters/reg_IDEX.vhd
+Z203 Fproj/src/PipelineRegisters/reg_IDEX.vhd
 l0
 R6
 V<fj[[N9C^W>5GXG2_;9272
@@ -1298,14 +1298,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z210 DEx4 work 8 reg_idex 0 22 <fj[[N9C^W>5GXG2_;9272
-!i122 173
+Z204 DEx4 work 8 reg_idex 0 22 <fj[[N9C^W>5GXG2_;9272
+!i122 184
 l84
-Z211 L73 204
-Z212 V;cUDdX8S@Z`Z22c6o8zh21
-Z213 !s100 EoWTkU^6o6l0>WdX9OV>90
+Z205 L73 204
+Z206 V;cUDdX8S@Z`Z22c6o8zh21
+Z207 !s100 EoWTkU^6o6l0>WdX9OV>90
 R7
 33
 R8
@@ -1317,13 +1317,13 @@ R11
 R12
 R13
 Ereg_ifid
-Z214 w1732661258
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z215 8proj/src/PipelineRegisters/reg_IFID.vhd
-Z216 Fproj/src/PipelineRegisters/reg_IFID.vhd
+Z208 8proj/src/PipelineRegisters/reg_IFID.vhd
+Z209 Fproj/src/PipelineRegisters/reg_IFID.vhd
 l0
 R6
 VY3bn6<5:88<z?`3WY`V730
@@ -1339,14 +1339,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z217 DEx4 work 8 reg_ifid 0 22 Y3bn6<5:88<z?`3WY`V730
-!i122 173
+Z210 DEx4 work 8 reg_ifid 0 22 Y3bn6<5:88<z?`3WY`V730
+!i122 184
 l47
-Z218 L35 45
-Z219 VRkNzihdYHjC;6e<YVR]AE2
-Z220 !s100 ljL@4^8f:=A8[6I5Vnfim3
+Z211 L35 45
+Z212 VRkNzihdYHjC;6e<YVR]AE2
+Z213 !s100 ljL@4^8f:=A8[6I5Vnfim3
 R7
 33
 R8
@@ -1358,13 +1358,13 @@ R11
 R12
 R13
 Ereg_memwb
-R171
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z221 8proj/src/PipelineRegisters/reg_MEMWB.vhd
-Z222 Fproj/src/PipelineRegisters/reg_MEMWB.vhd
+Z214 8proj/src/PipelineRegisters/reg_MEMWB.vhd
+Z215 Fproj/src/PipelineRegisters/reg_MEMWB.vhd
 l0
 R6
 V5ImUn@0HWl`n<Q:mlPWdA1
@@ -1380,14 +1380,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z223 DEx4 work 9 reg_memwb 0 22 5ImUn@0HWl`n<Q:mlPWdA1
-!i122 173
+Z216 DEx4 work 9 reg_memwb 0 22 5ImUn@0HWl`n<Q:mlPWdA1
+!i122 184
 l61
-Z224 L49 99
-Z225 VnD;RDRe2mZQ75FP5hSY^N2
-Z226 !s100 HjK2fh7_7i]ZI24gJiIo@2
+Z217 L49 99
+Z218 VnD;RDRe2mZQ75FP5hSY^N2
+Z219 !s100 HjK2fh7_7i]ZI24gJiIo@2
 R7
 33
 R8
@@ -1399,13 +1399,13 @@ R11
 R12
 R13
 Ereg_n
-R80
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z227 8proj/src/Registers/reg_N.vhd
-Z228 Fproj/src/Registers/reg_N.vhd
+Z220 8proj/src/Registers/reg_N.vhd
+Z221 Fproj/src/Registers/reg_N.vhd
 l0
 R6
 Ve^HajMmh]n@z`oP3ZjQO53
@@ -1421,14 +1421,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z229 DEx4 work 5 reg_n 0 22 e^HajMmh]n@z`oP3ZjQO53
-!i122 173
+Z222 DEx4 work 5 reg_n 0 22 e^HajMmh]n@z`oP3ZjQO53
+!i122 184
 l44
-Z230 L32 27
-Z231 V9lA5S1MXnoE^FcTY3eab]0
-Z232 !s100 EN_Nd24VTPJLmUN?[S4gc0
+Z223 L32 27
+Z224 V9lA5S1MXnoE^FcTY3eab]0
+Z225 !s100 EN_Nd24VTPJLmUN?[S4gc0
 R7
 33
 R8
@@ -1440,13 +1440,13 @@ R11
 R12
 R13
 Ereg_npc
-R80
+R51
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z233 8proj/src/Registers/reg_NPC.vhd
-Z234 Fproj/src/Registers/reg_NPC.vhd
+Z226 8proj/src/Registers/reg_NPC.vhd
+Z227 Fproj/src/Registers/reg_NPC.vhd
 l0
 R6
 VI9a3KHb<UNoKU@1Im63Qn1
@@ -1462,14 +1462,14 @@ R11
 R12
 R13
 Astructure
+R1
 R2
-R3
-Z235 DEx4 work 7 reg_npc 0 22 I9a3KHb<UNoKU@1Im63Qn1
-!i122 173
+Z228 DEx4 work 7 reg_npc 0 22 I9a3KHb<UNoKU@1Im63Qn1
+!i122 184
 l52
-Z236 L32 52
-Z237 V3Tie5:OVVbeP@c_cZ8`XT2
-Z238 !s100 acJDNaoO_i3IQ7b5m7I[U2
+Z229 L32 52
+Z230 V3Tie5:OVVbeP@c_cZ8`XT2
+Z231 !s100 acJDNaoO_i3IQ7b5m7I[U2
 R7
 33
 R8
@@ -1481,15 +1481,15 @@ R11
 R12
 R13
 Eregfile
-R80
-R145
-R105
+R51
+R141
+R100
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z239 8proj/src/Registers/regFile.vhd
-Z240 Fproj/src/Registers/regFile.vhd
+Z232 8proj/src/Registers/regFile.vhd
+Z233 Fproj/src/Registers/regFile.vhd
 l0
 L26 1
 VIHP3OE56o59k@XUM:d5D^2
@@ -1505,16 +1505,16 @@ R11
 R12
 R13
 Astructure
-R145
-R105
+R141
+R100
+R1
 R2
-R3
-Z241 DEx4 work 7 regfile 0 22 IHP3OE56o59k@XUM:d5D^2
-!i122 173
+Z234 DEx4 work 7 regfile 0 22 IHP3OE56o59k@XUM:d5D^2
+!i122 184
 l80
-Z242 L41 93
-Z243 Vl]VQLl>jLE[?3FHf<F<K03
-Z244 !s100 zoUKGBdMP@icY6Hl?_3iO2
+Z235 L41 93
+Z236 Vl]VQLl>jLE[?3FHf<F<K03
+Z237 !s100 zoUKGBdMP@icY6Hl?_3iO2
 R7
 33
 R8
@@ -1526,14 +1526,14 @@ R11
 R12
 R13
 Esign_ext
-R1
-R105
-R2
-R3
-!i122 173
 R0
-Z245 8proj/src/TopLevel/sign_ext.vhd
-Z246 Fproj/src/TopLevel/sign_ext.vhd
+R100
+R1
+R2
+!i122 184
+R3
+Z238 8proj/src/TopLevel/sign_ext.vhd
+Z239 Fproj/src/TopLevel/sign_ext.vhd
 l0
 L8 1
 V_S<HLVI6a31ag1kY7IJA21
@@ -1549,15 +1549,15 @@ R11
 R12
 R13
 Adataflow
-R105
+R100
+R1
 R2
-R3
-Z247 DEx4 work 8 sign_ext 0 22 _S<HLVI6a31ag1kY7IJA21
-!i122 173
+Z240 DEx4 work 8 sign_ext 0 22 _S<HLVI6a31ag1kY7IJA21
+!i122 184
 l24
-Z248 L22 22
-Z249 VagQSCk975d;56I7FjZi?c0
-Z250 !s100 O3A]KoIX[f;?=[3XDb[`:2
+Z241 L22 22
+Z242 VagQSCk975d;56I7FjZi?c0
+Z243 !s100 O3A]KoIX[f;?=[3XDb[`:2
 R7
 33
 R8
@@ -1569,15 +1569,15 @@ R11
 R12
 R13
 Estackpointerregister
-R80
-R145
-R105
+R51
+R141
+R100
+R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z251 8proj/src/Registers/stackPointerRegister.vhd
-Z252 Fproj/src/Registers/stackPointerRegister.vhd
+Z244 8proj/src/Registers/stackPointerRegister.vhd
+Z245 Fproj/src/Registers/stackPointerRegister.vhd
 l0
 L27 1
 VO>io=X=_LP^HF81XDQNM82
@@ -1593,16 +1593,16 @@ R11
 R12
 R13
 Astructure
-R145
-R105
+R141
+R100
+R1
 R2
-R3
-Z253 DEx4 work 20 stackpointerregister 0 22 O>io=X=_LP^HF81XDQNM82
-!i122 173
+Z246 DEx4 work 20 stackpointerregister 0 22 O>io=X=_LP^HF81XDQNM82
+!i122 184
 l56
-Z254 L37 64
-Z255 V4=U4o45IKMnBGY<V0Ua1N0
-Z256 !s100 aE_No:=DHClNFjG]ZFMlO0
+Z247 L37 64
+Z248 V4=U4o45IKMnBGY<V0Ua1N0
+Z249 !s100 aE_No:=DHClNFjG]ZFMlO0
 R7
 33
 R8
@@ -1614,17 +1614,17 @@ R11
 R12
 R13
 Etb
-R24
-Z257 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
-Z258 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
-R2
-R3
-!i122 173
 R0
-Z259 8internal/testpy/tb.vhd
-Z260 Finternal/testpy/tb.vhd
+Z250 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z251 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R1
+R2
+!i122 184
+R3
+Z252 8internal/testpy/tb.vhd
+Z253 Finternal/testpy/tb.vhd
 l0
-R148
+R144
 VVnzHcnmWmi<jE?5a3XOiF3
 !s100 ;QHYbWb3iZ[[A?fo=9D=X3
 R7
@@ -1638,16 +1638,16 @@ R11
 R12
 R13
 Amixed
-R257
-R258
+R250
+R251
+R1
 R2
-R3
-Z261 DEx4 work 2 tb 0 22 VnzHcnmWmi<jE?5a3XOiF3
-!i122 173
+Z254 DEx4 work 2 tb 0 22 VnzHcnmWmi<jE?5a3XOiF3
+!i122 184
 l56
-Z262 L31 127
-Z263 V3V:2NY3ci;`5dI10feeXj3
-Z264 !s100 F[Y334O^Y7fG<3ETPj[Oc3
+Z255 L31 127
+Z256 V3V:2NY3ci;`5dI10feeXj3
+Z257 !s100 F[Y334O^Y7fG<3ETPj[Oc3
 R7
 33
 R8
@@ -1659,15 +1659,15 @@ R11
 R12
 R13
 Evectorreverser_n
-R24
-R2
-R3
-!i122 173
 R0
-Z265 8proj/src/BarrelShifter/vectorReverser_N.vhd
-Z266 Fproj/src/BarrelShifter/vectorReverser_N.vhd
+R1
+R2
+!i122 184
+R3
+Z258 8proj/src/BarrelShifter/vectorReverser_N.vhd
+Z259 Fproj/src/BarrelShifter/vectorReverser_N.vhd
 l0
-R41
+R40
 VSLOe=EDP5eIlfJoCEN^D>0
 !s100 1?L8XIH8fGfZ@g>ND5YBf3
 R7
@@ -1681,14 +1681,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z267 DEx4 work 16 vectorreverser_n 0 22 SLOe=EDP5eIlfJoCEN^D>0
-!i122 173
+Z260 DEx4 work 16 vectorreverser_n 0 22 SLOe=EDP5eIlfJoCEN^D>0
+!i122 184
 l29
-Z268 L25 19
-Z269 V1TkYYIf]1?`<@80g7Hlc=1
-Z270 !s100 c<No2TAPmnfVB`EN1i5BL0
+Z261 L25 19
+Z262 V1TkYYIf]1?`<@80g7Hlc=1
+Z263 !s100 c<No2TAPmnfVB`EN1i5BL0
 R7
 33
 R8
@@ -1700,15 +1700,15 @@ R11
 R12
 R13
 Exorg2
+R0
 R1
 R2
+!i122 184
 R3
-!i122 173
-R0
-Z271 8proj/src/BottomLevel/xorg2.vhd
-Z272 Fproj/src/BottomLevel/xorg2.vhd
+Z264 8proj/src/BottomLevel/xorg2.vhd
+Z265 Fproj/src/BottomLevel/xorg2.vhd
 l0
-R34
+R33
 V5Q>VWC4f7j5KH:`2lLMTR0
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R7
@@ -1722,14 +1722,14 @@ R11
 R12
 R13
 Adataflow
+R1
 R2
-R3
-Z273 DEx4 work 5 xorg2 0 22 5Q>VWC4f7j5KH:`2lLMTR0
-!i122 173
+Z266 DEx4 work 5 xorg2 0 22 5Q>VWC4f7j5KH:`2lLMTR0
+!i122 184
 l32
-R36
-Z274 VfMT1QQS6a=jd=[j:an4<c2
-Z275 !s100 Z6[FAPS4fBLB`F?OO<AY72
+R35
+Z267 VfMT1QQS6a=jd=[j:an4<c2
+Z268 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R7
 33
 R8
