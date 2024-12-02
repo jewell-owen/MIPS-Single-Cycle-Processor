@@ -317,7 +317,7 @@ end component;
   signal s_rs_sel,s_rt_sel, s_RegWrAddrCtrl    : std_logic_vector(4 downto 0);
   signal s_rs_DA, s_rt_DB, s_immExt, s_aluOut, s_ialuB, s_DMemOrAlu, s_DMemOrAluOrLui, s_RegWrAddrLong, s_RegWrAddrLongOut, s_PC4, si_PC, s_PCfetch, s_aluUnitOut : std_logic_vector(31 downto 0);  
   signal s_isJump, s_isJumpReg, s_is_zero, s_aluCar, s_aluSrc, s_memWr, s_regDst, s_MemtoReg, s_is_Lui, s_signExtSel, s_BrchEq, s_BrchNe, 
-         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut : std_logic;
+         temp, tempt, s_ALUOverflow, s_CntrlOverflow, so_Car_PC4, s_tempHalt, s_RegWrCtrl, s_EqlOut, s_BrnchMuxOut, s_OvflTemp : std_logic;
 
    
 
@@ -570,7 +570,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 		i_D1(15 downto 0) => x"0000",
 		o_O => s_aluOut);
 
- s_Ovfl     <= s_ALUOverflow and (not s_CntrlOverflow);
+ s_OvflTemp     <= s_ALUOverflow and (not s_CntrlOverflow);
  oALUOut    <= s_aluOut;
 ------------------------------------------------------End Execute-------------------------------------------------------------------------
 
@@ -586,7 +586,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        i_isJump      =>   s_isJumpIDEX,
        i_isJumpReg   =>   s_isJumpRegIDEX,
        i_AluZero     =>   s_is_zero,
-       i_luiCtrl     =>   s_luiCtrlIDEX,
+       i_luiCtrl     =>   s_OvflTemp,
        i_RegWrAddr   =>   s_RegWrAddrIDEX,
        i_Imm         =>   s_ImmIDEX,
        i_PCnext      =>   s_PCfetch, 
@@ -650,7 +650,10 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
        o_PC          =>   s_PCfourMEMWB);
 
 ------------------------------------------------------Start Write Back--------------------------------------------------------------------
-  g_NBITMUX_MemtoReg: mux2t1_N port map (
+  
+s_OvflTemp <=  s_luiCtrlMEMWB;
+
+g_NBITMUX_MemtoReg: mux2t1_N port map (
 		i_S => s_MemtoRegMEMWB,	
 		i_D0 => s_aluOutMEMWB,   
 		i_D1 => s_DMemOutMEMWB, 

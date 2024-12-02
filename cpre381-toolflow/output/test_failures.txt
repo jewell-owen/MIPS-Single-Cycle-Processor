@@ -1,0 +1,6 @@
+proj/mips/fibonacci.s
+proj/mips/grendel.s
+proj/mips/lab3Seq.s
+proj/mips/Proj1_bubblesort.s
+proj/mips/Proj1_cf_test.s
+proj/mips/Proj2_bubblesort_at.s
