@@ -142,6 +142,15 @@ begin
 	      i_D       => i_luiCtrl,
 	      o_Q       => o_luiCtrl);
 
+
+
+ovflCtrl: dffg port map(
+	      i_CLK     => i_CLK,
+	      i_RST     => i_RST,
+	      i_WE      => i_WE,
+	      i_D       => i_ovflCtrl,
+	      o_Q       => o_ovflCtrl);
+
  AluSrc: dffg port map(
 	      i_CLK     => i_CLK,
 	      i_RST     => i_RST,

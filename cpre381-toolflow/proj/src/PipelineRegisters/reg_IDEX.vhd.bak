@@ -51,6 +51,7 @@ entity reg_IDEX is
        o_isJumpReg  : out std_logic;    		    -- JR control signal
        o_RegDst     : out std_logic;     		    -- RegDst control signal
        o_luiCtrl    : out std_logic;                        -- lui control signal
+       o_ovflCtrl   : out std_logic;
        o_AluSrc     : out std_logic;     		    -- AluSrc control signal
        o_AluCtrl    : out std_logic_vector(3 downto 0);     -- AluCtrl control signal
        o_RegWrAddr  : out std_logic_vector(4 downto 0);     -- RegWrAddr
