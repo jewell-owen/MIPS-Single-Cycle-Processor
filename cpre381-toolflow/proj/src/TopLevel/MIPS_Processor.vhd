@@ -651,7 +651,7 @@ IDEX_Pipeline_Reg:  reg_IDEX port map(
 
 ------------------------------------------------------Start Write Back--------------------------------------------------------------------
   
-s_OvflTemp <=  s_luiCtrlMEMWB;
+s_Ovfl <=  s_luiCtrlMEMWB;
 
 g_NBITMUX_MemtoReg: mux2t1_N port map (
 		i_S => s_MemtoRegMEMWB,	
