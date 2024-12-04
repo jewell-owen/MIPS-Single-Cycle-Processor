@@ -23,9 +23,14 @@ visited:
 res_idx:
         .word   3
 .text
-	li $sp, 0x10011000
-	li $fp, 0
-	la $ra pump
+	#li $sp, 0x10011000
+	lui $1, 0x1001
+	ori $29, $1, 0x1000
+	#li $fp, 0
+	addiu $30, $0, 0x0000
+	#la $ra pump
+	lui $1, 0x0040
+	ori $31, $1, 0x0018
 	j main # jump to the starting location
 pump:
 	halt
@@ -41,7 +46,9 @@ main:
 
 main_loop_body:
         lw      $4,24($fp)
-        la 	$ra, trucks
+        #la 	$ra, trucks
+	lui $1, 0x0040
+	ori $31, $1, 0x0044
         j     is_visited
         trucks:
 
@@ -51,7 +58,9 @@ main_loop_body:
 
         lw      $4,24($fp)
         # addi 	$k0, $k0,1# breakpoint
-        la 	$ra, billowy
+        #la 	$ra, billowy
+	lui $1, 0x0040
+	ori $31, $1, 0x0060
         j     	topsort
         billowy:
 
@@ -87,7 +96,9 @@ welcome:
         
 interest:
         lw      $4,24($fp)
-        la	$ra, new
+        #la	$ra, new
+	lui $1, 0x0040
+	ori $31, $1, 0x00c8
         j	is_visited
 	new:
         xori    $2,$2,0x1
@@ -95,14 +106,18 @@ interest:
         beq     $2,$0,tasteful
 
         lw      $4,24($fp)
-        la	$ra, partner
+        #la	$ra, partner
+	lui $1, 0x0040
+	ori $31, $1, 0x00e4
         j     	topsort
         partner:
 
 tasteful:
         addiu   $2,$fp,28
         move    $4,$2
-        la	$ra, badge
+        #la	$ra, badge
+	lui $1, 0x0040
+	ori $31, $1, 0x00f8
         j     next_edge
         badge:
         sw      $2,24($fp)
@@ -113,12 +128,18 @@ turkey:
         beq	$3,$2,telling # beq, j to simulate bne
         j	interest
         telling:
-	la 	$v0, res_idx
+	#la 	$v0, res_idx
+	lui $1, 0x1001
+	ori $2, $1, 0x0028
 	lw	$v0, 0($v0)
         addiu   $4,$2,-1
-        la 	$3, res_idx
+        #la 	$3, res_idx
+	lui $1, 0x1001
+	ori $3, $1, 0x0028
         sw 	$4, 0($3)
-        la	$4, res
+        #la	$4, res
+	lui $1, 0x1001
+	ori $4, $1, 0x0000
         #lui     $3,%hi(res_idx)
         #sw      $4,%lo(res_idx)($3)
         #lui     $4,%hi(res)
@@ -130,7 +151,9 @@ turkey:
        	xor	$at, $ra, $2 # does nothing 
         nor	$at, $ra, $2 # does nothing 
         
-        la	$2, res
+        #la	$2, res
+	lui $1, 0x1001
+	ori $2, $1, 0x0000
         andi	$at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't
         addu 	$2, $4, $at
         addu    $2,$3,$2
@@ -149,20 +172,26 @@ topsort:
         move    $fp,$sp
         sw      $4,48($fp)
         lw      $4,48($fp)
-        la	$ra, verse
+        #la	$ra, verse
+	lui $1, 0x0040
+	ori $31, $1, 0x019c
         j	mark_visited
         verse:
 
         addiu   $2,$fp,28
         lw      $5,48($fp)
         move    $4,$2
-        la 	$ra, joyous
+        #la 	$ra, joyous
+	lui $1, 0x0040
+	ori $31, $1, 0x01b4
         j	iterate_edges
         joyous:
 
         addiu   $2,$fp,28
         move    $4,$2
-        la	$ra, whispering
+        #la	$ra, whispering
+	lui $1, 0x0040
+	ori $31, $1, 0x01c8
         j     	next_edge
         whispering:
 
@@ -205,7 +234,9 @@ snail:
         lw      $2,4($2)
         move    $5,$2
         move    $4,$3
-        la	$ra,induce
+        #la	$ra,induce
+	lui $1, 0x0040
+	ori $31, $1, 0x0258
         j       has_edge
         induce:
         beq     $2,$0,quarter
@@ -245,7 +276,9 @@ has_edge:
         move    $fp,$sp
         sw      $4,32($fp)
         sw      $5,36($fp)
-        la      $2,adjacencymatrix
+        #la      $2,adjacencymatrix
+	lui $1, 0x1001
+	ori $2, $1, 0x0014
         lw      $3,32($fp)
         sll     $3,$3,2
         addu    $2,$3,$2
@@ -305,7 +338,9 @@ recast:
         j	example
         pat:
 
-       	la	$2, visited
+       	#la	$2, visited
+	lui $1, 0x1001
+	ori $2, $1, 0x0024
         sw      $2,16($fp)
         lw      $2,16($fp)
         lw      $3,0($2)
@@ -343,7 +378,9 @@ evasive:
         j     	justify
         representitive:
 
-        la	$2,visited
+        #la	$2,visited
+	lui $1, 0x1001
+	ori $2, $1, 0x0024
         lw      $2,0($2)
         sw      $2,16($fp)
         lw      $3,16($fp)
