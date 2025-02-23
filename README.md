@@ -1,6 +1,9 @@
 # CprE381Project1
 Project 1 for CprE 381: MIPS Single-cycle Processor
 
+Project 2: Software and Hardware Pipeline Versions
+https://github.com/JasonDiGiovanni/Pipelined-MIPS-Processors
+
 Owen Jewell | ojewell@iastate.edu,
 Corey Heithoff | coreybh@iastate.edu,
 Luca Cano | lcano@iastate.edu,
