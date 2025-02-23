@@ -16,10 +16,3 @@ All project source files are in cpre381-toolflow/proj/src
 Individual module test benches are in cpre381-toolflow/proj/test
 
 MIPS programs to test full processor are in cpre381-toolflow/proj/mips
-
-
-To prevent credential request every push/pull, run the following commands:
-
-git config credential.helper store
-
-git pull (this will request credentials)
